@@ -82,10 +82,13 @@ public struct AvanzamentoAllenamento: Equatable, Sendable {
     public let piano: PianoAllenamento
     public private(set) var indice: Int
     public private(set) var fase: Fase
+    /// Metri delle ripetizioni segnate come fatte. Chiudere in anticipo non conta quelle non nuotate.
+    public private(set) var metriNuotati: Int
 
     public init(piano: PianoAllenamento) {
         self.piano = piano
         self.indice = 0
+        self.metriNuotati = 0
         self.fase = piano.passi.isEmpty ? .finito : .nuoto
     }
 
@@ -94,13 +97,12 @@ public struct AvanzamentoAllenamento: Equatable, Sendable {
     }
 
     /// Metri completati nelle ripetizioni già finite.
-    public var metriCompletati: Int {
-        fase == .finito ? piano.metriTotali : piano.metriPrima(di: indice)
-    }
+    public var metriCompletati: Int { metriNuotati }
 
     /// La ripetizione corrente è stata nuotata. Con recupero previsto si passa al recupero, altrimenti alla ripetizione seguente.
     public mutating func completaPasso() {
         guard fase == .nuoto, let passo = passoCorrente else { return }
+        metriNuotati += passo.distanzaMetri
         let ultimo = indice >= piano.passi.count - 1
         if ultimo {
             fase = .finito

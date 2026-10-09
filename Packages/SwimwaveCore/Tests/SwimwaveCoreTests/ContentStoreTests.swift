@@ -74,7 +74,7 @@ final class ContentStoreTests: XCTestCase {
     func testContenutoMancanteNonRompe() {
         let store = ContentStore(includeBozze: true, lettore: { _ in nil })
         XCTAssertTrue(store.tappe.isEmpty)
-        XCTAssertEqual(store.problemi.count, 4)
+        XCTAssertEqual(store.problemi.count, 5)   // percorso, drill, errori, indice, zone-ritmo
     }
 
     // Controlla che i file veri in content/ siano leggibili dal modello Swift e che le riserve passino la validazione.

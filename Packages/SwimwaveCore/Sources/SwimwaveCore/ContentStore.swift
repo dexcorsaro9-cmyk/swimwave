@@ -14,6 +14,7 @@ public final class ContentStore {
     public private(set) var drill: [Drill] = []
     public private(set) var errori: [ErroreComune] = []
     public private(set) var voci: [VoceAllenamento] = []
+    public private(set) var zone: [ZonaRitmo] = []
     /// Errori incontrati leggendo i file (file mancante o JSON non conforme). Utile in debug.
     public private(set) var problemi: [String] = []
 
@@ -31,6 +32,7 @@ public final class ContentStore {
         drill = carica("drills.json", FileDrill.self)?.drill.visibili(includeBozze: includeBozze) ?? []
         errori = carica("errori-comuni.json", FileErrori.self)?.errori.visibili(includeBozze: includeBozze) ?? []
         voci = carica("allenamenti/indice.json", FileIndice.self)?.allenamenti.visibili(includeBozze: includeBozze) ?? []
+        zone = carica("zone-ritmo.json", FileZoneRitmo.self)?.zone.visibili(includeBozze: includeBozze).sorted { $0.velocitaDaPercentuale < $1.velocitaDaPercentuale } ?? []
     }
 
     private func carica<T: Decodable>(_ percorso: String, _ tipo: T.Type) -> T? {

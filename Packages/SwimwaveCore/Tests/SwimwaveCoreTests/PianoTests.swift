@@ -49,6 +49,14 @@ final class PianoTests: XCTestCase {
         XCTAssertEqual(a.metriCompletati, 125)
     }
 
+    func testTerminaInAnticipoNonContaLeRipetizioniNonNuotate() {
+        var a = AvanzamentoAllenamento(piano: PianoAllenamento(workout: workout()))
+        a.completaPasso()                       // 50 m fatti
+        a.termina()
+        XCTAssertEqual(a.fase, .finito)
+        XCTAssertEqual(a.metriCompletati, 50)
+    }
+
     func testTermina() {
         var a = AvanzamentoAllenamento(piano: PianoAllenamento(workout: workout()))
         a.termina()

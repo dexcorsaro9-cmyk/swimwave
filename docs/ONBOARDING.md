@@ -13,7 +13,7 @@ Regole:
 | # | Dato | Domanda del coach | Risposte | Obbligatorio | Cosa cambia |
 |---|---|---|---|---|---|
 | 1 | Nome | "Come ti chiamo?" | testo libero, anche solo il nome | sì | Saluti e messaggi: "Buongiorno, Luca", "Buonasera, Paola" |
-| 2 | Livello | "Quanto riesci a nuotare di fila a crawl?" | Non ancora 25 m · Meno di 100 m · 100 m senza fermarmi · Di più | sì | Livello (principiante / intermedio) e tappa di partenza del percorso |
+| 2 | Livello | "Quanto riesci a nuotare di fila a stile libero?" | Non ancora 25 m · Meno di 100 m · 100 m senza fermarmi · Di più | sì | Livello (principiante / intermedio) e tappa di partenza del percorso |
 | 3 | Obiettivo | "Cosa vuoi dal nuoto?" | Imparare e migliorare la tecnica · Resistere di più · Dimagrire · Stare bene | no (default: tecnica) | Tipo di allenamento |
 | 4 | Vasca | "In che vasca nuoti?" | 25 m · 50 m · Non lo so ancora | sì (default: 25 m) | Distanze degli allenamenti |
 | 5 | Ritmo | "Come vuoi che ti segua?" | Libero · Regolare · Spronami | sì (default: Libero) | Obiettivo settimanale e notifiche (vedi `docs/EXPERIENCE.md`) |

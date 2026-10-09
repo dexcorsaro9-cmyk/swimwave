@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Genera le icone originali di Swimwave (iPhone e Apple Watch), 1024x1024 PNG senza trasparenza.
 
-Disegno: sfondo con sfumatura navy (#0B2545 -> #134074); una bracciata stilizzata di stile libero (il braccio che si alza e
-rientra in acqua) il cui arco è anche la cresta di un'onda, in turquoise (#1FB5C9), con la mano (cerchio corallo #FF7A66)
-che entra in acqua; sotto, due linee d'acqua. Solo forme geometriche semplici, niente testo e niente volti.
+Disegno: sfondo con sfumatura navy (#0B2545 -> #134074), tre onde turchese (#1FB5C9) e una goccia corallo (#FF7A66).
+Solo forme geometriche semplici, niente testo e niente persone.
 
 Uso (dalla cartella app/):  python3 tools/genera_icone.py [--anteprime cartella]
 Richiede Pillow:  pip install pillow --break-system-packages
@@ -19,7 +18,6 @@ NAVY = (0x0B, 0x25, 0x45)
 NAVY_CHIARO = (0x13, 0x40, 0x74)
 TURCHESE = (0x1F, 0xB5, 0xC9)
 CORALLO = (0xFF, 0x7A, 0x66)
-TURCHESE_SCURO = (0x1A, 0x8F, 0xA8)
 
 FINALE = 1024
 SS = 4  # supercampionamento per bordi morbidi
@@ -64,43 +62,17 @@ def goccia(draw: ImageDraw.ImageDraw, cx: float, cy: float, raggio: float, color
     draw.polygon([punta, t1, (cx, cy), t2], fill=colore)
 
 
-def bezier(p0, p1, p2, p3, t):
-    u = 1 - t
-    return (u**3 * p0[0] + 3 * u * u * t * p1[0] + 3 * u * t * t * p2[0] + t**3 * p3[0],
-            u**3 * p0[1] + 3 * u * u * t * p1[1] + 3 * u * t * t * p2[1] + t**3 * p3[1])
-
-
-def tratto_affusolato(draw, punti, spessore_inizio, spessore_fine, colore):
-    """Curva con spessore che cambia dolcemente dall'inizio alla fine, estremi tondi."""
-    n = len(punti) - 1
-    for i, (x, y) in enumerate(punti):
-        t = i / n
-        r = (spessore_inizio + (spessore_fine - spessore_inizio) * t) / 2
-        draw.ellipse((x - r, y - r, x + r, y + r), fill=colore)
-
-
 def disegna() -> Image.Image:
     img = sfumatura()
     d = ImageDraw.Draw(img)
-    # Due linee d'acqua in basso (la seconda più sottile).
-    onda(d, 0.80 * G, 0.030 * G, 0.060 * G, TURCHESE_SCURO, fase=0.4)
-    onda(d, 0.90 * G, 0.026 * G, 0.045 * G, TURCHESE_SCURO, fase=1.3)
-    # Il braccio, in un tratto solo: sale dal pelo dell'acqua a sinistra (spalla), culmina in un gomito alto spostato
-    # a sinistra, ricade verso destra con l'avambraccio e finisce arricciandosi verso l'interno come il labbro di
-    # un'onda che si frange: è insieme la bracciata e la cresta di un'onda. Più spesso alla spalla, sottile alla mano.
-    segmenti = [
-        ((0.12 * G, 0.74 * G), (0.14 * G, 0.40 * G), (0.24 * G, 0.15 * G), (0.46 * G, 0.15 * G)),
-        ((0.46 * G, 0.15 * G), (0.70 * G, 0.15 * G), (0.88 * G, 0.34 * G), (0.84 * G, 0.52 * G)),
-        ((0.84 * G, 0.52 * G), (0.81 * G, 0.64 * G), (0.66 * G, 0.64 * G), (0.62 * G, 0.53 * G)),
-    ]
-    punti = []
-    for seg in segmenti:
-        punti += [bezier(*seg, i / 300) for i in range(301)]
-    tratto_affusolato(d, punti, 0.125 * G, 0.060 * G, TURCHESE)
-    # La mano: goccia corallo alla punta del riccio, che sta per rientrare in acqua.
-    mx, my = punti[-1]
-    r = 0.05 * G
-    d.ellipse((mx - r, my - r, mx + r, my + r), fill=CORALLO)
+    spessore = 0.085 * G
+    amp = 0.045 * G
+    # Tre onde, sfasate un poco una dall'altra.
+    onda(d, 0.54 * G, amp, spessore, TURCHESE, fase=0.0)
+    onda(d, 0.68 * G, amp, spessore, TURCHESE, fase=0.6)
+    onda(d, 0.82 * G, amp, spessore, TURCHESE, fase=1.2)
+    # Goccia corallo in alto, al centro.
+    goccia(d, 0.5 * G, 0.325 * G, 0.085 * G, CORALLO)
     return img.resize((FINALE, FINALE), Image.LANCZOS).convert("RGB")  # RGB: nessuna trasparenza
 
 

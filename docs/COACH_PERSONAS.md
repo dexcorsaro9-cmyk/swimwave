@@ -14,7 +14,7 @@ Principi:
 | Nome | Antonio | Pamela |
 | Età apparente | 35-45 anni | 35-45 anni |
 | Aspetto | Italiano, capelli corti castani, barba corta curata, occhi caldi | Italiana, capelli castani raccolti, occhi caldi |
-| Abbigliamento | Maglia tecnica da piscina blu scuro, senza loghi | Maglia tecnica da piscina blu scuro, senza loghi |
+| Abbigliamento | Maglia tecnica da piscina blu scuro, senza loghi, fischietto al collo | Maglia tecnica da piscina blu scuro, senza loghi |
 | Impressione | Persona che ti ascolta, paziente, sicura | Persona che ti ascolta, paziente, sicura |
 
 Il nome e l'aspetto sono modificabili. L'importante è che i due personaggi abbiano la stessa età apparente, lo stesso stile e lo stesso livello di cura, perché nessuno dei due sembri la scelta principale.
@@ -37,13 +37,13 @@ Da usare in qualunque generatore di immagini. Si scrive in inglese perché i gen
 **Coach uomo**
 
 ```
-Photorealistic portrait of a friendly Italian male swim coach, about 40 years old, short brown hair, neatly trimmed short beard, warm brown eyes, natural genuine smile that reaches the eyes, head slightly tilted, relaxed shoulders, soft direct gaze toward the viewer. He wears a plain dark blue technical pool shirt with no logos. Blurred bright indoor swimming pool in the background with soft turquoise tones. Warm soft natural light, shallow depth of field, natural skin texture with subtle imperfections, calm and trustworthy presence, empathetic and attentive expression. Upper body framing, centered, 1:1 square, high detail.
+Photorealistic portrait of a friendly Italian male swim coach, about 40 years old, short brown hair, neatly trimmed short beard, warm brown eyes, natural genuine smile that reaches the eyes, head slightly tilted, relaxed shoulders, soft direct gaze toward the viewer. He wears a plain dark blue technical pool shirt with no logos, and a silver whistle on a dark lanyard around his neck. Blurred bright indoor swimming pool in the background with soft turquoise tones. Warm soft natural light, shallow depth of field, natural skin texture with subtle imperfections, calm and trustworthy presence, empathetic and attentive expression. Upper body framing, centered, 1:1 square, high detail.
 ```
 
 **Coach donna**
 
 ```
-Photorealistic portrait of a friendly Italian female swim coach, about 40 years old, brown hair tied back in a loose low ponytail, warm brown eyes, natural genuine smile that reaches the eyes, head slightly tilted, relaxed shoulders, soft direct gaze toward the viewer. She wears a plain dark blue technical pool shirt with no logos. Blurred bright indoor swimming pool in the background with soft turquoise tones. Warm soft natural light, shallow depth of field, natural skin texture with subtle imperfections, calm and trustworthy presence, empathetic and attentive expression. Upper body framing, centered, 1:1 square, high detail.
+Photorealistic portrait of a friendly Italian female swim coach, about 40 years old, brown hair tied back in a loose low ponytail, warm brown eyes, natural genuine smile that reaches the eyes, head slightly tilted, relaxed shoulders, soft direct gaze toward the viewer. She wears a plain dark blue technical pool shirt with no logos, and a silver whistle on a dark lanyard around her neck. Blurred bright indoor swimming pool in the background with soft turquoise tones. Warm soft natural light, shallow depth of field, natural skin texture with subtle imperfections, calm and trustworthy presence, empathetic and attentive expression. Upper body framing, centered, 1:1 square, high detail.
 ```
 
 **Prompt negativo** (se il generatore lo supporta)

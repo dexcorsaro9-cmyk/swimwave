@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# NOTA: le icone attuali (icona-1024.png) sono un disegno fornito dal fondatore, non generato da questo script.
+# Questo script produce solo un segnaposto geometrico: NON rilanciarlo senza volerlo, sovrascrive le icone.
 """Genera le icone originali di Swimwave (iPhone e Apple Watch), 1024x1024 PNG senza trasparenza.
 
 Disegno: sfondo con sfumatura navy (#0B2545 -> #134074), tre onde turchese (#1FB5C9) e una goccia corallo (#FF7A66).

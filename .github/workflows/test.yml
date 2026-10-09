@@ -1,5 +1,6 @@
 # Prova di compilazione e test su macchine macOS di GitHub (gratis per i repository pubblici).
 # Affianca Codemagic, che resta quello usato per TestFlight.
+# Se un passo fallisce, le righe con "error:" vengono ripubblicate come annotazione (leggibile anche senza scaricare i log).
 name: test
 
 on:
@@ -8,6 +9,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   pacchetto-swift:
     name: Test del pacchetto SwimwaveCore
@@ -15,11 +20,18 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-      - name: Versione di Swift
-        run: swift --version
       - name: swift test
         working-directory: Packages/SwimwaveCore
-        run: swift test
+        run: |
+          swift --version
+          set +e
+          swift test 2>&1 | tee /tmp/log.txt
+          esito=${PIPESTATUS[0]}
+          if [ "$esito" != "0" ]; then
+            righe=$(grep -E "error:|failed|Fatal|XCTAssert" /tmp/log.txt | head -150 | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+            echo "::error title=swift test fallito::${righe}"
+          fi
+          exit $esito
 
   app-ios:
     name: Compilazione dell'app (iPhone e Watch, senza firma)
@@ -27,18 +39,25 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
-      - name: Installa XcodeGen
-        run: brew install xcodegen
-      - name: Genera il progetto
+      - name: Installa XcodeGen e genera il progetto
         working-directory: app
-        run: xcodegen
+        run: |
+          brew install xcodegen
+          xcodegen
       - name: Compila l'app iPhone (simulatore)
         working-directory: app
         run: |
+          set +e
           xcodebuild build \
             -project Swimwave.xcodeproj -scheme Swimwave \
             -destination 'generic/platform=iOS Simulator' \
-            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO | tail -n 150
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO 2>&1 | tee /tmp/log.txt
+          esito=${PIPESTATUS[0]}
+          if [ "$esito" != "0" ]; then
+            righe=$(grep -E "error:" /tmp/log.txt | sort -u | head -150 | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+            echo "::error title=xcodebuild fallito::${righe}"
+          fi
+          exit $esito
 
   servizio-coach:
     name: Test del servizio coach

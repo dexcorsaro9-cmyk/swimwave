@@ -10,6 +10,10 @@ Allenamento del giorno (nuoto e a secco), libreria di allenamenti, allenamenti g
 
 Dati dalla pagina di presentazione in italiano, non verificati nell'app. Dichiara più di 350.000 download, tra nuotatori e triatleti. Promette: scelta della distanza e dell'obiettivo (forza, resistenza, respirazione) con allenamenti personalizzati; più di 50 esercizi gratuiti con molte combinazioni; "massima varietà" per non annoiarsi; allenamenti per nuotatori, triatleti e principianti; trasferimento degli allenamenti su Apple Watch e su Garmin tramite Garmin Connect; registro degli allenamenti con statistiche; interfaccia pulita e senza pubblicità; abbonamento Gold con più di 300 esercizi, piani specifici e registro dei tempi. Il testo italiano sembra una traduzione. Punta su varietà e quantità, non su tecnica, istruttore o continuità del percorso.
 
+## SwimUp (swimup.io)
+
+Dati dalla descrizione dello store in italiano (sembra la scheda Android), non verificati nell'app. Piani personalizzati per obiettivo (imparare a nuotare, tecnica, triathlon, benessere, velocità, rimettersi in forma, resistenza), percorsi per stile e livello (principianti, stile libero, rana, delfino, dorso, masters, triathlon, benessere), video tutorial tecnici, libreria di teoria con esercizi per tutti gli stili, tracciamento con Wear OS, Garmin e Coros (tempo, frequenza cardiaca, bracciate), statistiche (bracciate, distanza, allenamenti completati, calendario). La descrizione letta non nomina Apple Watch: da verificare nella scheda iOS. Non risultano un ritmo scelto dall'utente né feedback dopo la nuotata.
+
 ## Altri
 
 - **Swimio**: analisi video con computer vision (scheletro, frequenza di bracciata, distanza per bracciata), richiede video di almeno 25 m con tutto il corpo. Descrizione da una guida di terzi.

@@ -9,8 +9,26 @@ const NOME_STRUMENTO = "proponi_allenamento";
  */
 const CAMPI_AMMESSI = ["livello", "obiettivo", "tappa", "vasca_metri", "ritmo", "coach", "riepilogo"];
 
+/**
+ * Valori ammessi per ogni campo. Quello che non corrisponde viene scartato (validazione stretta):
+ * al modello arrivano solo valori attesi, mai testo libero, così non si possono iniettare istruzioni.
+ */
+const VALORI_AMMESSI = {
+  livello: (v) => ["principiante", "intermedio", "avanzato"].includes(v),
+  obiettivo: (v) => ["tecnica", "resistenza", "dimagrimento"].includes(v),
+  tappa: (v) => Number.isInteger(v) && v >= 1 && v <= 50,
+  vasca_metri: (v) => v === 25 || v === 50,
+  ritmo: (v) => ["libero", "regolare", "spronami"].includes(v),
+  coach: (v) => v === "uomo" || v === "donna",
+  // L'unico riepilogo ammesso: l'ultima risposta dell'utente, in una forma fissa.
+  riepilogo: (v) => typeof v === "string" && /^ultimo allenamento: (facile|giusta|dura)$/.test(v),
+};
+
 export function richiestaMinima(richiesta = {}) {
-  return Object.fromEntries(CAMPI_AMMESSI.filter((c) => richiesta[c] !== undefined).map((c) => [c, richiesta[c]]));
+  if (richiesta === null || typeof richiesta !== "object") return {};
+  return Object.fromEntries(
+    CAMPI_AMMESSI.filter((c) => VALORI_AMMESSI[c](richiesta[c])).map((c) => [c, richiesta[c]]),
+  );
 }
 
 function schemaPerIlModello() {

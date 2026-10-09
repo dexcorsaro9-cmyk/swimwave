@@ -128,6 +128,46 @@
       "url": "https://www.swimwales.org/wp-content/uploads/2026/04/Session-Planning-Guide-for-Coaches.pdf",
       "usata_per": "Ordine della seduta: prima tecnica e preparazione con intensità crescente, poi serie principale, infine ripresa della tecnica e defaticamento per non finire in affaticamento. Scritta per allenatori del percorso agonistico: usata solo per l'ordine dei blocchi.",
       "affidabilita": "alta, ma per agonisti"
+    },
+    {
+      "id": "wakayoshi-1992-css",
+      "titolo": "A Simple Method for Determining Critical Speed as Swimming Fatigue Threshold in Competitive Swimming",
+      "ente": "K. Wakayoshi e altri, International Journal of Sports Medicine 1992;13(5):367-371 (rivista scientifica con revisione)",
+      "url": "https://thieme-connect.de/products/all/doi/10.1055/s-2007-1021282",
+      "usata_per": "Definizione della velocità critica (la velocità che in teoria si potrebbe mantenere senza arrivare all'esaurimento) e del suo calcolo come pendenza della retta distanza-tempo, in vasca. Studio su 8 nuotatori molto allenati: non dà zone di allenamento né percentuali.",
+      "affidabilita": "alta (articolo originale), ma su nuotatori agonisti. Letto solo l'abstract."
+    },
+    {
+      "id": "funai-2022-velocita-critica",
+      "titolo": "Physiological Responses and Stroke Variables during Arm Stroke Swimming Using Critical Stroke Rate in Competitive Swimmers",
+      "ente": "Y. Funai e altri, Sports 2022;10(4):46 (rivista scientifica con revisione, accesso aperto)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9024976",
+      "usata_per": "Esempio di velocità critica calcolata da due prove massimali, 200 m e 400 m, come pendenza della retta distanza-tempo. Le percentuali dello studio riguardano la frequenza di bracciata (non la velocità) e nuotatori agonisti, quindi NON sono state usate per le zone.",
+      "affidabilita": "alta per la definizione 200 m + 400 m; non usabile per le percentuali"
+    },
+    {
+      "id": "scott-2024-css-200-400",
+      "titolo": "Stroke-Specific Swimming Critical Speed Testing: Balancing Feasibility and Scientific Rigour",
+      "ente": "B. E. Scott, R. Burden, J. Dekerle, Journal of Human Kinetics 2024;90:239-251 (rivista scientifica con revisione)",
+      "url": "https://jhk.termedia.pl/pdf-170882-96830",
+      "usata_per": "Conferma che la velocità critica si ricava da prove su 200 m e 400 m e che serve a personalizzare le intensità di allenamento. Nello studio le prove sono distanziate di almeno 48 ore e fatte da nuotatori di specialità: non fornisce il riposo tra le prove né percentuali di zone.",
+      "affidabilita": "alta, ma su nuotatori agonisti. Letta solo la sintesi."
+    },
+    {
+      "id": "raimundo-2022-velocita-critica",
+      "titolo": "Modeling the expenditure and reconstitution of distance above critical speed during two swimming interval training sessions",
+      "ente": "J. A. G. Raimundo e altri, Frontiers in Physiology 2022;13:952818 (rivista scientifica con revisione)",
+      "url": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2022.952818/full",
+      "usata_per": "Descrive la velocità critica come confine tra intensità 'pesante' e 'severa' (oltre la quale ci si esaurisce). Nel campione era circa il 91% della velocità media sui 400 m. Non dà percentuali di zone.",
+      "affidabilita": "alta, ma su nuotatori agonisti. Letta solo la sintesi."
+    },
+    {
+      "id": "usms-css-botyarov",
+      "titolo": "How to Train With Critical Swim Speed Intervals",
+      "ente": "Michael Botyarov (allenatore Colorado Masters Swimming), sito U.S. Masters Swimming, 7 maggio 2021",
+      "url": "https://www.usms.org/fitness-and-training/articles-and-videos/articles/how-to-train-with-critical-swim-speed-intervals",
+      "usata_per": "Test con un 400 e un 200 e uso della velocità critica come ritmo 'di soglia' per nuotatori master. Attenzione: l'articolo consiglia uno sforzo sostenibile, 'poco sopra il moderato', e non a tutta; non dà percentuali né zone. Per questo non è usato per le percentuali e la differenza va decisa dall'istruttore.",
+      "affidabilita": "media: articolo divulgativo di un allenatore, su un sito di federazione master"
     }
   ],
   "non_consultate": "Federazione Italiana Nuoto (programma della Scuola Nuoto Federale): il sito non era leggibile in automatico. Manuali di riferimento come Counsilman, Maglischo e Laughlin: non consultati. Vanno confrontati dall'istruttore."

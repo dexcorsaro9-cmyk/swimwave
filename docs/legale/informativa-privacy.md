@@ -75,7 +75,7 @@ Se ci scrivi a [EMAIL PRIVACY] o all'assistenza, trattiamo il tuo indirizzo emai
 | Creare il tuo profilo e farti usare l'app | Esecuzione del contratto (art. 6.1.b) |
 | Generare l'allenamento con il coach IA | Esecuzione del contratto (art. 6.1.b) |
 | Salvare e leggere gli allenamenti in Apple Salute | Il tuo consenso, dato con il permesso di sistema (art. 6.1.a; per dati sulla salute art. 9.2.a) |
-| Inviare notifiche (solo se scegli Regolare o Spronami) | Il tuo consenso/permesso di sistema |
+| Inviare notifiche (solo se scegli Spronami) | Il tuo consenso/permesso di sistema |
 | Gestire l'abbonamento e gli obblighi fiscali e contabili | Contratto e obbligo di legge (art. 6.1.b e 6.1.c) |
 | Sicurezza del servizio, prevenzione di abusi, log tecnici | Legittimo interesse (art. 6.1.f) |
 | Rispondere alle tue richieste | Contratto o legittimo interesse (art. 6.1.b/f) |

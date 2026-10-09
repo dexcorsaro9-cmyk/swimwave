@@ -22,6 +22,11 @@ Ogni voce dei file in `content/` ha:
 | Swimming Fitness Training Plan (20 sedute) | Swim England (sito ufficiale swimming.org) | Struttura della seduta e crescita graduale del volume (300 m alla seduta 1, 950 m alla seduta 10) |
 | Pool Training Session 1 | Swim England (sito ufficiale swimming.org) | Esempio di seduta per chi parte: 20-30 secondi di pausa, riscaldamento e defaticamento di 2 vasche |
 | Session Planning Guide for Coaches | Swim Wales | Ordine dei blocchi di una seduta (per allenatori agonisti, usata solo per l'ordine) |
+| A Simple Method for Determining Critical Speed... (1992) | Wakayoshi e altri, Int J Sports Med | Definizione e calcolo della velocità critica (agonisti) |
+| Physiological Responses... Critical Stroke Rate (2022) | Funai e altri, Sports | Velocità critica da prove di 200 m e 400 m |
+| Stroke-Specific Swimming Critical Speed Testing (2024) | Scott, Burden, Dekerle, J Hum Kinet | Velocità critica da prove di 200 m e 400 m, uso per personalizzare le intensità |
+| Modeling... distance above critical speed (2022) | Raimundo e altri, Frontiers in Physiology | Velocità critica come confine tra sforzo sostenibile e non |
+| How to Train With Critical Swim Speed Intervals | Botyarov, U.S. Masters Swimming | Test 400 + 200 per master; sforzo sostenibile, non a tutta |
 
 ## Cosa è cambiato rispetto alla prima bozza
 
@@ -37,6 +42,10 @@ Ogni voce dei file in `content/` ha:
 - Dorso, rana e delfino: 7 drill e 9 errori nuovi, ricavati dai quadri Swim Wales già nell'elenco (dorso, rana, delfino) e dalla scheda Special Olympics sulla gambata di rana. Non è stata aggiunta nessuna fonte nuova per questi: i quadri Swim Wales sono scritti per nuotatori agonisti o per l'allenatore, quindi l'adattamento all'adulto alle prime armi è da verificare. Dove il quadro non spiega perché un difetto sia un problema, la spiegazione è nostra e lo dice la `nota_fonti`.
 - Il sito ufficiale di Swim England (swimming.org) è risultato leggibile per le pagine del piano di allenamento e della seduta 1. Le sedute dalla 2 in poi (solo per iscritti) mostrano solo titolo e metri, quindi non sono state usate. Le 7 fasi del Learn to Swim restano la copia dell'Università di Brighton: non ho riprovato a leggere la versione ufficiale.
 - Non consultati in questo giro: World Aquatics, USA Swimming, Federazione Italiana Nuoto.
+
+## Zone di ritmo (9 ottobre 2026)
+
+`content/zone-ritmo.json`: le 5 fonti sopra sostengono il concetto di velocità critica e il test 200 m + 400 m, ma **nessuna dà le percentuali delle zone**. I limiti (70-110% della velocità critica) sono proposte nostre e prudenti, con `fonti` vuoto e una `nota_fonti`. Riscaldamento, riposo e partenza del test sono pure nostri. Non consultati: Swim England, British Swimming, USA Swimming, FIN, ACSM/NSCA (nessuna pagina utile trovata o leggibile).
 
 ## Limiti
 

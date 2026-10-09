@@ -64,3 +64,15 @@ Da guardare con attenzione:
 ## 6. Confronto con le tue fonti
 
 Non ho potuto leggere il programma della Federazione Italiana Nuoto né i manuali di riferimento. Se segui un metodo preciso, dimmelo e allineo i contenuti.
+
+## 7. Zone di ritmo (`content/zone-ritmo.json`)
+
+Le zone dicono a che ritmo nuotare, in base a due prove a tutta (200 m e 400 m di stile libero). È la parte con meno appoggio nelle fonti, quindi guardala con attenzione.
+
+- **Percentuali**: le 5 zone vanno da 70% a 110% della velocità critica (facile 70-80, regolare 80-90, sostenuto 90-97, ritmo critico 97-103, veloce 103-110). **Sono numeri nostri e prudenti, senza fonte**: non ho trovato una federazione, un ente o un articolo scientifico che li dia. Le fonti sostengono solo il concetto di velocità critica e il suo calcolo. Ti sembrano giusti? Vuoi usare quelli del tuo metodo?
+- **Zona "veloce"**: va proposta a chi non è agonista? Forse va tolta o nascosta ai livelli bassi.
+- **Istruzioni del test**: riscaldamento, riposo di circa 20 minuti (o prove in giorni diversi), partenza dal bordo, stessa vasca per le due prove sono proposte nostre. Gli studi parlano di nuotatori agonisti e di prove in giorni diversi. Il riposo giusto è corretto?
+- **Differenza tra le fonti**: un articolo per nuotatori master (USMS) propone sforzo sostenibile e non a tutta. Noi chiediamo il massimo: preferisci così?
+- **Adatto agli adulti principianti?** Il test è consigliato dal livello intermedio in su, con un avvertimento sul medico. Due prove a tutta sono adatte a un adulto di quel livello? Serve una condizione più precisa (per esempio 200 m continui senza fermarsi)?
+- **Descrizioni**: controlla tono e parole ("ritmo critico" è comprensibile?).
+- Se il tempo dei 400 m è meno del doppio di quello dei 200 m il test non è valido: nelle istruzioni dico di ripeterlo. Il messaggio nell'app va ancora scritto.

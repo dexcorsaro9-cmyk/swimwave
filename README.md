@@ -15,8 +15,9 @@ App per chi nuota da solo e non ha nessuno che lo segua: coach IA che crea allen
 
 - `docs/schema/workout.schema.json`: schema del formato dell'allenamento (il contratto)
 - `server/coach/`: servizio coach (Node). Genera l'allenamento con il modello, lo controlla con lo schema e usa una riserva fissa se qualcosa non va. Test: `cd server/coach && npm install && npm test` (31 test, verificati). Avvio: `npm start` (con `ANTHROPIC_API_KEY`; senza chiave risponde solo con la riserva)
+- `codemagic.yaml`: build e test su Codemagic (nessun Xcode locale necessario) e pubblicazione su TestFlight
 - `app/`: scheletro dell'app SwiftUI per iPhone e Watch, generato con XcodeGen. **Non compilato né testato**: vedi `app/README.md`
-- `Packages/SwimwaveCore/`: pacchetto Swift condiviso (modello, validazione, profilo, saluti, contenuti). **Non ancora compilato né testato**: da provare in Xcode con `swift test`
+- `Packages/SwimwaveCore/`: pacchetto Swift condiviso (modello, validazione, profilo, saluti, contenuti). **Non ancora compilato né testato**: lo prova Codemagic (workflow `test`, `swift test`)
 - `content/`: contenuti tecnici in bozza, con le fonti: drill, errori comuni, percorso a tappe, allenamenti di riserva, tono, coach. Da controllare con `content/REVISIONE.md`
 - `assets/coach/`: immagini dei due coach (bozze) e avatar
 - `fixtures/`: esempi per i test

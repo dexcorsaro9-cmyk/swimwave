@@ -2,7 +2,7 @@
 
 Scheletro dell'app nativa in SwiftUI: iPhone (iOS 17) e Apple Watch (watchOS 10), con la logica condivisa in `../Packages/SwimwaveCore`.
 
-**Stato: scritto senza Swift né Xcode a disposizione. Nulla è stato compilato né eseguito.** Il primo passo, aprendo il progetto, è compilare e correggere gli errori (probabili, ma piccoli).
+**Stato: scritto senza Swift né Xcode a disposizione. Nulla è stato compilato né eseguito.** Il primo passo è far girare la build su Codemagic (vedi sotto) e correggere gli errori (probabili, ma piccoli).
 
 ## Come generare il progetto
 
@@ -19,6 +19,22 @@ Poi in Xcode:
 3. Scegli lo schema `Swimwave` e un iPhone. Il Watch si prova solo su un orologio vero (vedi sotto).
 
 `Swimwave.xcodeproj/` e `Config/` sono generati e stanno in `app/.gitignore`.
+
+## Compilare con Codemagic (senza Xcode)
+
+Il progetto non richiede Xcode sul tuo computer: la build la fa Codemagic con il file `codemagic.yaml` nella radice del repository. Codemagic esegue XcodeGen, firma, crea l'app iPhone con il Watch incorporato e la manda a TestFlight.
+
+Due workflow:
+- `test`: a ogni push esegue `swift test` sul pacchetto e i test del servizio coach. **È il primo modo per scoprire gli errori di compilazione**, perché `swift test` compila `SwimwaveCore`. Non compila però le schermate SwiftUI.
+- `ios-testflight`: parte quando crei un tag `v*` (per esempio `v0.1.0`), compila le schermate SwiftUI e pubblica su TestFlight.
+
+Prima della prima esecuzione:
+1. Cambia il bundle id segnaposto `com.example.swimwave` in `codemagic.yaml` e in `app/project.yml` (Watch: `<bundle id>.watchkitapp`, più `WKCompanionAppBundleIdentifier`).
+2. In Codemagic aggiungi il repository, poi in *Team settings > Team integrations > Developer Portal* la chiave API di App Store Connect e scrivi il suo nome in `codemagic.yaml` (`integrations.app_store_connect`).
+3. Crea l'app in App Store Connect con lo stesso bundle id.
+4. Avvia prima il workflow `test`. Quando passa, crea il tag `v0.1.0` per far partire `ios-testflight`.
+
+Da sapere: gli errori di compilazione si leggono nei log di Codemagic e si possono passare a Claude per correggerli. L'incorporamento del Watch e la firma dei due bundle id sono le parti più probabili da sistemare alla prima build. Il Watch in acqua si prova solo con un orologio vero, installando la build da TestFlight.
 
 ## Pacchetto condiviso: come eseguire i test
 

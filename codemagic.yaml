@@ -1,0 +1,74 @@
+# Configurazione di Codemagic per Swimwave.
+# BOZZA scritta senza poter eseguire Codemagic: alla prima esecuzione possono servire piccole correzioni.
+# Prima di usarla:
+#  1. cambia il bundle id segnaposto `com.example.swimwave` qui sotto e in app/project.yml (anche il Watch e WKCompanionAppBundleIdentifier);
+#  2. in Codemagic: Team settings > Team integrations > Developer Portal > aggiungi la chiave API di App Store Connect e dalle un nome;
+#     scrivi quel nome in `integrations.app_store_connect` qui sotto;
+#  3. crea l'app (con il bundle id) in App Store Connect, altrimenti la pubblicazione su TestFlight non parte;
+#  4. in app/project.yml il Watch deve restare `<bundle id>.watchkitapp`: Codemagic trova il suo profilo perché comincia con il bundle id dell'iPhone.
+
+workflows:
+  test:
+    name: Test (pacchetto Swift e servizio coach)
+    instance_type: mac_mini_m2
+    max_build_duration: 30
+    environment:
+      xcode: latest
+      node: 22
+    triggering:
+      events:
+        - push
+        - pull_request
+    scripts:
+      - name: Test del pacchetto SwimwaveCore
+        script: |
+          cd Packages/SwimwaveCore
+          swift test
+      - name: Test del servizio coach
+        script: |
+          cd server/coach
+          npm ci || npm install
+          npm test
+
+  ios-testflight:
+    name: iOS + Watch su TestFlight
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    integrations:
+      app_store_connect: NOME_DELLA_CHIAVE_API   # SEGNAPOSTO: il nome dato in Codemagic
+    environment:
+      xcode: latest
+      vars:
+        BUNDLE_ID: "com.example.swimwave"       # SEGNAPOSTO: uguale a app/project.yml
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.example.swimwave # SEGNAPOSTO: uguale a BUNDLE_ID
+    triggering:
+      events:
+        - tag
+      tag_patterns:
+        - pattern: "v*"
+          include: true
+    scripts:
+      - name: Installa XcodeGen e genera il progetto
+        script: |
+          brew install xcodegen
+          cd app
+          # il numero di build cresce a ogni esecuzione
+          sed -i '' "s/CURRENT_PROJECT_VERSION: \"1\"/CURRENT_PROJECT_VERSION: \"$BUILD_NUMBER\"/" project.yml
+          xcodegen
+      - name: Imposta la firma sul progetto Xcode
+        script: |
+          xcode-project use-profiles
+      - name: Crea l'archivio (.ipa) con l'app Watch incorporata
+        script: |
+          xcode-project build-ipa \
+            --project "app/Swimwave.xcodeproj" \
+            --scheme "Swimwave"
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true

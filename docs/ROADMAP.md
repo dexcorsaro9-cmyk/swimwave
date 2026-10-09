@@ -14,7 +14,7 @@
 ## Prossimi passi (versione 1: iPhone + Apple Watch)
 
 1. **Revisione dei contenuti** da parte dell'istruttore e passaggio ad `approvato` (senza contenuti approvati l'app in Release non mostra allenamenti).
-2. **Compilare e provare l'app** in Xcode: `xcodegen`, `swift test`, correggere gli errori di compilazione (vedi `app/README.md`).
+2. **Compilare e provare l'app** con Codemagic (`codemagic.yaml`, vedi `app/README.md`): prima il workflow `test`, poi `ios-testflight`; correggere gli errori di compilazione.
 3. **Collegare l'app al servizio coach**: hosting, chiave del modello, schermata di consenso prima della prima richiesta all'IA.
 4. **Completare l'app**: permessi spiegati dal coach (Salute, notifiche), lettura delle nuotate, domanda facile/giusta/dura, promemoria per Spronami, verifica dei 18 anni, icone, tema scuro.
 5. **Watch in acqua**: prova con l'orologio fisico per 2-3 settimane via TestFlight, annotando cosa non funziona.

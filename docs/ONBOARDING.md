@@ -6,6 +6,7 @@ Regole:
 - **Poche domande, un tocco ciascuna.** Solo ciò che cambia davvero l'allenamento o il tono. Il resto si impara dall'uso.
 - **Quasi tutto è saltabile**, con un valore di partenza prudente. Obbligatori: nome, livello, vasca.
 - **Domande sul fare, non sull'etichetta.** Il livello si ricava da cosa riesce a nuotare, con le soglie delle regole dell'istruttore (`server/coach/prompts/regole-istruttore.md`), non da "sono principiante".
+- **Risposte guidate.** Le domande con più opzioni (livello, obiettivo, vasca, ritmo, frequenza, durata, attrezzi, orario, fastidi) si risolvono con un **menu a tendina**, con un valore alla volta e l'opzione scelta evidenziata. L'unico campo di testo libero è il nome. Così i dati sono puliti e il coach li usa senza interpretarli.
 - **Niente dati che non servono.** Niente sesso, peso o data di nascita nella prima versione.
 
 ## Le domande
@@ -19,9 +20,9 @@ Regole:
 | 5 | Ritmo | "Come vuoi che ti segua?" | Libero · Regolare · Spronami | sì (default: Libero) | Obiettivo settimanale e notifiche (vedi `docs/EXPERIENCE.md`) |
 | 6 | Frequenza | "Quante volte a settimana vorresti nuotare?" | 1 · 2 · 3 · 4 · 5 | solo se Regolare o Spronami | Obiettivo settimanale |
 | 7 | Durata | "Quanto tempo hai di solito in acqua?" | 20 · 30 · 45 · 60 min | no (default: 30) | Durata degli allenamenti |
-| 8 | Attrezzi | "Cosa trovi in piscina?" | Tavoletta · Pull buoy · Nessuno | no (default: nessuno) | Esercizi proposti (alcuni drill richiedono la tavoletta o il pull buoy) |
+| 8 | Attrezzi | "Cosa trovi in piscina?" | Tavoletta · Pull buoy · Tavoletta e pull buoy · Nessuno | no (default: nessuno) | Esercizi proposti (alcuni drill richiedono la tavoletta o il pull buoy) |
 | 9 | Orario | "Quando preferisci nuotare?" | Mattina · Pausa pranzo · Sera · Dipende | no | Momento dei messaggi del coach, se ha scelto Regolare o Spronami |
-| 10 | Fastidi | "C'è qualcosa di cui devo tenere conto?" | Nessuno · Spalla · Schiena · Altro | no | Evita esercizi mirati su quella zona; consiglia di sentire un medico |
+| 10 | Fastidi | "C'è qualcosa di cui devo tenere conto?" | Nessuno · Spalla · Schiena · Altro (scelta tra voci prestabilite, nessun testo libero) | no | Evita esercizi mirati su quella zona; consiglia di sentire un medico |
 
 Dopo le domande, due richieste di permesso **spiegate dal coach nel momento giusto**, non all'avvio dell'app:
 - **Apple Salute** (HealthKit), per salvare gli allenamenti.

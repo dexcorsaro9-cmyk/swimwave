@@ -65,7 +65,7 @@ jobs:
           for schema in SwimwaveWatch SwimwaveWatchComplicazione; do
             xcodebuild build \
               -project Swimwave.xcodeproj -scheme $schema \
-              -destination 'generic/platform=watchOS Simulator' \
+              -destination 'generic/platform=watchOS' \
               CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO 2>&1 | tee /tmp/log-$schema.txt
             esito=${PIPESTATUS[0]}
             if [ "$esito" != "0" ]; then

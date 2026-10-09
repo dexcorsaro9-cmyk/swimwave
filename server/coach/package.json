@@ -5,6 +5,7 @@
   "type": "module",
   "description": "Servizio coach di Swimwave: genera allenamenti con vincoli rigidi e riserva fissa",
   "scripts": {
+    "start": "node src/server.js",
     "test": "node --test test/*.test.js"
   },
   "dependencies": {

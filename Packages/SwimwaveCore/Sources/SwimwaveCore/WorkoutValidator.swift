@@ -67,14 +67,20 @@ public enum WorkoutValidator {
     public static func decodeAndValidate(
         _ data: Data,
         allowedDrills: Set<String>
-    ) -> Result<Workout, [WorkoutValidationError]> {
+    ) -> Result<Workout, ElencoErroriWorkout> {
         let workout: Workout
         do {
             workout = try JSONDecoder().decode(Workout.self, from: data)
         } catch {
-            return .failure([.init(posizione: "/", messaggio: "JSON non conforme al formato: \(error.localizedDescription)")])
+            return .failure(ElencoErroriWorkout(errori: [.init(posizione: "/", messaggio: "JSON non conforme al formato: \(error.localizedDescription)")]))
         }
         let errori = validate(workout, allowedDrills: allowedDrills)
-        return errori.isEmpty ? .success(workout) : .failure(errori)
+        return errori.isEmpty ? .success(workout) : .failure(ElencoErroriWorkout(errori: errori))
     }
+}
+
+/// L'elenco degli errori di validazione, in un tipo che è un `Error` (un array da solo non lo è: serve a `Result`).
+public struct ElencoErroriWorkout: Error {
+    public let errori: [WorkoutValidationError]
+    public init(errori: [WorkoutValidationError]) { self.errori = errori }
 }

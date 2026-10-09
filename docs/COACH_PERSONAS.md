@@ -80,7 +80,7 @@ I generatori tendono a cambiare la persona a ogni immagine. Per averla coerente:
 - Ritratto quadrato 1:1, almeno 1024 × 1024 px, per scelta e riepiloghi.
 - Versione ritagliata sul volto per l'avatar piccolo (Watch e notifiche).
 - Se serve, versione con sfondo trasparente (PNG).
-- File in `assets/coach/` con nomi del tipo `antonio-benvenuto.png`.
+- File in `assets/coach/` con nomi del tipo `antonio-benvenuto.jpg`.
 
 ## Verifica con le persone
 

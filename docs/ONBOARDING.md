@@ -4,7 +4,7 @@ Subito dopo la scelta del coach, il coach compila con l'utente una **lavagnetta*
 
 Regole:
 - **Poche domande, un tocco ciascuna.** Solo ciò che cambia davvero l'allenamento o il tono. Il resto si impara dall'uso.
-- **Quasi tutto è saltabile**, con un valore di partenza prudente. Obbligatori: nome, livello, vasca.
+- **Quasi tutto è saltabile**, con un valore di partenza prudente. Obbligatori solo i campi segnati "sì" nella tabella: nome, livello, vasca e ritmo (la frequenza solo se il ritmo è Regolare o Spronami). Tutte le altre domande hanno il pulsante "Salta" e partono con un valore prudente.
 - **Domande sul fare, non sull'etichetta.** Il livello si ricava da cosa riesce a nuotare, con le soglie delle regole dell'istruttore (`server/coach/prompts/regole-istruttore.md`), non da "sono principiante".
 - **Risposte guidate.** Le domande con più opzioni (livello, obiettivo, vasca, ritmo, frequenza, durata, attrezzi, orario, fastidi) si risolvono con un **menu a tendina**, con un valore alla volta e l'opzione scelta evidenziata. L'unico campo di testo libero è il nome. Così i dati sono puliti e il coach li usa senza interpretarli.
 - **Niente dati che non servono.** Niente sesso, peso o data di nascita nella prima versione.

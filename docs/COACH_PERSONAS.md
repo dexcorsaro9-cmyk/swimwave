@@ -54,6 +54,8 @@ cartoon, 3d render, plastic skin, over-retouched, airbrushed, harsh shadows, sti
 
 ## Variazioni di espressione
 
+I prompt completi di tutte le espressioni, uno per uno, sono in `docs/COACH_PROMPTS.md`.
+
 Le stesse persone, con espressioni diverse, servono nei momenti dell'app. Si ottengono dal prompt principale cambiando solo la riga dell'espressione.
 
 | Momento | Espressione da aggiungere |

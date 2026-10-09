@@ -24,6 +24,7 @@ Nomi già scartati e perché: Swimly (esiste un'app di allenamenti con lo stesso
 ## Documenti
 
 - [docs/PRODUCT.md](docs/PRODUCT.md): visione, target, funzioni della prima versione, prezzo
+- [docs/EXPERIENCE.md](docs/EXPERIENCE.md): esperienza dell'utente, ritmo scelto da lui, percorso a tappe
 - [docs/ROADMAP.md](docs/ROADMAP.md): ordine di sviluppo
 - [docs/WORKOUT_FORMAT.md](docs/WORKOUT_FORMAT.md): formato dell'allenamento condiviso tra coach IA, iPhone e Watch
 - [docs/COMPETITORS.md](docs/COMPETITORS.md): cosa esiste già e dove c'è spazio

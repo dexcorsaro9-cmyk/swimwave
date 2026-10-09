@@ -97,8 +97,8 @@ test("il coach scelto cambia il tono ma non le regole", () => {
   const uomo = loadInstructions({ coach: "uomo" });
   const donna = loadInstructions({ coach: "donna" });
   const nessuno = loadInstructions({});
-  assert.ok(uomo.includes("Marco") && !uomo.includes("Giulia"));
-  assert.ok(donna.includes("Giulia") && !donna.includes("Marco"));
+  assert.ok(uomo.includes("Antonio") && !uomo.includes("Pamela"));
+  assert.ok(donna.includes("Pamela") && !donna.includes("Antonio"));
   assert.ok(!nessuno.includes("Tono del coach scelto"));
   for (const t of [uomo, donna, nessuno]) assert.ok(t.includes("Regole dell'istruttore"));
   assert.equal(loadPersona("sconosciuto"), null);

@@ -11,7 +11,7 @@ Principi:
 
 | | Coach uomo | Coach donna |
 |---|---|---|
-| Nome provvisorio | Marco | Giulia |
+| Nome | Antonio | Pamela |
 | Età apparente | 35-45 anni | 35-45 anni |
 | Aspetto | Italiano, capelli corti castani, barba corta curata, occhi caldi | Italiana, capelli castani raccolti, occhi caldi |
 | Abbigliamento | Maglia tecnica da piscina blu scuro, senza loghi | Maglia tecnica da piscina blu scuro, senza loghi |
@@ -78,7 +78,7 @@ I generatori tendono a cambiare la persona a ogni immagine. Per averla coerente:
 - Ritratto quadrato 1:1, almeno 1024 × 1024 px, per scelta e riepiloghi.
 - Versione ritagliata sul volto per l'avatar piccolo (Watch e notifiche).
 - Se serve, versione con sfondo trasparente (PNG).
-- File in `assets/coach/` con nomi del tipo `marco-benvenuto.png`.
+- File in `assets/coach/` con nomi del tipo `antonio-benvenuto.png`.
 
 ## Verifica con le persone
 
@@ -89,6 +89,6 @@ Le immagini vanno scelte guardandole con persone vere, non solo noi:
 
 ## Punti aperti
 
-1. I nomi: Marco e Giulia vanno bene, o preferisci altri?
+1. I nomi sono decisi: Antonio e Pamela. Antonio coincide con il nome del fondatore: è una scelta voluta, ma l'immagine resta di un personaggio inventato e l'app deve dire in modo chiaro che è un coach virtuale, perché nessuno lo scambi per una persona reale.
 2. L'abbigliamento: maglia da piscina o qualcosa di più informale?
 3. La voce: serve una voce per ciascun coach? È un lavoro successivo e ha implicazioni di costo e di trasparenza.

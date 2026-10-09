@@ -1,0 +1,13 @@
+{
+  "name": "swimwave-coach",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Servizio coach di Swimwave: genera allenamenti con vincoli rigidi e riserva fissa",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1"
+  }
+}

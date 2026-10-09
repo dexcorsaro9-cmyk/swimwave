@@ -1,0 +1,1524 @@
+{
+  "sourceLanguage": "it",
+  "strings": {
+    "avatar.benvenuto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, sorridente"
+          }
+        }
+      }
+    },
+    "avatar.dolore": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, con un'espressione attenta e premurosa"
+          }
+        }
+      }
+    },
+    "avatar.dopoAllenamentoDuro": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, con uno sguardo comprensivo"
+          }
+        }
+      }
+    },
+    "avatar.incoraggiamento": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, con un sorriso incoraggiante"
+          }
+        }
+      }
+    },
+    "avatar.ripartenza": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, con un sorriso rilassato"
+          }
+        }
+      }
+    },
+    "avatar.traguardo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, felice, con il pollice alzato"
+          }
+        }
+      }
+    },
+    "blocco.defaticamento": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Defaticamento"
+          }
+        }
+      }
+    },
+    "blocco.principale": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parte principale"
+          }
+        }
+      }
+    },
+    "blocco.riscaldamento": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riscaldamento"
+          }
+        }
+      }
+    },
+    "blocco.tecnica": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tecnica"
+          }
+        }
+      }
+    },
+    "coach.presentazione.donna": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciao, sono Pamela. Ti accompagno io, a modo tuo e con i tuoi tempi."
+          }
+        }
+      }
+    },
+    "coach.presentazione.uomo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciao, sono Antonio. Ti seguo io, un passo alla volta."
+          }
+        }
+      }
+    },
+    "comune.annulla": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annulla"
+          }
+        }
+      }
+    },
+    "comune.avanti": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avanti"
+          }
+        }
+      }
+    },
+    "comune.chiudi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chiudi"
+          }
+        }
+      }
+    },
+    "comune.continua": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continua"
+          }
+        }
+      }
+    },
+    "comune.fatto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fatto"
+          }
+        }
+      }
+    },
+    "comune.indietro": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Indietro"
+          }
+        }
+      }
+    },
+    "comune.salta": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salta"
+          }
+        }
+      }
+    },
+    "info.coach.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Antonio e Pamela sono coach virtuali: personaggi inventati, creati con l'intelligenza artificiale, che seguono il metodo di un istruttore di nuoto. Hanno la stessa competenza e lo stesso tono. Puoi cambiare coach quando vuoi dal Profilo, senza perdere lo storico."
+          }
+        }
+      }
+    },
+    "info.coach.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I coach"
+          }
+        }
+      }
+    },
+    "info.dati.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il profilo e le nuotate restano sul tuo dispositivo. Puoi cancellarli in qualsiasi momento dal Profilo. I dati di Apple Salute restano il più possibile sul dispositivo."
+          }
+        }
+      }
+    },
+    "info.dati.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I tuoi dati"
+          }
+        }
+      }
+    },
+    "info.ia.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L'allenamento di oggi può essere preparato da un'intelligenza artificiale che segue regole scritte dall'istruttore e usa solo esercizi di una lista scelta da lui. Se qualcosa non funziona, l'app usa un allenamento fisso."
+          }
+        }
+      }
+    },
+    "info.ia.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intelligenza artificiale"
+          }
+        }
+      }
+    },
+    "info.salute.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swimwave non fa diagnosi e non sostituisce un medico. Se senti dolore, fermati e riposa. Se non passa, parlane con il tuo medico o con un professionista."
+          }
+        }
+      }
+    },
+    "info.salute.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salute e sicurezza"
+          }
+        }
+      }
+    },
+    "info.segnaposto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Testo provvisorio: le informazioni complete su intelligenza artificiale, dati e privacy arriveranno prima del rilascio."
+          }
+        }
+      }
+    },
+    "intensita.facile": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Facile"
+          }
+        }
+      }
+    },
+    "intensita.forte": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Forte"
+          }
+        }
+      }
+    },
+    "intensita.media": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Media"
+          }
+        }
+      }
+    },
+    "lavagnetta.domanda.frequenza": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quante volte a settimana vorresti nuotare?"
+          }
+        }
+      }
+    },
+    "lavagnetta.domanda.livello": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quanto riesci a nuotare di fila a stile libero?"
+          }
+        }
+      }
+    },
+    "lavagnetta.domanda.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Come ti chiami?"
+          }
+        }
+      }
+    },
+    "lavagnetta.domanda.obiettivo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cosa vuoi dal nuoto?"
+          }
+        }
+      }
+    },
+    "lavagnetta.domanda.ritmo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Come vuoi che ti segua?"
+          }
+        }
+      }
+    },
+    "lavagnetta.domanda.vasca": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In che vasca nuoti?"
+          }
+        }
+      }
+    },
+    "lavagnetta.frequenza.settimana": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld a settimana"
+          }
+        }
+      }
+    },
+    "lavagnetta.frequenza.valore": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld"
+          }
+        }
+      }
+    },
+    "lavagnetta.nome.segnaposto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il tuo nome"
+          }
+        }
+      }
+    },
+    "lavagnetta.progresso": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Domanda %ld di %ld"
+          }
+        }
+      }
+    },
+    "lavagnetta.riga.livello": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Livello"
+          }
+        }
+      }
+    },
+    "lavagnetta.riga.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nome"
+          }
+        }
+      }
+    },
+    "lavagnetta.riga.obiettivo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obiettivo"
+          }
+        }
+      }
+    },
+    "lavagnetta.riga.ritmo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ritmo"
+          }
+        }
+      }
+    },
+    "lavagnetta.riga.vasca": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vasca"
+          }
+        }
+      }
+    },
+    "livello.cento": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "100 m senza fermarmi"
+          }
+        }
+      }
+    },
+    "livello.menoDi100": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meno di 100 m"
+          }
+        }
+      }
+    },
+    "livello.menoDi25": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non ancora 25 m"
+          }
+        }
+      }
+    },
+    "livello.piuDiCento": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Di più"
+          }
+        }
+      }
+    },
+    "obiettivo.dimagrimento": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dimagrire"
+          }
+        }
+      }
+    },
+    "obiettivo.resistenza": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resistere di più"
+          }
+        }
+      }
+    },
+    "obiettivo.stareBene": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stare bene"
+          }
+        }
+      }
+    },
+    "obiettivo.tecnica": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imparare e migliorare la tecnica"
+          }
+        }
+      }
+    },
+    "oggi.allenamento.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Allenamento di oggi"
+          }
+        }
+      }
+    },
+    "oggi.invia": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mandalo al Watch"
+          }
+        }
+      }
+    },
+    "oggi.invia.errore": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Invio non riuscito. Riprova tra poco."
+          }
+        }
+      }
+    },
+    "oggi.invia.noWatch": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non trovo il Watch: controlla che sia accoppiato e che l'app Swimwave sia installata."
+          }
+        }
+      }
+    },
+    "oggi.invia.ok": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inviato. Lo trovi sul Watch."
+          }
+        }
+      }
+    },
+    "oggi.libero.conteggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuotate questa settimana: %ld"
+          }
+        }
+      }
+    },
+    "oggi.libero.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A modo tuo"
+          }
+        }
+      }
+    },
+    "oggi.metri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld m"
+          }
+        }
+      }
+    },
+    "oggi.minuti": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld min"
+          }
+        }
+      }
+    },
+    "oggi.obiettivo.conteggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld / %ld"
+          }
+        }
+      }
+    },
+    "oggi.obiettivo.mancaUno": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ne manca una."
+          }
+        }
+      }
+    },
+    "oggi.obiettivo.mancanoN": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ne mancano %ld."
+          }
+        }
+      }
+    },
+    "oggi.obiettivo.raggiunto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obiettivo raggiunto. Bel lavoro!"
+          }
+        }
+      }
+    },
+    "oggi.obiettivo.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obiettivo della settimana"
+          }
+        }
+      }
+    },
+    "oggi.sottotitolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ecco cosa c'è per oggi."
+          }
+        }
+      }
+    },
+    "oggi.vasca": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vasca %ld m"
+          }
+        }
+      }
+    },
+    "oggi.vuoto.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gli allenamenti sono in revisione da parte dell'istruttore e compariranno qui appena approvati."
+          }
+        }
+      }
+    },
+    "oggi.vuoto.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il tuo primo allenamento sta arrivando"
+          }
+        }
+      }
+    },
+    "percorso.sottotitolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dieci tappe, a modo tuo: puoi saltare avanti o tornare indietro."
+          }
+        }
+      }
+    },
+    "percorso.tappaAttuale": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sei qui"
+          }
+        }
+      }
+    },
+    "percorso.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il tuo percorso"
+          }
+        }
+      }
+    },
+    "percorso.vuoto.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le tappe compariranno qui appena l'istruttore le avrà controllate."
+          }
+        }
+      }
+    },
+    "percorso.vuoto.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il percorso è in preparazione"
+          }
+        }
+      }
+    },
+    "picker.scegli": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scegli…"
+          }
+        }
+      }
+    },
+    "popup.benvenuto.messaggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eccomi, %@. Quando vuoi, c'è un allenamento per te."
+          }
+        }
+      }
+    },
+    "popup.bottone.ciSono": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ci sono"
+          }
+        }
+      }
+    },
+    "popup.bottone.grazie": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grazie"
+          }
+        }
+      }
+    },
+    "popup.bottone.piuTardi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Più tardi"
+          }
+        }
+      }
+    },
+    "popup.ripartenza.messaggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ripartiamo con calma, senza fretta. Ti aspetto in acqua."
+          }
+        }
+      }
+    },
+    "popup.traguardo.messaggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obiettivo della settimana raggiunto, %@. Bel lavoro!"
+          }
+        }
+      }
+    },
+    "profilo.cancella": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancella i miei dati"
+          }
+        }
+      }
+    },
+    "profilo.cancella.azione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancella tutto"
+          }
+        }
+      }
+    },
+    "profilo.cancella.conferma": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancellare tutti i dati?"
+          }
+        }
+      }
+    },
+    "profilo.cancella.messaggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il profilo e le nuotate salvati dall'app verranno eliminati da questo dispositivo."
+          }
+        }
+      }
+    },
+    "profilo.coach": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il tuo coach"
+          }
+        }
+      }
+    },
+    "profilo.informazioni": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Informazioni"
+          }
+        }
+      }
+    },
+    "profilo.livello": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Livello"
+          }
+        }
+      }
+    },
+    "profilo.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nome"
+          }
+        }
+      }
+    },
+    "profilo.obiettivo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obiettivo"
+          }
+        }
+      }
+    },
+    "profilo.ritmo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ritmo"
+          }
+        }
+      }
+    },
+    "profilo.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Profilo"
+          }
+        }
+      }
+    },
+    "profilo.vasca": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vasca"
+          }
+        }
+      }
+    },
+    "ritmo.libero": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Libero"
+          }
+        }
+      }
+    },
+    "ritmo.libero.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessun obiettivo e nessun sollecito. Trovi la proposta adatta a oggi quando apri l'app."
+          }
+        }
+      }
+    },
+    "ritmo.regolare": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Regolare"
+          }
+        }
+      }
+    },
+    "ritmo.regolare.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scegli quante volte a settimana vuoi nuotare e l'app te lo ricorda con discrezione."
+          }
+        }
+      }
+    },
+    "ritmo.spronami": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spronami"
+          }
+        }
+      }
+    },
+    "ritmo.spronami.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Come Regolare, con più promemoria, piccole sfide e un tono più incalzante."
+          }
+        }
+      }
+    },
+    "saluto.mattina": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buongiorno, %@"
+          }
+        }
+      }
+    },
+    "saluto.pomeriggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buon pomeriggio, %@"
+          }
+        }
+      }
+    },
+    "saluto.sera": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buonasera, %@"
+          }
+        }
+      }
+    },
+    "scelta.nota": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Antonio e Pamela sono coach virtuali: personaggi inventati che seguono il metodo di un istruttore di nuoto."
+          }
+        }
+      }
+    },
+    "scelta.sottotitolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hanno la stessa competenza e lo stesso tono. Puoi cambiare quando vuoi."
+          }
+        }
+      }
+    },
+    "scelta.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scegli chi ti segue"
+          }
+        }
+      }
+    },
+    "scheda.inizia": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inizia"
+          }
+        }
+      }
+    },
+    "scheda.messaggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tutto pronto, %@."
+          }
+        }
+      }
+    },
+    "scheda.modifica": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modifica le risposte"
+          }
+        }
+      }
+    },
+    "scheda.nota": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Potrai cambiare tutto dal Profilo."
+          }
+        }
+      }
+    },
+    "scheda.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ecco la tua scheda"
+          }
+        }
+      }
+    },
+    "serie.formato": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld × %ld m"
+          }
+        }
+      }
+    },
+    "serie.recupero": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "recupero %ld s"
+          }
+        }
+      }
+    },
+    "stile.delfino": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delfino"
+          }
+        }
+      }
+    },
+    "stile.dorso": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dorso"
+          }
+        }
+      }
+    },
+    "stile.libero": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stile libero"
+          }
+        }
+      }
+    },
+    "stile.misto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Misto"
+          }
+        }
+      }
+    },
+    "stile.rana": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rana"
+          }
+        }
+      }
+    },
+    "storico.riga": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld m · %ld min"
+          }
+        }
+      }
+    },
+    "storico.sottotitolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le tue nuotate"
+          }
+        }
+      }
+    },
+    "storico.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Storico"
+          }
+        }
+      }
+    },
+    "storico.vuoto.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le nuotate fatte con il Watch compariranno qui. La lettura da Apple Salute arriverà più avanti."
+          }
+        }
+      }
+    },
+    "storico.vuoto.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ancora nessuna nuotata"
+          }
+        }
+      }
+    },
+    "tab.oggi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oggi"
+          }
+        }
+      }
+    },
+    "tab.percorso": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Percorso"
+          }
+        }
+      }
+    },
+    "tab.profilo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Profilo"
+          }
+        }
+      }
+    },
+    "tab.storico": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Storico"
+          }
+        }
+      }
+    },
+    "tappa.daEvitare": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Da evitare: %@"
+          }
+        }
+      }
+    },
+    "tappa.drill": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esercizi"
+          }
+        }
+      }
+    },
+    "tappa.errori": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Errori da correggere"
+          }
+        }
+      }
+    },
+    "tappa.obiettivo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obiettivo"
+          }
+        }
+      }
+    },
+    "tappa.test": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per completare la tappa"
+          }
+        }
+      }
+    },
+    "tappa.vaiQui": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vai a questa tappa"
+          }
+        }
+      }
+    },
+    "vasca.metri25": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "25 m"
+          }
+        }
+      }
+    },
+    "vasca.metri50": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "50 m"
+          }
+        }
+      }
+    },
+    "vasca.nonLoSo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non lo so ancora"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

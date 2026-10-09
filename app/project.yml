@@ -1,0 +1,89 @@
+# Progetto Xcode generato con XcodeGen: `brew install xcodegen && cd app && xcodegen`
+# Scritto senza poter eseguire XcodeGen né Xcode: se qualcosa non torna, leggere app/README.md.
+name: Swimwave
+
+options:
+  bundleIdPrefix: com.example          # SEGNAPOSTO: cambiare con il bundle id vero
+  developmentLanguage: it
+  deploymentTarget:
+    iOS: "17.0"
+    watchOS: "10.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: ""                # da impostare (Signing & Capabilities)
+    # Niente simboli generati per gli asset: i colori e le immagini si usano per nome (Color("Corallo")).
+    ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS: NO
+
+packages:
+  SwimwaveCore:
+    path: ../Packages/SwimwaveCore
+
+targets:
+  Swimwave:
+    type: application
+    platform: iOS
+    sources:
+      - path: Swimwave
+      # I contenuti (JSON) entrano nell'app come cartella "content/", letti da StatoApp.contenutiDaBundle().
+      - path: ../content
+        type: folder
+        buildPhase: resources
+    dependencies:
+      - package: SwimwaveCore
+      - target: SwimwaveWatch             # app Watch incorporata nell'app iPhone
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.swimwave
+        TARGETED_DEVICE_FAMILY: "1"       # solo iPhone
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        GENERATE_INFOPLIST_FILE: NO
+    info:
+      path: Config/Swimwave-Info.plist     # generato da XcodeGen
+      properties:
+        CFBundleDisplayName: Swimwave
+        CFBundleLocalizations: [it]
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        NSHealthShareUsageDescription: "Swimwave legge le tue nuotate da Apple Salute per mostrarti i progressi."
+        NSHealthUpdateUsageDescription: "Swimwave salva in Apple Salute gli allenamenti di nuoto che fai con il Watch."
+    entitlements:
+      path: Config/Swimwave.entitlements   # generato da XcodeGen
+      properties:
+        com.apple.developer.healthkit: true
+
+  SwimwaveWatch:
+    type: application
+    platform: watchOS
+    deploymentTarget: "10.0"
+    sources:
+      - path: SwimwaveWatch
+    dependencies:
+      - package: SwimwaveCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.swimwave.watchkitapp   # deve cominciare con il bundle id dell'app iPhone
+        TARGETED_DEVICE_FAMILY: "4"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        GENERATE_INFOPLIST_FILE: NO
+    info:
+      path: Config/SwimwaveWatch-Info.plist   # generato da XcodeGen
+      properties:
+        CFBundleDisplayName: Swimwave
+        CFBundleLocalizations: [it]
+        WKApplication: true
+        WKCompanionAppBundleIdentifier: com.example.swimwave
+        # Sessione di allenamento in background (HKWorkoutSession).
+        WKBackgroundModes: [workout-processing]
+        NSHealthShareUsageDescription: "Swimwave legge frequenza cardiaca e distanza a nuoto per guidarti durante l'allenamento."
+        NSHealthUpdateUsageDescription: "Swimwave salva in Apple Salute gli allenamenti di nuoto che fai con il Watch."
+    entitlements:
+      path: Config/SwimwaveWatch.entitlements   # generato da XcodeGen
+      properties:
+        com.apple.developer.healthkit: true

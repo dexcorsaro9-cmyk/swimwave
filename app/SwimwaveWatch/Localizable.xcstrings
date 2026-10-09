@@ -1,0 +1,237 @@
+{
+  "sourceLanguage": "it",
+  "strings": {
+    "stile.delfino": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delfino"
+          }
+        }
+      }
+    },
+    "stile.dorso": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dorso"
+          }
+        }
+      }
+    },
+    "stile.libero": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stile libero"
+          }
+        }
+      }
+    },
+    "stile.misto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Misto"
+          }
+        }
+      }
+    },
+    "stile.rana": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rana"
+          }
+        }
+      }
+    },
+    "watch.attesa.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apri Swimwave su iPhone per ricevere l'allenamento di oggi."
+          }
+        }
+      }
+    },
+    "watch.attesa.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessun allenamento"
+          }
+        }
+      }
+    },
+    "watch.errore.permessi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Serve il permesso di Apple Salute."
+          }
+        }
+      }
+    },
+    "watch.errore.salute": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Salute non è disponibile."
+          }
+        }
+      }
+    },
+    "watch.errore.sessione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossibile avviare l'allenamento."
+          }
+        }
+      }
+    },
+    "watch.fatto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fatto"
+          }
+        }
+      }
+    },
+    "watch.fine.chiudi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chiudi"
+          }
+        }
+      }
+    },
+    "watch.fine.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Allenamento finito"
+          }
+        }
+      }
+    },
+    "watch.inizia": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inizia"
+          }
+        }
+      }
+    },
+    "watch.metri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "metri"
+          }
+        }
+      }
+    },
+    "watch.pronto.riga": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld m · %ld min"
+          }
+        }
+      }
+    },
+    "watch.recupero": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "RECUPERO"
+          }
+        }
+      }
+    },
+    "watch.serie": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Serie %ld/%ld · %ld di %ld"
+          }
+        }
+      }
+    },
+    "watch.termina": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Termina"
+          }
+        }
+      }
+    },
+    "watch.termina.conferma": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tocca per terminare"
+          }
+        }
+      }
+    },
+    "watch.vai": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vai"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

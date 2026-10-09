@@ -80,7 +80,7 @@ public enum WorkoutValidator {
 }
 
 /// L'elenco degli errori di validazione, in un tipo che è un `Error` (un array da solo non lo è: serve a `Result`).
-public struct ElencoErroriWorkout: Error {
+public struct ElencoErroriWorkout: Error, Sendable {
     public let errori: [WorkoutValidationError]
     public init(errori: [WorkoutValidationError]) { self.errori = errori }
 }

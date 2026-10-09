@@ -58,6 +58,22 @@ jobs:
             echo "::error title=xcodebuild fallito::${righe}"
           fi
           exit $esito
+      - name: Compila l'app Watch e la complicazione (simulatore)
+        working-directory: app
+        run: |
+          set +e
+          for schema in SwimwaveWatch SwimwaveWatchComplicazione; do
+            xcodebuild build \
+              -project Swimwave.xcodeproj -scheme $schema \
+              -destination 'generic/platform=watchOS Simulator' \
+              CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO 2>&1 | tee /tmp/log-$schema.txt
+            esito=${PIPESTATUS[0]}
+            if [ "$esito" != "0" ]; then
+              righe=$(grep -E "error:" /tmp/log-$schema.txt | sort -u | head -150 | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+              echo "::error title=xcodebuild $schema fallito::${righe}"
+              exit $esito
+            fi
+          done
 
   servizio-coach:
     name: Test del servizio coach

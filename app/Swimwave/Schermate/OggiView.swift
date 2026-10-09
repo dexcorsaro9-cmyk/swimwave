@@ -8,6 +8,7 @@ struct OggiView: View {
     @State private var daSeguire: AllenamentoDaSeguire?
     @State private var mostraPermessoSalute = false
     @State private var permessoSaluteProposto = false
+    @State private var cambiaAperto = false
 
     var body: some View {
         let profilo = stato.profilo
@@ -58,6 +59,19 @@ struct OggiView: View {
         .fullScreenCover(item: $daSeguire) { da in
             AllenamentoGuidatoView(workout: da.workout)
                 .environment(stato)
+        }
+        .sheet(isPresented: $cambiaAperto) {
+            CambiaAllenamentoView(
+                chiudi: { cambiaAperto = false },
+                inizia: { w in
+                    // Prima si chiude il foglio, poi si apre la schermata guidata (non si presentano insieme).
+                    cambiaAperto = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                        daSeguire = AllenamentoDaSeguire(workout: w)
+                    }
+                }
+            )
+            .environment(stato)
         }
         .sheet(isPresented: $mostraPermessoSalute) {
             PermessoSaluteView(onFine: { mostraPermessoSalute = false })
@@ -191,9 +205,42 @@ struct OggiView: View {
     private var allenamento: some View {
         if let w = stato.allenamentoDiOggi() {
             VStack(alignment: .leading, spacing: 14) {
-                Text("oggi.allenamento.titolo")
-                    .font(Tema.piccolo)
-                    .foregroundStyle(Tema.testoSecondario)
+                HStack(alignment: .center, spacing: 8) {
+                    Text("oggi.allenamento.titolo")
+                        .font(Tema.piccolo)
+                        .foregroundStyle(Tema.testoSecondario)
+                    Spacer(minLength: 8)
+                    Button {
+                        cambiaAperto = true
+                    } label: {
+                        Image(systemName: "arrow.left.arrow.right")
+                            .font(.system(.body, design: .rounded).weight(.bold))
+                            .foregroundStyle(Tema.testo)
+                            .frame(width: 44, height: 44)
+                            .background(Circle().fill(Tema.turchese.opacity(0.18)))
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel(Text("libreria.cambia"))
+                }
+                if sceltoPerOggi {
+                    HStack(spacing: 8) {
+                        Text("libreria.scelto")
+                            .font(Tema.piccolo.weight(.bold))
+                            .foregroundStyle(Tema.testoSecondario)
+                        Spacer(minLength: 8)
+                        Button {
+                            stato.annullaSceltaAllenamento()
+                            esitoInvio = nil
+                            // Il Watch torna all'allenamento proposto.
+                            _ = stato.inviaAlWatch()
+                        } label: {
+                            Text("libreria.tornaProposto")
+                                .font(Tema.piccolo.weight(.bold))
+                                .foregroundStyle(Tema.coralloOmbra)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
                 // Titolo e righe vengono da content/ (testo in italiano, non ancora localizzato).
                 Text(verbatim: w.titolo)
                     .font(Tema.titolo2)
@@ -203,18 +250,8 @@ struct OggiView: View {
                     Etichetta(contenuto: testo("oggi.metri", w.metriTotali))
                     Etichetta(contenuto: testo("oggi.vasca", w.vascaMetri))
                 }
-                ForEach(Array(w.blocchi.enumerated()), id: \.offset) { _, blocco in
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(verbatim: blocco.tipo.etichetta)
-                            .font(Tema.sottotitolo)
-                            .foregroundStyle(Tema.testo)
-                        ForEach(Array(blocco.serie.enumerated()), id: \.offset) { _, serie in
-                            Text(verbatim: w.descrizione(di: serie) { stato.contenuti.drill(id: $0)?.nome })
-                                .font(Tema.corpo)
-                                .foregroundStyle(Tema.testoSecondario)
-                        }
-                    }
-                }
+                // Righe delle serie, con il tempo obiettivo se l'utente ha fatto il test del ritmo.
+                AnteprimaAllenamento(workout: w)
                 Button {
                     daSeguire = AllenamentoDaSeguire(workout: w)
                 } label: {
@@ -244,9 +281,22 @@ struct OggiView: View {
                 Text("oggi.vuoto.testo")
                     .font(Tema.corpo)
                     .foregroundStyle(Tema.testoSecondario)
+                Button {
+                    cambiaAperto = true
+                } label: {
+                    Text("libreria.cambia")
+                }
+                .buttonStyle(.secondario)
+                .padding(.top, 4)
             }
             .carta()
         }
+    }
+
+    /// Vero se l'utente ha scelto lui l'allenamento di oggi (dalla libreria o chiedendolo al coach).
+    private var sceltoPerOggi: Bool {
+        guard stato.allenamentoScelto != nil, let giorno = stato.giornoAllenamentoScelto else { return false }
+        return giorno == (Calendar.italiano.ordinality(of: .day, in: .year, for: Date()) ?? 0)
     }
 
     private func messaggio(per esito: EsitoInvioWatch) -> String {
@@ -271,7 +321,7 @@ struct OggiView: View {
         guard !stato.permessoSaluteChiesto, !permessoSaluteProposto else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + secondi) {
             guard !stato.permessoSaluteChiesto, !permessoSaluteProposto,
-                  popup == nil, daSeguire == nil, !mostraPermessoSalute else { return }
+                  popup == nil, daSeguire == nil, !mostraPermessoSalute, !cambiaAperto else { return }
             permessoSaluteProposto = true
             mostraPermessoSalute = true
         }

@@ -12,7 +12,12 @@ struct TestRitmoView: View {
     @State private var secondi200 = 0
     @State private var minuti400: Int?
     @State private var secondi400 = 0
-    @State private var rifacendo = false
+    @State private var rifacendo: Bool
+
+    /// `rifacendo: true` apre subito il modulo per ripetere il test (dall'invito nel Percorso).
+    init(rifacendo: Bool = false) {
+        _rifacendo = State(initialValue: rifacendo)
+    }
 
     var body: some View {
         NavigationStack {

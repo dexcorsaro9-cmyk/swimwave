@@ -54,7 +54,7 @@ targets:
         LSRequiresIPhoneOS: true
         UILaunchScreen: {}
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
-        NSHealthShareUsageDescription: "Swimwave legge le tue nuotate da Apple Salute per mostrarti i progressi."
+        NSHealthShareUsageDescription: "Swimwave legge le tue nuotate da Apple Salute (distanza, durata, calorie, frequenza cardiaca e bracciate) per mostrarti i progressi."
         NSHealthUpdateUsageDescription: "Swimwave salva in Apple Salute gli allenamenti di nuoto che fai con il Watch."
         # URL https del servizio coach (server/coach), da impostare dopo il deploy. Vuoto = allenamenti fissi.
         SwimwaveCoachURL: ""
@@ -89,6 +89,8 @@ targets:
         WKCompanionAppBundleIdentifier: com.example.swimwave
         # Sessione di allenamento in background (HKWorkoutSession).
         WKBackgroundModes: [workout-processing]
+        # Acque libere: la distanza si misura con il GPS dell'orologio.
+        NSLocationWhenInUseUsageDescription: "Swimwave usa la posizione dell'orologio solo durante una nuotata in acque libere, per misurare la distanza."
         NSHealthShareUsageDescription: "Swimwave legge frequenza cardiaca e distanza a nuoto per guidarti durante l'allenamento."
         NSHealthUpdateUsageDescription: "Swimwave salva in Apple Salute gli allenamenti di nuoto che fai con il Watch."
     entitlements:

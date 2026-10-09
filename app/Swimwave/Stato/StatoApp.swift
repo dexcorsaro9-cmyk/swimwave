@@ -36,6 +36,13 @@ final class StatoApp {
     /// Allenamento generato dal servizio coach per `chiaveGenerato` (cambia ogni giorno o se cambia il profilo).
     var allenamentoGenerato: Workout?
     var chiaveGenerato: String?
+    /// Obiettivo personale di metri al mese (nil = nessuno).
+    var obiettivoMensileMetri: Int?
+    /// Commenti del coach sul mese, per mese ("2026-10"): si chiedono una volta e si ricordano.
+    var commentiMese: [String: String] = [:]
+    /// Allenamento scelto dall'utente per oggi (dalla libreria o chiesto al coach): vale fino a fine giornata.
+    var allenamentoScelto: Workout?
+    var giornoAllenamentoScelto: Int?
 
     // MARK: Non osservati
     // Le costanti (`let`) non sono mai osservate dalla macro @Observable: qui @ObservationIgnored serve solo per le `var`.
@@ -108,6 +115,8 @@ final class StatoApp {
         var ultimaLetturaSalute: Date?
         var allenamentoGenerato: Workout?
         var chiaveGenerato: String?
+        var obiettivoMensileMetri: Int?
+        var commentiMese: [String: String]?
     }
 
     private func carica() {
@@ -128,6 +137,8 @@ final class StatoApp {
         ultimaLetturaSalute = d.ultimaLetturaSalute
         allenamentoGenerato = d.allenamentoGenerato
         chiaveGenerato = d.chiaveGenerato
+        obiettivoMensileMetri = d.obiettivoMensileMetri
+        commentiMese = d.commentiMese ?? [:]
     }
 
     func salva() {
@@ -146,7 +157,9 @@ final class StatoApp {
             permessoSaluteChiesto: permessoSaluteChiesto,
             ultimaLetturaSalute: ultimaLetturaSalute,
             allenamentoGenerato: allenamentoGenerato,
-            chiaveGenerato: chiaveGenerato
+            chiaveGenerato: chiaveGenerato,
+            obiettivoMensileMetri: obiettivoMensileMetri,
+            commentiMese: commentiMese
         )
         if let data = try? JSONEncoder().encode(d) {
             defaults.set(data, forKey: StatoApp.chiaveDati)
@@ -171,6 +184,10 @@ final class StatoApp {
         ultimaLetturaSalute = nil
         allenamentoGenerato = nil
         chiaveGenerato = nil
+        obiettivoMensileMetri = nil
+        commentiMese = [:]
+        allenamentoScelto = nil
+        giornoAllenamentoScelto = nil
         cacheAllenamento = nil
         Task { await self.notifiche.cancellaTutti() }
     }
@@ -186,12 +203,48 @@ final class StatoApp {
 
     // MARK: Nuotate e obiettivo
 
+    /// Aggiunge una nuotata. Se c'è già (stesso id: la stessa nuotata arrivata dal Watch e da Salute) le due versioni
+    /// si uniscono: restano i valori già presenti e si completano i vuoti (calorie, frequenza cardiaca, vasche...).
     func registra(_ nuotata: NuotataCompletata) {
-        guard !nuotate.contains(where: { $0.id == nuotata.id }) else { return }
-        nuotate.append(nuotata)
+        if let i = nuotate.firstIndex(where: { $0.id == nuotata.id }) {
+            nuotate[i] = nuotate[i].unendo(nuotata)
+        } else {
+            nuotate.append(nuotata)
+        }
         nuotate.sort { $0.data > $1.data }
         salva()
         Task { await self.riprogrammaPromemoria() }
+    }
+
+    /// Sostituisce la nuotata con lo stesso id (per esempio dopo una modifica).
+    func aggiorna(nuotata: NuotataCompletata) {
+        guard let i = nuotate.firstIndex(where: { $0.id == nuotata.id }) else { return }
+        nuotate[i] = nuotata
+        nuotate.sort { $0.data > $1.data }
+        salva()
+    }
+
+    func elimina(nuotataConId id: UUID) {
+        nuotate.removeAll { $0.id == id }
+        salva()
+        Task { await self.riprogrammaPromemoria() }
+    }
+
+    /// L'orologio a volte sbaglia: l'utente corregge metri e durata. Da quel momento le altre fonti non li sovrascrivono.
+    func correggi(nuotataConId id: UUID, metri: Int, durataSecondi: Int) {
+        guard let i = nuotate.firstIndex(where: { $0.id == id }), metri >= 0, durataSecondi >= 0 else { return }
+        nuotate[i].metri = metri
+        nuotate[i].durataSecondi = durataSecondi
+        nuotate[i].corretta = true
+        salva()
+    }
+
+    /// Nota personale sulla nuotata; vuota (o solo spazi) la toglie.
+    func imposta(nota: String, perNuotata id: UUID) {
+        guard let i = nuotate.firstIndex(where: { $0.id == id }) else { return }
+        let pulita = nota.trimmingCharacters(in: .whitespacesAndNewlines)
+        nuotate[i].nota = pulita.isEmpty ? nil : String(pulita.prefix(500))
+        salva()
     }
 
     /// Risposta alla domanda di fine allenamento: "facile, giusta o dura?".
@@ -217,6 +270,79 @@ final class StatoApp {
     /// Settimane di fila con l'obiettivo raggiunto (vedi SerieSettimane).
     var serieSettimane: Int {
         SerieSettimane.settimaneDiFila(profilo: profilo, date: nuotate.map(\.data))
+    }
+
+    // MARK: Analisi
+
+    var records: RecordPersonali {
+        Record.calcola(nuotate: nuotate, testRitmo: testRitmo, profilo: profilo, calendar: .italiano)
+    }
+
+    /// Le medaglie ("traguardi"). Per la costanza conta la serie migliore mai raggiunta: interrompere la serie non toglie nulla.
+    var medaglie: [Medaglia] {
+        Medaglie.elenco(
+            nuotate: nuotate,
+            serieSettimane: max(serieSettimane, records.serieMassimaSettimane),
+            tappeSuperate: tappeSuperate,
+            testRitmo: testRitmo
+        )
+    }
+
+    func riepilogoAnno(_ anno: Int) -> RiepilogoAnno {
+        RiepilogoAnnuale.calcola(nuotate: nuotate, anno: anno, profilo: profilo, calendar: .italiano)
+    }
+
+    var anniConNuotate: [Int] {
+        RiepilogoAnnuale.anniConNuotate(nuotate, calendar: .italiano)
+    }
+
+    /// Migliori tempi su 100, 200, ... m a stile libero, dalle nuotate con i tempi delle vasche.
+    var miglioriTempi: [MigliorTempo] {
+        MiglioriTempi.calcola(nuotate: nuotate)
+    }
+
+    func celleCalendario(mese: Date) -> [CellaCalendario] {
+        CalendarioNuotate.celle(nuotate: nuotate, mese: mese, calendar: .italiano)
+    }
+
+    // MARK: Obiettivo mensile
+
+    var progressoMensile: ProgressoMetri? {
+        ObiettivoMensile.progresso(obiettivoMetri: obiettivoMensileMetri, nuotate: nuotate, rispetto: Date(), calendar: .italiano)
+    }
+
+    func imposta(obiettivoMensile metri: Int?) {
+        if let m = metri, !(ObiettivoMensile.minimo...ObiettivoMensile.massimo).contains(m) { return }
+        obiettivoMensileMetri = metri
+        salva()
+    }
+
+    // MARK: Commento del coach sul mese
+
+    static func chiaveMese(_ data: Date) -> String {
+        let c = Calendar.italiano
+        return String(format: "%04ld-%02ld", c.component(.year, from: data), c.component(.month, from: data))
+    }
+
+    func datiMese(rispetto data: Date = Date()) -> DatiMese {
+        DatiMese.calcola(nuotate: nuotate, profilo: profilo, rispetto: data, calendar: .italiano)
+    }
+
+    /// Il commento del coach sul mese, se l'utente ha acconsentito all'IA e il servizio risponde; altrimenti nil
+    /// (la schermata mostra allora una frase fissa). Ricordato per mese: si chiede una sola volta per mese e per numero di nuotate.
+    @MainActor
+    func commentoMese(rispetto data: Date = Date()) async -> String? {
+        guard consensoIA == true, let servizio = servizioCoach else { return nil }
+        let dati = datiMese(rispetto: data)
+        guard dati.nuotate > 0 else { return nil }
+        let chiave = "\(StatoApp.chiaveMese(data))|\(dati.nuotate)"
+        if let gia = commentiMese[chiave] { return gia }
+        guard let testo = try? await servizio.commentoMese(dati: dati, profilo: profilo) else { return nil }
+        let pulito = testo.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !pulito.isEmpty, pulito.count <= 400 else { return nil }
+        commentiMese[chiave] = pulito
+        salva()
+        return pulito
     }
 
     // MARK: Consensi
@@ -273,6 +399,7 @@ final class StatoApp {
     /// altrimenti un allenamento fisso adatto a livello, obiettivo e vasca. Cambia da un giorno all'altro.
     func allenamentoDiOggi(adesso: Date = Date()) -> Workout? {
         let (giorno, chiave) = chiaveOggi(adesso: adesso)
+        if let scelto = allenamentoScelto, giornoAllenamentoScelto == giorno { return scelto }
         if consensoIA == true, let generato = allenamentoGenerato, chiaveGenerato == chiave { return generato }
         if let cache = cacheAllenamento, cache.chiave == chiave { return cache.workout }
         let w = contenuti.scegliRiserva(profilo: profilo, scelta: giorno)
@@ -288,23 +415,76 @@ final class StatoApp {
         guard consensoIA == true, let servizio = servizioCoach, onboardingCompletato else { return }
         let (_, chiave) = chiaveOggi(adesso: adesso)
         if chiaveGenerato == chiave, allenamentoGenerato != nil { return }
-        var riepilogo: String?
-        if let s = ultimaSensazione { riepilogo = "ultimo allenamento: \(s.rawValue)" }
-        guard let w = try? await servizio.richiedi(profilo: profilo, riepilogo: riepilogo),
+        var richiesta = RichiestaAllenamento()
+        if let s = ultimaSensazione { richiesta.riepilogo = "ultimo allenamento: \(s.rawValue)" }
+        guard let w = try? await servizio.richiedi(profilo: profilo, richiesta: richiesta),
               WorkoutValidator.validate(w, allowedDrills: contenuti.drillAmmessi).isEmpty else { return }
         allenamentoGenerato = Riserva.adattaVasca(w, vascaMetri: profilo.vascaMetri)
         chiaveGenerato = chiave
         salva()
     }
 
+    /// Tempo obiettivo per ogni ripetizione, se l'utente ha fatto il test del ritmo e le zone sono visibili.
+    func targetRitmo(per workout: Workout) -> [Int?] {
+        TargetRitmo.target(per: PianoAllenamento(workout: workout),
+                           ritmoCriticoPer100: testRitmo?.ritmoCriticoPer100,
+                           zone: contenuti.zone)
+    }
+
     func inviaAlWatch() -> EsitoInvioWatch {
         guard let w = allenamentoDiOggi() else { return .errore }
-        return watch.invia(allenamento: w)
+        return watch.invia(allenamento: w, target: targetRitmo(per: w))
     }
+
+    // MARK: Libreria e richieste al coach
+
+    /// Tutti gli allenamenti approvati, adattati alla vasca dell'utente, per scegliere un allenamento diverso da quello di oggi.
+    /// Ogni elemento ha la voce dell'indice (livello, obiettivi) e l'allenamento già validato.
+    func libreria() -> [(voce: VoceAllenamento, workout: Workout)] {
+        contenuti.voci.compactMap { voce in
+            guard let w = contenuti.workout(della: voce) else { return nil }
+            return (voce, Riserva.adattaVasca(w, vascaMetri: profilo.vascaMetri))
+        }
+    }
+
+    /// L'utente sceglie un allenamento per oggi (dalla libreria o chiesto al coach): sostituisce quello proposto fino a fine giornata.
+    func scegli(allenamento: Workout, adesso: Date = Date()) {
+        allenamentoScelto = allenamento
+        giornoAllenamentoScelto = Calendar.italiano.ordinality(of: .day, in: .year, for: adesso) ?? 0
+        _ = watch.invia(allenamento: allenamento, target: targetRitmo(per: allenamento))
+    }
+
+    /// Torna all'allenamento proposto.
+    func annullaSceltaAllenamento() {
+        allenamentoScelto = nil
+        giornoAllenamentoScelto = nil
+    }
+
+    /// Chiede al coach un allenamento con durata e obiettivo scelti. Serve il consenso all'IA e il servizio; nil se non riesce
+    /// (l'app propone allora la libreria). La risposta passa dallo stesso validatore degli altri allenamenti.
+    @MainActor
+    func chiediAlCoach(_ richiesta: RichiestaAllenamento) async -> Workout? {
+        guard consensoIA == true, let servizio = servizioCoach, onboardingCompletato else { return nil }
+        var r = richiesta
+        if let d = r.durataMinuti, !RichiestaAllenamento.durateAmmesse.contains(d) { r.durataMinuti = nil }
+        if r.riepilogo == nil, let s = ultimaSensazione { r.riepilogo = "ultimo allenamento: \(s.rawValue)" }
+        guard let w = try? await servizio.richiedi(profilo: profilo, richiesta: r),
+              WorkoutValidator.validate(w, allowedDrills: contenuti.drillAmmessi).isEmpty else { return nil }
+        return Riserva.adattaVasca(w, vascaMetri: profilo.vascaMetri)
+    }
+
+    /// Quante settimane fa è stato fatto l'ultimo test del ritmo (nil se non fatto).
+    var settimaneDalTestRitmo: Int? {
+        guard let t = testRitmo else { return nil }
+        return Calendar.italiano.dateComponents([.weekOfYear], from: t.data, to: Date()).weekOfYear
+    }
+
+    /// Dopo quante settimane si propone di rifare il test. PROVVISORIO: scelta nostra, da confermare con l'istruttore.
+    static let settimanePerRifareTest = 8
 
     // MARK: Apple Salute
 
-    /// Chiede il permesso (una volta) e importa le nuotate nuove. Le nuotate già note (stesso id) non si duplicano.
+    /// Chiede il permesso (una volta) e importa le nuotate nuove. Le nuotate già note (stesso id) non si duplicano: si uniscono.
     @MainActor
     func importaDaSalute(chiediPermesso: Bool = false) async {
         if !permessoSaluteChiesto {
@@ -316,7 +496,8 @@ final class StatoApp {
         let dal = ultimaLetturaSalute ?? Calendar.italiano.date(byAdding: .day, value: -90, to: Date()) ?? Date.distantPast
         let lette = await lettoreSalute.leggiNuotate(dal: dal)
         ultimaLetturaSalute = Date()
-        for n in lette where !nuotate.contains(where: { $0.id == n.id }) {
+        // Anche le nuotate già note passano da `registra`, che le unisce e completa le metriche mancanti.
+        for n in lette {
             var nuova = n
             if nuova.origine == nil { nuova.origine = .salute }
             registra(nuova)

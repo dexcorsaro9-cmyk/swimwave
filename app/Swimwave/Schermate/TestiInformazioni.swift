@@ -35,7 +35,7 @@ enum TestiInformazioni {
             titolo: "Come preparo i tuoi allenamenti",
             paragrafi: [
                 "Se acconsenti, il nostro servizio usa un sistema di intelligenza artificiale di un fornitore esterno per preparare l'allenamento del giorno.",
-                "Al servizio arrivano solo: il tuo livello, l'obiettivo, la lunghezza della vasca, il ritmo scelto, il coach scelto e come ti è sembrato l'ultimo allenamento (facile, giusto o duro).",
+                "Al servizio arrivano solo: il tuo livello, l'obiettivo, la lunghezza della vasca, il ritmo scelto, il coach scelto e come ti è sembrato l'ultimo allenamento (facile, giusto o duro). Se li scegli, anche la durata e l'obiettivo di un allenamento che chiedi al coach. Per il commento sul mese arrivano solo alcuni totali: quante nuotate, quanti metri e minuti, le settimane di fila e quante nuotate ti sono sembrate facili, giuste o dure.",
                 "Non arrivano mai il tuo nome né i dati grezzi di Apple Salute.",
                 "L'intelligenza artificiale non inventa gli esercizi: sceglie da un elenco di esercizi fissi e segue regole scritte da un istruttore di nuoto. L'app controlla ogni allenamento prima di mostrartelo. Se qualcosa non va, o manca la connessione, ricevi un allenamento fisso di riserva.",
                 "Se preferisci di no, ricevi allenamenti fissi preparati dal nostro team. Puoi cambiare idea quando vuoi, in Profilo."

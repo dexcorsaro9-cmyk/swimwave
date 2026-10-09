@@ -8,7 +8,7 @@
 - Due coach con immagini, espressioni e avatar (`assets/coach/`)
 - Specifiche: esperienza, primo avvio, popup, grafica (`docs/`)
 - Mockup dell'interfaccia (canvas dei mockup)
-- Scheletro dell'app SwiftUI iPhone + Watch e pacchetto condiviso (`app/`, `Packages/`), **non compilato**
+- App SwiftUI iPhone + Watch e pacchetto condiviso (`app/`, `Packages/`), **scritta per intero ma mai compilata**: 18+, consenso IA, permessi, allenamento guidato su iPhone e Watch (pausa/ripresa, nuoto libero, acque libere), domanda facile/giusta/dura, storico con dettaglio, calendario e confronto, andamento, riepiloghi, record e migliori tempi, traguardi, il tuo anno, obiettivo mensile, serie di settimane, test del ritmo con zone, libreria di allenamenti, richiesta al coach, esercizi a secco, Spronami, tema scuro, icone
 - Bozze legali e checklist di conformità (`docs/legale/`)
 
 ## Prossimi passi (versione 1: iPhone + Apple Watch)
@@ -16,7 +16,7 @@
 1. **Revisione dei contenuti** da parte dell'istruttore e passaggio ad `approvato` (senza contenuti approvati l'app in Release non mostra allenamenti).
 2. **Compilare e provare l'app** con Codemagic (`codemagic.yaml`, vedi `app/README.md`): prima il workflow `test`, poi `ios-testflight`; correggere gli errori di compilazione.
 3. **Collegare l'app al servizio coach**: hosting, chiave del modello, schermata di consenso prima della prima richiesta all'IA.
-4. **Completare l'app**: permessi spiegati dal coach (Salute, notifiche), lettura delle nuotate, domanda facile/giusta/dura, promemoria per Spronami, verifica dei 18 anni, icone, tema scuro.
+4. ~~Completare l'app~~ fatto nel codice (vedi sopra); resta da provarlo: tutto è nella versione 1, non c'è una seconda versione per queste funzioni.
 5. **Watch in acqua**: prova con l'orologio fisico per 2-3 settimane via TestFlight, annotando cosa non funziona.
 6. **Parere legale** su AI Act, privacy, regole di Apple; poi pubblicare informativa e termini.
 7. **Abbonamento** con StoreKit 2, dopo il foglio ricavi/costi.
@@ -30,7 +30,6 @@ Note tecniche:
 ## Versione 2
 
 - Analisi video con IA (dopo la prova su video reali)
-- Analisi dettagliata dei dati (bracciate, passo, split)
 - Android con Health Connect
 - Lingue: inglese e spagnolo
 - Voce dei coach (costi e trasparenza da valutare)

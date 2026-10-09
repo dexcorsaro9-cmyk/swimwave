@@ -6,9 +6,15 @@ import SwimwaveCore
 ///  - Recupero: i secondi che mancano, in turchese.
 /// Pagina 1: allenamento. Pagina 2: controlli (pausa/riprendi e termina). In pausa si legge "In pausa" e i numeri sono attenuati.
 struct AllenamentoView: View {
+    @EnvironmentObject private var manager: WorkoutManager
+
     var body: some View {
         TabView {
-            PaginaAllenamento()
+            if manager.modo == .libera {
+                PaginaLibera()
+            } else {
+                PaginaAllenamento()
+            }
             ControlliView()
         }
         .tabViewStyle(.page)
@@ -100,6 +106,15 @@ struct PaginaAllenamento: View {
                 Text(LocalizedStringKey(chiaveStile(passo.stile)))
                     .font(.system(.footnote, design: .rounded).weight(.semibold))
                     .foregroundStyle(.secondary)
+                // Tempo obiettivo della ripetizione, solo se l'iPhone lo ha mandato. È un riferimento: nessun colore di giudizio.
+                if let obiettivo = manager.obiettivoCorrente {
+                    Text(verbatim: String(format: NSLocalizedString("watch.obiettivo", comment: ""),
+                                          formattaObiettivo(obiettivo)))
+                        .font(.system(.footnote, design: .rounded).weight(.semibold))
+                        .monospacedDigit()
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
+                }
             }
         }
     }
@@ -112,6 +127,50 @@ struct PaginaAllenamento: View {
         case .delfino: return "stile.delfino"
         case .misto: return "stile.misto"
         }
+    }
+}
+
+/// Nuotata libera: nessuna scheda. Metri grandi, cronometro sotto, ambiente piccolo in alto.
+/// Pausa e termina sono nella pagina dei controlli (la stessa dell'allenamento guidato).
+struct PaginaLibera: View {
+    @EnvironmentObject private var manager: WorkoutManager
+
+    var body: some View {
+        VStack(spacing: 2) {
+            if manager.inPausa {
+                Text("watch.inpausa")
+                    .font(.system(.headline, design: .rounded).weight(.heavy))
+                    .foregroundStyle(WatchTema.corallo)
+                    .lineLimit(1)
+            } else {
+                Text(verbatim: manager.ambiente == .vasca
+                     ? String(format: NSLocalizedString("watch.libera.vasca", comment: ""), manager.vascaMetriScelti)
+                     : NSLocalizedString("watch.libera.acque", comment: ""))
+                    .font(.system(.footnote, design: .rounded).weight(.semibold))
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
+            }
+
+            VStack(spacing: 0) {
+                Text(verbatim: "\(Int(manager.metriTotali.rounded()))")
+                    .font(.system(size: 64, weight: .heavy, design: .rounded))
+                    .foregroundStyle(WatchTema.turchese)
+                    .monospacedDigit()
+                    .minimumScaleFactor(0.5)
+                    .lineLimit(1)
+                Text("watch.metri")
+                    .font(.system(.footnote, design: .rounded).weight(.semibold))
+                    .foregroundStyle(.secondary)
+            }
+            .opacity(manager.inPausa ? 0.35 : 1)
+
+            Text(verbatim: formattaTempo(manager.tempoTrascorso))
+                .font(.system(.title2, design: .rounded).weight(.bold))
+                .monospacedDigit()
+                .padding(.top, 4)
+                .opacity(manager.inPausa ? 0.35 : 1)
+        }
+        .padding(.horizontal, 4)
     }
 }
 

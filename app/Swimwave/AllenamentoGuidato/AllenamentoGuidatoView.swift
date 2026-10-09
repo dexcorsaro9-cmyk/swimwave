@@ -66,6 +66,8 @@ private struct SchermataGuidata: View {
     @State private var adesso = Date()
     @State private var confermaTermina = false
     @State private var concluso = false
+    /// Tempo obiettivo per ogni ripetizione del piano (nil dove non c'è: niente test, altro stile, nessuna intensità).
+    @State private var tempiObiettivo: [Int?] = []
 
     private let orologio = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
 
@@ -101,6 +103,8 @@ private struct SchermataGuidata: View {
         .onAppear {
             // Lo schermo resta acceso finché la schermata è aperta.
             UIApplication.shared.isIdleTimerDisabled = true
+            // Stesso piano e stesso ordine della sessione: l'indice del passo corrente è l'indice del tempo obiettivo.
+            tempiObiettivo = stato.targetRitmo(per: workout)
         }
         .onDisappear {
             UIApplication.shared.isIdleTimerDisabled = false
@@ -201,6 +205,13 @@ private struct SchermataGuidata: View {
                 Text(verbatim: metriEVasche(passo))
                     .font(Tema.sottotitolo)
                     .foregroundStyle(Tema.testoSecondario)
+                // Solo un riferimento, senza giudizio: nessun colore di successo o di errore.
+                if let obiettivo = tempoObiettivoCorrente {
+                    Text(verbatim: TempoObiettivo.riga(obiettivo))
+                        .font(Tema.piccolo)
+                        .monospacedDigit()
+                        .foregroundStyle(Tema.testoSecondario)
+                }
                 statoPausa
             }
             .frame(maxWidth: .infinity)
@@ -335,6 +346,13 @@ private struct SchermataGuidata: View {
         let lunghezza = max(1, workout.vascaMetri)
         let vasche = max(1, passo.distanzaMetri / lunghezza)
         return vasche == 1 ? testo("guidato.metriVasca", vasche) : testo("guidato.metriVasche", vasche)
+    }
+
+    /// Il tempo obiettivo della ripetizione in corso, se c'è.
+    private var tempoObiettivoCorrente: Int? {
+        let i = sessione.avanzamento.indice
+        guard tempiObiettivo.indices.contains(i) else { return nil }
+        return tempiObiettivo[i]
     }
 
     private func descrizioneBreve(_ passo: Passo) -> String {

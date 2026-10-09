@@ -1,6 +1,611 @@
 {
   "sourceLanguage": "it",
   "strings": {
+    "andamento.metri.accessibilita": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grafico dei metri nuotati: %@ m in totale; il periodo con più metri ne ha %@"
+          }
+        }
+      }
+    },
+    "andamento.metri.titoloMese": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metri per mese"
+          }
+        }
+      }
+    },
+    "andamento.metri.titoloSettimana": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metri per settimana"
+          }
+        }
+      }
+    },
+    "andamento.periodo.mesi12": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ultimi 12 mesi"
+          }
+        }
+      }
+    },
+    "andamento.periodo.mesi6": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ultimi 6 mesi"
+          }
+        }
+      }
+    },
+    "andamento.periodo.settimane8": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ultime 8 settimane"
+          }
+        }
+      }
+    },
+    "andamento.periodo.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Periodo"
+          }
+        }
+      }
+    },
+    "andamento.riepilogo.metri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metri"
+          }
+        }
+      }
+    },
+    "andamento.riepilogo.nuotate": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuotate"
+          }
+        }
+      }
+    },
+    "andamento.riepilogo.tempo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempo in acqua"
+          }
+        }
+      }
+    },
+    "andamento.ritmo.accessibilita": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grafico del ritmo medio ogni 100 m: %ld nuotate, tra %@ e %@"
+          }
+        }
+      }
+    },
+    "andamento.ritmo.nota": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ritmo medio di ogni nuotata di almeno 200 m, in minuti e secondi ogni 100 m. In alto i ritmi più veloci."
+          }
+        }
+      }
+    },
+    "andamento.ritmo.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ritmo medio ogni 100 m"
+          }
+        }
+      }
+    },
+    "andamento.ritmo.vuoto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il ritmo compare quando ci sono nuotate di almeno 200 m con un tempo registrato."
+          }
+        }
+      }
+    },
+    "andamento.sottotitolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I tuoi metri e il tuo ritmo nel tempo"
+          }
+        }
+      }
+    },
+    "andamento.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Andamento"
+          }
+        }
+      }
+    },
+    "andamento.vasca.25": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "25 m"
+          }
+        }
+      }
+    },
+    "andamento.vasca.50": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "50 m"
+          }
+        }
+      }
+    },
+    "andamento.vasca.acqueLibere": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acque libere"
+          }
+        }
+      }
+    },
+    "andamento.vasca.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vasca"
+          }
+        }
+      }
+    },
+    "andamento.vasca.tutte": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tutte le vasche"
+          }
+        }
+      }
+    },
+    "andamento.vuoto.filtro": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessuna nuotata con questa scelta di periodo e di vasca."
+          }
+        }
+      }
+    },
+    "andamento.vuoto.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I grafici compariranno dopo le tue prime nuotate."
+          }
+        }
+      }
+    },
+    "anno.carta.giorni": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld giorni in acqua"
+          }
+        }
+      }
+    },
+    "anno.carta.nuotate": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld nuotate"
+          }
+        }
+      }
+    },
+    "anno.carta.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il mio anno in acqua, %ld"
+          }
+        }
+      }
+    },
+    "anno.condividi.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il mio %ld in acqua: %@ in %ld nuotate, con Swimwave."
+          }
+        }
+      }
+    },
+    "anno.giorni": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Giorni in acqua"
+          }
+        }
+      }
+    },
+    "anno.menu": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anno"
+          }
+        }
+      }
+    },
+    "anno.meseMigliore": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il mese con più metri"
+          }
+        }
+      }
+    },
+    "anno.metri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metri nuotati"
+          }
+        }
+      }
+    },
+    "anno.nuotate": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuotate"
+          }
+        }
+      }
+    },
+    "anno.paragone.km.molte": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "È come percorrere un tratto di 1 km, %ld volte."
+          }
+        }
+      }
+    },
+    "anno.paragone.km.una": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "È come percorrere un tratto di 1 km una volta."
+          }
+        }
+      }
+    },
+    "anno.paragone.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per farti un'idea"
+          }
+        }
+      }
+    },
+    "anno.paragone.vasche": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sono %@ vasche da 50 m, una dopo l'altra."
+          }
+        }
+      }
+    },
+    "anno.piuLunga": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La nuotata più lunga"
+          }
+        }
+      }
+    },
+    "anno.settimane": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settimane con obiettivo"
+          }
+        }
+      }
+    },
+    "anno.tempo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempo in acqua"
+          }
+        }
+      }
+    },
+    "anno.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il tuo anno"
+          }
+        }
+      }
+    },
+    "anno.vuoto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non ci sono ancora nuotate in questo anno. Quando vorrai, si comincia."
+          }
+        }
+      }
+    },
+    "asecco.attenzione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attenzione a"
+          }
+        }
+      }
+    },
+    "asecco.avviso": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esercizi leggeri: fermati se senti dolore e, se persiste, senti un medico."
+          }
+        }
+      }
+    },
+    "asecco.esecuzione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Come si fa"
+          }
+        }
+      }
+    },
+    "asecco.gruppo.altri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Altri esercizi"
+          }
+        }
+      }
+    },
+    "asecco.gruppo.core": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Core"
+          }
+        }
+      }
+    },
+    "asecco.gruppo.gambe": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gambe"
+          }
+        }
+      }
+    },
+    "asecco.gruppo.mobilita": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mobilità"
+          }
+        }
+      }
+    },
+    "asecco.gruppo.spalle": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spalle"
+          }
+        }
+      }
+    },
+    "asecco.ripetizioni": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quante volte"
+          }
+        }
+      }
+    },
+    "asecco.scopo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A cosa serve"
+          }
+        }
+      }
+    },
+    "asecco.sottotitolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mobilità, spalle, core e gambe, fuori dall'acqua"
+          }
+        }
+      }
+    },
+    "asecco.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esercizi a secco"
+          }
+        }
+      }
+    },
+    "asecco.vuoto.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Qui troverai esercizi leggeri da fare fuori dall'acqua. Li stiamo ancora preparando."
+          }
+        }
+      }
+    },
+    "asecco.vuoto.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gli esercizi arrivano presto"
+          }
+        }
+      }
+    },
     "avatar.benvenuto": {
       "extractionState": "manual",
       "localizations": {
@@ -111,6 +716,248 @@
         }
       }
     },
+    "calendario.cella.altre": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, %ld nuotate"
+          }
+        }
+      }
+    },
+    "calendario.cella.una": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, 1 nuotata"
+          }
+        }
+      }
+    },
+    "calendario.mesePrecedente": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mese precedente"
+          }
+        }
+      }
+    },
+    "calendario.meseSuccessivo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mese successivo"
+          }
+        }
+      }
+    },
+    "calendario.oggi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "oggi"
+          }
+        }
+      }
+    },
+    "calendario.totale.altre": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld nuotate · %@ m"
+          }
+        }
+      }
+    },
+    "calendario.totale.nessuna": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessuna nuotata in questo mese"
+          }
+        }
+      }
+    },
+    "calendario.totale.una": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 nuotata · %@ m"
+          }
+        }
+      }
+    },
+    "chiedi.attesa": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sto preparando il tuo allenamento…"
+          }
+        }
+      }
+    },
+    "chiedi.consenso": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per scriverti un allenamento su misura mi serve l'uso dell'IA. Se vuoi, lo attivi in Profilo, quando preferisci: nessuna fretta."
+          }
+        }
+      }
+    },
+    "chiedi.consenso.libreria": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intanto scegli dalla libreria"
+          }
+        }
+      }
+    },
+    "chiedi.durata.coach": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Come vuoi, decide il coach"
+          }
+        }
+      }
+    },
+    "chiedi.durata.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quanto tempo hai?"
+          }
+        }
+      }
+    },
+    "chiedi.fallito.libreria": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apri la libreria"
+          }
+        }
+      }
+    },
+    "chiedi.fallito.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non riesco a prepararlo adesso: ti propongo quelli della libreria."
+          }
+        }
+      }
+    },
+    "chiedi.intro": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dimmi come lo vuoi: preparo un allenamento solo per oggi."
+          }
+        }
+      }
+    },
+    "chiedi.obiettivo.comeSempre": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Come sempre"
+          }
+        }
+      }
+    },
+    "chiedi.obiettivo.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Su cosa vuoi lavorare?"
+          }
+        }
+      }
+    },
+    "chiedi.prepara": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prepara l'allenamento"
+          }
+        }
+      }
+    },
+    "chiedi.preparaAncora": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preparane un altro"
+          }
+        }
+      }
+    },
+    "chiedi.risultato.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ecco il tuo allenamento"
+          }
+        }
+      }
+    },
+    "chiedi.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chiedi al coach"
+          }
+        }
+      }
+    },
     "coach.presentazione.donna": {
       "extractionState": "manual",
       "localizations": {
@@ -210,6 +1057,204 @@
         }
       }
     },
+    "condividi.ritmo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ogni 100 m"
+          }
+        }
+      }
+    },
+    "condividi.tempo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempo"
+          }
+        }
+      }
+    },
+    "condividi.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ · %@ m · %@"
+          }
+        }
+      }
+    },
+    "condividi.unita.metri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "m"
+          }
+        }
+      }
+    },
+    "confronto.diff.bpm": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@%ld bpm"
+          }
+        }
+      }
+    },
+    "confronto.diff.kcal": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@%@ kcal"
+          }
+        }
+      }
+    },
+    "confronto.diff.metri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@%@ m"
+          }
+        }
+      }
+    },
+    "confronto.diff.ritmo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@%@ ogni 100 m"
+          }
+        }
+      }
+    },
+    "confronto.nota": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La differenza è calcolata come B meno A."
+          }
+        }
+      }
+    },
+    "confronto.riga.bracciate": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bracciate per vasca"
+          }
+        }
+      }
+    },
+    "confronto.riga.calorie": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calorie"
+          }
+        }
+      }
+    },
+    "confronto.riga.frequenza": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frequenza cardiaca media"
+          }
+        }
+      }
+    },
+    "confronto.riga.metri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metri"
+          }
+        }
+      }
+    },
+    "confronto.riga.ritmo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ritmo ogni 100 m"
+          }
+        }
+      }
+    },
+    "confronto.riga.tempo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempo"
+          }
+        }
+      }
+    },
+    "confronto.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confronto"
+          }
+        }
+      }
+    },
+    "confronto.uguale": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uguale"
+          }
+        }
+      }
+    },
+    "confronto.voiceover": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: A %@, B %@, differenza %@"
+          }
+        }
+      }
+    },
     "consenso.cambio": {
       "extractionState": "manual",
       "localizations": {
@@ -227,7 +1272,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Al servizio che li prepara arrivano solo il tuo livello, l'obiettivo, la vasca, il ritmo, il coach scelto e come ti è sembrato l'ultimo allenamento. Mai il tuo nome."
+            "value": "Al servizio che li prepara arrivano solo il tuo livello, l'obiettivo, la vasca, il ritmo, il coach scelto e come ti è sembrato l'ultimo allenamento; e, se li scegli, la durata e l'obiettivo di quell'allenamento. Per il commento sul tuo mese arrivano solo alcuni totali: quante nuotate, quanti metri e minuti, le settimane di fila e quante nuotate ti sono sembrate facili, giuste o dure. Mai il tuo nome."
           }
         }
       }
@@ -238,7 +1283,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sono %@, un personaggio virtuale: non sono una persona reale. Gli allenamenti li preparo con l'aiuto dell'intelligenza artificiale."
+            "value": "Sono %@, un personaggio virtuale: non sono una persona reale. Gli allenamenti e il commento sul tuo mese li preparo con l'aiuto dell'intelligenza artificiale."
           }
         }
       }
@@ -260,7 +1305,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Se preferisci di no, nessun problema: ricevi allenamenti fissi preparati dal nostro team."
+            "value": "Se preferisci di no, nessun problema: ricevi allenamenti fissi preparati dal nostro team e una frase fissa al posto del commento sul mese."
           }
         }
       }
@@ -294,6 +1339,699 @@
           "stringUnit": {
             "state": "translated",
             "value": "Va bene"
+          }
+        }
+      }
+    },
+    "dettaglio.ambiente.acqueLibere": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acque libere"
+          }
+        }
+      }
+    },
+    "dettaglio.ambiente.vasca": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In vasca"
+          }
+        }
+      }
+    },
+    "dettaglio.ambiente.vascaDa": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vasca da %ld m"
+          }
+        }
+      }
+    },
+    "dettaglio.condividi.immagine": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Condividi come immagine"
+          }
+        }
+      }
+    },
+    "dettaglio.condividi.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Condividi come testo"
+          }
+        }
+      }
+    },
+    "dettaglio.correggi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Correggi metri e durata"
+          }
+        }
+      }
+    },
+    "dettaglio.correggi.metri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metri"
+          }
+        }
+      }
+    },
+    "dettaglio.correggi.minuti": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minuti"
+          }
+        }
+      }
+    },
+    "dettaglio.correggi.salva": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salva"
+          }
+        }
+      }
+    },
+    "dettaglio.correggi.secondi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Secondi"
+          }
+        }
+      }
+    },
+    "dettaglio.correggi.spiegazione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se l'orologio ha sbagliato, scegli i valori giusti. Da ora restano questi."
+          }
+        }
+      }
+    },
+    "dettaglio.correggi.valoreMinuti": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld min"
+          }
+        }
+      }
+    },
+    "dettaglio.correggi.valoreSecondi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld s"
+          }
+        }
+      }
+    },
+    "dettaglio.corretta": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Corretta da te"
+          }
+        }
+      }
+    },
+    "dettaglio.elimina": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elimina nuotata"
+          }
+        }
+      }
+    },
+    "dettaglio.elimina.conferma": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elimina"
+          }
+        }
+      }
+    },
+    "dettaglio.elimina.messaggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non si può annullare."
+          }
+        }
+      }
+    },
+    "dettaglio.elimina.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vuoi eliminare questa nuotata?"
+          }
+        }
+      }
+    },
+    "dettaglio.etichetta.bracciate": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bracciate"
+          }
+        }
+      }
+    },
+    "dettaglio.etichetta.bracciatePerVasca": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bracciate per vasca"
+          }
+        }
+      }
+    },
+    "dettaglio.etichetta.calorie": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calorie"
+          }
+        }
+      }
+    },
+    "dettaglio.etichetta.frequenza": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Battiti al minuto (media)"
+          }
+        }
+      }
+    },
+    "dettaglio.etichetta.metri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metri"
+          }
+        }
+      }
+    },
+    "dettaglio.etichetta.ritmo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ogni 100 m"
+          }
+        }
+      }
+    },
+    "dettaglio.etichetta.tempo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempo"
+          }
+        }
+      }
+    },
+    "dettaglio.nota.conteggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld / %ld"
+          }
+        }
+      }
+    },
+    "dettaglio.nota.salva": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salva nota"
+          }
+        }
+      }
+    },
+    "dettaglio.nota.segnaposto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scrivi cosa vuoi ricordare di questa nuotata"
+          }
+        }
+      }
+    },
+    "dettaglio.nota.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La tua nota"
+          }
+        }
+      }
+    },
+    "dettaglio.origine.iphone": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iPhone"
+          }
+        }
+      }
+    },
+    "dettaglio.origine.salute": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Salute"
+          }
+        }
+      }
+    },
+    "dettaglio.origine.watch": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Watch"
+          }
+        }
+      }
+    },
+    "dettaglio.swolf.nota": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "È il tempo di una vasca in secondi più le bracciate: più è basso, più sei efficiente."
+          }
+        }
+      }
+    },
+    "dettaglio.swolf.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SWOLF indicativo"
+          }
+        }
+      }
+    },
+    "dettaglio.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuotata"
+          }
+        }
+      }
+    },
+    "dettaglio.titolo.predefinito": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuotata"
+          }
+        }
+      }
+    },
+    "dettaglio.tratti.asse": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tratto"
+          }
+        }
+      }
+    },
+    "dettaglio.tratti.grafico": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempo di ogni tratto, in secondi"
+          }
+        }
+      }
+    },
+    "dettaglio.tratti.medio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempo medio per tratto"
+          }
+        }
+      }
+    },
+    "dettaglio.tratti.numero": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tratto %ld"
+          }
+        }
+      }
+    },
+    "dettaglio.tratti.piuLenta": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tratto più lento"
+          }
+        }
+      }
+    },
+    "dettaglio.tratti.piuVeloce": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tratto più veloce"
+          }
+        }
+      }
+    },
+    "dettaglio.tratti.senzaBracciate": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le bracciate tratto per tratto non sono disponibili."
+          }
+        }
+      }
+    },
+    "dettaglio.tratti.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tratti"
+          }
+        }
+      }
+    },
+    "dettaglio.tratti.tutti": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tutti i tratti"
+          }
+        }
+      }
+    },
+    "dettaglio.tratti.valore": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tratto %ld · %@"
+          }
+        }
+      }
+    },
+    "dettaglio.valore.bpm": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld bpm"
+          }
+        }
+      }
+    },
+    "dettaglio.valore.kcal": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ kcal"
+          }
+        }
+      }
+    },
+    "dettaglio.valore.metri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ m"
+          }
+        }
+      }
+    },
+    "dettaglio.valore.ritmo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ / 100 m"
+          }
+        }
+      }
+    },
+    "dettaglio.vasche.asse": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vasca"
+          }
+        }
+      }
+    },
+    "dettaglio.vasche.assePassi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Secondi"
+          }
+        }
+      }
+    },
+    "dettaglio.vasche.grafico": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempo di ogni vasca, in secondi"
+          }
+        }
+      }
+    },
+    "dettaglio.vasche.medio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempo medio per vasca"
+          }
+        }
+      }
+    },
+    "dettaglio.vasche.numero": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vasca %ld"
+          }
+        }
+      }
+    },
+    "dettaglio.vasche.piuLenta": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vasca più lenta"
+          }
+        }
+      }
+    },
+    "dettaglio.vasche.piuVeloce": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vasca più veloce"
+          }
+        }
+      }
+    },
+    "dettaglio.vasche.secondi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ s"
+          }
+        }
+      }
+    },
+    "dettaglio.vasche.senzaBracciate": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le bracciate vasca per vasca non sono disponibili."
+          }
+        }
+      }
+    },
+    "dettaglio.vasche.senzaTempi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I tempi delle vasche non sono disponibili."
+          }
+        }
+      }
+    },
+    "dettaglio.vasche.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vasche"
+          }
+        }
+      }
+    },
+    "dettaglio.vasche.tutte": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tutte le vasche"
+          }
+        }
+      }
+    },
+    "dettaglio.vasche.valore": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vasca %ld · %@"
           }
         }
       }
@@ -826,6 +2564,281 @@
         }
       }
     },
+    "libreria.cambia": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cambia allenamento"
+          }
+        }
+      }
+    },
+    "libreria.cambia.coach.sottotitolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mi dici quanto tempo hai e su cosa vuoi lavorare, e lo preparo per te."
+          }
+        }
+      }
+    },
+    "libreria.cambia.coach.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chiedi al coach"
+          }
+        }
+      }
+    },
+    "libreria.cambia.libreria.sottotitolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Allenamenti già pronti, per livello e durata."
+          }
+        }
+      }
+    },
+    "libreria.cambia.libreria.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scegli dalla libreria"
+          }
+        }
+      }
+    },
+    "libreria.durata.da30a45": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30–45 min"
+          }
+        }
+      }
+    },
+    "libreria.durata.fino30": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fino a 30 min"
+          }
+        }
+      }
+    },
+    "libreria.durata.oltre45": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oltre 45 min"
+          }
+        }
+      }
+    },
+    "libreria.durata.tutte": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tutte le durate"
+          }
+        }
+      }
+    },
+    "libreria.filtro.durata": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durata"
+          }
+        }
+      }
+    },
+    "libreria.filtro.livello": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Livello"
+          }
+        }
+      }
+    },
+    "libreria.filtro.tuttiLivelli": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tutti i livelli"
+          }
+        }
+      }
+    },
+    "libreria.gruppo.altri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Altri allenamenti"
+          }
+        }
+      }
+    },
+    "libreria.gruppo.dimagrimento": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dimagrimento"
+          }
+        }
+      }
+    },
+    "libreria.gruppo.resistenza": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resistenza"
+          }
+        }
+      }
+    },
+    "libreria.gruppo.tecnica": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tecnica"
+          }
+        }
+      }
+    },
+    "libreria.livello.intermedio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intermedio"
+          }
+        }
+      }
+    },
+    "libreria.livello.principiante": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Principiante"
+          }
+        }
+      }
+    },
+    "libreria.nessunRisultato": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessun allenamento con questi filtri: prova a cambiarli."
+          }
+        }
+      }
+    },
+    "libreria.scelto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai scelto questo allenamento"
+          }
+        }
+      }
+    },
+    "libreria.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Libreria allenamenti"
+          }
+        }
+      }
+    },
+    "libreria.tornaProposto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Torna a quello proposto"
+          }
+        }
+      }
+    },
+    "libreria.usaOggi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usa oggi"
+          }
+        }
+      }
+    },
+    "libreria.vuoto.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Qui troverai presto gli allenamenti tra cui scegliere. Intanto puoi usare quello che ti propongo nella scheda Oggi."
+          }
+        }
+      }
+    },
+    "libreria.vuoto.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La libreria si sta riempiendo"
+          }
+        }
+      }
+    },
     "livello.cento": {
       "extractionState": "manual",
       "localizations": {
@@ -965,6 +2978,743 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ciao, piacere di conoscerti"
+          }
+        }
+      }
+    },
+    "medaglia.avanzamento": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ di %@"
+          }
+        }
+      }
+    },
+    "medaglia.avanzamento.metri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ di %@ m"
+          }
+        }
+      }
+    },
+    "medaglia.metri-1000.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai nuotato 1.000 metri in tutto"
+          }
+        }
+      }
+    },
+    "medaglia.metri-1000.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mille metri"
+          }
+        }
+      }
+    },
+    "medaglia.metri-10000.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai nuotato 10.000 metri in tutto"
+          }
+        }
+      }
+    },
+    "medaglia.metri-10000.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dieci chilometri"
+          }
+        }
+      }
+    },
+    "medaglia.metri-100000.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai nuotato 100.000 metri in tutto"
+          }
+        }
+      }
+    },
+    "medaglia.metri-100000.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cento chilometri"
+          }
+        }
+      }
+    },
+    "medaglia.metri-25000.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai nuotato 25.000 metri in tutto"
+          }
+        }
+      }
+    },
+    "medaglia.metri-25000.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Venticinque chilometri"
+          }
+        }
+      }
+    },
+    "medaglia.metri-5000.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai nuotato 5.000 metri in tutto"
+          }
+        }
+      }
+    },
+    "medaglia.metri-5000.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cinque chilometri"
+          }
+        }
+      }
+    },
+    "medaglia.metri-50000.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai nuotato 50.000 metri in tutto"
+          }
+        }
+      }
+    },
+    "medaglia.metri-50000.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cinquanta chilometri"
+          }
+        }
+      }
+    },
+    "medaglia.nonAncora": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non ancora ottenuta"
+          }
+        }
+      }
+    },
+    "medaglia.nuotate-10.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai nuotato 10 volte"
+          }
+        }
+      }
+    },
+    "medaglia.nuotate-10.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dieci tuffi"
+          }
+        }
+      }
+    },
+    "medaglia.nuotate-100.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai nuotato 100 volte"
+          }
+        }
+      }
+    },
+    "medaglia.nuotate-100.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cento tuffi"
+          }
+        }
+      }
+    },
+    "medaglia.nuotate-25.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai nuotato 25 volte"
+          }
+        }
+      }
+    },
+    "medaglia.nuotate-25.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quasi di casa"
+          }
+        }
+      }
+    },
+    "medaglia.nuotate-50.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai nuotato 50 volte"
+          }
+        }
+      }
+    },
+    "medaglia.nuotate-50.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Di casa in acqua"
+          }
+        }
+      }
+    },
+    "medaglia.ottenuta": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ottenuta"
+          }
+        }
+      }
+    },
+    "medaglia.prima-nuotata.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai registrato la tua prima nuotata"
+          }
+        }
+      }
+    },
+    "medaglia.prima-nuotata.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prima bracciata"
+          }
+        }
+      }
+    },
+    "medaglia.serie-12.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per 12 settimane di fila hai raggiunto il tuo obiettivo"
+          }
+        }
+      }
+    },
+    "medaglia.serie-12.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dodici onde"
+          }
+        }
+      }
+    },
+    "medaglia.serie-2.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per 2 settimane di fila hai raggiunto il tuo obiettivo"
+          }
+        }
+      }
+    },
+    "medaglia.serie-2.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Due onde"
+          }
+        }
+      }
+    },
+    "medaglia.serie-26.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per 26 settimane di fila hai raggiunto il tuo obiettivo"
+          }
+        }
+      }
+    },
+    "medaglia.serie-26.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mezzo anno d'onde"
+          }
+        }
+      }
+    },
+    "medaglia.serie-4.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per 4 settimane di fila hai raggiunto il tuo obiettivo"
+          }
+        }
+      }
+    },
+    "medaglia.serie-4.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quattro onde"
+          }
+        }
+      }
+    },
+    "medaglia.serie-52.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per 52 settimane di fila hai raggiunto il tuo obiettivo"
+          }
+        }
+      }
+    },
+    "medaglia.serie-52.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un anno d'onde"
+          }
+        }
+      }
+    },
+    "medaglia.serie-8.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per 8 settimane di fila hai raggiunto il tuo obiettivo"
+          }
+        }
+      }
+    },
+    "medaglia.serie-8.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otto onde"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-1.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai superato la tappa 1 del percorso"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-1.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Amico dell'acqua"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-10.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai superato la tappa 10 del percorso"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-10.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ali di delfino"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-2.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai superato la tappa 2 del percorso"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-2.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Respiro libero"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-3.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai superato la tappa 3 del percorso"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-3.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Come una freccia"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-4.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai superato la tappa 4 del percorso"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-4.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gambe in moto"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-5.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai superato la tappa 5 del percorso"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-5.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Braccia in azione"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-6.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai superato la tappa 6 del percorso"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-6.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ritmo e respiro"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-7.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai superato la tappa 7 del percorso"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-7.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Senza fermarsi"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-8.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai superato la tappa 8 del percorso"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-8.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sul dorso"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-9.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai superato la tappa 9 del percorso"
+          }
+        }
+      }
+    },
+    "medaglia.tappa-9.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passo di rana"
+          }
+        }
+      }
+    },
+    "medaglia.test-ritmo.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai fatto il test dei 200 e dei 400 metri"
+          }
+        }
+      }
+    },
+    "medaglia.test-ritmo.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il mio ritmo"
+          }
+        }
+      }
+    },
+    "mensile.avanzamento": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ di %@"
+          }
+        }
+      }
+    },
+    "mensile.invito": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se ti fa piacere, scegli un obiettivo di metri per il mese."
+          }
+        }
+      }
+    },
+    "mensile.mancano": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ancora %@ per arrivarci"
+          }
+        }
+      }
+    },
+    "mensile.menu": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obiettivo del mese"
+          }
+        }
+      }
+    },
+    "mensile.nessuno": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessun obiettivo"
+          }
+        }
+      }
+    },
+    "mensile.raggiunto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obiettivo raggiunto"
+          }
+        }
+      }
+    },
+    "mensile.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obiettivo del mese"
           }
         }
       }
@@ -1739,6 +4489,611 @@
         }
       }
     },
+    "record.piuLunga": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuotata più lunga"
+          }
+        }
+      }
+    },
+    "record.ritmo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ritmo medio migliore"
+          }
+        }
+      }
+    },
+    "record.ritmo.nota": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ritmo medio di tutta la nuotata"
+          }
+        }
+      }
+    },
+    "record.serie": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Serie di settimane più lunga"
+          }
+        }
+      }
+    },
+    "record.serie.valore": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld settimane di fila"
+          }
+        }
+      }
+    },
+    "record.settimana": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settimana più lunga"
+          }
+        }
+      }
+    },
+    "record.settimana.dettaglio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settimana del %@ · %ld nuotate"
+          }
+        }
+      }
+    },
+    "record.sottotitolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I tuoi record personali"
+          }
+        }
+      }
+    },
+    "record.tempi.nota": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calcolati dalle vasche consecutive delle tue nuotate registrate dall'orologio; non sono tempi ufficiali."
+          }
+        }
+      }
+    },
+    "record.tempi.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Migliori tempi a stile libero"
+          }
+        }
+      }
+    },
+    "record.tempi.vuoto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I migliori tempi compaiono dopo le prime nuotate registrate con l'orologio."
+          }
+        }
+      }
+    },
+    "record.test": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Test del ritmo"
+          }
+        }
+      }
+    },
+    "record.test.200": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "200 m"
+          }
+        }
+      }
+    },
+    "record.test.400": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "400 m"
+          }
+        }
+      }
+    },
+    "record.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Record"
+          }
+        }
+      }
+    },
+    "record.totali": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In tutto"
+          }
+        }
+      }
+    },
+    "record.totali.metri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metri"
+          }
+        }
+      }
+    },
+    "record.totali.nuotate": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuotate"
+          }
+        }
+      }
+    },
+    "record.vuoto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I tuoi record compariranno dopo le prime nuotate."
+          }
+        }
+      }
+    },
+    "retest.messaggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sono passate %ld settimane dall'ultimo test: se vuoi, rifallo"
+          }
+        }
+      }
+    },
+    "retest.nota": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Negli allenamenti trovi i tempi obiettivo, calcolati sul tuo ritmo."
+          }
+        }
+      }
+    },
+    "retest.pulsante": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rifai il test"
+          }
+        }
+      }
+    },
+    "riepilogo.carta.mese": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il mio mese"
+          }
+        }
+      }
+    },
+    "riepilogo.carta.nuotate": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld nuotate"
+          }
+        }
+      }
+    },
+    "riepilogo.carta.settimana": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La mia settimana"
+          }
+        }
+      }
+    },
+    "riepilogo.commento.crescita": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Questo mese hai nuotato %@ m, più del mese scorso. Mi piace vederti così a tuo agio in acqua."
+          }
+        }
+      }
+    },
+    "riepilogo.commento.dure": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Questo mese qualche nuotata è sembrata più dura: succede a tutti. Quando ti va, si riparte con calma, al tuo passo."
+          }
+        }
+      }
+    },
+    "riepilogo.commento.generico": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Questo mese: %ld nuotate e %@ m. Grazie per il tempo che dedichi all'acqua."
+          }
+        }
+      }
+    },
+    "riepilogo.commento.serie": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sono %ld settimane di fila in cui trovi il tempo per nuotare. Si sente la tua costanza."
+          }
+        }
+      }
+    },
+    "riepilogo.commento.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il commento di %@ sul mese"
+          }
+        }
+      }
+    },
+    "riepilogo.commento.una": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una nuotata e %@ m questo mese. Ogni volta in acqua conta, e io sono qui quando vuoi tornare."
+          }
+        }
+      }
+    },
+    "riepilogo.commento.vuoto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per ora questo mese è tranquillo. Quando ti va di tornare in acqua, io ci sono."
+          }
+        }
+      }
+    },
+    "riepilogo.condividi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Condividi"
+          }
+        }
+      }
+    },
+    "riepilogo.condividi.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: %@ in %ld nuotate, con Swimwave."
+          }
+        }
+      }
+    },
+    "riepilogo.confronto.mese": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rispetto al mese scorso"
+          }
+        }
+      }
+    },
+    "riepilogo.confronto.prima": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "prima: %@"
+          }
+        }
+      }
+    },
+    "riepilogo.confronto.settimana": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rispetto alla settimana scorsa"
+          }
+        }
+      }
+    },
+    "riepilogo.durata.minuti": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld min"
+          }
+        }
+      }
+    },
+    "riepilogo.durata.ore": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld h"
+          }
+        }
+      }
+    },
+    "riepilogo.durata.oreMinuti": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld h %ld min"
+          }
+        }
+      }
+    },
+    "riepilogo.giorni": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Giorni nuotati"
+          }
+        }
+      }
+    },
+    "riepilogo.grafico.accessibilita": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grafico dei metri nuotati: %@ m in totale"
+          }
+        }
+      }
+    },
+    "riepilogo.grafico.giorni": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metri per giorno della settimana"
+          }
+        }
+      }
+    },
+    "riepilogo.grafico.settimane": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metri per settimana"
+          }
+        }
+      }
+    },
+    "riepilogo.metri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metri"
+          }
+        }
+      }
+    },
+    "riepilogo.nuotate": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuotate"
+          }
+        }
+      }
+    },
+    "riepilogo.ritmo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ritmo medio"
+          }
+        }
+      }
+    },
+    "riepilogo.sottotitolo.settimana": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settimana del %@"
+          }
+        }
+      }
+    },
+    "riepilogo.tempo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tempo"
+          }
+        }
+      }
+    },
+    "riepilogo.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riepilogo"
+          }
+        }
+      }
+    },
+    "riepilogo.unita.metri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ m"
+          }
+        }
+      }
+    },
+    "riepilogo.unita.ritmo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ / 100 m"
+          }
+        }
+      }
+    },
+    "riepilogo.vista.mese": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mese"
+          }
+        }
+      }
+    },
+    "riepilogo.vista.settimana": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settimana"
+          }
+        }
+      }
+    },
+    "riepilogo.vista.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Periodo del riepilogo"
+          }
+        }
+      }
+    },
     "ritmo.a11y.minuti": {
       "extractionState": "manual",
       "localizations": {
@@ -2256,6 +5611,105 @@
         }
       }
     },
+    "storico.confronta": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confronta"
+          }
+        }
+      }
+    },
+    "storico.confronta.apri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confronta le due nuotate"
+          }
+        }
+      }
+    },
+    "storico.confronta.istruzione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scegli due nuotate da confrontare (%ld di 2)"
+          }
+        }
+      }
+    },
+    "storico.dato.anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ m quest'anno"
+          }
+        }
+      }
+    },
+    "storico.dato.nuotateMese.altre": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld nuotate questo mese"
+          }
+        }
+      }
+    },
+    "storico.dato.nuotateMese.una": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 nuotata questo mese"
+          }
+        }
+      }
+    },
+    "storico.dato.record": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuotata più lunga: %@ m"
+          }
+        }
+      }
+    },
+    "storico.dato.record.vuoto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I tuoi primati"
+          }
+        }
+      }
+    },
+    "storico.dato.traguardi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld su %ld ottenuti"
+          }
+        }
+      }
+    },
     "storico.riepilogo.metriMese": {
       "extractionState": "manual",
       "localizations": {
@@ -2333,6 +5787,50 @@
         }
       }
     },
+    "storico.scheda.anno": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il tuo anno"
+          }
+        }
+      }
+    },
+    "storico.scheda.record": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Record"
+          }
+        }
+      }
+    },
+    "storico.scheda.riepilogo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riepilogo"
+          }
+        }
+      }
+    },
+    "storico.scheda.traguardi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Traguardi"
+          }
+        }
+      }
+    },
     "storico.sensazione.titolo": {
       "extractionState": "manual",
       "localizations": {
@@ -2373,6 +5871,50 @@
           "stringUnit": {
             "state": "translated",
             "value": "Settimana scorsa"
+          }
+        }
+      }
+    },
+    "storico.sezione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sezione"
+          }
+        }
+      }
+    },
+    "storico.sezione.andamento": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Andamento"
+          }
+        }
+      }
+    },
+    "storico.sezione.calendario": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calendario"
+          }
+        }
+      }
+    },
+    "storico.sezione.nuotate": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuotate"
           }
         }
       }
@@ -2593,6 +6135,116 @@
           "stringUnit": {
             "state": "translated",
             "value": "Vai a questa tappa"
+          }
+        }
+      }
+    },
+    "target.obiettivo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obiettivo %@"
+          }
+        }
+      }
+    },
+    "traguardi.accessibilita.daOttenere": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, traguardo non ancora ottenuto"
+          }
+        }
+      }
+    },
+    "traguardi.accessibilita.inCorso": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, non ancora ottenuto, %@"
+          }
+        }
+      }
+    },
+    "traguardi.accessibilita.ottenuto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, traguardo ottenuto"
+          }
+        }
+      }
+    },
+    "traguardi.categoria.costanza": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Costanza"
+          }
+        }
+      }
+    },
+    "traguardi.categoria.distanza": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Distanza"
+          }
+        }
+      }
+    },
+    "traguardi.categoria.nuotate": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuotate"
+          }
+        }
+      }
+    },
+    "traguardi.categoria.percorso": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Percorso"
+          }
+        }
+      }
+    },
+    "traguardi.conteggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ne hai ottenuti %ld su %ld"
+          }
+        }
+      }
+    },
+    "traguardi.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Traguardi"
           }
         }
       }

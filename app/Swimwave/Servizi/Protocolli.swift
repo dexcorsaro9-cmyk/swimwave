@@ -6,7 +6,10 @@ import SwimwaveCore
 
 /// Genera l'allenamento di oggi (servizio coach, server/coach). Può fallire: l'app usa l'allenamento di riserva.
 protocol ServizioCoach {
-    func richiedi(profilo: Profilo, riepilogo: String?) async throws -> Workout
+    /// L'allenamento per il profilo e la richiesta (durata e obiettivo scelti dall'utente, riepilogo dell'ultimo allenamento).
+    func richiedi(profilo: Profilo, richiesta: RichiestaAllenamento) async throws -> Workout
+    /// Un commento breve (al massimo due frasi) sul mese, dal tono del coach scelto. Riceve solo conteggi.
+    func commentoMese(dati: DatiMese, profilo: Profilo) async throws -> String
 }
 
 /// Legge le nuotate da Apple Salute (anche di altre app e orologi).

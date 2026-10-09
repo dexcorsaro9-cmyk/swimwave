@@ -10,11 +10,15 @@ struct PercorsoView: View {
     enum FoglioPercorso: Identifiable {
         case tappa(Tappa)
         case testRitmo
+        case rifaiTestRitmo
+        case aSecco
 
         var id: String {
             switch self {
             case .tappa(let t): return "tappa-\(t.id)"
             case .testRitmo: return "test-ritmo"
+            case .rifaiTestRitmo: return "rifai-test-ritmo"
+            case .aSecco: return "a-secco"
             }
         }
     }
@@ -54,7 +58,12 @@ struct PercorsoView: View {
                             cartaTestRitmo
                         }
                         .buttonStyle(.plain)
+                        invitoTestRitmo
                     }
+                    Button { foglio = .aSecco } label: {
+                        cartaASecco
+                    }
+                    .buttonStyle(.plain)
                 }
                 .padding(.horizontal, 16)
                 .padding(.top, 8)
@@ -72,6 +81,12 @@ struct PercorsoView: View {
                 .environment(stato)
             case .testRitmo:
                 TestRitmoView()
+                    .environment(stato)
+            case .rifaiTestRitmo:
+                TestRitmoView(rifacendo: true)
+                    .environment(stato)
+            case .aSecco:
+                ASeccoView()
                     .environment(stato)
             }
         }
@@ -96,6 +111,60 @@ struct PercorsoView: View {
                     .font(Tema.sottotitolo)
                     .foregroundStyle(Tema.testo)
                 Text(verbatim: sottotitoloTestRitmo)
+                    .font(Tema.piccolo)
+                    .foregroundStyle(Tema.testoSecondario)
+                    .multilineTextAlignment(.leading)
+            }
+            Spacer(minLength: 0)
+            Image(systemName: "chevron.right")
+                .foregroundStyle(Tema.testoSecondario)
+        }
+        .carta(padding: 14)
+        .accessibilityElement(children: .combine)
+    }
+
+    /// Sotto la carta del test: se è stato fatto, dice dove si vedono i tempi obiettivo; dopo qualche settimana, un invito gentile a rifarlo.
+    @ViewBuilder
+    private var invitoTestRitmo: some View {
+        if let t = stato.testRitmo, t.ritmoCriticoPer100 != nil {
+            VStack(alignment: .leading, spacing: 10) {
+                Text("retest.nota")
+                    .font(Tema.piccolo)
+                    .foregroundStyle(Tema.testoSecondario)
+                    .fixedSize(horizontal: false, vertical: true)
+                if let settimane = stato.settimaneDalTestRitmo, settimane >= StatoApp.settimanePerRifareTest {
+                    Text(verbatim: testo("retest.messaggio", settimane))
+                        .font(Tema.corpo)
+                        .foregroundStyle(Tema.testo)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Button {
+                        foglio = .rifaiTestRitmo
+                    } label: {
+                        Text("retest.pulsante")
+                    }
+                    .buttonStyle(.secondario)
+                }
+            }
+            .padding(.horizontal, 4)
+        }
+    }
+
+    private var cartaASecco: some View {
+        HStack(spacing: 14) {
+            ZStack {
+                Circle().fill(Tema.turchese.opacity(0.18))
+                Image(systemName: "figure.strengthtraining.traditional")
+                    .font(.system(.title3, design: .rounded).weight(.bold))
+                    .foregroundStyle(Tema.testo)
+            }
+            .frame(width: 44, height: 44)
+            .accessibilityHidden(true)
+
+            VStack(alignment: .leading, spacing: 3) {
+                Text("asecco.titolo")
+                    .font(Tema.sottotitolo)
+                    .foregroundStyle(Tema.testo)
+                Text("asecco.sottotitolo")
                     .font(Tema.piccolo)
                     .foregroundStyle(Tema.testoSecondario)
                     .multilineTextAlignment(.leading)

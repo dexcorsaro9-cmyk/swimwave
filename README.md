@@ -7,7 +7,7 @@ App per chi nuota da solo e non ha nessuno che lo segua: coach IA che crea allen
 ## Stato
 
 - Nome scelto: **Swimwave** (provvisorio fino alle verifiche, vedi sotto)
-- Fase: progettazione avanzata. Tutti i contenuti tecnici sono in **bozza** e vanno controllati dall'istruttore; l'app è uno scheletro **non ancora compilato**
+- Fase: progettazione avanzata. Tutti i contenuti tecnici sono in **bozza** e vanno controllati dall'istruttore; l'app è completa nel codice ma **non ancora compilata**
 - Piattaforma della prima versione: iPhone + Apple Watch (SwiftUI, HealthKit, WatchKit)
 - Distribuzione di prova: TestFlight (già disponibile)
 

@@ -122,6 +122,17 @@
         }
       }
     },
+    "watch.fine.calorie": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld kcal"
+          }
+        }
+      }
+    },
     "watch.fine.chiudi": {
       "extractionState": "manual",
       "localizations": {
@@ -129,6 +140,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Chiudi"
+          }
+        }
+      }
+    },
+    "watch.fine.fc": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld bpm"
           }
         }
       }
@@ -166,6 +188,83 @@
         }
       }
     },
+    "watch.libera.acque": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acque libere"
+          }
+        }
+      }
+    },
+    "watch.libera.indietro": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Indietro"
+          }
+        }
+      }
+    },
+    "watch.libera.nota": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In acque libere i metri si misurano con la posizione, se la consenti."
+          }
+        }
+      }
+    },
+    "watch.libera.pulsante": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuotata libera"
+          }
+        }
+      }
+    },
+    "watch.libera.scelta": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dove nuoti?"
+          }
+        }
+      }
+    },
+    "watch.libera.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuotata libera"
+          }
+        }
+      }
+    },
+    "watch.libera.vasca": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vasca %ld m"
+          }
+        }
+      }
+    },
     "watch.metri": {
       "extractionState": "manual",
       "localizations": {
@@ -173,6 +272,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "metri"
+          }
+        }
+      }
+    },
+    "watch.obiettivo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obiettivo %@"
           }
         }
       }

@@ -26,14 +26,14 @@ final class WatchLink: NSObject, WCSessionDelegate {
         session.activate()
     }
 
-    func invia(allenamento: Workout) -> EsitoInvioWatch {
+    func invia(allenamento: Workout, target: [Int?] = []) -> EsitoInvioWatch {
         guard WCSession.isSupported() else { return .watchNonDisponibile }
         let session = WCSession.default
         guard session.activationState == .activated, session.isPaired, session.isWatchAppInstalled else {
             return .watchNonDisponibile
         }
         do {
-            try session.updateApplicationContext(try MessaggiWatch.contesto(allenamento: allenamento))
+            try session.updateApplicationContext(try MessaggiWatch.contesto(allenamento: allenamento, target: target))
             return .inviato
         } catch {
             return .errore

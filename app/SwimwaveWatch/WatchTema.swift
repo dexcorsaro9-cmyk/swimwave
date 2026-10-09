@@ -16,3 +16,9 @@ func formattaTempo(_ secondi: TimeInterval) -> String {
     if h > 0 { return String(format: "%ld:%02ld:%02ld", h, m, s) }
     return String(format: "%02ld:%02ld", m, s)
 }
+
+/// Tempo obiettivo "m:ss" (per esempio 53 -> "0:53", 125 -> "2:05").
+func formattaObiettivo(_ secondi: Int) -> String {
+    let totale = max(0, secondi)
+    return String(format: "%ld:%02ld", totale / 60, totale % 60)
+}

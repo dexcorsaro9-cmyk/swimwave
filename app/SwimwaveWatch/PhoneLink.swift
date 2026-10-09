@@ -6,8 +6,9 @@ import SwimwaveCore
 /// Riceve l'allenamento di oggi (application context) e rimanda la nuotata finita (transferUserInfo).
 /// DA TESTARE su dispositivi veri: il simulatore accoppiato non è affidabile per WatchConnectivity.
 final class PhoneLink: NSObject, WCSessionDelegate {
-    /// Chiamata sul thread principale quando arriva un allenamento dall'iPhone.
-    var onAllenamento: ((Workout) -> Void)?
+    /// Chiamata sul thread principale quando arriva un allenamento dall'iPhone, con i tempi obiettivo
+    /// per ripetizione (stesso ordine dei passi del piano; tutti nil se l'iPhone non li manda).
+    var onAllenamento: ((Workout, [Int?]) -> Void)?
 
     override init() {
         super.init()
@@ -41,8 +42,10 @@ final class PhoneLink: NSObject, WCSessionDelegate {
 
     private func consegna(_ contesto: [String: Any]) {
         guard let workout = MessaggiWatch.allenamento(da: contesto) else { return }
+        let passi = PianoAllenamento(workout: workout).passi.count
+        let target = MessaggiWatch.target(da: contesto, passi: passi)
         DispatchQueue.main.async { [weak self] in
-            self?.onAllenamento?(workout)
+            self?.onAllenamento?(workout, target)
         }
     }
 }

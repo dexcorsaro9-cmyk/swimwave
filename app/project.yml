@@ -47,11 +47,17 @@ targets:
       path: Config/Swimwave-Info.plist     # generato da XcodeGen
       properties:
         CFBundleDisplayName: Swimwave
+        # XcodeGen metterebbe "1.0" e "1" fissi: si usano le impostazioni di build (il numero di build cresce in Codemagic).
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         CFBundleLocalizations: [it]
+        LSRequiresIPhoneOS: true
         UILaunchScreen: {}
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         NSHealthShareUsageDescription: "Swimwave legge le tue nuotate da Apple Salute per mostrarti i progressi."
         NSHealthUpdateUsageDescription: "Swimwave salva in Apple Salute gli allenamenti di nuoto che fai con il Watch."
+        # URL https del servizio coach (server/coach), da impostare dopo il deploy. Vuoto = allenamenti fissi.
+        SwimwaveCoachURL: ""
     entitlements:
       path: Config/Swimwave.entitlements   # generato da XcodeGen
       properties:
@@ -76,6 +82,8 @@ targets:
       path: Config/SwimwaveWatch-Info.plist   # generato da XcodeGen
       properties:
         CFBundleDisplayName: Swimwave
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         CFBundleLocalizations: [it]
         WKApplication: true
         WKCompanionAppBundleIdentifier: com.example.swimwave

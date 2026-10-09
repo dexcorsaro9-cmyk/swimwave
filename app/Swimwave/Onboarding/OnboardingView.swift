@@ -2,7 +2,8 @@ import SwiftUI
 import SwimwaveCore
 
 /// Primo avvio (docs/ONBOARDING.md): scelta del coach, lavagnetta con 5 domande al massimo, scheda finale.
-/// Le richieste di permesso (Apple Salute, notifiche) non sono qui: vanno spiegate dal coach nel momento giusto (da fare).
+/// Prima di questa schermata RootView chiede "Hai almeno 18 anni?"; dopo, il consenso all'IA e le richieste di permesso
+/// (Apple Salute, notifiche) spiegate dal coach nel momento giusto: non sono qui.
 struct OnboardingView: View {
     @Environment(StatoApp.self) private var stato
 
@@ -39,6 +40,7 @@ struct OnboardingView: View {
 struct SceltaCoachView: View {
     @Binding var scelto: CoachID?
     let continua: () -> Void
+    @State private var mostraInformazioni = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -60,6 +62,9 @@ struct SceltaCoachView: View {
                         .font(Tema.piccolo)
                         .foregroundStyle(Tema.testoSecondario)
                         .multilineTextAlignment(.center)
+                    Button { mostraInformazioni = true } label: { Text("scelta.comeFunziona") }
+                        .font(Tema.piccolo.weight(.bold))
+                        .foregroundStyle(Tema.testo)
                 }
                 .padding(.horizontal, 16)
                 .padding(.top, 16)
@@ -69,6 +74,16 @@ struct SceltaCoachView: View {
                 .disabled(scelto == nil)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 12)
+        }
+        .sheet(isPresented: $mostraInformazioni) {
+            NavigationStack {
+                InformazioniView()
+                    .toolbar {
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button { mostraInformazioni = false } label: { Text("comune.chiudi") }
+                        }
+                    }
+            }
         }
     }
 }
@@ -96,11 +111,11 @@ private struct SchedaCoach: View {
             .background(
                 RoundedRectangle(cornerRadius: Tema.raggio, style: .continuous)
                     .fill(Tema.carta)
-                    .shadow(color: Color.black.opacity(0.08), radius: 8, x: 0, y: 3)
+                    .shadow(color: Tema.ombra, radius: 8, x: 0, y: 3)
             )
             .overlay(
                 RoundedRectangle(cornerRadius: Tema.raggio, style: .continuous)
-                    .stroke(selezionato ? Tema.corallo : Color.clear, lineWidth: 3)
+                    .stroke(selezionato ? Tema.corallo : Tema.bordo, lineWidth: selezionato ? 3 : 1)
             )
         }
         .buttonStyle(.plain)
@@ -336,7 +351,7 @@ struct LavagnettaRiepilogo: View {
                         .frame(width: 84, alignment: .leading)
                     Text(verbatim: valore(passo) ?? "…")
                         .font(Tema.sottotitolo)
-                        .foregroundStyle(Color.white.opacity(valore(passo) == nil ? 0.35 : 1))
+                        .foregroundStyle(Tema.testoSuNavy.opacity(valore(passo) == nil ? 0.35 : 1))
                         .fixedSize(horizontal: false, vertical: true)
                     Spacer(minLength: 0)
                 }
@@ -345,6 +360,7 @@ struct LavagnettaRiepilogo: View {
         .padding(18)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(RoundedRectangle(cornerRadius: Tema.raggio, style: .continuous).fill(Tema.navy))
+        .overlay(RoundedRectangle(cornerRadius: Tema.raggio, style: .continuous).stroke(Tema.bordo, lineWidth: 1))
         .accessibilityElement(children: .combine)
     }
 }

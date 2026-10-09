@@ -210,101 +210,420 @@
         }
       }
     },
-    "info.coach.testo": {
+    "consenso.cambio": {
       "extractionState": "manual",
       "localizations": {
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Antonio e Pamela sono coach virtuali: personaggi inventati, creati con l'intelligenza artificiale, che seguono il metodo di un istruttore di nuoto. Hanno la stessa competenza e lo stesso tono. Puoi cambiare coach quando vuoi dal Profilo, senza perdere lo storico."
+            "value": "Puoi cambiare idea quando vuoi, in Profilo."
           }
         }
       }
     },
-    "info.coach.titolo": {
+    "consenso.dati": {
       "extractionState": "manual",
       "localizations": {
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "I coach"
+            "value": "Al servizio che li prepara arrivano solo il tuo livello, l'obiettivo, la vasca, il ritmo, il coach scelto e come ti è sembrato l'ultimo allenamento. Mai il tuo nome."
           }
         }
       }
     },
-    "info.dati.testo": {
+    "consenso.ia": {
       "extractionState": "manual",
       "localizations": {
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Il profilo e le nuotate restano sul tuo dispositivo. Puoi cancellarli in qualsiasi momento dal Profilo. I dati di Apple Salute restano il più possibile sul dispositivo."
+            "value": "Sono %@, un personaggio virtuale: non sono una persona reale. Gli allenamenti li preparo con l'aiuto dell'intelligenza artificiale."
           }
         }
       }
     },
-    "info.dati.titolo": {
+    "consenso.maggioriInformazioni": {
       "extractionState": "manual",
       "localizations": {
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "I tuoi dati"
+            "value": "Maggiori informazioni"
           }
         }
       }
     },
-    "info.ia.testo": {
+    "consenso.no": {
       "extractionState": "manual",
       "localizations": {
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "L'allenamento di oggi può essere preparato da un'intelligenza artificiale che segue regole scritte dall'istruttore e usa solo esercizi di una lista scelta da lui. Se qualcosa non funziona, l'app usa un allenamento fisso."
+            "value": "Se preferisci di no, nessun problema: ricevi allenamenti fissi preparati dal nostro team."
           }
         }
       }
     },
-    "info.ia.titolo": {
+    "consenso.preferiscoNo": {
       "extractionState": "manual",
       "localizations": {
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Intelligenza artificiale"
+            "value": "Preferisco di no"
           }
         }
       }
     },
-    "info.salute.testo": {
+    "consenso.titolo": {
       "extractionState": "manual",
       "localizations": {
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Swimwave non fa diagnosi e non sostituisce un medico. Se senti dolore, fermati e riposa. Se non passa, parlane con il tuo medico o con un professionista."
+            "value": "Prima di cominciare"
           }
         }
       }
     },
-    "info.salute.titolo": {
+    "consenso.vaBene": {
       "extractionState": "manual",
       "localizations": {
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Salute e sicurezza"
+            "value": "Va bene"
           }
         }
       }
     },
-    "info.segnaposto": {
+    "fine.domanda": {
       "extractionState": "manual",
       "localizations": {
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Testo provvisorio: le informazioni complete su intelligenza artificiale, dati e privacy arriveranno prima del rilascio."
+            "value": "Com'è andata?"
+          }
+        }
+      }
+    },
+    "fine.metri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "metri"
+          }
+        }
+      }
+    },
+    "fine.minuti": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "minuti"
+          }
+        }
+      }
+    },
+    "fine.nota": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mi aiuta a scegliere il prossimo allenamento."
+          }
+        }
+      }
+    },
+    "fine.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ben fatto, %@!"
+          }
+        }
+      }
+    },
+    "guidato.continua": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continua"
+          }
+        }
+      }
+    },
+    "guidato.fatto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fatto"
+          }
+        }
+      }
+    },
+    "guidato.frase.1": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Con calma, un tratto alla volta."
+          }
+        }
+      }
+    },
+    "guidato.frase.2": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stai andando bene."
+          }
+        }
+      }
+    },
+    "guidato.frase.3": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Respira e vai al tuo ritmo."
+          }
+        }
+      }
+    },
+    "guidato.frase.4": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ogni vasca conta."
+          }
+        }
+      }
+    },
+    "guidato.frase.5": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Goditi l'acqua."
+          }
+        }
+      }
+    },
+    "guidato.frase.6": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se senti dolore, fermati e riposa."
+          }
+        }
+      }
+    },
+    "guidato.frase.7": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessuna fretta: rallenta pure se serve."
+          }
+        }
+      }
+    },
+    "guidato.frase.8": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bel ritmo, continua così."
+          }
+        }
+      }
+    },
+    "guidato.inPausa": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In pausa"
+          }
+        }
+      }
+    },
+    "guidato.metriVasca": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "metri · %ld vasca"
+          }
+        }
+      }
+    },
+    "guidato.metriVasche": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "metri · %ld vasche"
+          }
+        }
+      }
+    },
+    "guidato.pausa": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa"
+          }
+        }
+      }
+    },
+    "guidato.prossima": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prossima: %@"
+          }
+        }
+      }
+    },
+    "guidato.recupero": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recupero"
+          }
+        }
+      }
+    },
+    "guidato.ripetizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ripetizione %ld di %ld"
+          }
+        }
+      }
+    },
+    "guidato.riprendi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riprendi"
+          }
+        }
+      }
+    },
+    "guidato.serie": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Serie %ld di %ld"
+          }
+        }
+      }
+    },
+    "guidato.termina": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Termina"
+          }
+        }
+      }
+    },
+    "guidato.termina.conferma": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sì, termina"
+          }
+        }
+      }
+    },
+    "guidato.termina.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vuoi terminare l'allenamento?"
+          }
+        }
+      }
+    },
+    "guidato.totale": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Totale %ld di %ld m · %@"
+          }
+        }
+      }
+    },
+    "guidato.vai": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vai"
+          }
+        }
+      }
+    },
+    "info.versione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versione %@"
           }
         }
       }
@@ -551,6 +870,105 @@
         }
       }
     },
+    "maggiorenne.domanda": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai almeno 18 anni?"
+          }
+        }
+      }
+    },
+    "maggiorenne.no": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No"
+          }
+        }
+      }
+    },
+    "maggiorenne.no.indietro": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ho toccato per sbaglio"
+          }
+        }
+      }
+    },
+    "maggiorenne.no.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per ora Swimwave è pensata per gli adulti, quindi non possiamo andare avanti. Non abbiamo raccolto nessun dato su di te. Ti aspettiamo quando avrai compiuto 18 anni."
+          }
+        }
+      }
+    },
+    "maggiorenne.no.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grazie per avercelo detto"
+          }
+        }
+      }
+    },
+    "maggiorenne.si": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sì, ho almeno 18 anni"
+          }
+        }
+      }
+    },
+    "maggiorenne.sottotitolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una domanda veloce, poi cominciamo."
+          }
+        }
+      }
+    },
+    "maggiorenne.spiegazione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per ora Swimwave è pensata per le persone maggiorenni. Basta un tocco: non ti chiediamo nessun documento."
+          }
+        }
+      }
+    },
+    "maggiorenne.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciao, piacere di conoscerti"
+          }
+        }
+      }
+    },
     "obiettivo.dimagrimento": {
       "extractionState": "manual",
       "localizations": {
@@ -602,6 +1020,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Allenamento di oggi"
+          }
+        }
+      }
+    },
+    "oggi.inizia": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inizia sul telefono"
           }
         }
       }
@@ -749,6 +1178,28 @@
         }
       }
     },
+    "oggi.sensazione.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Com'è andata l'ultima nuotata?"
+          }
+        }
+      }
+    },
+    "oggi.serie": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld settimane di fila"
+          }
+        }
+      }
+    },
     "oggi.sottotitolo": {
       "extractionState": "manual",
       "localizations": {
@@ -793,6 +1244,39 @@
         }
       }
     },
+    "percorso.ritmo.salvato": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il tuo ritmo critico: %@ ogni 100 m"
+          }
+        }
+      }
+    },
+    "percorso.ritmo.sottotitolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Due prove per scoprire a che ritmo nuotare."
+          }
+        }
+      }
+    },
+    "percorso.ritmo.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trova il tuo ritmo"
+          }
+        }
+      }
+    },
     "percorso.sottotitolo": {
       "extractionState": "manual",
       "localizations": {
@@ -800,6 +1284,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Dieci tappe, a modo tuo: puoi saltare avanti o tornare indietro."
+          }
+        }
+      }
+    },
+    "percorso.superata.messaggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tappa superata, %@! Complimenti."
           }
         }
       }
@@ -848,6 +1343,116 @@
         }
       }
     },
+    "permesso.continua": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Va bene, continua"
+          }
+        }
+      }
+    },
+    "permesso.notifiche.frase1": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai scelto Spronami: se me lo permetti, ti scrivo un promemoria al giorno al massimo, e solo se manca ancora qualcosa al tuo obiettivo della settimana."
+          }
+        }
+      }
+    },
+    "permesso.notifiche.frase2": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niente fretta e niente colpe: se un giorno non si può, pazienza. I promemoria restano sul tuo telefono."
+          }
+        }
+      }
+    },
+    "permesso.notifiche.nota": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puoi spegnerli quando vuoi, in Impostazioni o cambiando ritmo dal Profilo."
+          }
+        }
+      }
+    },
+    "permesso.notifiche.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un promemoria, quando vuoi tu"
+          }
+        }
+      }
+    },
+    "permesso.piuTardi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Più tardi"
+          }
+        }
+      }
+    },
+    "permesso.salute.frase1": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se me lo permetti, leggo da Apple Salute le nuotate fatte con altre app e con il tuo orologio, così le trovi anche qui."
+          }
+        }
+      }
+    },
+    "permesso.salute.frase2": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restano sul tuo telefono: non le condivido con nessuno e non servono per la pubblicità."
+          }
+        }
+      }
+    },
+    "permesso.salute.nota": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puoi cambiare idea quando vuoi in Impostazioni, Salute."
+          }
+        }
+      }
+    },
+    "permesso.salute.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le tue nuotate, tutte insieme"
+          }
+        }
+      }
+    },
     "picker.scegli": {
       "extractionState": "manual",
       "localizations": {
@@ -892,6 +1497,17 @@
         }
       }
     },
+    "popup.bottone.ok": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ok"
+          }
+        }
+      }
+    },
     "popup.bottone.piuTardi": {
       "extractionState": "manual",
       "localizations": {
@@ -903,6 +1519,17 @@
         }
       }
     },
+    "popup.dopoAllenamentoDuro.messaggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oggi hai dato tanto, %@. Riposati con calma: il prossimo allenamento lo facciamo più leggero, se vuoi."
+          }
+        }
+      }
+    },
     "popup.ripartenza.messaggio": {
       "extractionState": "manual",
       "localizations": {
@@ -910,6 +1537,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ripartiamo con calma, senza fretta. Ti aspetto in acqua."
+          }
+        }
+      }
+    },
+    "popup.serie.messaggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, %ld settimane di fila con l'obiettivo raggiunto. Che costanza!"
           }
         }
       }
@@ -964,7 +1602,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Il profilo e le nuotate salvati dall'app verranno eliminati da questo dispositivo."
+            "value": "Il profilo, le nuotate e le scelte salvati dall'app verranno eliminati da questo dispositivo. I dati in Apple Salute non vengono toccati."
           }
         }
       }
@@ -976,6 +1614,28 @@
           "stringUnit": {
             "state": "translated",
             "value": "Il tuo coach"
+          }
+        }
+      }
+    },
+    "profilo.ia.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acceso: il coach prepara gli allenamenti con l'aiuto dell'intelligenza artificiale. Al servizio arrivano solo livello, obiettivo, vasca, ritmo, coach scelto e come è andato l'ultimo allenamento, mai il tuo nome. Spento: ricevi allenamenti fissi preparati dal nostro team."
+          }
+        }
+      }
+    },
+    "profilo.ia.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Allenamenti preparati con l'IA"
           }
         }
       }
@@ -1035,6 +1695,17 @@
         }
       }
     },
+    "profilo.salute.leggi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Leggi le nuotate da Apple Salute"
+          }
+        }
+      }
+    },
     "profilo.titolo": {
       "extractionState": "manual",
       "localizations": {
@@ -1053,6 +1724,83 @@
           "stringUnit": {
             "state": "translated",
             "value": "Vasca"
+          }
+        }
+      }
+    },
+    "promemoria.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, vuoi fare due bracciate oggi? Quando vuoi tu."
+          }
+        }
+      }
+    },
+    "ritmo.a11y.minuti": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, minuti"
+          }
+        }
+      }
+    },
+    "ritmo.a11y.secondi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@, secondi"
+          }
+        }
+      }
+    },
+    "ritmo.avviso.fallback": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fai il test solo se ti senti bene. Nel dubbio, chiedi al medico."
+          }
+        }
+      }
+    },
+    "ritmo.critico.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il tuo ritmo critico"
+          }
+        }
+      }
+    },
+    "ritmo.critico.valore": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ogni 100 m"
+          }
+        }
+      }
+    },
+    "ritmo.indietro": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Torna ai tuoi ritmi"
           }
         }
       }
@@ -1079,6 +1827,28 @@
         }
       }
     },
+    "ritmo.min": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "min"
+          }
+        }
+      }
+    },
+    "ritmo.nonPlausibile": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ricontrolla i tempi: il 400 dovrebbe richiedere più del doppio del 200. Puoi rifare il test quando vuoi."
+          }
+        }
+      }
+    },
     "ritmo.regolare": {
       "extractionState": "manual",
       "localizations": {
@@ -1101,6 +1871,50 @@
         }
       }
     },
+    "ritmo.rifai": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rifai il test"
+          }
+        }
+      }
+    },
+    "ritmo.salva": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salva il mio ritmo"
+          }
+        }
+      }
+    },
+    "ritmo.salvato.data": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Test del %@"
+          }
+        }
+      }
+    },
+    "ritmo.sec": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "s"
+          }
+        }
+      }
+    },
     "ritmo.spronami": {
       "extractionState": "manual",
       "localizations": {
@@ -1118,7 +1932,73 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Come Regolare, con più promemoria, piccole sfide e un tono più incalzante."
+            "value": "Come Regolare, in più un promemoria sul telefono, al massimo uno al giorno, quando manca ancora qualcosa al tuo obiettivo."
+          }
+        }
+      }
+    },
+    "ritmo.tempi.nota": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dopo le due prove, scegli i tuoi tempi: vedrai subito il tuo ritmo."
+          }
+        }
+      }
+    },
+    "ritmo.tempi.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I tuoi tempi"
+          }
+        }
+      }
+    },
+    "ritmo.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il tuo ritmo"
+          }
+        }
+      }
+    },
+    "ritmo.zona.intervallo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ - %@ ogni 100 m"
+          }
+        }
+      }
+    },
+    "ritmo.zone.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le tue zone di ritmo"
+          }
+        }
+      }
+    },
+    "salute.nuotata": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuotata"
           }
         }
       }
@@ -1156,13 +2036,24 @@
         }
       }
     },
+    "scelta.comeFunziona": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Come funziona"
+          }
+        }
+      }
+    },
     "scelta.nota": {
       "extractionState": "manual",
       "localizations": {
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Antonio e Pamela sono coach virtuali: personaggi inventati che seguono il metodo di un istruttore di nuoto."
+            "value": "Antonio e Pamela sono coach virtuali creati con l'intelligenza artificiale, non persone reali. Il metodo è controllato da un istruttore di nuoto."
           }
         }
       }
@@ -1244,6 +2135,39 @@
         }
       }
     },
+    "sensazione.dura": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dura"
+          }
+        }
+      }
+    },
+    "sensazione.facile": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Facile"
+          }
+        }
+      }
+    },
+    "sensazione.giusta": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Giusta"
+          }
+        }
+      }
+    },
     "serie.formato": {
       "extractionState": "manual",
       "localizations": {
@@ -1321,6 +2245,50 @@
         }
       }
     },
+    "storico.comeVa": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Com'è andata?"
+          }
+        }
+      }
+    },
+    "storico.riepilogo.metriMese": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metri questo mese"
+          }
+        }
+      }
+    },
+    "storico.riepilogo.nuotate": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuotate"
+          }
+        }
+      }
+    },
+    "storico.riepilogo.settimane": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settimane di fila"
+          }
+        }
+      }
+    },
     "storico.riga": {
       "extractionState": "manual",
       "localizations": {
@@ -1328,6 +2296,83 @@
           "stringUnit": {
             "state": "translated",
             "value": "%ld m · %ld min"
+          }
+        }
+      }
+    },
+    "storico.salute.bottone": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Collega Salute"
+          }
+        }
+      }
+    },
+    "storico.salute.testo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se nuoti anche con altre app o orologi, posso aggiungerle qui."
+          }
+        }
+      }
+    },
+    "storico.salute.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuotate da Apple Salute"
+          }
+        }
+      }
+    },
+    "storico.sensazione.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Com'è andata questa nuotata?"
+          }
+        }
+      }
+    },
+    "storico.settimana.corrente": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Questa settimana"
+          }
+        }
+      }
+    },
+    "storico.settimana.del": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settimana del %@"
+          }
+        }
+      }
+    },
+    "storico.settimana.scorsa": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settimana scorsa"
           }
         }
       }
@@ -1354,13 +2399,35 @@
         }
       }
     },
+    "storico.vuoto.benvenuto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Qui compariranno le tue nuotate"
+          }
+        }
+      }
+    },
+    "storico.vuoto.frase": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le trovi qui, anche quelle fatte con il Watch o con altre app."
+          }
+        }
+      }
+    },
     "storico.vuoto.testo": {
       "extractionState": "manual",
       "localizations": {
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Le nuotate fatte con il Watch compariranno qui. La lettura da Apple Salute arriverà più avanti."
+            "value": "Le nuotate fatte con il Watch, e quelle lette da Apple Salute, compariranno qui."
           }
         }
       }
@@ -1420,6 +2487,28 @@
         }
       }
     },
+    "tappa.conferma.si": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sì, l'ho superato"
+          }
+        }
+      }
+    },
+    "tappa.conferma.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai superato il test di questa tappa?"
+          }
+        }
+      }
+    },
     "tappa.daEvitare": {
       "extractionState": "manual",
       "localizations": {
@@ -1453,6 +2542,17 @@
         }
       }
     },
+    "tappa.haiSuperato": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ho superato il test"
+          }
+        }
+      }
+    },
     "tappa.obiettivo": {
       "extractionState": "manual",
       "localizations": {
@@ -1460,6 +2560,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "Obiettivo"
+          }
+        }
+      }
+    },
+    "tappa.superata": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tappa superata"
           }
         }
       }

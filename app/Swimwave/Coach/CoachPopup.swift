@@ -104,6 +104,12 @@ struct CoachPopup: View {
 struct PopupCoach: Identifiable, Equatable {
     enum Momento: Equatable {
         case benvenutoGiornata, obiettivoRaggiunto, ripartenza
+        /// Traguardo di settimane di fila con l'obiettivo raggiunto (2, 4, 8, 12, 26, 52).
+        case serieSettimane(Int)
+        /// Subito dopo un allenamento dichiarato "duro". Non conta come il popup del giorno (lo mostra la schermata di fine allenamento).
+        case dopoAllenamentoDuro
+        /// Subito dopo che l'utente segna il test di una tappa come superato (risposta a un suo gesto, non il popup del giorno).
+        case tappaSuperata
     }
 
     let id = UUID()
@@ -120,7 +126,7 @@ extension View {
         self.overlay {
             if let p = popup.wrappedValue, let coach {
                 ZStack {
-                    Color.black.opacity(0.35)
+                    Tema.navy.opacity(0.45)
                         .ignoresSafeArea()
                         .onTapGesture { popup.wrappedValue = nil }
                     CoachPopup(coach: coach, espressione: p.espressione, messaggio: p.messaggio, pulsanti: pulsanti(p))

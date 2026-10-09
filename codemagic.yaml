@@ -59,7 +59,7 @@ workflows:
           xcodegen
       - name: Imposta la firma sul progetto Xcode
         script: |
-          xcode-project use-profiles
+          xcode-project use-profiles --project "app/Swimwave.xcodeproj"
       - name: Crea l'archivio (.ipa) con l'app Watch incorporata
         script: |
           xcode-project build-ipa \

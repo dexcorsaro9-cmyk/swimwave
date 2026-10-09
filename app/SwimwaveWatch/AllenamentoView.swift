@@ -4,7 +4,7 @@ import SwimwaveCore
 /// Allenamento in acqua. Numeri grandi, una sola informazione dominante, nessuna immagine (docs/GRAFICA.md).
 ///  - Nuoto: i metri che mancano alla fine della ripetizione.
 ///  - Recupero: i secondi che mancano, in turchese.
-/// Pagina 1: allenamento. Pagina 2: controlli (termina).
+/// Pagina 1: allenamento. Pagina 2: controlli (pausa/riprendi e termina). In pausa si legge "In pausa" e i numeri sono attenuati.
 struct AllenamentoView: View {
     var body: some View {
         TabView {
@@ -21,22 +21,31 @@ struct PaginaAllenamento: View {
     var body: some View {
         if let av = manager.avanzamento, let passo = av.passoCorrente {
             VStack(spacing: 2) {
-                // Riga piccola: serie corrente e ripetizione.
-                Text(verbatim: String(format: NSLocalizedString("watch.serie", comment: ""),
-                                      passo.indiceSerie + 1, av.piano.serieTotali,
-                                      passo.ripetizione, passo.ripetizioniTotali))
-                    .font(.system(.footnote, design: .rounded).weight(.semibold))
-                    .foregroundStyle(.secondary)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.7)
+                // Riga piccola: serie corrente e ripetizione. In pausa lascia il posto alla scritta "In pausa".
+                if manager.inPausa {
+                    Text("watch.inpausa")
+                        .font(.system(.headline, design: .rounded).weight(.heavy))
+                        .foregroundStyle(WatchTema.corallo)
+                        .lineLimit(1)
+                } else {
+                    Text(verbatim: String(format: NSLocalizedString("watch.serie", comment: ""),
+                                          passo.indiceSerie + 1, av.piano.serieTotali,
+                                          passo.ripetizione, passo.ripetizioniTotali))
+                        .font(.system(.footnote, design: .rounded).weight(.semibold))
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
+                }
 
-                // Informazione dominante.
+                // Informazione dominante (attenuata in pausa).
                 dominante(av: av, passo: passo)
+                    .opacity(manager.inPausa ? 0.35 : 1)
 
-                // Tempo totale.
+                // Tempo totale (fermo in pausa).
                 Text(verbatim: formattaTempo(manager.tempoTrascorso))
                     .font(.system(.title3, design: .rounded).weight(.bold))
                     .monospacedDigit()
+                    .opacity(manager.inPausa ? 0.35 : 1)
 
                 BarraSerie(totali: av.piano.serieTotali, corrente: passo.indiceSerie)
                     .padding(.vertical, 4)
@@ -51,6 +60,7 @@ struct PaginaAllenamento: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(WatchTema.corallo)
+                .disabled(manager.inPausa)
             }
             .padding(.horizontal, 4)
         } else {
@@ -124,31 +134,66 @@ struct BarraSerie: View {
     private func colore(_ i: Int) -> Color {
         if i < corrente { return WatchTema.turchese }
         if i == corrente { return WatchTema.corallo }
-        return Color.gray.opacity(0.4)
+        return Color.secondary.opacity(0.4)
     }
 }
 
-/// Seconda pagina: termina l'allenamento. Serve un secondo tocco per evitare errori in acqua.
+/// Seconda pagina: pausa/riprendi e termina. Pulsanti grandi (si usano con le mani bagnate).
+/// Per terminare servono due tocchi (il secondo entro 4 secondi) per evitare errori in acqua.
 struct ControlliView: View {
     @EnvironmentObject private var manager: WorkoutManager
     @State private var daConfermare = false
 
     var body: some View {
         VStack(spacing: 8) {
+            if manager.inPausa {
+                Text("watch.inpausa")
+                    .font(.system(.headline, design: .rounded).weight(.heavy))
+                    .foregroundStyle(WatchTema.corallo)
+            }
+
+            Button {
+                daConfermare = false
+                if manager.inPausa {
+                    manager.riprendi()
+                } else {
+                    manager.pausa()
+                }
+            } label: {
+                Text(LocalizedStringKey(manager.inPausa ? "watch.riprendi" : "watch.pausa"))
+                    .font(.system(.title3, design: .rounded).weight(.heavy))
+                    .foregroundStyle(WatchTema.navy)
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
+            .tint(WatchTema.turchese)
+
             Button {
                 if daConfermare {
+                    daConfermare = false
                     manager.termina()
                 } else {
                     daConfermare = true
                 }
             } label: {
                 Text(LocalizedStringKey(daConfermare ? "watch.termina.conferma" : "watch.termina"))
-                    .font(.system(.headline, design: .rounded).weight(.heavy))
+                    .font(.system(.title3, design: .rounded).weight(.heavy))
+                    .foregroundStyle(daConfermare ? WatchTema.navy : Color.primary)
                     .frame(maxWidth: .infinity)
+                    .minimumScaleFactor(0.7)
+                    .lineLimit(1)
             }
             .buttonStyle(.borderedProminent)
-            .tint(daConfermare ? Color.red : Color.gray)
+            .controlSize(.large)
+            .tint(daConfermare ? WatchTema.corallo : Color.secondary.opacity(0.5))
         }
         .padding(.horizontal, 4)
+        // La conferma scade da sola dopo 4 secondi (o quando si lascia la pagina).
+        .task(id: daConfermare) {
+            guard daConfermare else { return }
+            try? await Task.sleep(nanoseconds: 4_000_000_000)
+            daConfermare = false
+        }
     }
 }

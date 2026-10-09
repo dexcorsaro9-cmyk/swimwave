@@ -20,11 +20,31 @@ final class StatoApp {
     var giornoUltimoPopup: Date?
     /// Settimana per cui è già stato festeggiato l'obiettivo.
     var settimanaFesteggiata: String?
+    /// Conferma "ho almeno 18 anni", chiesta prima di tutto (docs/legale/CHECKLIST.md).
+    var maggiorenneConfermato = false
+    /// Consenso all'uso dell'IA per generare gli allenamenti. nil = non ancora chiesto; false = rifiutato (si usano gli allenamenti fissi).
+    var consensoIA: Bool?
+    /// Tappe del percorso superate (il test è stato dichiarato superato).
+    var tappeSuperate: [Int] = []
+    /// Ultimo test per trovare il proprio ritmo (200 m e 400 m).
+    var testRitmo: TestRitmo?
+    /// Ultimo traguardo di serie di settimane già festeggiato.
+    var traguardoSerieFesteggiato: Int?
+    /// Il permesso di leggere da Salute è già stato chiesto (la richiesta del sistema compare una volta sola).
+    var permessoSaluteChiesto = false
+    var ultimaLetturaSalute: Date?
+    /// Allenamento generato dal servizio coach per `chiaveGenerato` (cambia ogni giorno o se cambia il profilo).
+    var allenamentoGenerato: Workout?
+    var chiaveGenerato: String?
 
     // MARK: Non osservati
-    @ObservationIgnored let contenuti: ContentStore
-    @ObservationIgnored private let defaults: UserDefaults
-    @ObservationIgnored private let watch = WatchLink()
+    // Le costanti (`let`) non sono mai osservate dalla macro @Observable: qui @ObservationIgnored serve solo per le `var`.
+    let contenuti: ContentStore
+    private let defaults: UserDefaults
+    private let watch = WatchLink()
+    let servizioCoach: ServizioCoach?
+    let lettoreSalute: LettoreSalute
+    let notifiche: ProgrammatoreNotifiche
     @ObservationIgnored private var cacheAllenamento: (chiave: String, workout: Workout?)?
 
     private static let chiaveDati = "swimwave.dati.v1"
@@ -33,9 +53,18 @@ final class StatoApp {
     /// PROVVISORIO: "fino a 2 settimane" è una soglia in bozza di content/REVISIONE.md, da confermare.
     static let giorniPerRipartenza = 14
 
-    init(defaults: UserDefaults = .standard, contenuti: ContentStore = StatoApp.contenutiDaBundle()) {
+    init(
+        defaults: UserDefaults = .standard,
+        contenuti: ContentStore = StatoApp.contenutiDaBundle(),
+        servizioCoach: ServizioCoach? = ClientCoachHTTP.daConfigurazione(),
+        lettoreSalute: LettoreSalute = LettoreSaluteHealthKit(),
+        notifiche: ProgrammatoreNotifiche = NotificheLocali()
+    ) {
         self.defaults = defaults
         self.contenuti = contenuti
+        self.servizioCoach = servizioCoach
+        self.lettoreSalute = lettoreSalute
+        self.notifiche = notifiche
         carica()
         watch.onNuotata = { [weak self] nuotata in self?.registra(nuotata) }
         watch.attiva()
@@ -69,6 +98,16 @@ final class StatoApp {
         var tappaAttuale: Int
         var giornoUltimoPopup: Date?
         var settimanaFesteggiata: String?
+        // Campi aggiunti dopo: opzionali, così i dati salvati da versioni precedenti si leggono ancora.
+        var maggiorenneConfermato: Bool?
+        var consensoIA: Bool?
+        var tappeSuperate: [Int]?
+        var testRitmo: TestRitmo?
+        var traguardoSerieFesteggiato: Int?
+        var permessoSaluteChiesto: Bool?
+        var ultimaLetturaSalute: Date?
+        var allenamentoGenerato: Workout?
+        var chiaveGenerato: String?
     }
 
     private func carica() {
@@ -80,6 +119,15 @@ final class StatoApp {
         tappaAttuale = d.tappaAttuale
         giornoUltimoPopup = d.giornoUltimoPopup
         settimanaFesteggiata = d.settimanaFesteggiata
+        maggiorenneConfermato = d.maggiorenneConfermato ?? false
+        consensoIA = d.consensoIA
+        tappeSuperate = d.tappeSuperate ?? []
+        testRitmo = d.testRitmo
+        traguardoSerieFesteggiato = d.traguardoSerieFesteggiato
+        permessoSaluteChiesto = d.permessoSaluteChiesto ?? false
+        ultimaLetturaSalute = d.ultimaLetturaSalute
+        allenamentoGenerato = d.allenamentoGenerato
+        chiaveGenerato = d.chiaveGenerato
     }
 
     func salva() {
@@ -89,7 +137,16 @@ final class StatoApp {
             nuotate: nuotate,
             tappaAttuale: tappaAttuale,
             giornoUltimoPopup: giornoUltimoPopup,
-            settimanaFesteggiata: settimanaFesteggiata
+            settimanaFesteggiata: settimanaFesteggiata,
+            maggiorenneConfermato: maggiorenneConfermato,
+            consensoIA: consensoIA,
+            tappeSuperate: tappeSuperate,
+            testRitmo: testRitmo,
+            traguardoSerieFesteggiato: traguardoSerieFesteggiato,
+            permessoSaluteChiesto: permessoSaluteChiesto,
+            ultimaLetturaSalute: ultimaLetturaSalute,
+            allenamentoGenerato: allenamentoGenerato,
+            chiaveGenerato: chiaveGenerato
         )
         if let data = try? JSONEncoder().encode(d) {
             defaults.set(data, forKey: StatoApp.chiaveDati)
@@ -105,7 +162,17 @@ final class StatoApp {
         tappaAttuale = 1
         giornoUltimoPopup = nil
         settimanaFesteggiata = nil
+        maggiorenneConfermato = false
+        consensoIA = nil
+        tappeSuperate = []
+        testRitmo = nil
+        traguardoSerieFesteggiato = nil
+        permessoSaluteChiesto = false
+        ultimaLetturaSalute = nil
+        allenamentoGenerato = nil
+        chiaveGenerato = nil
         cacheAllenamento = nil
+        Task { await self.notifiche.cancellaTutti() }
     }
 
     // MARK: Onboarding
@@ -124,6 +191,19 @@ final class StatoApp {
         nuotate.append(nuotata)
         nuotate.sort { $0.data > $1.data }
         salva()
+        Task { await self.riprogrammaPromemoria() }
+    }
+
+    /// Risposta alla domanda di fine allenamento: "facile, giusta o dura?".
+    func imposta(sensazione: Sensazione, perNuotata id: UUID) {
+        guard let i = nuotate.firstIndex(where: { $0.id == id }) else { return }
+        nuotate[i].sensazione = sensazione
+        salva()
+    }
+
+    /// Ultima sensazione dichiarata, per adattare il prossimo allenamento.
+    var ultimaSensazione: Sensazione? {
+        nuotate.first(where: { $0.sensazione != nil })?.sensazione
     }
 
     var progressoSettimana: ProgressoSettimanale? {
@@ -134,6 +214,29 @@ final class StatoApp {
         ObiettivoSettimanale.conteggio(date: nuotate.map(\.data), rispetto: Date())
     }
 
+    /// Settimane di fila con l'obiettivo raggiunto (vedi SerieSettimane).
+    var serieSettimane: Int {
+        SerieSettimane.settimaneDiFila(profilo: profilo, date: nuotate.map(\.data))
+    }
+
+    // MARK: Consensi
+
+    func confermaMaggiorenne() {
+        maggiorenneConfermato = true
+        salva()
+    }
+
+    func imposta(consensoIA nuovo: Bool) {
+        consensoIA = nuovo
+        // Cambiato il consenso, l'allenamento generato non vale più.
+        if !nuovo {
+            allenamentoGenerato = nil
+            chiaveGenerato = nil
+            cacheAllenamento = nil
+        }
+        salva()
+    }
+
     // MARK: Percorso
 
     func vai(allaTappa id: Int) {
@@ -141,22 +244,104 @@ final class StatoApp {
         salva()
     }
 
+    /// L'utente dichiara di aver superato il test della tappa. Le tappe guidano ma non bloccano (content/percorso.json):
+    /// si passa alla tappa seguente, e si può sempre tornare indietro.
+    func superaTappa(_ id: Int) {
+        if !tappeSuperate.contains(id) { tappeSuperate.append(id) }
+        if let prossima = contenuti.tappe.map(\.id).sorted().first(where: { $0 > id }) {
+            tappaAttuale = prossima
+        }
+        salva()
+    }
+
+    func tappaSuperata(_ id: Int) -> Bool { tappeSuperate.contains(id) }
+
+    func salva(testRitmo nuovo: TestRitmo) {
+        testRitmo = nuovo
+        salva()
+    }
+
     // MARK: Allenamento di oggi
 
-    /// Allenamento fisso (riserva) adatto a livello, obiettivo e vasca. Cambia da un giorno all'altro.
-    /// Quando ci sarà il servizio coach (server/coach) qui arriverà l'allenamento generato, con questa come riserva.
-    func allenamentoDiOggi(adesso: Date = Date()) -> Workout? {
+    private func chiaveOggi(adesso: Date) -> (giorno: Int, chiave: String) {
         let giorno = Calendar.italiano.ordinality(of: .day, in: .year, for: adesso) ?? 0
         let chiave = "\(giorno)|\(profilo.categoriaLivello.rawValue)|\(profilo.obiettivoEffettivo.rawValue)|\(profilo.vascaMetri)|\(contenuti.voci.count)"
+        return (giorno, chiave)
+    }
+
+    /// L'allenamento di oggi: quello generato dal coach se c'è (e se l'utente ha dato il consenso all'IA),
+    /// altrimenti un allenamento fisso adatto a livello, obiettivo e vasca. Cambia da un giorno all'altro.
+    func allenamentoDiOggi(adesso: Date = Date()) -> Workout? {
+        let (giorno, chiave) = chiaveOggi(adesso: adesso)
+        if consensoIA == true, let generato = allenamentoGenerato, chiaveGenerato == chiave { return generato }
         if let cache = cacheAllenamento, cache.chiave == chiave { return cache.workout }
         let w = contenuti.scegliRiserva(profilo: profilo, scelta: giorno)
         cacheAllenamento = (chiave, w)
         return w
     }
 
+    /// Chiede al servizio coach l'allenamento di oggi. Solo con il consenso all'IA e il servizio configurato.
+    /// Se qualcosa non va (rete, risposta non valida) non cambia nulla: resta l'allenamento fisso.
+    /// Il risultato è controllato con lo stesso validatore del server e del Watch (lista chiusa di drill).
+    @MainActor
+    func aggiornaAllenamentoIA(adesso: Date = Date()) async {
+        guard consensoIA == true, let servizio = servizioCoach, onboardingCompletato else { return }
+        let (_, chiave) = chiaveOggi(adesso: adesso)
+        if chiaveGenerato == chiave, allenamentoGenerato != nil { return }
+        var riepilogo: String?
+        if let s = ultimaSensazione { riepilogo = "ultimo allenamento: \(s.rawValue)" }
+        guard let w = try? await servizio.richiedi(profilo: profilo, riepilogo: riepilogo),
+              WorkoutValidator.validate(w, allowedDrills: contenuti.drillAmmessi).isEmpty else { return }
+        allenamentoGenerato = Riserva.adattaVasca(w, vascaMetri: profilo.vascaMetri)
+        chiaveGenerato = chiave
+        salva()
+    }
+
     func inviaAlWatch() -> EsitoInvioWatch {
         guard let w = allenamentoDiOggi() else { return .errore }
         return watch.invia(allenamento: w)
+    }
+
+    // MARK: Apple Salute
+
+    /// Chiede il permesso (una volta) e importa le nuotate nuove. Le nuotate già note (stesso id) non si duplicano.
+    @MainActor
+    func importaDaSalute(chiediPermesso: Bool = false) async {
+        if !permessoSaluteChiesto {
+            guard chiediPermesso else { return }
+            _ = await lettoreSalute.richiediPermesso()
+            permessoSaluteChiesto = true
+            salva()
+        }
+        let dal = ultimaLetturaSalute ?? Calendar.italiano.date(byAdding: .day, value: -90, to: Date()) ?? Date.distantPast
+        let lette = await lettoreSalute.leggiNuotate(dal: dal)
+        ultimaLetturaSalute = Date()
+        for n in lette where !nuotate.contains(where: { $0.id == n.id }) {
+            var nuova = n
+            if nuova.origine == nil { nuova.origine = .salute }
+            registra(nuova)
+        }
+        salva()
+    }
+
+    // MARK: Promemoria (ritmo Spronami)
+
+    /// Chiede il permesso delle notifiche solo a chi sceglie Spronami; con gli altri ritmi cancella i promemoria.
+    @MainActor
+    func riprogrammaPromemoria(chiediPermesso: Bool = false) async {
+        guard profilo.ritmo == .spronami, onboardingCompletato else {
+            await notifiche.cancellaTutti()
+            return
+        }
+        if chiediPermesso {
+            guard await notifiche.richiediPermesso() else { return }
+        }
+        let date = PromemoriaSpronami.date(profilo: profilo, nuotate: nuotate.map(\.data))
+        await notifiche.programma(
+            date: date,
+            titolo: "Swimwave",
+            testo: testo("promemoria.testo", profilo.nomePulito)
+        )
     }
 
     // MARK: Popup del coach
@@ -170,6 +355,11 @@ final class StatoApp {
 
         if let p = progressoSettimana, p.raggiunto,
            settimanaFesteggiata != ObiettivoSettimanale.idSettimana(adesso) {
+            let serie = serieSettimane
+            if let t = SerieSettimane.traguardo(per: serie), traguardoSerieFesteggiato != t {
+                return PopupCoach(momento: .serieSettimane(t), espressione: .traguardo,
+                                  messaggio: testo("popup.serie.messaggio", profilo.nomePulito, t))
+            }
             return PopupCoach(momento: .obiettivoRaggiunto, espressione: .traguardo,
                               messaggio: testo("popup.traguardo.messaggio", profilo.nomePulito))
         }
@@ -189,8 +379,14 @@ final class StatoApp {
 
     func segnaMostrato(_ popup: PopupCoach, adesso: Date = Date()) {
         giornoUltimoPopup = adesso
-        if popup.momento == .obiettivoRaggiunto {
+        switch popup.momento {
+        case .obiettivoRaggiunto:
             settimanaFesteggiata = ObiettivoSettimanale.idSettimana(adesso)
+        case .serieSettimane(let t):
+            settimanaFesteggiata = ObiettivoSettimanale.idSettimana(adesso)
+            traguardoSerieFesteggiato = t
+        default:
+            break
         }
         salva()
     }

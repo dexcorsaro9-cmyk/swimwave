@@ -5,6 +5,10 @@ import SwimwaveCore
 struct ProfiloView: View {
     @Environment(StatoApp.self) private var stato
     @State private var confermaCancellazione = false
+    @State private var mostraPermessoSalute = false
+    @State private var mostraPermessoNotifiche = false
+    /// Stessa chiave di RootView: dopo aver spiegato le notifiche qui, il primo avvio non le rispiega.
+    @AppStorage("swimwave.permessoNotificheMostrato") private var notificheMostrate = false
 
     var body: some View {
         @Bindable var stato = stato
@@ -77,6 +81,27 @@ struct ProfiloView: View {
                             }
                         }
 
+                        rigaIA
+
+                        if !stato.permessoSaluteChiesto {
+                            Button { mostraPermessoSalute = true } label: {
+                                HStack(spacing: 12) {
+                                    Image(systemName: "heart.fill")
+                                        .foregroundStyle(Tema.corallo)
+                                        .accessibilityHidden(true)
+                                    Text("profilo.salute.leggi")
+                                        .font(Tema.sottotitolo)
+                                        .foregroundStyle(Tema.testo)
+                                        .multilineTextAlignment(.leading)
+                                    Spacer()
+                                    Image(systemName: "chevron.right").foregroundStyle(Tema.testoSecondario)
+                                        .accessibilityHidden(true)
+                                }
+                                .carta()
+                            }
+                            .buttonStyle(.plain)
+                        }
+
                         NavigationLink {
                             InformazioniView()
                         } label: {
@@ -120,7 +145,50 @@ struct ProfiloView: View {
             }
             .sfondoApp()
             .toolbar(.hidden, for: .navigationBar)
+            // Il ritmo e la frequenza cambiano già il profilo (RootView salva): qui si aggiornano i promemoria.
+            .onChange(of: stato.profilo.ritmo) { _, nuovo in
+                if nuovo == .spronami {
+                    // Il coach spiega i promemoria; alla fine del foglio si riprogrammano.
+                    mostraPermessoNotifiche = true
+                } else {
+                    // Con un altro ritmo riprogrammaPromemoria() cancella i promemoria.
+                    Task { await stato.riprogrammaPromemoria() }
+                }
+            }
+            .onChange(of: stato.profilo.frequenzaSettimanale) { _, _ in
+                Task { await stato.riprogrammaPromemoria() }
+            }
+            .sheet(isPresented: $mostraPermessoSalute) {
+                PermessoSaluteView { mostraPermessoSalute = false }
+            }
+            .sheet(isPresented: $mostraPermessoNotifiche, onDismiss: {
+                // Anche se il foglio si chiude con un gesto: spiegato una volta, promemoria riprogrammati.
+                notificheMostrate = true
+                Task { await stato.riprogrammaPromemoria() }
+            }) {
+                PermessoNotificheView { mostraPermessoNotifiche = false }
+            }
         }
+    }
+
+    /// Interruttore del consenso all'IA: acceso = allenamenti preparati con l'intelligenza artificiale.
+    private var rigaIA: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Toggle(isOn: Binding(
+                get: { stato.consensoIA == true },
+                set: { stato.imposta(consensoIA: $0) }
+            )) {
+                Text("profilo.ia.titolo")
+                    .font(Tema.sottotitolo)
+                    .foregroundStyle(Tema.testo)
+            }
+            .tint(Tema.turchese)
+            Text("profilo.ia.descrizione")
+                .font(Tema.piccolo)
+                .foregroundStyle(Tema.testoSecondario)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .carta()
     }
 
     private func riga<Contenuto: View>(_ titolo: String, @ViewBuilder contenuto: () -> Contenuto) -> some View {

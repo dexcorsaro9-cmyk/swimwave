@@ -14,6 +14,14 @@ enum Tema {
     static let turcheseChiaro = Color("TurcheseChiaro")
     static let corallo = Color("Corallo")
     static let coralloOmbra = Color("CoralloOmbra")
+    /// Bordo sottile delle carte: invisibile nel tema chiaro, visibile nello scuro (dove la carta non ha ombra).
+    static let bordo = Color("Bordo")
+    /// Ombra delle carte: leggera nel tema chiaro, assente nello scuro.
+    static let ombra = Color("OmbraCarta")
+    /// Barra in basso (TabView).
+    static let barra = Color("BarraInferiore")
+    /// Testo sulle superfici navy (intestazioni e lavagnetta): chiaro in tutti e due i temi.
+    static let testoSuNavy = Color("TestoSuNavy")
 
     static let raggio: CGFloat = 20
 
@@ -78,7 +86,7 @@ extension ButtonStyle where Self == BottoneSecondario {
 // MARK: - Carta bianca
 
 extension View {
-    /// Carta arrotondata con ombra leggera.
+    /// Carta arrotondata: ombra leggera nel tema chiaro, bordo sottile nel tema scuro (colori "OmbraCarta" e "Bordo").
     func carta(padding: CGFloat = 16) -> some View {
         self
             .padding(padding)
@@ -86,7 +94,11 @@ extension View {
             .background(
                 RoundedRectangle(cornerRadius: Tema.raggio, style: .continuous)
                     .fill(Tema.carta)
-                    .shadow(color: Color.black.opacity(0.08), radius: 8, x: 0, y: 3)
+                    .shadow(color: Tema.ombra, radius: 8, x: 0, y: 3)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: Tema.raggio, style: .continuous)
+                    .stroke(Tema.bordo, lineWidth: 1)
             )
     }
 
@@ -130,7 +142,7 @@ struct IntestazioneOnda<Contenuto: View>: View {
 
     var body: some View {
         contenuto
-            .foregroundStyle(Color.white)
+            .foregroundStyle(Tema.testoSuNavy)
             .padding(.horizontal, 20)
             .padding(.top, 12)
             .padding(.bottom, 40)

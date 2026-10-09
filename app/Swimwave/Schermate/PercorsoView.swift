@@ -4,7 +4,20 @@ import SwimwaveCore
 /// Le tappe di content/percorso.json. Guidano ma non bloccano: si può saltare avanti o tornare indietro.
 struct PercorsoView: View {
     @Environment(StatoApp.self) private var stato
-    @State private var tappaAperta: Tappa?
+    @State private var foglio: FoglioPercorso?
+    @State private var popup: PopupCoach?
+
+    enum FoglioPercorso: Identifiable {
+        case tappa(Tappa)
+        case testRitmo
+
+        var id: String {
+            switch self {
+            case .tappa(let t): return "tappa-\(t.id)"
+            case .testRitmo: return "test-ritmo"
+            }
+        }
+    }
 
     var body: some View {
         ScrollView {
@@ -28,12 +41,19 @@ struct PercorsoView: View {
                         .carta()
                     } else {
                         ForEach(stato.contenuti.tappe) { tappa in
-                            Button { tappaAperta = tappa } label: {
+                            Button { foglio = .tappa(tappa) } label: {
                                 RigaTappa(tappa: tappa, attuale: tappa.id == stato.tappaAttuale,
-                                          completata: tappa.id < stato.tappaAttuale)
+                                          completata: stato.tappaSuperata(tappa.id))
                             }
                             .buttonStyle(.plain)
                         }
+                    }
+                    // Il test del ritmo compare solo quando le zone sono approvate (in Release, dopo la revisione).
+                    if !stato.contenuti.zone.isEmpty {
+                        Button { foglio = .testRitmo } label: {
+                            cartaTestRitmo
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
                 .padding(.horizontal, 16)
@@ -42,8 +62,70 @@ struct PercorsoView: View {
             }
         }
         .sfondoApp()
-        .sheet(item: $tappaAperta) { tappa in
-            DettaglioTappaView(tappa: tappa)
+        .sheet(item: $foglio) { f in
+            switch f {
+            case .tappa(let tappa):
+                DettaglioTappaView(tappa: tappa) {
+                    foglio = nil
+                    festeggiaTappa()
+                }
+                .environment(stato)
+            case .testRitmo:
+                TestRitmoView()
+                    .environment(stato)
+            }
+        }
+        .coachPopup($popup, coach: stato.profilo.coach) { _ in
+            [PulsantePopup(titolo: testo("popup.bottone.grazie"), principale: true) { popup = nil }]
+        }
+    }
+
+    private var cartaTestRitmo: some View {
+        HStack(spacing: 14) {
+            ZStack {
+                Circle().fill(Tema.turchese.opacity(0.18))
+                Image(systemName: "timer")
+                    .font(.system(.title3, design: .rounded).weight(.bold))
+                    .foregroundStyle(Tema.testo)
+            }
+            .frame(width: 44, height: 44)
+            .accessibilityHidden(true)
+
+            VStack(alignment: .leading, spacing: 3) {
+                Text("percorso.ritmo.titolo")
+                    .font(Tema.sottotitolo)
+                    .foregroundStyle(Tema.testo)
+                Text(verbatim: sottotitoloTestRitmo)
+                    .font(Tema.piccolo)
+                    .foregroundStyle(Tema.testoSecondario)
+                    .multilineTextAlignment(.leading)
+            }
+            Spacer(minLength: 0)
+            Image(systemName: "chevron.right")
+                .foregroundStyle(Tema.testoSecondario)
+        }
+        .carta(padding: 14)
+        .accessibilityElement(children: .combine)
+    }
+
+    private var sottotitoloTestRitmo: String {
+        if let t = stato.testRitmo, let rc = t.ritmoCriticoPer100 {
+            return testo("percorso.ritmo.salvato", FormatoRitmo.minutiSecondi(rc))
+        }
+        return testo("percorso.ritmo.sottotitolo")
+    }
+
+    /// Risposta calda a un gesto dell'utente (ha segnato il test come superato): non è il popup del giorno.
+    private func festeggiaTappa() {
+        guard popup == nil else { return }
+        // Un attimo di attesa, perché il foglio della tappa finisca di chiudersi.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            guard popup == nil else { return }
+            popup = PopupCoach(
+                momento: .tappaSuperata,
+                espressione: .traguardo,
+                messaggio: testo("percorso.superata.messaggio", stato.profilo.nomePulito)
+            )
         }
     }
 }
@@ -91,14 +173,28 @@ private struct RigaTappa: View {
                 .foregroundStyle(Tema.testoSecondario)
         }
         .carta(padding: 14)
+        .overlay(
+            // La tappa attuale è evidenziata dal bordo corallo.
+            RoundedRectangle(cornerRadius: Tema.raggio, style: .continuous)
+                .stroke(Tema.corallo, lineWidth: attuale ? 3 : 0)
+        )
         .accessibilityElement(children: .combine)
+        .accessibilityValue(Text(verbatim: completata ? testo("tappa.superata") : ""))
     }
 }
 
 struct DettaglioTappaView: View {
     let tappa: Tappa
+    /// Chiamata dopo che l'utente ha confermato di aver superato il test.
+    let onSuperata: (() -> Void)?
     @Environment(StatoApp.self) private var stato
     @Environment(\.dismiss) private var dismiss
+    @State private var chiediConferma = false
+
+    init(tappa: Tappa, onSuperata: (() -> Void)? = nil) {
+        self.tappa = tappa
+        self.onSuperata = onSuperata
+    }
 
     var body: some View {
         NavigationStack {
@@ -110,6 +206,7 @@ struct DettaglioTappaView: View {
                     }
                     sezione("tappa.obiettivo", tappa.obiettivo)
                     sezione("tappa.test", tappa.test)
+                    esitoTest
 
                     let drill = tappa.drill.compactMap { stato.contenuti.drill(id: $0) }
                     if !drill.isEmpty {
@@ -160,6 +257,50 @@ struct DettaglioTappaView: View {
                     Button("comune.chiudi") { dismiss() }
                 }
             }
+            .confirmationDialog(Text("tappa.conferma.titolo"), isPresented: $chiediConferma, titleVisibility: .visible) {
+                Button("tappa.conferma.si") { supera() }
+                Button("comune.annulla", role: .cancel) {}
+            }
+        }
+    }
+
+    /// Il test non si controlla: lo dichiara l'utente. Una tappa superata resta consultabile e le altre non sono mai bloccate.
+    @ViewBuilder
+    private var esitoTest: some View {
+        if stato.tappaSuperata(tappa.id) {
+            HStack(spacing: 10) {
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.system(.title2, design: .rounded))
+                    .foregroundStyle(Tema.turchese)
+                    .accessibilityHidden(true)
+                Text("tappa.superata")
+                    .font(Tema.sottotitolo)
+                    .foregroundStyle(Tema.testo)
+                Spacer(minLength: 0)
+            }
+            .carta()
+            .accessibilityElement(children: .combine)
+        } else {
+            Button {
+                chiediConferma = true
+            } label: {
+                Text("tappa.haiSuperato")
+            }
+            .buttonStyle(.primario)
+        }
+    }
+
+    private func supera() {
+        let prima = stato.tappaAttuale
+        stato.superaTappa(tappa.id)
+        // Segnare una tappa già alle spalle non deve riportare indietro la tappa attuale.
+        if prima > tappa.id {
+            stato.vai(allaTappa: prima)
+        }
+        if let onSuperata {
+            onSuperata()
+        } else {
+            dismiss()
         }
     }
 

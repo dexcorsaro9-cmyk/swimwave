@@ -155,6 +155,17 @@
         }
       }
     },
+    "watch.inpausa": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In pausa"
+          }
+        }
+      }
+    },
     "watch.metri": {
       "extractionState": "manual",
       "localizations": {
@@ -162,6 +173,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "metri"
+          }
+        }
+      }
+    },
+    "watch.pausa": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa"
           }
         }
       }
@@ -184,6 +206,17 @@
           "stringUnit": {
             "state": "translated",
             "value": "RECUPERO"
+          }
+        }
+      }
+    },
+    "watch.riprendi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riprendi"
           }
         }
       }
@@ -216,7 +249,7 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tocca per terminare"
+            "value": "Tocca ancora per terminare"
           }
         }
       }

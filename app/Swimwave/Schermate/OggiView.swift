@@ -5,6 +5,9 @@ struct OggiView: View {
     @Environment(StatoApp.self) private var stato
     @State private var popup: PopupCoach?
     @State private var esitoInvio: EsitoInvioWatch?
+    @State private var daSeguire: AllenamentoDaSeguire?
+    @State private var mostraPermessoSalute = false
+    @State private var permessoSaluteProposto = false
 
     var body: some View {
         let profilo = stato.profilo
@@ -28,7 +31,9 @@ struct OggiView: View {
                     }
                 }
                 VStack(spacing: 16) {
+                    domandaUltimaNuotata
                     obiettivoSettimana
+                    rigaSerie
                     allenamento
                     #if DEBUG
                     Button {
@@ -50,13 +55,40 @@ struct OggiView: View {
         .coachPopup($popup, coach: profilo.coach) { p in
             pulsanti(per: p)
         }
+        .fullScreenCover(item: $daSeguire) { da in
+            AllenamentoGuidatoView(workout: da.workout)
+                .environment(stato)
+        }
+        .sheet(isPresented: $mostraPermessoSalute) {
+            PermessoSaluteView(onFine: { mostraPermessoSalute = false })
+                .environment(stato)
+        }
         .onChange(of: stato.nuotate.count) { _, _ in
-            mostraPopupSeServe()
+            // Mai popup durante l'allenamento guidato: se ne parla alla chiusura.
+            if daSeguire == nil { mostraPopupSeServe() }
+        }
+        .onChange(of: daSeguire?.id) { _, nuovo in
+            if nuovo == nil {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { mostraPopupSeServe() }
+            }
+        }
+        .onChange(of: popup?.id) { _, nuovo in
+            if nuovo == nil { programmaPermessoSalute(dopo: 1.0) }
+        }
+        .onChange(of: stato.allenamentoGenerato) { _, _ in
+            // Arrivato l'allenamento del coach: il Watch riceve quello aggiornato.
+            _ = stato.inviaAlWatch()
         }
         .onAppear {
             mostraPopupSeServe()
             // Tiene aggiornato il Watch con l'allenamento di oggi, senza mostrare nulla.
             _ = stato.inviaAlWatch()
+            programmaPermessoSalute(dopo: 2.5)
+        }
+        .task {
+            // Senza bloccare la vista: l'allenamento mostrato cambia quando arriva quello generato.
+            await stato.aggiornaAllenamentoIA()
+            await stato.importaDaSalute()
         }
     }
 
@@ -101,6 +133,58 @@ struct OggiView: View {
         }
     }
 
+    // MARK: Serie di settimane
+
+    /// Riga discreta: solo da 2 settimane in su. Quando la serie si ferma non compare nulla.
+    @ViewBuilder
+    private var rigaSerie: some View {
+        let n = stato.serieSettimane
+        if n >= 2 {
+            HStack(spacing: 8) {
+                Image(systemName: "flame.fill")
+                    .foregroundStyle(Tema.corallo)
+                    .accessibilityHidden(true)
+                Text(verbatim: testo("oggi.serie", n))
+                    .font(Tema.sottotitolo)
+                    .foregroundStyle(Tema.testo)
+                Spacer(minLength: 0)
+            }
+            .padding(.horizontal, 4)
+            .accessibilityElement(children: .combine)
+        }
+    }
+
+    // MARK: Com'è andata l'ultima nuotata
+
+    /// Per le nuotate arrivate dal Watch (o da Salute) senza risposta, nelle ultime 24 ore.
+    @ViewBuilder
+    private var domandaUltimaNuotata: some View {
+        if let ultima = stato.nuotate.first,
+           ultima.sensazione == nil,
+           Date().timeIntervalSince(ultima.data) < 24 * 3600 {
+            VStack(alignment: .leading, spacing: 12) {
+                Text("oggi.sensazione.titolo")
+                    .font(Tema.sottotitolo)
+                    .foregroundStyle(Tema.testo)
+                SceltaSensazione(selezionata: nil, compatta: true) { s in
+                    rispondi(s, perNuotata: ultima.id)
+                }
+            }
+            .carta()
+        }
+    }
+
+    private func rispondi(_ s: Sensazione, perNuotata id: UUID) {
+        stato.imposta(sensazione: s, perNuotata: id)
+        if s == .dura, popup == nil {
+            popup = PopupCoach(
+                momento: .dopoAllenamentoDuro,
+                espressione: .dopoAllenamentoDuro,
+                messaggio: testo("popup.dopoAllenamentoDuro.messaggio", stato.profilo.nomePulito)
+            )
+        }
+    }
+
     // MARK: Allenamento del giorno
 
     @ViewBuilder
@@ -132,12 +216,18 @@ struct OggiView: View {
                     }
                 }
                 Button {
+                    daSeguire = AllenamentoDaSeguire(workout: w)
+                } label: {
+                    Text("oggi.inizia")
+                }
+                .buttonStyle(.primario)
+                .padding(.top, 4)
+                Button {
                     esitoInvio = stato.inviaAlWatch()
                 } label: {
                     Text("oggi.invia")
                 }
-                .buttonStyle(.primario)
-                .padding(.top, 4)
+                .buttonStyle(.secondario)
                 if let esito = esitoInvio {
                     Text(verbatim: messaggio(per: esito))
                         .font(Tema.piccolo)
@@ -175,10 +265,24 @@ struct OggiView: View {
         popup = p
     }
 
+    /// La prima volta propone di leggere le nuotate da Salute, con un ritardo per non sovrapporsi ai popup del coach.
+    /// Si propone al massimo una volta per apertura dell'app; "Più tardi" lascia la strada aperta dallo Storico e dal Profilo.
+    private func programmaPermessoSalute(dopo secondi: Double) {
+        guard !stato.permessoSaluteChiesto, !permessoSaluteProposto else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now() + secondi) {
+            guard !stato.permessoSaluteChiesto, !permessoSaluteProposto,
+                  popup == nil, daSeguire == nil, !mostraPermessoSalute else { return }
+            permessoSaluteProposto = true
+            mostraPermessoSalute = true
+        }
+    }
+
     private func pulsanti(per p: PopupCoach) -> [PulsantePopup] {
         switch p.momento {
-        case .obiettivoRaggiunto:
+        case .obiettivoRaggiunto, .serieSettimane, .tappaSuperata:
             return [PulsantePopup(titolo: testo("popup.bottone.grazie"), principale: true) { popup = nil }]
+        case .dopoAllenamentoDuro:
+            return [PulsantePopup(titolo: testo("popup.bottone.ok"), principale: true) { popup = nil }]
         case .benvenutoGiornata, .ripartenza:
             return [
                 PulsantePopup(titolo: testo("popup.bottone.ciSono"), principale: true) { popup = nil },

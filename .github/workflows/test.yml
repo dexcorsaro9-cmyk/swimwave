@@ -58,11 +58,11 @@ jobs:
             echo "::error title=xcodebuild fallito::${righe}"
           fi
           exit $esito
-      - name: Compila l'app Watch e la complicazione (simulatore)
+      - name: Compila l'app Watch e la complicazione
         working-directory: app
         run: |
           set +e
-          for schema in SwimwaveWatch SwimwaveWatchComplicazione; do
+          for schema in SwimwaveWatch; do   # la complicazione è una dipendenza del Watch: si compila con lui
             xcodebuild build \
               -project Swimwave.xcodeproj -scheme $schema \
               -destination 'generic/platform=watchOS' \

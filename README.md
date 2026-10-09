@@ -16,7 +16,8 @@ App per chi nuota da solo e non ha nessuno che lo segua: coach IA che crea allen
 - `docs/schema/workout.schema.json`: schema del formato dell'allenamento (il contratto)
 - `server/coach/`: servizio coach (Node). Genera l'allenamento, lo controlla con lo schema e usa una riserva fissa se qualcosa non va. Test: `cd server/coach && npm install && npm test` (verificati, 8 su 8)
 - `Packages/SwimwaveCore/`: pacchetto Swift condiviso da iPhone e Watch (modello e validazione). **Non ancora compilato né testato**: scritto senza Swift a disposizione, da provare in Xcode con `swift test`
-- `content/drills.json` e `fixtures/`: segnaposto da compilare con l'istruttore
+- `content/`: contenuti tecnici in bozza, con le fonti: drill, errori comuni, percorso a tappe, allenamenti di riserva, tono, coach. Da controllare con `content/REVISIONE.md`
+- `fixtures/`: esempi per i test
 
 ## Da verificare sul nome
 
@@ -33,6 +34,8 @@ Nomi già scartati e perché: Swimly (esiste un'app di allenamenti con lo stesso
 - [docs/PRODUCT.md](docs/PRODUCT.md): visione, target, funzioni della prima versione, prezzo
 - [docs/EXPERIENCE.md](docs/EXPERIENCE.md): esperienza dell'utente, ritmo scelto da lui, percorso a tappe
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): parti del sistema, coach IA, dati, decisioni
+- [docs/FONTI.md](docs/FONTI.md): da dove vengono i contenuti tecnici
+- [docs/COACH_PERSONAS.md](docs/COACH_PERSONAS.md): i due coach virtuali e i prompt delle immagini
 - [docs/ROADMAP.md](docs/ROADMAP.md): ordine di sviluppo
 - [docs/WORKOUT_FORMAT.md](docs/WORKOUT_FORMAT.md): formato dell'allenamento condiviso tra coach IA, iPhone e Watch
 - [docs/COMPETITORS.md](docs/COMPETITORS.md): cosa esiste già e dove c'è spazio

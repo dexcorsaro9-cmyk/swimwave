@@ -1,4 +1,176 @@
 {
-  "nota": "SEGNAPOSTO. La lista chiusa dei drill va compilata dall'istruttore. Per ora contiene solo la voce usata nell'esempio di docs/WORKOUT_FORMAT.md.",
-  "drill": ["catch-up"]
+  "nota": "BOZZA con fonti, da verificare dall'istruttore. Solo i drill con stato 'approvato' vanno usati nella versione per gli utenti. L'id è il valore del campo 'drill' negli allenamenti. 'fonti' rimanda agli id di fonti.json. Dove 'fonti' è vuoto, il contenuto è senza fonte diretta e va verificato per primo.",
+  "drill": [
+    {
+      "id": "galleggiamento-a-stella",
+      "nome": "Galleggiamento a stella",
+      "tappa": 1,
+      "scopo": "Sentire che l'acqua ti sostiene e imparare a rilassarti.",
+      "esecuzione": "In acqua dove tocchi il fondo, riempi i polmoni e lasciati galleggiare a pancia in giù con braccia e gambe aperte a stella. Prova poi sulla schiena. Per rialzarti porta le ginocchia al petto e appoggia i piedi. Altre posizioni utili: a medusa e raccolto.",
+      "errore_da_evitare": "Irrigidirsi e tenere la testa alta: il corpo affonda.",
+      "fonti": ["swim-england-stage", "lts-livelli-1-6", "ravenna-unife"],
+      "stato": "bozza"
+    },
+    {
+      "id": "bolle-in-acqua",
+      "nome": "Bolle in acqua",
+      "tappa": 2,
+      "scopo": "Imparare a espirare in acqua.",
+      "esecuzione": "In piedi in acqua bassa, immergi il viso e soffia l'aria dal naso e dalla bocca in modo continuo. Alza il viso, inspira e ripeti con un ritmo regolare.",
+      "errore_da_evitare": "Trattenere il fiato sott'acqua.",
+      "fonti": ["swim-england-stage", "lts-livelli-1-6"],
+      "stato": "bozza"
+    },
+    {
+      "id": "respirazione-al-bordo",
+      "nome": "Respirazione al bordo",
+      "tappa": 2,
+      "scopo": "Coordinare espirazione e inspirazione ruotando la testa.",
+      "esecuzione": "Tieni il bordo con le mani. Immergi il viso ed espira, poi ruota la testa di lato per inspirare con la bocca appena fuori dall'acqua e riporta il viso in acqua. Ripeti con un ritmo regolare, da entrambi i lati.",
+      "errore_da_evitare": "Alzare la testa in avanti invece di ruotarla di lato.",
+      "fonti": ["lts-livelli-1-6", "ravenna-unife", "usa-triathlon-errori"],
+      "stato": "bozza"
+    },
+    {
+      "id": "scivolamento-a-freccia",
+      "nome": "Scivolamento a freccia",
+      "tappa": 3,
+      "scopo": "Trovare una posizione allungata che scivola bene.",
+      "esecuzione": "Spingiti dal bordo con i piedi, braccia tese in avanti, testa tra le braccia e corpo disteso, a pancia in giù e poi sulla schiena. Scivola finché perdi velocità, poi appoggia i piedi.",
+      "errore_da_evitare": "Perdere l'allineamento: testa alzata o gambe che affondano.",
+      "fonti": ["swim-england-stage", "swim-wales-crawl"],
+      "stato": "bozza"
+    },
+    {
+      "id": "battuta-con-tavoletta",
+      "nome": "Battuta con tavoletta",
+      "tappa": 4,
+      "scopo": "Allenare la battuta di gambe in modo semplice.",
+      "esecuzione": "Tieni la tavoletta con le braccia tese, con il corpo in orizzontale. Batti le gambe in modo continuo partendo dall'anca, con i piedi vicino alla superficie. La tavoletta è facoltativa.",
+      "errore_da_evitare": "Pedalare piegando troppo le ginocchia.",
+      "fonti": ["swim-england-stage", "swim-wales-crawl", "ravenna-unife"],
+      "stato": "bozza"
+    },
+    {
+      "id": "battuta-con-un-braccio-teso",
+      "nome": "Battuta con un braccio teso",
+      "tappa": 4,
+      "scopo": "Allungare il corpo e preparare la rotazione.",
+      "esecuzione": "Un braccio teso in avanti e l'altro lungo il fianco. Ruota fianchi e spalle fino a circa 45 gradi, tenendo ferma la testa, e batti le gambe in modo continuo.",
+      "errore_da_evitare": "Ruotare troppo o muovere la testa.",
+      "fonti": ["swim-wales-crawl"],
+      "stato": "bozza"
+    },
+    {
+      "id": "catch-up",
+      "nome": "Catch-up",
+      "tappa": 5,
+      "scopo": "Allungare la bracciata e coordinare le braccia.",
+      "esecuzione": "Nuota a stile libero, ma una mano parte solo quando l'altra l'ha raggiunta davanti. Entra in acqua con le dita per prime e lascia scivolare la mano in avanti.",
+      "errore_da_evitare": "Affrettare le bracciate come le pale di un mulino, con le braccia che si muovono in opposizione.",
+      "fonti": ["special-olympics-crawl", "usa-triathlon-errori", "swimming-world-fingertip"],
+      "stato": "bozza"
+    },
+    {
+      "id": "un-braccio-solo",
+      "nome": "Un braccio solo",
+      "tappa": 5,
+      "scopo": "Curare la bracciata e la rotazione del corpo, un braccio alla volta.",
+      "esecuzione": "Un braccio resta lungo il fianco o teso in avanti mentre l'altro compie la bracciata. Alterna i lati dopo qualche bracciata e continua a battere le gambe.",
+      "errore_da_evitare": "Fermare il corpo o perdere la posizione della testa mentre un braccio lavora.",
+      "fonti": ["special-olympics-crawl", "swim-wales-crawl"],
+      "stato": "bozza"
+    },
+    {
+      "id": "dita-sull-acqua",
+      "nome": "Dita sull'acqua",
+      "tappa": 5,
+      "scopo": "Avere un recupero rilassato con il gomito alto.",
+      "esecuzione": "Nuota in catch-up e, durante il recupero, fai strisciare la punta delle dita sulla superficie dell'acqua.",
+      "errore_da_evitare": "Il gomito basso e il recupero rigido.",
+      "fonti": ["swimming-world-fingertip", "swim-wales-crawl"],
+      "stato": "bozza"
+    },
+    {
+      "id": "respirazione-laterale-con-tavoletta",
+      "nome": "Respirazione laterale con tavoletta",
+      "tappa": 6,
+      "scopo": "Imparare a respirare di lato nuotando.",
+      "esecuzione": "Tieni la tavoletta con un braccio. Con l'altro fai la bracciata e ruota la testa insieme al corpo per respirare, mentre le gambe battono. Poi cambia braccio.",
+      "errore_da_evitare": "Alzare la testa invece di ruotarla con il corpo.",
+      "fonti": ["usa-triathlon-errori", "ravenna-unife"],
+      "nota_fonti": "Il principio (ruotare, non alzare la testa) è sostenuto. Il drill con la tavoletta come lo descrivo qui non è stato trovato in una fonte autorevole: verificarlo per primo.",
+      "stato": "bozza"
+    },
+    {
+      "id": "sei-colpi-e-cambio",
+      "nome": "Sei colpi e cambio",
+      "tappa": 6,
+      "scopo": "Controllare la rotazione e allungare la bracciata.",
+      "esecuzione": "Sei colpi di gambe su un fianco, con un braccio teso in avanti e l'altro lungo il corpo. Poi una bracciata del braccio teso e il passaggio sull'altro fianco, e altri sei colpi. Si può fare con le pinne.",
+      "errore_da_evitare": "Perdere la battuta durante il cambio di lato.",
+      "fonti": ["swim-wales-crawl", "form-6ks"],
+      "stato": "bozza"
+    },
+    {
+      "id": "nuotata-con-pull-buoy",
+      "nome": "Nuotata con pull buoy",
+      "tappa": 7,
+      "scopo": "Concentrarsi sulle braccia e sul corpo allineato.",
+      "esecuzione": "Tieni il pull buoy tra le cosce e nuota a stile libero usando solo le braccia, con un ritmo facile.",
+      "errore_da_evitare": "Perdere l'allineamento del corpo e della testa.",
+      "fonti": ["swim-wales-crawl", "lts-livelli-1-6"],
+      "stato": "bozza"
+    },
+    {
+      "id": "battuta-sul-dorso",
+      "nome": "Battuta sul dorso",
+      "tappa": 8,
+      "scopo": "Posizione e battuta nel dorso.",
+      "esecuzione": "Sulla schiena, con le braccia lungo i fianchi, guarda in alto e leggermente verso i piedi, con la testa allineata e le spalle basse. Batti le gambe partendo dall'anca, con poca flessione delle ginocchia.",
+      "errore_da_evitare": "Inarcare la schiena aprendo le costole.",
+      "fonti": ["swim-wales-dorso", "ravenna-unife"],
+      "stato": "bozza"
+    },
+    {
+      "id": "dorso-un-braccio-alla-volta",
+      "nome": "Dorso un braccio alla volta",
+      "tappa": 8,
+      "scopo": "Curare la bracciata e la rotazione nel dorso.",
+      "esecuzione": "Sulla schiena, un braccio teso oltre la testa mentre l'altro compie la bracciata, con la battuta continua. Ruota fianchi e spalle fino a circa 45 gradi. Cambia braccio dopo qualche bracciata.",
+      "errore_da_evitare": "Sollevare la spalla verso il mento.",
+      "fonti": ["swim-wales-dorso"],
+      "stato": "bozza"
+    },
+    {
+      "id": "gambata-di-rana-al-bordo",
+      "nome": "Gambata di rana al bordo",
+      "tappa": 9,
+      "scopo": "Imparare il movimento delle gambe nella rana.",
+      "esecuzione": "Tieniti al bordo con le braccia piegate e il corpo disteso. Porta i talloni verso i glutei, con le ginocchia appena più larghe dei fianchi. Ruota i piedi verso l'esterno, flettili e spingi indietro in modo circolare, finendo con le gambe tese e unite.",
+      "errore_da_evitare": "Piedi non ruotati verso l'esterno: è l'errore più frequente.",
+      "fonti": ["special-olympics-rana", "ravenna-unife"],
+      "stato": "bozza"
+    },
+    {
+      "id": "rana-con-scivolo",
+      "nome": "Rana con scivolo",
+      "tappa": 9,
+      "scopo": "Trovare il ritmo tra bracciata, gambata e scivolo.",
+      "esecuzione": "Nuota a rana rispettando la sequenza: bracciata, respiro, gambata, scivolo a braccia tese. Conta mentalmente durante lo scivolo prima del ciclo successivo.",
+      "errore_da_evitare": "Anticipare la gambata o saltare lo scivolo.",
+      "fonti": ["swim-wales-rana", "ravenna-unife"],
+      "stato": "bozza"
+    },
+    {
+      "id": "onda-del-delfino",
+      "nome": "Onda del delfino",
+      "tappa": 10,
+      "scopo": "Imparare il movimento ondulatorio guidato dal petto.",
+      "esecuzione": "In acqua, spingi il petto verso il basso: i fianchi salgono. Poi riporta i fianchi giù e lascia che il movimento arrivi fino ai piedi. Pinne e snorkel aiutano a concentrarsi sul movimento del corpo.",
+      "errore_da_evitare": "Muovere solo le gambe invece di far partire l'onda dal petto.",
+      "fonti": ["swim-wales-delfino", "ravenna-unife"],
+      "stato": "bozza"
+    }
+  ]
 }

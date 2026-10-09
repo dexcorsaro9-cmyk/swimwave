@@ -1,0 +1,15 @@
+{
+  "titolo": "Respiro e scivolo",
+  "vasca_metri": 25,
+  "durata_stimata_min": 25,
+  "blocchi": [
+    { "tipo": "riscaldamento", "serie": [
+      { "ripetizioni": 2, "distanza_m": 25, "stile": "libero", "intensita": "facile", "recupero_s": 30 } ] },
+    { "tipo": "tecnica", "serie": [
+      { "ripetizioni": 4, "distanza_m": 25, "stile": "libero", "drill": "scivolamento-a-freccia", "recupero_s": 30 } ] },
+    { "tipo": "principale", "serie": [
+      { "ripetizioni": 6, "distanza_m": 25, "stile": "libero", "intensita": "facile", "recupero_s": 30 } ] },
+    { "tipo": "defaticamento", "serie": [
+      { "ripetizioni": 1, "distanza_m": 25, "stile": "libero", "intensita": "facile" } ] }
+  ]
+}

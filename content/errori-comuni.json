@@ -1,0 +1,110 @@
+{
+  "nota": "BOZZA con fonti, da verificare dall'istruttore. I 10 errori più comuni dei principianti adulti. 'drill' rimanda agli id di drills.json, 'fonti' agli id di fonti.json. Dove 'fonti' è vuoto il contenuto è senza fonte diretta e va verificato per primo.",
+  "errori": [
+    {
+      "id": "testa-alta",
+      "nome": "Testa alzata",
+      "come_si_riconosce": "Si guarda avanti e le gambe tendono ad affondare.",
+      "perche_e_un_problema": "Le gambe affondano e aumenta la resistenza.",
+      "correzione": "Guarda il fondo con la testa in linea con il corpo, come se fosse un'unica matita.",
+      "drill": ["scivolamento-a-freccia", "battuta-con-tavoletta"],
+      "fonti": ["usa-triathlon-errori", "swim-wales-crawl"],
+      "stato": "bozza"
+    },
+    {
+      "id": "respiro-trattenuto",
+      "nome": "Respiro trattenuto",
+      "come_si_riconosce": "Si trattiene l'aria sott'acqua e si inspira in affanno.",
+      "perche_e_un_problema": "L'inspirazione diventa lunga e affannata.",
+      "correzione": "Espira in modo continuo in acqua e inspira in un attimo ruotando la testa.",
+      "drill": ["bolle-in-acqua", "respirazione-al-bordo"],
+      "fonti": ["swim-england-stage", "lts-livelli-1-6"],
+      "nota_fonti": "Le fonti sostengono l'abilità (bolle e respirazione ritmica), non descrivono l'errore: da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "gambe-che-pedalano",
+      "nome": "Gambe che pedalano",
+      "come_si_riconosce": "Le ginocchia si piegano molto.",
+      "perche_e_un_problema": "Si spende energia senza avanzare.",
+      "correzione": "Fai partire la battuta dall'anca, con poca flessione delle ginocchia e piedi vicino alla superficie.",
+      "drill": ["battuta-con-tavoletta", "battuta-con-un-braccio-teso"],
+      "fonti": ["swim-wales-dorso", "swim-wales-crawl"],
+      "nota_fonti": "La fonte descrive la battuta dall'anca con poca flessione del ginocchio nel dorso. Per lo stile libero è un'estensione: da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "braccia-incrociate",
+      "nome": "Braccia che si incrociano davanti",
+      "come_si_riconosce": "La mano entra in acqua oltre il centro del corpo.",
+      "perche_e_un_problema": "Riduce l'efficienza e può affaticare la spalla.",
+      "correzione": "Fai entrare la mano davanti alla spalla, senza oltrepassare la linea del corpo.",
+      "drill": ["catch-up", "un-braccio-solo"],
+      "fonti": ["usa-triathlon-errori"],
+      "stato": "bozza"
+    },
+    {
+      "id": "braccia-a-mulino",
+      "nome": "Braccia a mulino",
+      "come_si_riconosce": "Le braccia si muovono in opposizione e la trazione parte troppo presto.",
+      "perche_e_un_problema": "Il ritmo della bracciata e della respirazione si rompe.",
+      "correzione": "Tieni un braccio teso davanti finché l'altro non lo raggiunge.",
+      "drill": ["catch-up", "un-braccio-solo"],
+      "fonti": ["usa-triathlon-errori"],
+      "stato": "bozza"
+    },
+    {
+      "id": "testa-alzata-per-respirare",
+      "nome": "Testa alzata per respirare",
+      "come_si_riconosce": "Per respirare si solleva la testa invece di ruotarla.",
+      "perche_e_un_problema": "Le gambe affondano e aumenta la resistenza.",
+      "correzione": "Ruota testa, spalle e fianchi insieme, senza esagerare.",
+      "drill": ["respirazione-laterale-con-tavoletta", "respirazione-al-bordo"],
+      "fonti": ["usa-triathlon-errori", "ravenna-unife"],
+      "stato": "bozza"
+    },
+    {
+      "id": "recupero-anticipato",
+      "nome": "Recupero troppo anticipato",
+      "come_si_riconosce": "Il braccio esce dall'acqua prima di aver finito la spinta.",
+      "perche_e_un_problema": "Si perde potenza nella parte finale della bracciata.",
+      "correzione": "Porta la mano fino alla coscia e conta le bracciate per vasca, cercando di ridurle.",
+      "drill": ["un-braccio-solo", "nuotata-con-pull-buoy"],
+      "fonti": ["usa-triathlon-errori"],
+      "stato": "bozza"
+    },
+    {
+      "id": "partenza-troppo-forte",
+      "nome": "Partenza troppo forte",
+      "come_si_riconosce": "Le prime vasche sono veloci e poi ci si deve fermare.",
+      "perche_e_un_problema": "L'allenamento si interrompe.",
+      "correzione": "Parti piano, con un ritmo che ti permette di parlare fra una vasca e l'altra.",
+      "drill": [],
+      "fonti": ["oms-2020"],
+      "nota_fonti": "La fonte sostiene il principio di partire piano e aumentare gradualmente. Il criterio 'ritmo che permette di parlare' è un'indicazione comune da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "collo-e-spalle-rigidi",
+      "nome": "Collo e spalle rigidi",
+      "come_si_riconosce": "Le spalle sono alte e il collo teso.",
+      "perche_e_un_problema": "La rigidità fa affondare e stanca prima.",
+      "correzione": "Rilassa le spalle e lascia che l'acqua ti sostenga.",
+      "drill": ["galleggiamento-a-stella", "dita-sull-acqua"],
+      "fonti": ["ravenna-unife"],
+      "nota_fonti": "La fonte insiste sull'acquaticità e sul rilassamento come base. L'errore descritto così è da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "niente-riscaldamento-e-recupero",
+      "nome": "Niente riscaldamento e recupero",
+      "come_si_riconosce": "Si inizia e si finisce di colpo, senza vasche facili.",
+      "perche_e_un_problema": "Si parte freddi e si finisce senza far scendere il ritmo.",
+      "correzione": "Inizia e finisci sempre con alcune vasche facili.",
+      "drill": [],
+      "fonti": ["swim-england-stage"],
+      "nota_fonti": "La fase 6 chiede di saper spiegare come prepararsi all'esercizio. Dettagli da verificare.",
+      "stato": "bozza"
+    }
+  ]
+}

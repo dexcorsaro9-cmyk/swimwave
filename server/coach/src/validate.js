@@ -6,9 +6,18 @@ const schema = JSON.parse(readFileSync(new URL("docs/schema/workout.schema.json"
 const ajv = new Ajv({ allErrors: true });
 const checkSchema = ajv.compile(schema);
 
-export function loadDrills() {
-  const file = JSON.parse(readFileSync(new URL("content/drills.json", root), "utf8"));
-  return file.drill;
+/** Legge un file JSON di content/. */
+export function loadContent(nome) {
+  return JSON.parse(readFileSync(new URL(`content/${nome}`, root), "utf8"));
+}
+
+/**
+ * Id dei drill ammessi. Di default include le bozze (sviluppo e prova).
+ * Nella versione per gli utenti usa `{ soloApprovati: true }`.
+ */
+export function loadDrills({ soloApprovati = false } = {}) {
+  const file = loadContent("drills.json");
+  return file.drill.filter((d) => !soloApprovati || d.stato === "approvato").map((d) => d.id);
 }
 
 /**

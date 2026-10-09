@@ -50,20 +50,20 @@ Si sceglie nell'onboarding e si cambia in qualsiasi momento dal Profilo.
 
 ## Il percorso a tappe (bozza da confermare dall'istruttore)
 
-Percorso per l'adulto che ha iniziato da poco. I nomi sono una proposta di struttura. Criteri, esercizi, errori tipici e test sono segnaposto da compilare con l'istruttore.
+Percorso per l'adulto che ha iniziato da poco. I nomi sono una proposta di struttura. Criteri, drill, errori tipici e test sono in `content/percorso.json`, in bozza e con le fonti (vedi docs/FONTI.md), da controllare con l'istruttore.
 
 | # | Tappa | Test per completarla |
 |---|---|---|
-| 1 | Confidenza in acqua e galleggiamento | da definire |
-| 2 | Respirazione | da definire |
-| 3 | Posizione del corpo e scivolamento | da definire |
-| 4 | Battuta di gambe | da definire |
-| 5 | Bracciata a stile libero | da definire |
-| 6 | Coordinazione e respirazione laterale | da definire |
-| 7 | Nuotare in continuità (resistenza di base) | da definire |
-| 8 | Dorso | da definire |
-| 9 | Rana | da definire |
-| 10 | Delfino | da definire |
+| 1 | Confidenza in acqua e galleggiamento | vedi content/percorso.json |
+| 2 | Respirazione | vedi content/percorso.json |
+| 3 | Posizione del corpo e scivolamento | vedi content/percorso.json |
+| 4 | Battuta di gambe | vedi content/percorso.json |
+| 5 | Bracciata a stile libero | vedi content/percorso.json |
+| 6 | Coordinazione e respirazione laterale | vedi content/percorso.json |
+| 7 | Nuotare in continuità (resistenza di base) | vedi content/percorso.json |
+| 8 | Dorso | vedi content/percorso.json |
+| 9 | Rana | vedi content/percorso.json |
+| 10 | Delfino | vedi content/percorso.json |
 
 Regole del percorso:
 - Le tappe guidano ma non bloccano: l'utente può saltare avanti o tornare indietro.

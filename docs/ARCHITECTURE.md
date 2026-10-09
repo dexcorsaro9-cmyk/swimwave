@@ -54,7 +54,7 @@ Funzione leggera (serverless). Non conserva i dati dell'utente oltre la richiest
 
 ## Modelli di dati
 
-- **Profilo**: livello, obiettivo, lunghezza vasca, ritmo scelto, obiettivo settimanale (se Regolare o Spronami).
+- **Profilo**: coach scelto (uomo o donna), livello, obiettivo, lunghezza vasca, ritmo scelto, obiettivo settimanale (se Regolare o Spronami). Il coach scelto è passato al servizio coach, che ne usa solo nome e tono (vedi COACH_PERSONAS.md).
 - **Percorso**: tappe (id, nome, test), tappa attuale, tappe completate.
 - **Allenamento**: come in WORKOUT_FORMAT.md, più stato (proposto, in corso, completato, interrotto).
 - **Risposta dell'utente**: facile / giusta / dura, dolore sì/no, data.

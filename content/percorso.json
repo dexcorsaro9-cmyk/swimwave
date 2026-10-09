@@ -1,0 +1,105 @@
+{
+  "nota": "BOZZA con fonti, da verificare dall'istruttore. Percorso per l'adulto che ha iniziato da poco. I criteri dei test si ispirano ai quadri Swim England e Learn-to-Swim, pensati per bambini: le distanze per adulti vanno confermate. Le tappe guidano ma non bloccano. Aperta la decisione sull'ordine di dorso, rana e delfino: Ravenna indica la rana come ultimo stile e il più tecnico, mentre Swim England e Learn-to-Swim introducono la rana prima del delfino.",
+  "tappe": [
+    {
+      "id": 1,
+      "nome": "Confidenza in acqua e galleggiamento",
+      "obiettivo": "Stare in acqua con tranquillità e sentirsi sostenuti.",
+      "test": "Galleggi a pancia in giù per 10 secondi e sulla schiena per 15 secondi, in acqua dove tocchi, e ti rialzi da solo.",
+      "drill": ["galleggiamento-a-stella"],
+      "errori": ["collo-e-spalle-rigidi"],
+      "fonti": ["lts-livelli-1-6", "swim-england-stage", "ravenna-unife"],
+      "stato": "bozza"
+    },
+    {
+      "id": 2,
+      "nome": "Respirazione",
+      "obiettivo": "Espirare in acqua e inspirare ruotando la testa.",
+      "test": "Soffi bolle almeno 3 volte con naso e bocca sott'acqua e fai 5 respiri ritmici ruotando la testa, senza ingoiare acqua.",
+      "drill": ["bolle-in-acqua", "respirazione-al-bordo"],
+      "errori": ["respiro-trattenuto", "testa-alzata-per-respirare"],
+      "fonti": ["swim-england-stage", "lts-livelli-1-6"],
+      "stato": "bozza"
+    },
+    {
+      "id": 3,
+      "nome": "Posizione del corpo e scivolamento",
+      "obiettivo": "Avere un corpo allungato che scivola.",
+      "test": "Dopo la spinta dal bordo scivoli a pancia in giù e sulla schiena restando allineato, con la testa tra le braccia.",
+      "drill": ["scivolamento-a-freccia"],
+      "errori": ["testa-alta"],
+      "fonti": ["swim-england-stage", "swim-wales-crawl"],
+      "stato": "bozza"
+    },
+    {
+      "id": 4,
+      "nome": "Battuta di gambe",
+      "obiettivo": "Una battuta continua che parte dall'anca.",
+      "test": "Percorri 10 metri di battuta di gambe a stile libero, con o senza tavoletta.",
+      "drill": ["battuta-con-tavoletta", "battuta-con-un-braccio-teso"],
+      "errori": ["gambe-che-pedalano"],
+      "fonti": ["swim-england-stage", "swim-wales-crawl"],
+      "stato": "bozza"
+    },
+    {
+      "id": 5,
+      "nome": "Bracciata a stile libero",
+      "obiettivo": "Una bracciata lunga e coordinata.",
+      "test": "Nuoti 25 metri di stile libero senza fermarti, anche con una respirazione semplificata.",
+      "drill": ["catch-up", "un-braccio-solo", "dita-sull-acqua"],
+      "errori": ["braccia-incrociate", "braccia-a-mulino", "recupero-anticipato"],
+      "fonti": ["swim-england-stage", "lts-livelli-1-6", "special-olympics-crawl", "usa-triathlon-errori"],
+      "stato": "bozza"
+    },
+    {
+      "id": 6,
+      "nome": "Coordinazione e respirazione laterale",
+      "obiettivo": "Respirare di lato con ritmo senza perdere la posizione.",
+      "test": "Nuoti 50 metri di stile libero respirando con ritmo, senza fermarti.",
+      "drill": ["respirazione-laterale-con-tavoletta", "sei-colpi-e-cambio"],
+      "errori": ["testa-alzata-per-respirare", "respiro-trattenuto"],
+      "fonti": ["swim-england-stage", "lts-livelli-1-6", "ravenna-unife", "swim-wales-crawl"],
+      "stato": "bozza"
+    },
+    {
+      "id": 7,
+      "nome": "Nuotare in continuità",
+      "obiettivo": "Costruire resistenza di base con un ritmo facile.",
+      "test": "Nuoti 100 metri di stile libero senza fermarti, con un ritmo facile.",
+      "drill": ["nuotata-con-pull-buoy"],
+      "errori": ["partenza-troppo-forte", "niente-riscaldamento-e-recupero", "recupero-anticipato"],
+      "fonti": ["swim-england-stage", "lts-livelli-1-6", "oms-2020"],
+      "stato": "bozza"
+    },
+    {
+      "id": 8,
+      "nome": "Dorso",
+      "obiettivo": "Nuotare il dorso con battuta e bracciata coordinate.",
+      "test": "Nuoti 25 metri di dorso con battuta e bracciata coordinate.",
+      "drill": ["battuta-sul-dorso", "dorso-un-braccio-alla-volta"],
+      "errori": ["gambe-che-pedalano"],
+      "fonti": ["swim-england-stage", "lts-livelli-1-6", "swim-wales-dorso"],
+      "stato": "bozza"
+    },
+    {
+      "id": 9,
+      "nome": "Rana",
+      "obiettivo": "Coordinare bracciata, gambata e scivolo.",
+      "test": "Nuoti 25 metri di rana con scivolo dopo ogni ciclo.",
+      "drill": ["gambata-di-rana-al-bordo", "rana-con-scivolo"],
+      "errori": [],
+      "fonti": ["swim-england-stage", "lts-livelli-1-6", "special-olympics-rana", "swim-wales-rana"],
+      "stato": "bozza"
+    },
+    {
+      "id": 10,
+      "nome": "Delfino",
+      "obiettivo": "Imparare l'ondulazione e la sua coordinazione.",
+      "test": "Nuoti 25 metri di delfino con ondulazione guidata dal petto.",
+      "drill": ["onda-del-delfino"],
+      "errori": [],
+      "fonti": ["swim-england-stage", "lts-livelli-1-6", "swim-wales-delfino"],
+      "stato": "bozza"
+    }
+  ]
+}

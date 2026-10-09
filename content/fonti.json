@@ -1,0 +1,110 @@
+{
+  "nota": "Fonti consultate il 9 ottobre 2026. I contenuti sono riassunti con parole nostre, non copiati. Dove una fonte non è stata trovata, il contenuto resta 'bozza' e va verificato dall'istruttore.",
+  "fonti": [
+    {
+      "id": "oms-2020",
+      "titolo": "WHO guidelines on physical activity and sedentary behaviour",
+      "ente": "Organizzazione Mondiale della Sanità (British Journal of Sports Medicine, 2020)",
+      "url": "https://bjsm.bmj.com/content/54/24/1451",
+      "usata_per": "Quantità settimanali di attività e principio di partire piano aumentando gradualmente frequenza, intensità e durata.",
+      "affidabilita": "alta"
+    },
+    {
+      "id": "swim-england-stage",
+      "titolo": "Learn to Swim: descrizione delle 7 fasi",
+      "ente": "Swim England (federazione inglese). Copia ospitata dall'Università di Brighton; il sito ufficiale non è leggibile in automatico.",
+      "url": "https://sport.brighton.ac.uk/images/sports-brighton/Swim_Lessons/Stage_Descriptions.pdf",
+      "usata_per": "Progressione delle abilità (galleggiamento, bolle, scivolamento, battuta, nuotate) e distanze di riferimento. Pensata per bambini: usata come ordine di apprendimento, non come soglie per gli adulti.",
+      "affidabilita": "alta, ma per bambini"
+    },
+    {
+      "id": "lts-livelli-1-6",
+      "titolo": "Learn-to-Swim, livelli 1-6 (scheda delle abilità)",
+      "ente": "Struttura simile al programma della Croce Rossa americana, ma il documento non indica l'organizzazione e usa iarde",
+      "url": "https://vip.wartburg.edu/thew/Learn-to-Swim_Levels1-6.pdf",
+      "usata_per": "Prove di galleggiamento, respirazione ritmica e distanze per livello.",
+      "affidabilita": "media: organizzazione non dichiarata"
+    },
+    {
+      "id": "ravenna-unife",
+      "titolo": "Dispensa Sport natatori, A.A. 2019-2020",
+      "ente": "Francesco Ravenna, Università di Ferrara, Scienze Motorie",
+      "url": "https://www.unife.it/medicina/scienzemotorie/minisiti-LT/teoria-e-didattica-degli-sport-individuali/modulo-prof-ravenna/dispensa-sport-natatori-prof-ravenna-a-a-2019-20",
+      "usata_per": "Didattica italiana: acquaticità, respirazione bilaterale per i principianti, ruolo della battuta, ordine di insegnamento degli stili.",
+      "affidabilita": "alta (accademica, italiana)"
+    },
+    {
+      "id": "swim-wales-crawl",
+      "titolo": "Drill Progression Framework: Freestyle",
+      "ente": "Swim Wales (federazione gallese)",
+      "url": "https://www.swimwales.org/wp-content/uploads/2025/11/Drill-Progression-Framework-Freestyle.pdf",
+      "usata_per": "Drill di stile libero: posizione, battuta, un braccio solo, 6 colpi e cambio, catch-up, recupero con le dita.",
+      "affidabilita": "alta"
+    },
+    {
+      "id": "swim-wales-dorso",
+      "titolo": "Drill Progression Framework: Backstroke",
+      "ente": "Swim Wales (federazione gallese)",
+      "url": "https://www.swimwales.org/wp-content/uploads/2026/01/Drill-Progression-Framework-Backstroke.pdf",
+      "usata_per": "Drill di dorso: posizione, battuta dall'anca, un braccio, rotazione.",
+      "affidabilita": "alta"
+    },
+    {
+      "id": "swim-wales-rana",
+      "titolo": "Drill Progression Framework: Breaststroke",
+      "ente": "Swim Wales (federazione gallese)",
+      "url": "https://www.swimwales.org/wp-content/uploads/2026/01/Drill-Progression-Framework-Breaststroke.pdf",
+      "usata_per": "Drill di rana: battuta, bracciata, coordinazione e scivolo.",
+      "affidabilita": "alta"
+    },
+    {
+      "id": "swim-wales-delfino",
+      "titolo": "Drill Progression Framework: Butterfly",
+      "ente": "Swim Wales (federazione gallese)",
+      "url": "https://www.swimwales.org/wp-content/uploads/2025/11/Drill-Progression-Framework-Butterfly.pdf",
+      "usata_per": "Drill di delfino: ondulazione guidata dal petto, bracciata, coordinazione.",
+      "affidabilita": "alta"
+    },
+    {
+      "id": "special-olympics-crawl",
+      "titolo": "Coaches Cards: Freestyle",
+      "ente": "Special Olympics",
+      "url": "https://media.specialolympics.org/resources/sports-essentials/swimming/m-e-r-c/Coaches-Cards-Freestyle-EN.pdf",
+      "usata_per": "Descrizione di catch-up e drill a un braccio.",
+      "affidabilita": "alta"
+    },
+    {
+      "id": "special-olympics-rana",
+      "titolo": "MERC 4: Breaststroke Kick",
+      "ente": "Special Olympics",
+      "url": "https://media.specialolympics.org/resources/sports-essentials/swimming/m-e-r-c/MERC-4-Breaststroke-Kick-EN.pdf",
+      "usata_per": "Esecuzione della gambata di rana, errore più frequente, esercizi al bordo.",
+      "affidabilita": "alta"
+    },
+    {
+      "id": "usa-triathlon-errori",
+      "titolo": "10 Common Freestyle Swim Mistakes and How to Correct Them",
+      "ente": "USA Triathlon (federazione americana)",
+      "url": "https://usatriathlon.org/articles/training-tips/10-common-freestyle-swim-mistakes-and-how-correct-them",
+      "usata_per": "Errori comuni dello stile libero e relative correzioni. Rivolto a triatleti adulti.",
+      "affidabilita": "alta"
+    },
+    {
+      "id": "swimming-world-fingertip",
+      "titolo": "Fitter And Faster Swim Drill Of The Week: Fingertip Drag Catch-Up",
+      "ente": "Swimming World Magazine",
+      "url": "https://swimmingworldmagazine.com/news/fitter-and-faster-swim-drill-of-the-week-fingertip-drag-catch-up",
+      "usata_per": "Drill con le dita che sfiorano l'acqua nel recupero.",
+      "affidabilita": "media (rivista di settore)"
+    },
+    {
+      "id": "form-6ks",
+      "titolo": "6-Kick Switch Freestyle Drill",
+      "ente": "FORM (azienda di occhialini smart)",
+      "url": "https://support.formswim.com/hc/en-us/articles/4405523471379",
+      "usata_per": "Conferma della struttura del drill 6 colpi e cambio. Fonte di supporto, non primaria.",
+      "affidabilita": "media (azienda)"
+    }
+  ],
+  "non_consultate": "Federazione Italiana Nuoto (programma della Scuola Nuoto Federale): il sito non era leggibile in automatico. Manuali di riferimento come Counsilman, Maglischo e Laughlin: non consultati. Vanno confrontati dall'istruttore."
+}

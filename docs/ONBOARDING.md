@@ -24,6 +24,15 @@ Regole:
 | 9 | Orario | "Quando preferisci nuotare?" | Mattina · Pausa pranzo · Sera · Dipende | no | Momento dei messaggi del coach, se ha scelto Regolare o Spronami |
 | 10 | Fastidi | "C'è qualcosa di cui devo tenere conto?" | Nessuno · Spalla · Schiena · Altro (scelta tra voci prestabilite, nessun testo libero) | no | Evita esercizi mirati su quella zona; consiglia di sentire un medico |
 
+## Prima versione: solo l'essenziale
+All'avvio si chiedono solo **nome, livello, vasca e ritmo** (più la frequenza, se il ritmo è Regolare o Spronami). L'obiettivo (domanda 3) resta come unica domanda facoltativa, perché sceglie il tipo di allenamento; senza risposta vale "tecnica".
+
+Le altre domande non si fanno all'avvio:
+- **Durata, attrezzi, orario**: si impostano dal Profilo, e il coach le chiede nel momento in cui servono (per esempio gli attrezzi quando un esercizio ne richiede uno).
+- **Fastidi fisici**: non si chiedono all'avvio. Il coach ne parla solo se l'utente segnala dolore, con il flusso già previsto (riposo e consiglio di sentire un medico). Così evitiamo di raccogliere dati sulla salute in anticipo.
+
+Con questa scelta la lavagnetta ha 5 domande al massimo, non 7.
+
 Dopo le domande, due richieste di permesso **spiegate dal coach nel momento giusto**, non all'avvio dell'app:
 - **Apple Salute** (HealthKit), per salvare gli allenamenti.
 - **Notifiche**, solo se ha scelto Regolare o Spronami.

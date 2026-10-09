@@ -9,6 +9,18 @@
             "state": "translated",
             "value": "Delfino"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Butterfly"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mariposa"
+          }
         }
       }
     },
@@ -19,6 +31,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Dorso"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Backstroke"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Espalda"
           }
         }
       }
@@ -31,6 +55,18 @@
             "state": "translated",
             "value": "Stile libero"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Freestyle"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estilo libre"
+          }
         }
       }
     },
@@ -41,6 +77,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Misto"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medley"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Combinado"
           }
         }
       }
@@ -53,6 +101,18 @@
             "state": "translated",
             "value": "Rana"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Breaststroke"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Braza"
+          }
         }
       }
     },
@@ -63,6 +123,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Apri Swimwave su iPhone per ricevere l'allenamento di oggi."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Swimwave on your iPhone to get today's workout."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre Swimwave en el iPhone para recibir el entrenamiento de hoy."
           }
         }
       }
@@ -75,6 +147,18 @@
             "state": "translated",
             "value": "Nessun allenamento"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No workout"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin entrenamiento"
+          }
         }
       }
     },
@@ -85,6 +169,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Serve il permesso di Apple Salute."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Health permission is needed."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se necesita el permiso de Apple Salud."
           }
         }
       }
@@ -97,6 +193,18 @@
             "state": "translated",
             "value": "Apple Salute non è disponibile."
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Health isn't available."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Salud no está disponible."
+          }
         }
       }
     },
@@ -107,6 +215,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Impossibile avviare l'allenamento."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't start the workout."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se puede iniciar el entrenamiento."
           }
         }
       }
@@ -119,6 +239,18 @@
             "state": "translated",
             "value": "Fatto"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hecho"
+          }
         }
       }
     },
@@ -126,6 +258,18 @@
       "extractionState": "manual",
       "localizations": {
         "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld kcal"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld kcal"
+          }
+        },
+        "es": {
           "stringUnit": {
             "state": "translated",
             "value": "%ld kcal"
@@ -141,6 +285,18 @@
             "state": "translated",
             "value": "Chiudi"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerrar"
+          }
         }
       }
     },
@@ -151,6 +307,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "%ld bpm"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld bpm"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld lpm"
           }
         }
       }
@@ -163,6 +331,18 @@
             "state": "translated",
             "value": "Allenamento finito"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Workout finished"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entrenamiento terminado"
+          }
         }
       }
     },
@@ -173,6 +353,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Inizia"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Empezar"
           }
         }
       }
@@ -185,6 +377,18 @@
             "state": "translated",
             "value": "In pausa"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paused"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En pausa"
+          }
         }
       }
     },
@@ -195,6 +399,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Acque libere"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open water"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aguas abiertas"
           }
         }
       }
@@ -207,6 +423,18 @@
             "state": "translated",
             "value": "Indietro"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Back"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atrás"
+          }
         }
       }
     },
@@ -217,6 +445,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "In acque libere i metri si misurano con la posizione, se la consenti."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In open water, meters are measured by location, if you allow it."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En aguas abiertas los metros se miden con la ubicación, si la permites."
           }
         }
       }
@@ -229,6 +469,18 @@
             "state": "translated",
             "value": "Nuotata libera"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Free swim"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nado libre"
+          }
         }
       }
     },
@@ -239,6 +491,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Dove nuoti?"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Where are you swimming?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Dónde nadas?"
           }
         }
       }
@@ -251,6 +515,18 @@
             "state": "translated",
             "value": "Nuotata libera"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Free swim"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nado libre"
+          }
         }
       }
     },
@@ -261,6 +537,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Vasca %ld m"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld m pool"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Piscina de %ld m"
           }
         }
       }
@@ -273,6 +561,18 @@
             "state": "translated",
             "value": "metri"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "meters"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "metros"
+          }
         }
       }
     },
@@ -284,6 +584,18 @@
             "state": "translated",
             "value": "Obiettivo %@"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Target %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Objetivo %@"
+          }
         }
       }
     },
@@ -291,6 +603,18 @@
       "extractionState": "manual",
       "localizations": {
         "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pause"
+          }
+        },
+        "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Pausa"
@@ -306,6 +630,18 @@
             "state": "translated",
             "value": "%ld m · %ld min"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld m · %ld min"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%ld m · %ld min"
+          }
         }
       }
     },
@@ -316,6 +652,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "RECUPERO"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "REST"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DESCANSO"
           }
         }
       }
@@ -328,6 +676,18 @@
             "state": "translated",
             "value": "Riprendi"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resume"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reanudar"
+          }
         }
       }
     },
@@ -338,6 +698,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Serie %ld/%ld · %ld di %ld"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Set %ld/%ld · %ld of %ld"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Serie %ld/%ld · %ld de %ld"
           }
         }
       }
@@ -350,6 +722,18 @@
             "state": "translated",
             "value": "Termina"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "End"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terminar"
+          }
         }
       }
     },
@@ -361,6 +745,18 @@
             "state": "translated",
             "value": "Tocca ancora per terminare"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap again to end"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toca de nuevo para terminar"
+          }
         }
       }
     },
@@ -371,6 +767,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Vai"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Go"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vamos"
           }
         }
       }

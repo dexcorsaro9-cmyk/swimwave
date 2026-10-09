@@ -117,6 +117,8 @@ final class StatoApp {
         var chiaveGenerato: String?
         var obiettivoMensileMetri: Int?
         var commentiMese: [String: String]?
+        var allenamentoScelto: Workout?
+        var giornoAllenamentoScelto: Int?
     }
 
     private func carica() {
@@ -139,6 +141,8 @@ final class StatoApp {
         chiaveGenerato = d.chiaveGenerato
         obiettivoMensileMetri = d.obiettivoMensileMetri
         commentiMese = d.commentiMese ?? [:]
+        allenamentoScelto = d.allenamentoScelto
+        giornoAllenamentoScelto = d.giornoAllenamentoScelto
     }
 
     func salva() {
@@ -159,7 +163,9 @@ final class StatoApp {
             allenamentoGenerato: allenamentoGenerato,
             chiaveGenerato: chiaveGenerato,
             obiettivoMensileMetri: obiettivoMensileMetri,
-            commentiMese: commentiMese
+            commentiMese: commentiMese,
+            allenamentoScelto: allenamentoScelto,
+            giornoAllenamentoScelto: giornoAllenamentoScelto
         )
         if let data = try? JSONEncoder().encode(d) {
             defaults.set(data, forKey: StatoApp.chiaveDati)
@@ -452,12 +458,14 @@ final class StatoApp {
         allenamentoScelto = allenamento
         giornoAllenamentoScelto = Calendar.italiano.ordinality(of: .day, in: .year, for: adesso) ?? 0
         _ = watch.invia(allenamento: allenamento, target: targetRitmo(per: allenamento))
+        salva()
     }
 
     /// Torna all'allenamento proposto.
     func annullaSceltaAllenamento() {
         allenamentoScelto = nil
         giornoAllenamentoScelto = nil
+        salva()
     }
 
     /// Chiede al coach un allenamento con durata e obiettivo scelti. Serve il consenso all'IA e il servizio; nil se non riesce
@@ -493,7 +501,14 @@ final class StatoApp {
             permessoSaluteChiesto = true
             salva()
         }
-        let dal = ultimaLetturaSalute ?? Calendar.italiano.date(byAdding: .day, value: -90, to: Date()) ?? Date.distantPast
+        // Si riparte da 14 giorni prima dell'ultima lettura: le nuotate sincronizzate in ritardo da altri orologi
+        // hanno date più vecchie. Quelle già note non si contano due volte (stesso id, `registra` le unisce).
+        let dal: Date
+        if let ultima = ultimaLetturaSalute {
+            dal = Calendar.italiano.date(byAdding: .day, value: -14, to: ultima) ?? ultima
+        } else {
+            dal = Calendar.italiano.date(byAdding: .day, value: -90, to: Date()) ?? Date.distantPast
+        }
         let lette = await lettoreSalute.leggiNuotate(dal: dal)
         ultimaLetturaSalute = Date()
         // Anche le nuotate già note passano da `registra`, che le unisce e completa le metriche mancanti.

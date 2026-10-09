@@ -50,7 +50,8 @@ targets:
         # XcodeGen metterebbe "1.0" e "1" fissi: si usano le impostazioni di build (il numero di build cresce in Codemagic).
         CFBundleShortVersionString: "$(MARKETING_VERSION)"
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
-        CFBundleLocalizations: [it]
+        CFBundleLocalizations: [it, en, es]
+        ITSAppUsesNonExemptEncryption: false
         LSRequiresIPhoneOS: true
         UILaunchScreen: {}
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
@@ -71,6 +72,7 @@ targets:
       - path: SwimwaveWatch
     dependencies:
       - package: SwimwaveCore
+      - target: SwimwaveWatchComplicazione   # complicazione del quadrante, incorporata nell'app Watch
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.example.swimwave.watchkitapp   # deve cominciare con il bundle id dell'app iPhone
@@ -84,7 +86,7 @@ targets:
         CFBundleDisplayName: Swimwave
         CFBundleShortVersionString: "$(MARKETING_VERSION)"
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
-        CFBundleLocalizations: [it]
+        CFBundleLocalizations: [it, en, es]
         WKApplication: true
         WKCompanionAppBundleIdentifier: com.example.swimwave
         # Sessione di allenamento in background (HKWorkoutSession).
@@ -97,3 +99,24 @@ targets:
       path: Config/SwimwaveWatch.entitlements   # generato da XcodeGen
       properties:
         com.apple.developer.healthkit: true
+
+  SwimwaveWatchComplicazione:
+    type: app-extension
+    platform: watchOS
+    deploymentTarget: "10.0"
+    sources:
+      - path: SwimwaveWatchComplicazione
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.swimwave.watchkitapp.complicazione   # deve cominciare con il bundle id dell'app Watch
+        TARGETED_DEVICE_FAMILY: "4"
+        GENERATE_INFOPLIST_FILE: NO
+        SKIP_INSTALL: YES
+    info:
+      path: Config/SwimwaveWatchComplicazione-Info.plist   # generato da XcodeGen
+      properties:
+        CFBundleDisplayName: Swimwave
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension

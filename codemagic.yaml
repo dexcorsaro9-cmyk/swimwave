@@ -5,7 +5,8 @@
 #  2. in Codemagic: Team settings > Team integrations > Developer Portal > aggiungi la chiave API di App Store Connect e dalle un nome;
 #     scrivi quel nome in `integrations.app_store_connect` qui sotto;
 #  3. crea l'app (con il bundle id) in App Store Connect, altrimenti la pubblicazione su TestFlight non parte;
-#  4. in app/project.yml il Watch deve restare `<bundle id>.watchkitapp`: Codemagic trova il suo profilo perché comincia con il bundle id dell'iPhone.
+#  4. in app/project.yml il Watch deve restare `<bundle id>.watchkitapp` e la complicazione `<bundle id>.watchkitapp.complicazione`: Codemagic trova i profili perché cominciano con il bundle id dell'iPhone.
+#     Se la firma della complicazione dà problemi, si può togliere il target SwimwaveWatchComplicazione da app/project.yml (e dalle dipendenze del Watch): il resto dell'app non ne dipende.
 
 workflows:
   test:

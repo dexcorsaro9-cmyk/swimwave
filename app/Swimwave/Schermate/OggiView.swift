@@ -9,6 +9,7 @@ struct OggiView: View {
     @State private var mostraPermessoSalute = false
     @State private var permessoSaluteProposto = false
     @State private var cambiaAperto = false
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         let profilo = stato.profilo
@@ -72,6 +73,10 @@ struct OggiView: View {
                 }
             )
             .environment(stato)
+        }
+        .onAppear { avviaSeRichiestoDaSiri() }
+        .onChange(of: scenePhase) { _, fase in
+            if fase == .active { avviaSeRichiestoDaSiri() }
         }
         .sheet(isPresented: $mostraPermessoSalute) {
             PermessoSaluteView(onFine: { mostraPermessoSalute = false })
@@ -308,6 +313,15 @@ struct OggiView: View {
     }
 
     // MARK: Popup
+
+    /// Siri o Comandi Rapidi hanno aperto l'app per l'allenamento di oggi.
+    private func avviaSeRichiestoDaSiri() {
+        guard daSeguire == nil, !cambiaAperto, !mostraPermessoSalute, popup == nil else { return }
+        guard RichiestaAvvio.consuma() else { return }
+        if let w = stato.allenamentoDiOggi() {
+            daSeguire = AllenamentoDaSeguire(workout: w)
+        }
+    }
 
     private func mostraPopupSeServe() {
         guard popup == nil, let p = stato.popupDaMostrare() else { return }

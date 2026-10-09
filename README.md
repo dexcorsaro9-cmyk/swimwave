@@ -7,16 +7,18 @@ App per chi nuota da solo e non ha nessuno che lo segua: coach IA che crea allen
 ## Stato
 
 - Nome scelto: **Swimwave** (provvisorio fino alle verifiche, vedi sotto)
-- Fase: progettazione, con le prime basi tecniche (schema, servizio coach, modello condiviso)
+- Fase: progettazione avanzata. Tutti i contenuti tecnici sono in **bozza** e vanno controllati dall'istruttore; l'app è uno scheletro **non ancora compilato**
 - Piattaforma della prima versione: iPhone + Apple Watch (SwiftUI, HealthKit, WatchKit)
 - Distribuzione di prova: TestFlight (già disponibile)
 
 ## Codice
 
 - `docs/schema/workout.schema.json`: schema del formato dell'allenamento (il contratto)
-- `server/coach/`: servizio coach (Node). Genera l'allenamento, lo controlla con lo schema e usa una riserva fissa se qualcosa non va. Test: `cd server/coach && npm install && npm test` (verificati, 8 su 8)
-- `Packages/SwimwaveCore/`: pacchetto Swift condiviso da iPhone e Watch (modello e validazione). **Non ancora compilato né testato**: scritto senza Swift a disposizione, da provare in Xcode con `swift test`
+- `server/coach/`: servizio coach (Node). Genera l'allenamento con il modello, lo controlla con lo schema e usa una riserva fissa se qualcosa non va. Test: `cd server/coach && npm install && npm test` (31 test, verificati). Avvio: `npm start` (con `ANTHROPIC_API_KEY`; senza chiave risponde solo con la riserva)
+- `app/`: scheletro dell'app SwiftUI per iPhone e Watch, generato con XcodeGen. **Non compilato né testato**: vedi `app/README.md`
+- `Packages/SwimwaveCore/`: pacchetto Swift condiviso (modello, validazione, profilo, saluti, contenuti). **Non ancora compilato né testato**: da provare in Xcode con `swift test`
 - `content/`: contenuti tecnici in bozza, con le fonti: drill, errori comuni, percorso a tappe, allenamenti di riserva, tono, coach. Da controllare con `content/REVISIONE.md`
+- `assets/coach/`: immagini dei due coach (bozze) e avatar
 - `fixtures/`: esempi per i test
 
 ## Da verificare sul nome
@@ -31,12 +33,15 @@ Nomi già scartati e perché: Swimly (esiste un'app di allenamenti con lo stesso
 
 ## Documenti
 
-- [docs/PRODUCT.md](docs/PRODUCT.md): visione, target, funzioni della prima versione, prezzo
+- [docs/PRODUCT.md](docs/PRODUCT.md): visione, target, funzioni della prima versione, prezzo, decisioni
 - [docs/EXPERIENCE.md](docs/EXPERIENCE.md): esperienza dell'utente, ritmo scelto da lui, percorso a tappe
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): parti del sistema, coach IA, dati, decisioni
+- [docs/ONBOARDING.md](docs/ONBOARDING.md): primo avvio e lavagnetta del coach
+- [docs/POPUP_COACH.md](docs/POPUP_COACH.md): il coach nei popup
+- [docs/GRAFICA.md](docs/GRAFICA.md): direzione grafica
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): parti del sistema, coach IA, dati
 - [docs/FONTI.md](docs/FONTI.md): da dove vengono i contenuti tecnici
-- [docs/COACH_PERSONAS.md](docs/COACH_PERSONAS.md): i due coach virtuali e i prompt delle immagini
-- [docs/ROADMAP.md](docs/ROADMAP.md): ordine di sviluppo
+- [docs/COACH_PERSONAS.md](docs/COACH_PERSONAS.md) e [docs/COACH_PROMPTS.md](docs/COACH_PROMPTS.md): i due coach e i prompt delle immagini
+- [docs/legale/](docs/legale/): bozze di informativa, termini, nota IA, avvertenza salute e checklist (da far rivedere a un avvocato)
+- [docs/ROADMAP.md](docs/ROADMAP.md): cosa è fatto e cosa viene dopo
 - [docs/WORKOUT_FORMAT.md](docs/WORKOUT_FORMAT.md): formato dell'allenamento condiviso tra coach IA, iPhone e Watch
-- [docs/COMPETITORS.md](docs/COMPETITORS.md): cosa esiste già e dove c'è spazio
-- [CLAUDE.md](CLAUDE.md): contesto per lavorare sul progetto con Claude Code
+- [docs/COMPETITORS.md](docs/COMPETITORS.md): concorrenti

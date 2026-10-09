@@ -1,3 +1,4 @@
+import { readdirSync } from "node:fs";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { validateWorkout, loadDrills, loadContent } from "../src/validate.js";
@@ -102,4 +103,64 @@ test("il coach scelto cambia il tono ma non le regole", () => {
   assert.ok(!nessuno.includes("Tono del coach scelto"));
   for (const t of [uomo, donna, nessuno]) assert.ok(t.includes("Regole dell'istruttore"));
   assert.equal(loadPersona("sconosciuto"), null);
+});
+
+test("l'indice degli allenamenti elenca tutti i file, con fonti esistenti e dati coerenti", () => {
+  const radice = loadContent("allenamenti/indice.json");
+  const file = readdirSync(new URL("content/allenamenti/", new URL("../../../", import.meta.url))).filter((f) => f !== "indice.json");
+  assert.deepEqual(indice.map((v) => v.file).sort(), file.sort());
+  assert.ok(radice.fonti.length > 0 || radice.nota_fonti, "indice: senza fonti e senza nota");
+  for (const f of radice.fonti) assert.ok(idFonti.has(f), `indice: fonte ${f}`);
+  for (const voce of indice) {
+    assert.ok(["bozza", "approvato"].includes(voce.stato), `${voce.file}: stato`);
+    assert.ok(["principiante", "intermedio"].includes(voce.livello), `${voce.file}: livello`);
+    assert.ok(voce.obiettivi.length > 0 && voce.obiettivi.every((o) => ["tecnica", "resistenza", "dimagrimento"].includes(o)), `${voce.file}: obiettivi`);
+    assert.ok(voce.tappe.length > 0 && voce.tappe.every((t) => tappe.some((x) => x.id === t)), `${voce.file}: tappe`);
+  }
+});
+
+test("ogni livello e obiettivo ha almeno due allenamenti di riserva", () => {
+  for (const livello of ["principiante", "intermedio"]) {
+    for (const obiettivo of ["tecnica", "resistenza", "dimagrimento"]) {
+      const n = indice.filter((a) => a.livello === livello && a.obiettivi.includes(obiettivo)).length;
+      assert.ok(n >= 2, `${livello}/${obiettivo}: solo ${n}`);
+    }
+  }
+});
+
+test("serie e recuperi rispettano le regole dell'istruttore", () => {
+  for (const voce of indice) {
+    const w = loadContent(`allenamenti/${voce.file}`);
+    const [recMin, recMax] = voce.livello === "principiante" ? [20, 45] : [15, 30];
+    for (const b of w.blocchi) {
+      for (const s of b.serie) {
+        if (voce.livello === "principiante") {
+          const max = b.tipo === "riscaldamento" ? 100 : 50;
+          assert.ok(s.distanza_m <= max, `${voce.file}: serie di ${s.distanza_m} m nel blocco ${b.tipo}`);
+        }
+        if (s.recupero_s !== undefined) {
+          assert.ok(s.recupero_s >= recMin && s.recupero_s <= recMax, `${voce.file}: recupero ${s.recupero_s} s`);
+        }
+        if (b.tipo === "riscaldamento" || b.tipo === "defaticamento") {
+          assert.ok(s.intensita === "facile", `${voce.file}: ${b.tipo} non facile`);
+        }
+      }
+    }
+  }
+});
+
+test("le tappe 8, 9 e 10 hanno almeno due drill e un errore", () => {
+  for (const id of [8, 9, 10]) {
+    const t = tappe.find((x) => x.id === id);
+    assert.ok(t.drill.length >= 2, `tappa ${id}: drill`);
+    assert.ok(t.errori.length >= 1, `tappa ${id}: errori`);
+  }
+});
+
+test("nei testi non compare 'crawl'", () => {
+  // gli id delle fonti (es. swim-wales-crawl) non si rinominano e non sono visibili all'utente
+  const senzaFonti = ({ fonti, ...resto }) => resto;
+  const testi = JSON.stringify([drillCompleti.map(senzaFonti), errori.map(senzaFonti), tappe.map(senzaFonti)]);
+  assert.ok(!/crawl/i.test(testi));
+  for (const voce of indice) assert.ok(!/crawl/i.test(JSON.stringify(loadContent(`allenamenti/${voce.file}`))), voce.file);
 });

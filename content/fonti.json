@@ -104,6 +104,30 @@
       "url": "https://support.formswim.com/hc/en-us/articles/4405523471379",
       "usata_per": "Conferma della struttura del drill 6 colpi e cambio. Fonte di supporto, non primaria.",
       "affidabilita": "media (azienda)"
+    },
+    {
+      "id": "swim-england-piano-fitness",
+      "titolo": "Swimming Fitness Training Plan (20 sedute: 'Get Started' e 'Finish The Race')",
+      "ente": "Swim England (federazione inglese), sito ufficiale swimming.org",
+      "url": "https://www.swimming.org/members/swimming-fitness-training-plan/",
+      "usata_per": "Struttura di ogni seduta (riscaldamento, sviluppo delle abilità, serie principale, defaticamento) e crescita graduale del volume: da 12 vasche (300 m) alla prima seduta a 38 vasche (950 m) alla decima. Non indica recuperi né scala di sforzo.",
+      "affidabilita": "alta"
+    },
+    {
+      "id": "swim-england-seduta-1",
+      "titolo": "Pool Training Session 1: 300 m",
+      "ente": "Swim England (federazione inglese), sito ufficiale swimming.org",
+      "url": "https://www.swimming.org/members/pool-training-session-1",
+      "usata_per": "Esempio di seduta per chi parte: riscaldamento di 2 vasche facili, blocco di abilità, 8 vasche nella serie principale con 20-30 secondi di pausa, 2 vasche di defaticamento. Sostiene in parte le pause del principiante.",
+      "affidabilita": "alta"
+    },
+    {
+      "id": "swim-wales-pianificazione",
+      "titolo": "Session Planning Guide for Coaches",
+      "ente": "Swim Wales (federazione gallese)",
+      "url": "https://www.swimwales.org/wp-content/uploads/2026/04/Session-Planning-Guide-for-Coaches.pdf",
+      "usata_per": "Ordine della seduta: prima tecnica e preparazione con intensità crescente, poi serie principale, infine ripresa della tecnica e defaticamento per non finire in affaticamento. Scritta per allenatori del percorso agonistico: usata solo per l'ordine dei blocchi.",
+      "affidabilita": "alta, ma per agonisti"
     }
   ],
   "non_consultate": "Federazione Italiana Nuoto (programma della Scuola Nuoto Federale): il sito non era leggibile in automatico. Manuali di riferimento come Counsilman, Maglischo e Laughlin: non consultati. Vanno confrontati dall'istruttore."

@@ -1,5 +1,5 @@
 {
-  "nota": "BOZZA con fonti, da verificare dall'istruttore. I 10 errori più comuni dei principianti adulti. 'drill' rimanda agli id di drills.json, 'fonti' agli id di fonti.json. Dove 'fonti' è vuoto il contenuto è senza fonte diretta e va verificato per primo.",
+  "nota": "BOZZA con fonti, da verificare dall'istruttore. I 10 errori più comuni dei principianti adulti, più 9 errori di dorso, rana e delfino (aggiunti il 9 ottobre 2026 dai quadri Swim Wales e Special Olympics, scritti per nuotatori agonisti o per allenatori). 'drill' rimanda agli id di drills.json, 'fonti' agli id di fonti.json. Dove 'fonti' è vuoto il contenuto è senza fonte diretta e va verificato per primo.",
   "errori": [
     {
       "id": "testa-alta",
@@ -104,6 +104,105 @@
       "drill": [],
       "fonti": ["swim-england-stage"],
       "nota_fonti": "La fase 6 chiede di saper spiegare come prepararsi all'esercizio. Dettagli da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "dorso-testa-troppo-indietro",
+      "nome": "Testa troppo indietro nel dorso",
+      "come_si_riconosce": "Il mento punta verso l'alto e le costole si aprono.",
+      "perche_e_un_problema": "Si perde il collegamento con il centro del corpo e la posizione si indebolisce.",
+      "correzione": "Tieni la testa in linea con il corpo, guarda in alto e un poco verso i piedi, e tieni le costole basse.",
+      "drill": ["battuta-sul-dorso", "dorso-battuta-con-rotazione"],
+      "fonti": ["swim-wales-dorso"],
+      "nota_fonti": "La fonte indica difetto e correzione per nuotatori agonisti. La spiegazione del perché è nostra e l'adattamento al principiante adulto è da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "dorso-spalla-al-mento",
+      "nome": "Spalla che sale verso il mento nel dorso",
+      "come_si_riconosce": "Durante la rotazione una spalla esce dall'acqua e si alza verso il mento.",
+      "perche_e_un_problema": "La rotazione parte dalla spalla invece che dai fianchi e si perde la posizione di testa e corpo.",
+      "correzione": "Ruota dai fianchi, tieni le spalle basse e mantieni ferma la posizione di testa e corpo.",
+      "drill": ["dorso-battuta-con-rotazione", "dorso-un-braccio-alla-volta"],
+      "fonti": ["swim-wales-dorso"],
+      "nota_fonti": "La fonte indica difetto e correzione per nuotatori agonisti. La spiegazione del perché è nostra e l'adattamento al principiante adulto è da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "rana-piedi-non-ruotati",
+      "nome": "Piedi non ruotati in fuori nella rana",
+      "come_si_riconosce": "Nella gambata i piedi restano in linea con le gambe, senza ruotare verso l'esterno.",
+      "perche_e_un_problema": "Senza piedi ruotati e flessi la spinta all'indietro è debole.",
+      "correzione": "Porta i talloni verso i glutei, ruota i piedi in fuori e flettili, poi spingi indietro in modo circolare fino a gambe tese e unite.",
+      "drill": ["gambata-di-rana-al-bordo", "gambata-di-rana-sul-dorso"],
+      "fonti": ["special-olympics-rana", "swim-wales-rana"],
+      "nota_fonti": "Special Olympics indica questo come l'errore più frequente della gambata di rana. La spiegazione del perché è nostra: da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "rana-mani-verso-il-corpo",
+      "nome": "Mani tirate verso il corpo nella rana",
+      "come_si_riconosce": "Nella bracciata le mani vengono portate verso il corpo e la presa sull'acqua è scarsa.",
+      "perche_e_un_problema": "Non si sfrutta la presa sull'acqua per avanzare.",
+      "correzione": "Dopo l'apertura tieni l'acqua con i palmi e porta il corpo in avanti verso le mani, poi torna alla posizione allungata.",
+      "drill": ["rana-corpo-verso-le-mani", "rana-con-scivolo"],
+      "fonti": ["swim-wales-rana"],
+      "nota_fonti": "La fonte indica difetto e correzione per nuotatori agonisti. La spiegazione del perché è nostra e l'adattamento al principiante adulto è da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "rana-senza-scivolo",
+      "nome": "Rana senza ritorno alla posizione allungata",
+      "come_si_riconosce": "Dopo la bracciata si riparte subito, senza riportare il corpo in posizione allungata.",
+      "perche_e_un_problema": "Si perde l'avanzamento che la gambata ha dato.",
+      "correzione": "Dopo ogni bracciata completa torna a freccia e resta allungato finché scivoli, contando mentalmente.",
+      "drill": ["rana-con-scivolo", "rana-due-gambate-una-bracciata"],
+      "fonti": ["swim-wales-rana"],
+      "nota_fonti": "La fonte indica difetto e correzione per nuotatori agonisti. La spiegazione del perché è nostra e l'adattamento al principiante adulto è da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "rana-testa-alta-dopo-il-respiro",
+      "nome": "Testa alta dopo il respiro nella rana",
+      "come_si_riconosce": "Dopo aver respirato la testa resta fuori e il corpo non torna in linea.",
+      "perche_e_un_problema": "Il corpo non è allungato proprio quando dovrebbe scivolare.",
+      "correzione": "Riporta la testa in linea con il corpo il prima possibile e scivola appena sotto la superficie, senza scendere in profondità.",
+      "drill": ["rana-due-gambate-una-bracciata"],
+      "fonti": ["swim-wales-rana"],
+      "nota_fonti": "La fonte indica difetto e correzione per nuotatori agonisti. La spiegazione del perché è nostra e l'adattamento al principiante adulto è da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "delfino-solo-gambe",
+      "nome": "Delfino con le sole gambe",
+      "come_si_riconosce": "Le gambe battono ma l'ondulazione non parte dal petto.",
+      "perche_e_un_problema": "Il movimento perde fluidità e il corpo non lavora come un'unica onda.",
+      "correzione": "Premi il petto verso il basso e lascia che il movimento scenda fino ai piedi: la battuta nasce dal petto.",
+      "drill": ["onda-del-delfino", "delfino-sei-colpi-una-bracciata"],
+      "fonti": ["swim-wales-delfino"],
+      "nota_fonti": "La fonte indica difetto e correzione per nuotatori agonisti. La spiegazione del perché è nostra e l'adattamento al principiante adulto è da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "delfino-piede-fuori-dall-acqua",
+      "nome": "Piede che esce tutto dall'acqua nel delfino",
+      "come_si_riconosce": "Nella battuta esce dall'acqua tutto il piede.",
+      "perche_e_un_problema": "La battuta perde la sua forma e il tempo con le braccia.",
+      "correzione": "Fai affiorare solo i talloni e la punta dei piedi, e cura i due momenti di spinta: uscita e entrata delle mani.",
+      "drill": ["delfino-sei-colpi-una-bracciata"],
+      "fonti": ["swim-wales-delfino"],
+      "nota_fonti": "La fonte indica difetto e correzione per nuotatori agonisti. La spiegazione del perché è nostra e l'adattamento al principiante adulto è da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "delfino-spalle-alte",
+      "nome": "Spalle verso la testa nel delfino",
+      "come_si_riconosce": "Quando le mani iniziano la trazione le spalle salgono verso le orecchie.",
+      "perche_e_un_problema": "Il gomito non resta alto e la trazione si indebolisce.",
+      "correzione": "Tieni le spalle basse mantenendo i gomiti alti.",
+      "drill": [],
+      "fonti": ["swim-wales-delfino"],
+      "nota_fonti": "Nella fonte il difetto riguarda un drill (spinta del petto con scull a gomito alto) che non è nella nostra lista. Spiegazione del perché nostra, adattamento al principiante adulto da verificare.",
       "stato": "bozza"
     }
   ]

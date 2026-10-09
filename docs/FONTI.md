@@ -19,6 +19,9 @@ Ogni voce dei file in `content/` ha:
 | 10 Common Freestyle Swim Mistakes | USA Triathlon | Errori comuni e correzioni |
 | Fingertip Drag Catch-Up | Swimming World Magazine | Drill con le dita sull'acqua |
 | 6-Kick Switch | FORM (azienda) | Solo conferma del drill |
+| Swimming Fitness Training Plan (20 sedute) | Swim England (sito ufficiale swimming.org) | Struttura della seduta e crescita graduale del volume (300 m alla seduta 1, 950 m alla seduta 10) |
+| Pool Training Session 1 | Swim England (sito ufficiale swimming.org) | Esempio di seduta per chi parte: 20-30 secondi di pausa, riscaldamento e defaticamento di 2 vasche |
+| Session Planning Guide for Coaches | Swim Wales | Ordine dei blocchi di una seduta (per allenatori agonisti, usata solo per l'ordine) |
 
 ## Cosa è cambiato rispetto alla prima bozza
 
@@ -28,10 +31,18 @@ Ogni voce dei file in `content/` ha:
 - L'onda del delfino parte dal petto e non è più descritta sulla schiena o di fianco.
 - La gambata di rana ha ora i dettagli della fonte: piedi flessi e ruotati in fuori, ginocchia appena più larghe dei fianchi.
 
+## Aggiunte del 9 ottobre 2026
+
+- Allenamenti di riserva: ora 15. Le tre fonti nuove sostengono la struttura (riscaldamento, tecnica, serie principale, defaticamento) e la crescita graduale, registrate una volta sola in `content/allenamenti/indice.json`.
+- Dorso, rana e delfino: 7 drill e 9 errori nuovi, ricavati dai quadri Swim Wales già nell'elenco (dorso, rana, delfino) e dalla scheda Special Olympics sulla gambata di rana. Non è stata aggiunta nessuna fonte nuova per questi: i quadri Swim Wales sono scritti per nuotatori agonisti o per l'allenatore, quindi l'adattamento all'adulto alle prime armi è da verificare. Dove il quadro non spiega perché un difetto sia un problema, la spiegazione è nostra e lo dice la `nota_fonti`.
+- Il sito ufficiale di Swim England (swimming.org) è risultato leggibile per le pagine del piano di allenamento e della seduta 1. Le sedute dalla 2 in poi (solo per iscritti) mostrano solo titolo e metri, quindi non sono state usate. Le 7 fasi del Learn to Swim restano la copia dell'Università di Brighton: non ho riprovato a leggere la versione ufficiale.
+- Non consultati in questo giro: World Aquatics, USA Swimming, Federazione Italiana Nuoto.
+
 ## Limiti
 
 - Le fasi di Swim England e i livelli Learn-to-Swim sono pensati per i bambini. Le usiamo per l'ordine di apprendimento, non come soglie per gli adulti.
-- Le cifre di volumi, durate e recuperi degli allenamenti non hanno una fonte diretta: sono prudenti e vanno validate.
+- Le cifre di volumi, durate e recuperi degli allenamenti non hanno una fonte diretta: sono prudenti e vanno validate. Confronto solo parziale con Swim England (seduta 1: 300 m e 20-30 secondi di pausa; seduta 10: 950 m).
+- Gli esercizi al bordo (galleggiamento a stella, respirazione al bordo, gambata di rana al bordo) non possono comparire negli allenamenti, che sono espressi in distanze: le tappe 1 e 2 non hanno allenamenti di riserva propri.
 - Non abbiamo potuto leggere il programma della Federazione Italiana Nuoto (Scuola Nuoto Federale), né manuali come quelli di Counsilman, Maglischo o Laughlin. Vanno confrontati dall'istruttore.
 - Le fonti in disaccordo sono segnalate: l'ordine di dorso, rana e delfino.
 

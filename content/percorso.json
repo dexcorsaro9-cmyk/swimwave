@@ -76,8 +76,8 @@
       "nome": "Dorso",
       "obiettivo": "Nuotare il dorso con battuta e bracciata coordinate.",
       "test": "Nuoti 25 metri di dorso con battuta e bracciata coordinate.",
-      "drill": ["battuta-sul-dorso", "dorso-un-braccio-alla-volta"],
-      "errori": ["gambe-che-pedalano"],
+      "drill": ["battuta-sul-dorso", "dorso-un-braccio-alla-volta", "dorso-battuta-con-rotazione", "dorso-al-rallentatore"],
+      "errori": ["gambe-che-pedalano", "dorso-testa-troppo-indietro", "dorso-spalla-al-mento"],
       "fonti": ["swim-england-stage", "lts-livelli-1-6", "swim-wales-dorso"],
       "stato": "bozza"
     },
@@ -86,8 +86,8 @@
       "nome": "Rana",
       "obiettivo": "Coordinare bracciata, gambata e scivolo.",
       "test": "Nuoti 25 metri di rana con scivolo dopo ogni ciclo.",
-      "drill": ["gambata-di-rana-al-bordo", "rana-con-scivolo"],
-      "errori": [],
+      "drill": ["gambata-di-rana-al-bordo", "rana-con-scivolo", "gambata-di-rana-sul-dorso", "rana-due-gambate-una-bracciata", "rana-corpo-verso-le-mani"],
+      "errori": ["rana-piedi-non-ruotati", "rana-mani-verso-il-corpo", "rana-senza-scivolo", "rana-testa-alta-dopo-il-respiro"],
       "fonti": ["swim-england-stage", "lts-livelli-1-6", "special-olympics-rana", "swim-wales-rana"],
       "stato": "bozza"
     },
@@ -96,8 +96,8 @@
       "nome": "Delfino",
       "obiettivo": "Imparare l'ondulazione e la sua coordinazione.",
       "test": "Nuoti 25 metri di delfino con ondulazione guidata dal petto.",
-      "drill": ["onda-del-delfino"],
-      "errori": [],
+      "drill": ["onda-del-delfino", "delfino-un-braccio-alla-volta", "delfino-sei-colpi-una-bracciata"],
+      "errori": ["delfino-solo-gambe", "delfino-piede-fuori-dall-acqua", "delfino-spalle-alte"],
       "fonti": ["swim-england-stage", "lts-livelli-1-6", "swim-wales-delfino"],
       "stato": "bozza"
     }

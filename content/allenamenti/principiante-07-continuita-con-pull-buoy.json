@@ -1,0 +1,15 @@
+{
+  "titolo": "Continuità con il pull buoy",
+  "vasca_metri": 25,
+  "durata_stimata_min": 30,
+  "blocchi": [
+    { "tipo": "riscaldamento", "serie": [
+      { "ripetizioni": 2, "distanza_m": 50, "stile": "libero", "intensita": "facile", "recupero_s": 20 } ] },
+    { "tipo": "tecnica", "serie": [
+      { "ripetizioni": 2, "distanza_m": 50, "stile": "libero", "drill": "nuotata-con-pull-buoy", "recupero_s": 30 } ] },
+    { "tipo": "principale", "serie": [
+      { "ripetizioni": 5, "distanza_m": 50, "stile": "libero", "intensita": "facile", "recupero_s": 25 } ] },
+    { "tipo": "defaticamento", "serie": [
+      { "ripetizioni": 2, "distanza_m": 25, "stile": "libero", "intensita": "facile" } ] }
+  ]
+}

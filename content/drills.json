@@ -171,6 +171,83 @@
       "errore_da_evitare": "Muovere solo le gambe invece di far partire l'onda dal petto.",
       "fonti": ["swim-wales-delfino", "ravenna-unife"],
       "stato": "bozza"
+    },
+    {
+      "id": "dorso-battuta-con-rotazione",
+      "nome": "Battuta sul dorso con rotazione",
+      "tappa": 8,
+      "scopo": "Imparare a ruotare il corpo restando allineato, con la battuta che parte dall'anca.",
+      "esecuzione": "Sulla schiena, con le braccia lungo i fianchi, guarda in alto e un poco verso i piedi. Batti le gambe dall'anca e ruota fianchi e corpo da un lato all'altro, tenendo le spalle basse e la testa ferma. All'inizio puoi tenere un galleggiante con le mani ai lati, sopra le anche; si possono usare le pinne.",
+      "errore_da_evitare": "Alzare le spalle durante la rotazione o inclinare la testa troppo indietro, aprendo le costole.",
+      "fonti": ["swim-wales-dorso"],
+      "nota_fonti": "La fonte è un quadro per nuotatori agonisti: l'adattamento al principiante adulto è da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "dorso-al-rallentatore",
+      "nome": "Dorso al rallentatore",
+      "tappa": 8,
+      "scopo": "Rendere visibili i difetti della nuotata per poterli correggere.",
+      "esecuzione": "Nuota il dorso molto lentamente, senza attrezzi, applicando con attenzione tutto ciò che hai imparato su posizione del corpo e della testa, rotazione e bracciata. A bassa velocità i difetti si notano di più.",
+      "errore_da_evitare": "Usare pinne o altri attrezzi, che nascondono i difetti.",
+      "fonti": ["swim-wales-dorso"],
+      "nota_fonti": "La fonte è un quadro per nuotatori agonisti, pensato per l'allenatore che osserva: per chi nuota da solo l'efficacia è da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "gambata-di-rana-sul-dorso",
+      "nome": "Gambata di rana sul dorso",
+      "tappa": 9,
+      "scopo": "Controllare il recupero delle gambe e la spinta della rana in posizione allungata.",
+      "esecuzione": "Sulla schiena, in posizione allungata e piatta in superficie, porta i piedi sotto le ginocchia tenendo le ginocchia al livello dell'acqua. A recupero finito ruota i piedi in fuori e spingi indietro fino a riunire talloni e piedi, con le punte dei piedi tese all'indietro. Un pull buoy può aiutare a tenere le ginocchia in posizione neutra.",
+      "errore_da_evitare": "Far uscire le ginocchia dall'acqua o aprire le costole.",
+      "fonti": ["swim-wales-rana"],
+      "nota_fonti": "La fonte è un quadro per nuotatori agonisti: l'adattamento al principiante adulto è da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "rana-due-gambate-una-bracciata",
+      "nome": "Rana: due gambate, una bracciata",
+      "tappa": 9,
+      "scopo": "Curare la posizione allungata e la respirazione riducendo il numero di bracciate.",
+      "esecuzione": "Nuota a rana facendo due gambate per ogni bracciata. Dopo il respiro riporta subito la testa in linea con il corpo. Spingiti in avanti restando appena sotto la superficie, senza scendere in profondità, e usa la seconda gambata per avanzare come una freccia.",
+      "errore_da_evitare": "Tenere la testa alta dopo il respiro o immergersi troppo in profondità.",
+      "fonti": ["swim-wales-rana"],
+      "nota_fonti": "La fonte è un quadro per nuotatori agonisti: l'adattamento al principiante adulto è da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "rana-corpo-verso-le-mani",
+      "nome": "Rana: il corpo verso le mani",
+      "tappa": 9,
+      "scopo": "Capire che nella bracciata di rana è il corpo ad avanzare verso le mani.",
+      "esecuzione": "Parti in posizione allungata. Appena le mani si aprono, tieni l'acqua con i palmi, di solito oltre la larghezza delle spalle, e gira le mani all'indietro. Porta il corpo in avanti verso le mani e torna alla posizione allungata dopo ogni bracciata completa. Si può fare con un pull buoy.",
+      "errore_da_evitare": "Tirare le mani verso il corpo invece di portare il corpo verso le mani.",
+      "fonti": ["swim-wales-rana"],
+      "nota_fonti": "La fonte è un quadro per nuotatori agonisti: l'adattamento al principiante adulto è da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "delfino-un-braccio-alla-volta",
+      "nome": "Delfino un braccio alla volta",
+      "tappa": 10,
+      "scopo": "Curare la bracciata di delfino un braccio alla volta, mantenendo l'ondulazione.",
+      "esecuzione": "Un braccio resta teso in avanti e stabilizza il corpo, mentre l'altro compie la bracciata e il recupero vicino alla superficie, disteso ma rilassato. Respira in avanti solo nelle bracciate complete con tutte e due le braccia. Alterna i lati.",
+      "errore_da_evitare": "Lasciar ruotare il corpo: il braccio davanti serve a tenerlo stabile.",
+      "fonti": ["swim-wales-delfino"],
+      "nota_fonti": "La fonte è un quadro per nuotatori agonisti: l'adattamento al principiante adulto è da verificare.",
+      "stato": "bozza"
+    },
+    {
+      "id": "delfino-sei-colpi-una-bracciata",
+      "nome": "Delfino: sei colpi, una bracciata",
+      "tappa": 10,
+      "scopo": "Dare ritmo alla battuta del delfino, che parte dalla parte alta del corpo come una frustata.",
+      "esecuzione": "Fai sei colpi di gambe per ogni bracciata. Il colpo parte dal movimento del busto: un colpo verso il basso accompagna l'uscita delle mani dall'acqua, un altro aiuta l'avanzamento quando le mani entrano. Le pinne più rigide aiutano la spinta.",
+      "errore_da_evitare": "Far uscire dall'acqua tutto il piede, o battere fuori tempo rispetto all'uscita e all'entrata delle mani.",
+      "fonti": ["swim-wales-delfino"],
+      "nota_fonti": "La fonte è un quadro per nuotatori agonisti: per l'adulto alle prime armi può essere troppo avanzato. Da verificare.",
+      "stato": "bozza"
     }
   ]
 }

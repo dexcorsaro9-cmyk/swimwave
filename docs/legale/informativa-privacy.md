@@ -11,7 +11,8 @@ Questa pagina spiega, in modo semplice, quali dati usa l'app Swimwave, perché, 
 - Ti chiediamo pochi dati: nome o soprannome, livello, obiettivo (facoltativo), lunghezza della vasca, ritmo e frequenza settimanale.
 - Non ti chiediamo sesso, peso, data di nascita né fastidi fisici.
 - Il tuo nome resta sul tuo dispositivo.
-- Per creare l'allenamento, un nostro servizio riceve solo le informazioni che servono (livello, obiettivo, vasca, ritmo, riepiloghi degli allenamenti) e le passa a un fornitore di intelligenza artificiale.
+- Per creare l'allenamento, un nostro servizio riceve solo le informazioni che servono (livello, obiettivo, vasca, ritmo, riepiloghi degli allenamenti, e la durata e l'obiettivo che scegli tu per un allenamento) e le passa a un fornitore di intelligenza artificiale.
+- Per il commento del coach sul mese, lo stesso servizio riceve soltanto alcuni totali del mese (quante nuotate, quanti metri e minuti, da quante settimane di fila raggiungi il tuo obiettivo, quante nuotate hai giudicato facili, giuste o dure), senza il tuo nome, e li passa allo stesso fornitore. [NOVITÀ, da verificare con un avvocato]
 - Gli allenamenti di nuoto si salvano in Apple Salute solo se tu lo permetti.
 
 ## 1. Chi è il titolare del trattamento
@@ -32,9 +33,10 @@ Email per la privacy: [EMAIL PRIVACY]
 |---|---|---|
 | Nome o soprannome | Sì | Sul tuo dispositivo. Non lo inviamo ai nostri server [DA CONFERMARE CON LO SVILUPPO: vedi nota sotto] |
 | Livello di nuoto | Sì | Dispositivo; inviato al servizio coach |
-| Obiettivo (per esempio tecnica, resistenza) | No | Dispositivo; inviato al servizio coach |
+| Obiettivo (per esempio tecnica, resistenza) | No | Dispositivo; inviato al servizio coach. Se per un singolo allenamento ne scegli un altro, viene inviato quello scelto [NOVITÀ, da verificare con un avvocato] |
 | Lunghezza della vasca | Sì | Dispositivo; inviata al servizio coach |
-| Ritmo scelto (Libero, Regolare, Spronami) e frequenza settimanale | Sì | Dispositivo; inviati al servizio coach |
+| Ritmo scelto (Libero, Regolare, Spronami) | Sì | Dispositivo; inviato al servizio coach |
+| Frequenza settimanale | Sì | Dispositivo; non inviata al servizio coach |
 | Coach scelto (Antonio o Pamela) | Sì | Dispositivo; inviato al servizio coach per il tono dei messaggi |
 
 > NOTA: nel progetto il nome dovrebbe servire solo per i saluti sul dispositivo, mentre al servizio coach arriva il coach scelto. Se in futuro il nome venisse inviato (anche solo per il tono), questa tabella e la sezione 5 vanno cambiate.
@@ -45,15 +47,25 @@ Non ti chiediamo sesso, peso, data di nascita. Non ti chiediamo in anticipo se h
 - Gli allenamenti proposti, quelli fatti, la tappa del percorso in cui sei.
 - Il tuo giudizio dopo ogni nuotata (facile, giusta, dura) e, se lo indichi, se hai sentito dolore.
 - Riepiloghi: quante volte nuoti, per quanto tempo, quando è stata l'ultima nuotata.
+- Per ogni nuotata, sul dispositivo: metri, durata, eventuali note scritte da te, eventuali correzioni, e (se le hai date dall'Apple Watch o da Apple Salute) calorie, frequenza cardiaca media, bracciate e tempi delle vasche. Questi dati restano sul tuo dispositivo e non vanno al servizio coach.
+
+### 2.2 bis Dati inviati al servizio coach per le nuove funzioni [NOVITÀ, da verificare con un avvocato]
+Quando hai dato il consenso all'uso dell'IA, l'app può inviare al nostro servizio coach, oltre a quanto indicato in 2.1:
+- **Durata e obiettivo scelti per un allenamento.** Se chiedi al coach un allenamento di una certa durata (20, 30, 45 o 60 minuti) o con un obiettivo diverso da quello del profilo (tecnica, resistenza, dimagrimento), l'app invia quella durata e quell'obiettivo, insieme agli altri dati già descritti.
+- **I totali del mese per il commento del coach.** Per mostrarti una o due frasi di commento sul mese, l'app invia: il numero di nuotate del mese, i metri e i minuti nuotati, i metri del mese precedente, il numero di settimane di fila in cui hai raggiunto il tuo obiettivo, e quante nuotate hai giudicato facili, giuste o dure; più il coach scelto, per il tono. Sono solo numeri: non inviamo il tuo nome, le singole nuotate, le date, le note né i dati grezzi di Apple Salute.
+
+Il nome non viene mai inviato. Se non dai il consenso, o se il servizio non risponde, l'app usa allenamenti e frasi fissi.
+
+> NOTA PER L'AVVOCATO (novità, da verificare): i totali del mese sono calcolati anche su nuotate lette da Apple Salute. Valutare se questi totali, inviati a un fornitore di IA, siano "dati relativi alla salute" (art. 9 GDPR) o dati sull'attività fisica, se serva un consenso esplicito separato da quello già previsto per l'IA, e la coerenza con le regole di Apple sui dati di salute (CHECKLIST, A2, C3, C4). Valutare anche se "giudicate dure" (percezione dello sforzo) renda il dato più vicino alla salute.
 
 > DECISIONE APERTA (importante): l'indicazione "dolore sì/no" è una informazione sulla salute (art. 9 GDPR, categoria particolare). Opzione consigliata: resta solo sul dispositivo e non viene mai inviata al servizio coach; l'app reagisce in locale (riposo e consiglio di sentire un medico). Se invece viene inviata, serve il consenso esplicito (vedi sezione 4) e l'informativa va cambiata.
 
 ### 2.3 Dati di Apple Salute (HealthKit)
 - **Scrittura:** se dai il permesso, l'app salva in Apple Salute gli allenamenti di nuoto in piscina fatti con Apple Watch.
-- **Lettura:** se dai il permesso, l'app legge le tue nuotate registrate in Apple Salute (durata, distanza, passo) per mostrarti i progressi.
+- **Lettura:** se dai il permesso, l'app legge le tue nuotate registrate in Apple Salute (durata, distanza, passo e, se presenti, calorie attive, frequenza cardiaca media, bracciate, lunghezza della vasca, tempi delle vasche) per mostrarti i progressi, i record e i grafici. [NOVITÀ: calorie, frequenza cardiaca, bracciate e vasche, da verificare con un avvocato]
 - Il permesso ti viene chiesto nel momento in cui serve, non all'apertura dell'app. Puoi cambiarlo quando vuoi in Impostazioni > Salute > Accesso ai dati e dispositivi.
 - I dati di Apple Salute **non vengono usati per pubblicità, marketing o profilazione commerciale**, e non vengono venduti.
-- Al servizio coach non inviamo i dati grezzi di Apple Salute, ma soltanto riepiloghi (per esempio frequenza e durata media).
+- Al servizio coach non inviamo i dati grezzi di Apple Salute (né calorie, frequenza cardiaca, bracciate o tempi delle vasche), ma soltanto riepiloghi: il giudizio sull'ultimo allenamento e i totali del mese descritti in 2.2 bis. [da verificare con un avvocato: i totali del mese comprendono anche nuotate lette da Apple Salute]
 
 > NOTA PER L'AVVOCATO: i riepiloghi derivati da HealthKit inviati al server e al fornitore di IA possono essere "dati relativi alla salute". Valutare consenso esplicito (art. 9.2.a) e coerenza con le regole di Apple (vedi CHECKLIST, punti C3 e C4).
 
@@ -73,7 +85,8 @@ Se ci scrivi a [EMAIL PRIVACY] o all'assistenza, trattiamo il tuo indirizzo emai
 | Finalità | Base giuridica (GDPR) |
 |---|---|
 | Creare il tuo profilo e farti usare l'app | Esecuzione del contratto (art. 6.1.b) |
-| Generare l'allenamento con il coach IA | Esecuzione del contratto (art. 6.1.b) |
+| Generare l'allenamento con il coach IA (compresi durata e obiettivo scelti da te) | Esecuzione del contratto (art. 6.1.b) |
+| Generare il commento del coach sul mese, a partire dai totali del mese [NOVITÀ, da verificare con un avvocato] | Il tuo consenso all'uso dell'IA (art. 6.1.a); alternativa da valutare: esecuzione del contratto (art. 6.1.b). Se i totali sono dati sulla salute: consenso esplicito (art. 9.2.a) |
 | Salvare e leggere gli allenamenti in Apple Salute | Il tuo consenso, dato con il permesso di sistema (art. 6.1.a; per dati sulla salute art. 9.2.a) |
 | Inviare notifiche (solo se scegli Spronami) | Il tuo consenso/permesso di sistema |
 | Gestire l'abbonamento e gli obblighi fiscali e contabili | Contratto e obbligo di legge (art. 6.1.b e 6.1.c) |
@@ -95,7 +108,7 @@ Non vendiamo i tuoi dati. Li comunichiamo solo a chi ci serve per offrire il ser
 
 | Chi | A cosa serve | Quali dati |
 |---|---|---|
-| [FORNITORE DEL MODELLO IA] | Elabora la richiesta e restituisce l'allenamento | Livello, obiettivo, vasca, ritmo, riepiloghi, coach scelto. Non il tuo nome, [non dati di Apple Salute grezzi] |
+| [FORNITORE DEL MODELLO IA] | Elabora la richiesta e restituisce l'allenamento, e il commento del coach sul mese | Livello, obiettivo (anche quello scelto per un singolo allenamento), durata scelta, vasca, ritmo, riepiloghi, coach scelto; per il commento: i totali del mese (nuotate, metri, minuti, metri del mese precedente, settimane di fila, nuotate facili, giuste, dure). Non il tuo nome, [non dati di Apple Salute grezzi] [NOVITÀ: durata, obiettivo scelto e totali del mese, da verificare con un avvocato] |
 | [HOSTING DEL SERVIZIO COACH] | Fa funzionare il nostro server | Gli stessi dati, più dati tecnici (IP, log) |
 | [HOSTING DEI VIDEO] | Mostra i video di lezioni e drill | Dati tecnici della richiesta (per esempio IP) |
 | [FORNITORE EMAIL/ASSISTENZA] | Risponde alle tue richieste | Email e messaggio |
@@ -122,7 +135,7 @@ Altri soggetti che agiscono per conto proprio:
 |---|---|
 | Profilo, storico e giudizi sul dispositivo | Finché non li cancelli o non elimini l'app |
 | Dati in Apple Salute | Decidi tu in Apple Salute; non li cancelliamo noi |
-| Richieste al servizio coach | [Non conservate oltre la richiesta / [DURATA]]. Log tecnici: [DURATA] |
+| Richieste al servizio coach (allenamento e commento del mese) | [Non conservate oltre la richiesta / [DURATA]]. Log tecnici: [DURATA]. Il servizio non scrive nei log il contenuto delle richieste né delle risposte |
 | Presso il fornitore di IA | [DURATA e politica del fornitore: DA VERIFICARE] |
 | Dati fiscali e contabili | 10 anni [DA VERIFICARE] |
 | Email di assistenza | [DURATA] |
@@ -148,7 +161,7 @@ Se pensi che trattiamo i tuoi dati in modo non corretto, puoi presentare reclamo
 
 ## 10. Decisioni automatizzate
 
-L'allenamento è creato da un sistema di intelligenza artificiale, entro regole scritte da un istruttore e con una lista chiusa di esercizi. Non si tratta di una decisione che produce effetti giuridici o effetti analoghi significativi su di te (art. 22 GDPR). Puoi sempre scegliere un altro allenamento o non seguirlo. Vedi anche la nota sull'IA in Profilo > Informazioni.
+L'allenamento (e il breve commento del coach sul mese) è creato da un sistema di intelligenza artificiale; l'allenamento segue regole scritte da un istruttore e una lista chiusa di esercizi, e il commento si limita ai numeri del mese, senza consigli. Non si tratta di una decisione che produce effetti giuridici o effetti analoghi significativi su di te (art. 22 GDPR). Puoi sempre scegliere un altro allenamento o non seguirlo. Vedi anche la nota sull'IA in Profilo > Informazioni.
 
 ## 11. Minori
 

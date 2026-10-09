@@ -7,7 +7,10 @@ const NOME_STRUMENTO = "proponi_allenamento";
  * Dati che possono arrivare al modello. Tutto il resto viene scartato:
  * niente nome, niente identificativi. Vedi docs/legale/informativa-privacy.md.
  */
-const CAMPI_AMMESSI = ["livello", "obiettivo", "tappa", "vasca_metri", "ritmo", "coach", "riepilogo"];
+const CAMPI_AMMESSI = ["livello", "obiettivo", "tappa", "vasca_metri", "ritmo", "coach", "riepilogo", "durata_min"];
+
+/** Durate che l'utente può chiedere, in minuti (stesso elenco di RichiestaAllenamento.durateAmmesse nell'app). */
+export const DURATE_AMMESSE = [20, 30, 45, 60];
 
 /**
  * Valori ammessi per ogni campo. Quello che non corrisponde viene scartato (validazione stretta):
@@ -21,6 +24,7 @@ const VALORI_AMMESSI = {
   ritmo: (v) => ["libero", "regolare", "spronami"].includes(v),
   coach: (v) => v === "uomo" || v === "donna",
   // L'unico riepilogo ammesso: l'ultima risposta dell'utente, in una forma fissa.
+  durata_min: (v) => Number.isInteger(v) && DURATE_AMMESSE.includes(v),
   riepilogo: (v) => typeof v === "string" && /^ultimo allenamento: (facile|giusta|dura)$/.test(v),
 };
 

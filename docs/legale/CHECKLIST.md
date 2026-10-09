@@ -37,7 +37,9 @@ Altre limitazioni: ho letto il codice del servizio coach solo in parte (`server/
   - Ma ARCHITECTURE.md prevede la "risposta dell'utente" con **dolore sì/no**, e un "riassunto per il coach" con "ultime risposte". Se il dolore finisce nel riassunto, parte verso server e fornitore di IA: sarebbe un dato sulla salute inviato a terzi.
   - Gli allenamenti da Apple Salute (durata, distanza, frequenza) possono essere considerati dati sulla salute o sull'attività fisica: **da verificare**.
   - L'obiettivo "Dimagrire" suggerisce una condizione fisica: **da verificare** se vada trattato con prudenza.
+- **Novità (da verificare con un avvocato):** al servizio coach e al fornitore di IA ora arrivano anche (a) la durata (20, 30, 45 o 60 minuti) e l'obiettivo scelti per un singolo allenamento, e (b) per il commento sul mese, i totali del mese: numero di nuotate, metri, minuti, metri del mese precedente, settimane di fila, quante nuotate facili, giuste, dure. Sempre senza nome. I totali sono calcolati anche su nuotate lette da Apple Salute; le calorie, la frequenza cardiaca, le bracciate e i tempi delle vasche restano sul dispositivo e non partono. Vedi informativa 2.2 bis e nota-ia.md.
 - **Da decidere:**
+  - [ ] I totali del mese (soprattutto "nuotate facili/giuste/dure", percezione dello sforzo, e il fatto che derivino anche da Apple Salute) sono dati relativi alla salute o all'attività fisica? Servono consenso esplicito separato e una voce nelle etichette Apple (C7)?
   - [ ] Il dolore sì/no resta solo sul dispositivo (consigliato) o viaggia verso il server? Se viaggia: consenso esplicito separato e testo dell'informativa cambiato.
   - [ ] I riepiloghi derivati da HealthKit inviati al servizio: servono davvero? Se sì, consenso esplicito prima del primo invio (si collega a C3).
   - [ ] Se mai si raccogliesse un dato di salute facoltativo (per esempio i "fastidi" in una versione futura): consenso esplicito, separato, revocabile, e solo sul dispositivo se possibile.
@@ -140,6 +142,7 @@ Fonte: [developer.apple.com/app-store/review/guidelines/](https://developer.appl
 ### C3. Condivisione con IA di terzi (5.1.2(i)) e uso dei dati (5.1.2)
 - **Cosa dice:** non usare, trasmettere o condividere dati personali senza permesso; la condivisione con terzi, **compresa l'IA di terze parti**, va dichiarata chiaramente e va chiesto il permesso esplicito prima. I dati raccolti per uno scopo non si riusano per un altro senza nuovo consenso.
 - **Situazione:** il servizio coach manda dati a un modello di terzi.
+- **Novità (da verificare con un avvocato):** l'elenco dei dati nella schermata di consenso deve includere durata e obiettivo scelti per un allenamento e i totali del mese per il commento (frasi proposte in nota-ia.md, punto 2 bis). Il commento del mese è un secondo uso dei dati sulle nuotate: verificare che il consenso attuale lo copra.
 - **Da decidere:**
   - [ ] Schermata di consenso prima della prima richiesta al coach IA, con elenco dei dati e del fornitore.
   - [ ] Se rifiuta: l'app funziona con gli allenamenti di riserva (il consenso non può essere una condizione per usare l'app se non serve alla funzione: **da verificare con l'avvocato e con la revisione Apple**).
@@ -168,7 +171,7 @@ Fonte: [developer.apple.com/app-store/review/guidelines/](https://developer.appl
 - **Cosa dice (letta il 2026-10-09, [app-privacy-details](https://developer.apple.com/app-store/app-privacy-details/)):** vanno dichiarati i dati raccolti da te **e dai partner** (SDK, strumenti, fornitori). "Raccolti" = inviati fuori dal dispositivo e accessibili a te o ai partner più a lungo di quanto serve per rispondere alla richiesta; i dati trattati solo sul dispositivo non sono "raccolti". I dati restano "collegati" all'utente salvo che siano de-identificati prima della raccolta. Categorie, tra cui Salute, Fitness, Identificativi (ID dispositivo/utente), Dati d'uso. La pagina non nomina i servizi di IA, ma un fornitore di IA è un partner esterno.
 - **Da decidere:** compilare l'etichetta solo dopo aver deciso A2, A6 e C3. Bozza di partenza, da confermare:
   - [ ] Identificativi: Device ID/User ID (identificativo anonimo) se lo teniamo sul server.
-  - [ ] Salute e Fitness: se i riepiloghi (frequenza, durata, giudizio, eventuale dolore) vengono inviati e conservati. Collegati all'utente? Usati per funzioni dell'app.
+  - [ ] Salute e Fitness: se i riepiloghi (frequenza, durata, giudizio, eventuale dolore) vengono inviati e conservati. Collegati all'utente? Usati per funzioni dell'app. Novità: totali del mese (nuotate, metri, minuti, settimane di fila, facili/giuste/dure) per il commento del coach: da valutare come "Fitness" (da verificare con un avvocato).
   - [ ] Tracciamento: nessuno (confermare che non ci siano SDK pubblicitari).
   - [ ] Dati inseriti: livello, obiettivo, vasca, ritmo: se inviati e conservati, "Contenuti dell'utente"/"Altri dati" (categoria esatta da scegliere nella tabella di Apple).
   - [ ] Aggiornare le etichette quando cambia il fornitore.

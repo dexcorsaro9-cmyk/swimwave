@@ -168,6 +168,94 @@
       "url": "https://www.usms.org/fitness-and-training/articles-and-videos/articles/how-to-train-with-critical-swim-speed-intervals",
       "usata_per": "Test con un 400 e un 200 e uso della velocità critica come ritmo 'di soglia' per nuotatori master. Attenzione: l'articolo consiglia uno sforzo sostenibile, 'poco sopra il moderato', e non a tutta; non dà percentuali né zone. Per questo non è usato per le percentuali e la differenza va decisa dall'istruttore.",
       "affidabilita": "media: articolo divulgativo di un allenatore, su un sito di federazione master"
+    },
+    {
+      "id": "usms-spalle-hickey",
+      "titolo": "4 Swimming Dryland Exercises to Save Your Shoulders",
+      "ente": "Bo Hickey, U.S. Masters Swimming (federazione master americana), 11 agosto 2025",
+      "url": "https://www.usms.org/fitness-and-training/articles-and-videos/videos/4-swimming-dryland-exercises-to-save-your-shoulders",
+      "usata_per": "Rotazione interna della spalla con elastico leggero (3 serie da 12 per lato, gomito appoggiato al fianco, movimento lento) e indicazione di fare questi esercizi 2-3 volte a settimana. Gli altri tre esercizi dell'articolo (sospensione alla sbarra, remata con manubrio, pressa sopra la testa) NON sono stati usati: richiedono attrezzi o carichi.",
+      "affidabilita": "media-alta: articolo divulgativo di un autore di un sito di federazione master; non è uno studio"
+    },
+    {
+      "id": "aaos-spalla",
+      "titolo": "Rotator Cuff and Shoulder Conditioning Program",
+      "ente": "OrthoInfo, American Academy of Orthopaedic Surgeons (AAOS), scritto o rivisto da un membro dell'American Shoulder and Elbow Surgeons",
+      "url": "https://www.orthoinfo.org/recovery/rotator-cuff-and-shoulder-conditioning-program",
+      "usata_per": "Tecnica e serie degli esercizi con elastico per la spalla (remata, rotazione esterna e interna con gomito al fianco: 3 serie da 8, 3 giorni a settimana) e dello stretching incrociato del braccio (30 secondi, 4 volte per lato). Attenzione: il programma è pensato per chi si riprende da un infortunio, sotto controllo del medico; qui è stato usato solo per la tecnica dei movimenti più semplici, non come terapia.",
+      "affidabilita": "alta, ma scritto per la riabilitazione. Il rimando agli adulti sani che nuotano è nostro"
+    },
+    {
+      "id": "frontiers-2023-kabat",
+      "titolo": "Effects of a dry-land strengthening exercise program with elastic bands following the Kabat D2 diagonal flexion pattern for the prevention of shoulder injuries in swimmers",
+      "ente": "I. Della Tommasina e altri, Frontiers in Physiology 2023;14 (rivista scientifica con revisione, accesso aperto)",
+      "url": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1275285/full",
+      "usata_per": "Esempio di esercizio a secco con elastico per spalle di nuotatori: studio controllato di 8 settimane su 22 nuotatori universitari, 2 sedute a settimana di circa 4 minuti, 3 serie da 10 ripetizioni. Il risultato NON è significativo: gli autori parlano di effetti minimi e chiedono studi più grandi. Quindi sostiene che questo tipo di lavoro sia praticabile e breve, non che prevenga gli infortuni.",
+      "affidabilita": "alta come tipo di fonte, ma risultato non conclusivo e movimento diverso dai nostri (diagonale, non rotazione semplice). Letto il testo online."
+    },
+    {
+      "id": "thieme-2024-spalla-nuotatori",
+      "titolo": "Update on Rehabilitation Strategies for Swimmers' Shoulder: A Narrative Review",
+      "ente": "Thieme, rivista scientifica, 2024 (DOI 10.1055/s-0044-1787878). Gli autori non sono elencati nella pagina letta.",
+      "url": "https://www.thieme-connect.com/products/ejournals/html/10.1055/s-0044-1787878",
+      "usata_per": "Supporto generale: nei nuotatori la stabilità del tronco (core) e il rinforzo dei rotatori esterni della spalla sono considerati importanti, e i programmi con al massimo cinque esercizi risultano associati a miglior forza ed endurance dei rotatori esterni. Revisione sulla riabilitazione: non dà dosi, e dice che un unico approccio preventivo efficace è ancora discusso.",
+      "affidabilita": "media-alta: revisione narrativa su 9 studi, sulla riabilitazione. Letta solo la sintesi online."
+    },
+    {
+      "id": "raineteau-2024-secco-sprint",
+      "titolo": "From dry-land to the water: training and testing practices of strength and conditioning coaches in high level French sprint swimmers",
+      "ente": "Y. Raineteau e altri, Frontiers in Sports and Active Living 2024;5 (rivista scientifica con revisione)",
+      "url": "https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2023.1338856/full",
+      "usata_per": "Indagine su 24 preparatori di nuotatori francesi di alto livello: il lavoro sul core è tra le qualità più allenate e la prevenzione degli infortuni è uno degli scopi principali. Descrive le pratiche dei preparatori, non dimostra l'efficacia; riguarda atleti d'élite e carichi che non usiamo.",
+      "affidabilita": "media: studio descrittivo su atleti d'élite, utile solo come contesto"
+    },
+    {
+      "id": "harvard-bird-dog",
+      "titolo": "Bird dog exercise for your core: how to do it safely",
+      "ente": "Harvard Health Publishing (Harvard Women's Health Watch), articolo di M. Salamon rivisto dalla fisioterapista M. K. Miller, 19 agosto 2026",
+      "url": "https://www.health.harvard.edu/exercise-and-fitness/bird-dog-exercise-for-your-core-how-to-do-it-safely",
+      "usata_per": "Esecuzione del bird dog (quattro appoggi, braccio e gamba opposti in linea con il busto), 10 ripetizioni per coppia di lati, errori da evitare (schiena inarcata, bacino che ruota, sollevare oltre il busto) e variante più facile con solo un braccio o solo una gamba.",
+      "affidabilita": "alta"
+    },
+    {
+      "id": "ucdavis-core",
+      "titolo": "Basic Core and Pelvic Stability",
+      "ente": "UC Davis Health, Sports Medicine (scheda PDF; la pagina letta non nomina l'autore)",
+      "url": "https://health.ucdavis.edu/media-resources/sports-medicine/documents/pdfs/fundamental-core.pdf",
+      "usata_per": "Esecuzione di bird dog, plank laterale dalle ginocchia (15-20 secondi per lato, fermarsi se la posizione cambia) e dead bug; avvertenza di fermarsi in caso di dolore. Per il dead bug la scheda non indica il numero di ripetizioni.",
+      "affidabilita": "alta (ente universitario di medicina dello sport), ma autore non indicato"
+    },
+    {
+      "id": "orlando-health-colonna",
+      "titolo": "Unlock Your Spine with Flexibility and Strengthening Exercises",
+      "ente": "Orlando Health (ospedale), di Megan Curda, DPT (fisioterapista), 24 marzo 2025",
+      "url": "https://www.orlandohealth.com/content-hub/unlock-your-spine-with-flexibility-and-strengthening-exercises",
+      "usata_per": "Rotazione della schiena sdraiati su un fianco con braccio che si apre (\"libro aperto\", 3 serie da 10), ponte e bird dog; avvertenza di non fare esercizi che causano dolore.",
+      "affidabilita": "media-alta: contenuto divulgativo di un ospedale, scritto da una fisioterapista"
+    },
+    {
+      "id": "nhs-forza",
+      "titolo": "Strength exercises (Strength and flexibility exercises)",
+      "ente": "NHS (servizio sanitario inglese)",
+      "url": "https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/strength-exercises/",
+      "usata_per": "Mini-squat tenendosi a una sedia (ginocchia verso l'alluce, schiena dritta, 5 ripetizioni), con indicazione di aumentare le ripetizioni piano piano e di farli almeno due volte a settimana. Scritto per la popolazione generale.",
+      "affidabilita": "alta, ma per la popolazione generale"
+    },
+    {
+      "id": "nhs-flessibilita",
+      "titolo": "Flexibility exercises (Strength and flexibility exercises)",
+      "ente": "NHS (servizio sanitario inglese)",
+      "url": "https://www.nhs.uk/live-well/exercise/strength-and-flexibility-exercises/flexibility-exercises/",
+      "usata_per": "Stretching del polpaccio con le mani al muro (3 per lato; il tempo di tenuta non è indicato) e regola di allungare solo fin dove è comodo.",
+      "affidabilita": "alta, ma per la popolazione generale"
+    },
+    {
+      "id": "nasm-ponte",
+      "titolo": "Why the Glute Bridge Belongs in Almost Every Client Program",
+      "ente": "NASM (National Academy of Sports Medicine, ente di certificazione per istruttori), scheda di H. Cherry, aggiornata luglio 2026",
+      "url": "https://www.nasm.org/resource-center/blog/training/why-the-glute-bridge-belongs-in-almost-every-client-program",
+      "usata_per": "Esecuzione del ponte per i glutei (piedi piatti a larghezza dei fianchi, bacino su fino a una linea retta ginocchia-bacino-spalle, scendere con controllo) e errore frequente di inarcare la schiena. Non indica ripetizioni.",
+      "affidabilita": "media: blog di un ente di certificazione, non di una federazione o di un'università"
     }
   ],
   "non_consultate": "Federazione Italiana Nuoto (programma della Scuola Nuoto Federale): il sito non era leggibile in automatico. Manuali di riferimento come Counsilman, Maglischo e Laughlin: non consultati. Vanno confrontati dall'istruttore."

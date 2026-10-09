@@ -31,9 +31,12 @@ public struct ZonaRitmo: Codable, Equatable, Sendable, Identifiable, ContenutoCo
     public var velocitaAPercentuale: Double
     public var fonti: [String]
     public var stato: StatoContenuto
+    /// Intensità dei file di allenamento ("facile", "media", "forte") che usano questa zona come ritmo di riferimento.
+    /// Scelta provvisoria in content/zone-ritmo.json, da confermare con l'istruttore.
+    public var intensita: [String]? = nil
 
     enum CodingKeys: String, CodingKey {
-        case id, nome, descrizione, fonti, stato
+        case id, nome, descrizione, fonti, stato, intensita
         case velocitaDaPercentuale = "velocita_da_pct"
         case velocitaAPercentuale = "velocita_a_pct"
     }

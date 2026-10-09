@@ -27,6 +27,16 @@ Ogni voce dei file in `content/` ha:
 | Stroke-Specific Swimming Critical Speed Testing (2024) | Scott, Burden, Dekerle, J Hum Kinet | Velocità critica da prove di 200 m e 400 m, uso per personalizzare le intensità |
 | Modeling... distance above critical speed (2022) | Raimundo e altri, Frontiers in Physiology | Velocità critica come confine tra sforzo sostenibile e non |
 | How to Train With Critical Swim Speed Intervals | Botyarov, U.S. Masters Swimming | Test 400 + 200 per master; sforzo sostenibile, non a tutta |
+| 4 Swimming Dryland Exercises to Save Your Shoulders (2025) | Bo Hickey, U.S. Masters Swimming | Rotazione interna con elastico; frequenza 2-3 volte a settimana |
+| Rotator Cuff and Shoulder Conditioning Program | OrthoInfo, AAOS | Tecnica degli esercizi con elastico per la spalla e stretching del braccio (pensato per la riabilitazione) |
+| Kabat D2 elastic bands in swimmers (2023) | Della Tommasina e altri, Frontiers in Physiology | Esercizio con elastico per nuotatori; risultato non significativo |
+| Update on Rehabilitation Strategies for Swimmers' Shoulder (2024) | Rivista Thieme, revisione narrativa | Importanza di core e rotatori esterni; programmi con pochi esercizi |
+| From dry-land to the water (2024) | Raineteau e altri, Frontiers in Sports and Active Living | Contesto: il core è molto allenato dai preparatori di sprinter d'élite |
+| Bird dog exercise for your core | Harvard Health Publishing | Bird dog: esecuzione, 10 ripetizioni, errori |
+| Basic Core and Pelvic Stability | UC Davis Health, Sports Medicine | Bird dog, plank laterale, dead bug |
+| Unlock Your Spine with Flexibility and Strengthening Exercises (2025) | Orlando Health, M. Curda DPT | Libro aperto, ponte, bird dog |
+| Strength exercises / Flexibility exercises | NHS | Mini-squat e stretching del polpaccio |
+| Why the Glute Bridge Belongs in Almost Every Client Program | NASM | Esecuzione del ponte per i glutei |
 
 ## Cosa è cambiato rispetto alla prima bozza
 
@@ -46,6 +56,10 @@ Ogni voce dei file in `content/` ha:
 ## Zone di ritmo (9 ottobre 2026)
 
 `content/zone-ritmo.json`: le 5 fonti sopra sostengono il concetto di velocità critica e il test 200 m + 400 m, ma **nessuna dà le percentuali delle zone**. I limiti (70-110% della velocità critica) sono proposte nostre e prudenti, con `fonti` vuoto e una `nota_fonti`. Riscaldamento, riposo e partenza del test sono pure nostri. Non consultati: Swim England, British Swimming, USA Swimming, FIN, ACSM/NSCA (nessuna pagina utile trovata o leggibile).
+
+## Esercizi a secco (9 ottobre 2026)
+
+`content/a-secco.json`: 11 esercizi fuori dall'acqua, sostenuti dalle 10 fonti nuove nella tabella. Sono quasi tutte per la popolazione generale o per la riabilitazione: **nessuna federazione di nuoto letta dà un programma a secco per adulti principianti**. Lo studio sui nuotatori con l'elastico (Frontiers 2023) non ha trovato effetti significativi. Le ripetizioni sono quelle delle fonti, tranne Dead bug e Ponte per i glutei, che sono valori prudenti nostri e lo dice la `nota_fonti`. Non letti: la pagina di PMC sulla flessibilità della caviglia (bloccata da un controllo del browser), Swim England, British Swimming, USA Swimming, FIN, ACSM, NSCA. Non usati: sbarra, manubri, pressa sopra la testa dell'articolo USMS.
 
 ## Limiti
 

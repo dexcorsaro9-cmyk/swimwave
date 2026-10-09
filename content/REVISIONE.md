@@ -76,3 +76,18 @@ Le zone dicono a che ritmo nuotare, in base a due prove a tutta (200 m e 400 m d
 - **Adatto agli adulti principianti?** Il test è consigliato dal livello intermedio in su, con un avvertimento sul medico. Due prove a tutta sono adatte a un adulto di quel livello? Serve una condizione più precisa (per esempio 200 m continui senza fermarsi)?
 - **Descrizioni**: controlla tono e parole ("ritmo critico" è comprensibile?).
 - Se il tempo dei 400 m è meno del doppio di quello dei 200 m il test non è valido: nelle istruzioni dico di ripeterlo. Il messaggio nell'app va ancora scritto.
+
+## 8. Esercizi a secco (`content/a-secco.json`)
+
+11 esercizi fuori dall'acqua, a corpo libero o con elastico e asciugamano: 3 di mobilità, 3 per le spalle, 3 per il core, 2 per le gambe. Sono esercizi di supporto, non terapia. Tutti in `bozza`.
+
+Da controllare, in ordine:
+
+- **Adatti a un adulto principiante?** Le fonti sono quasi tutte per la popolazione generale o per la riabilitazione, non per adulti che imparano a nuotare. Nessuna federazione di nuoto che ho potuto leggere dà un programma a secco per principianti. Guarda soprattutto **Dead bug** e **Plank laterale dalle ginocchia** (coordinazione e tenuta del tronco).
+- **Sicurezza**: cerca esercizi o parole che non daresti a un principiante. Ho escluso sbarra, manubri, pressa sopra la testa e salti. Gli esercizi con elastico (rotazione interna, rotazione esterna, remata) richiedono un elastico leggero: la **Remata con elastico** si ancora a una porta chiusa, un adattamento nostro che va controllato.
+- **Spalle**: i numeri vengono dal programma AAOS (3 serie da 8), pensato per la riabilitazione sotto controllo del medico, e dall'articolo USMS (3 serie da 12, non uno studio). L'unico studio su nuotatori che ho trovato (Frontiers 2023, elastico, 8 settimane) **non ha trovato effetti significativi**. Quindi l'app non deve promettere che questi esercizi prevengano i problemi di spalla. Per un principiante, partire da meno serie?
+- **Ripetizioni**: sono della fonte per Libro aperto, Braccio incrociato (4 da 30 secondi, tanti per un adulto sano?), Polpaccio (3 per gamba, tempo non indicato), Rotazioni, Remata, Bird dog, Plank laterale, Mini-squat. Sono **un valore prudente nostro, senza fonte**, per **Dead bug** (2 da 8) e **Ponte per i glutei** (2 da 10).
+- **Il legame con il nuoto** (rotazione del busto, battuta di gambe) è nostro per Libro aperto, Stretching del polpaccio e Ponte per i glutei: nelle fonti lette non c'è. Va bene lasciarlo nello scopo?
+- **Fonti deboli**: il Ponte per i glutei si appoggia a un blog di un ente di certificazione (NASM) e a una scheda di un ospedale. Se preferisci un riferimento federale o il tuo metodo, dimmelo.
+- **Avvertenza**: ogni esercizio ha un solo avviso di errore. Il messaggio generale ("se senti dolore fermati e, se persiste, senti un medico") è nella `nota` del file e va mostrato nell'app.
+- Se la tua esperienza dice che manca qualcosa di importante (per esempio la rotazione delle anche per la rana) o che qualcosa è di troppo, indicalo.

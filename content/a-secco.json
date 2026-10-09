@@ -1,0 +1,169 @@
+{
+  "nota": "BOZZA con fonti, da verificare dall'istruttore. Esercizi di supporto per chi nuota, fuori dall'acqua: non sono terapia e non servono a curare problemi di salute. Se senti dolore fermati e, se persiste, senti un medico. Solo gli esercizi con stato 'approvato' vanno usati nella versione per gli utenti. 'fonti' rimanda agli id di fonti.json. Le fonti trovate sono in gran parte per la popolazione generale o per la riabilitazione, non per adulti che imparano a nuotare: dove una ripetizione è un valore prudente nostro, la nota_fonti lo dice.",
+  "esercizi": [
+    {
+      "id": "libro-aperto",
+      "nome": "Libro aperto",
+      "gruppo": "mobilita",
+      "scopo": "Sciogliere la parte alta della schiena, utile per ruotare bene il corpo quando nuoti.",
+      "esecuzione": "Sdraiati su un fianco con le ginocchia piegate e unite, le braccia tese davanti a te. Solleva il braccio di sopra e portalo in alto e dall'altra parte, seguendolo con lo sguardo. Ruota solo il busto e tieni le ginocchia ferme. Torna al centro e ripeti, poi cambia lato.",
+      "ripetizioni": "3 serie da 10 ripetizioni per lato",
+      "attenzione": "Non staccare le ginocchia e non far ruotare il bacino: si muove solo la schiena.",
+      "fonti": [
+        "orlando-health-colonna"
+      ],
+      "stato": "bozza",
+      "nota_fonti": "La fonte è una scheda di mobilità della schiena di una fisioterapista, non specifica per i nuotatori: il collegamento con la rotazione dello stile libero è nostro. Le 3 serie da 10 sono quelle della scheda; per un adulto principiante vanno controllate."
+    },
+    {
+      "id": "stretching-braccio-incrociato",
+      "nome": "Braccio incrociato",
+      "gruppo": "mobilita",
+      "scopo": "Allungare il retro della spalla dopo l'acqua o prima di allenarti.",
+      "esecuzione": "In piedi, con le spalle rilassate, porta un braccio dritto davanti al petto. Con l'altra mano sostienilo sopra il gomito e avvicinalo piano al corpo. Resta fermo, respira, poi cambia braccio.",
+      "ripetizioni": "Mantieni 30 secondi, riposa 30 secondi, per 4 volte per lato",
+      "attenzione": "Non tirare sul gomito e non spingere fino a sentire dolore: la spalla deve solo sentirsi allungata.",
+      "fonti": [
+        "aaos-spalla"
+      ],
+      "stato": "bozza",
+      "nota_fonti": "Tempi e ripetizioni sono quelli del programma AAOS, che è pensato per la riabilitazione sotto controllo del medico: per un adulto sano potrebbero essere troppi, da valutare. Nessuna fonte specifica per nuotatori."
+    },
+    {
+      "id": "stretching-polpaccio",
+      "nome": "Stretching del polpaccio",
+      "gruppo": "mobilita",
+      "scopo": "Tenere sciolti i polpacci per una battuta di gambe più facile.",
+      "esecuzione": "Metti le mani su un muro. Piega una gamba davanti e porta l'altra indietro, tenendola dritta con il tallone a terra. Senti il polpaccio della gamba dietro che si allunga. Poi cambia gamba.",
+      "ripetizioni": "3 ripetizioni per gamba",
+      "attenzione": "Allungati solo fin dove è comodo e non molleggiare.",
+      "fonti": [
+        "nhs-flessibilita"
+      ],
+      "stato": "bozza",
+      "nota_fonti": "Il numero di ripetizioni è quello della fonte (NHS), che non dà il tempo di tenuta: il tempo va deciso dall'istruttore. Fonte per la popolazione generale, non per nuotatori: il legame con la battuta è nostro e non l'ho trovato in una fonte che ho potuto leggere (lo studio sulla flessibilità della caviglia non era leggibile)."
+    },
+    {
+      "id": "rotazione-interna-elastico",
+      "nome": "Rotazione interna con elastico",
+      "gruppo": "spalle",
+      "scopo": "Rinforzare i muscoli della spalla che aiutano a tenerla stabile durante la bracciata.",
+      "esecuzione": "Fissa un elastico leggero all'altezza della vita. In piedi, di fianco all'ancoraggio, tieni il gomito piegato e appoggiato al fianco (puoi mettere un asciugamano piegato sotto). Porta la mano verso la pancia lentamente, fermati un attimo e torna indietro piano.",
+      "ripetizioni": "3 serie da 12 ripetizioni per lato, con 40 secondi di pausa; 2-3 volte a settimana",
+      "attenzione": "Muovi piano, senza lasciare che l'elastico ti tiri la mano, e non piegare il busto di lato.",
+      "fonti": [
+        "usms-spalle-hickey",
+        "aaos-spalla",
+        "thieme-2024-spalla-nuotatori"
+      ],
+      "stato": "bozza",
+      "nota_fonti": "Le 3 serie da 12 e la frequenza sono dell'articolo USMS (non uno studio); il programma AAOS usa 3 serie da 8. Per un adulto principiante meglio partire dal valore più basso: da decidere."
+    },
+    {
+      "id": "rotazione-esterna-elastico",
+      "nome": "Rotazione esterna con elastico",
+      "gruppo": "spalle",
+      "scopo": "Rinforzare i muscoli sul retro della spalla, che bilanciano quelli usati per tirare l'acqua.",
+      "esecuzione": "Fissa un elastico leggero all'altezza del gomito. In piedi, di fianco all'ancoraggio, tieni il gomito piegato a 90 gradi e appoggiato al fianco, con un asciugamano piegato sotto. Ruota l'avambraccio verso l'esterno stringendo le scapole, poi torna indietro piano.",
+      "ripetizioni": "3 serie da 8 ripetizioni per lato, 3 volte a settimana",
+      "attenzione": "Tieni il gomito attaccato al fianco e usa un elastico leggero: se perdi la posizione, fermati.",
+      "fonti": [
+        "aaos-spalla",
+        "frontiers-2023-kabat",
+        "thieme-2024-spalla-nuotatori"
+      ],
+      "stato": "bozza",
+      "nota_fonti": "Serie e frequenza sono dal programma AAOS, pensato per la riabilitazione. Lo studio sui nuotatori (Frontiers 2023) usava un movimento diagonale con elastico e non ha trovato effetti significativi in 8 settimane: sostiene che l'esercizio con elastico sia praticabile per un nuotatore, non che prevenga i problemi di spalla. L'asciugamano sotto il gomito arriva dall'articolo USMS."
+    },
+    {
+      "id": "remata-elastico",
+      "nome": "Remata con elastico",
+      "gruppo": "spalle",
+      "scopo": "Rinforzare la schiena e le scapole, che aiutano la spalla a lavorare bene.",
+      "esecuzione": "Fissa un elastico all'altezza delle spalle, per esempio alla maniglia di una porta chiusa. Afferra l'elastico e porta il gomito dritto indietro, vicino al corpo, stringendo le scapole. Torna avanti piano senza lasciare che l'elastico ti tiri.",
+      "ripetizioni": "3 serie da 8 ripetizioni per lato, 3 volte a settimana",
+      "attenzione": "Non alzare le spalle verso le orecchie e non tirare con il solo braccio: guida con la scapola.",
+      "fonti": [
+        "aaos-spalla",
+        "thieme-2024-spalla-nuotatori"
+      ],
+      "stato": "bozza",
+      "nota_fonti": "Serie e frequenza dal programma AAOS (riabilitazione); il rimando ai nuotatori è solo di supporto generale. Il punto di ancoraggio alla porta è un adattamento nostro, da controllare per sicurezza."
+    },
+    {
+      "id": "bird-dog",
+      "nome": "Bird dog",
+      "gruppo": "core",
+      "scopo": "Imparare a tenere il tronco fermo mentre braccia e gambe si muovono, come in acqua.",
+      "esecuzione": "Mettiti a quattro zampe, mani sotto le spalle e ginocchia sotto i fianchi. Allunga una gamba indietro e il braccio opposto avanti, fino a metterli in linea con il busto. Tieni fianchi e spalle dritti e fermi, poi torna e cambia lato. Se è troppo, solleva solo un braccio o solo una gamba.",
+      "ripetizioni": "10 ripetizioni, alternando i lati",
+      "attenzione": "Non inarcare la schiena e non salire con braccio e gamba più in alto del busto.",
+      "fonti": [
+        "harvard-bird-dog",
+        "ucdavis-core",
+        "orlando-health-colonna",
+        "raineteau-2024-secco-sprint"
+      ],
+      "stato": "bozza",
+      "nota_fonti": "Le 10 ripetizioni sono quelle dell'articolo Harvard Health. Il legame con il nuoto è solo di contesto: lo studio sui preparatori francesi (atleti d'élite) dice che il core è molto allenato, ma non prova l'efficacia."
+    },
+    {
+      "id": "plank-laterale-ginocchia",
+      "nome": "Plank laterale dalle ginocchia",
+      "gruppo": "core",
+      "scopo": "Rinforzare i fianchi e il tronco per restare allineato mentre nuoti.",
+      "esecuzione": "Sdraiati su un fianco, appoggiati sul gomito sotto la spalla, con le ginocchia piegate a 90 gradi. Solleva il bacino da terra finché spalla, fianco e ginocchio sono in linea. Resta fermo, poi scendi e cambia lato.",
+      "ripetizioni": "15-20 secondi per lato",
+      "attenzione": "Se la posizione cambia mentre resti fermo, scendi subito: conta la postura, non il tempo.",
+      "fonti": [
+        "ucdavis-core",
+        "raineteau-2024-secco-sprint"
+      ],
+      "stato": "bozza",
+      "nota_fonti": "I 15-20 secondi sono quelli della scheda UC Davis. Il riferimento al nuoto è solo di contesto (vedi bird dog)."
+    },
+    {
+      "id": "dead-bug",
+      "nome": "Dead bug",
+      "gruppo": "core",
+      "scopo": "Muovere braccia e gambe tenendo la pancia attiva e il tronco fermo.",
+      "esecuzione": "Sdraiati sulla schiena con le ginocchia piegate a 90 gradi e le braccia verso il soffitto. Allunga piano una gamba e porta in basso, sopra la testa, il braccio opposto, poi torna e cambia lato. Tieni la pancia attiva per tutto il movimento.",
+      "ripetizioni": "2 serie da 8 ripetizioni per lato",
+      "attenzione": "Non lasciare che la schiena si stacchi dal pavimento: se succede, muovi meno.",
+      "fonti": [
+        "ucdavis-core"
+      ],
+      "stato": "bozza",
+      "nota_fonti": "La scheda UC Davis descrive l'esercizio ma non dà ripetizioni: 2 serie da 8 sono un valore prudente nostro, da validare."
+    },
+    {
+      "id": "mini-squat-sedia",
+      "nome": "Mini-squat alla sedia",
+      "gruppo": "gambe",
+      "scopo": "Rinforzare le gambe con un movimento semplice e sicuro.",
+      "esecuzione": "Appoggia le mani allo schienale di una sedia stabile, piedi larghi come i fianchi. Piega le ginocchia piano, fin dove è comodo, tenendole in linea con le dita dei piedi e la schiena dritta. Risali stringendo i glutei.",
+      "ripetizioni": "5 ripetizioni, aumentando piano nelle settimane; almeno 2 volte a settimana",
+      "attenzione": "Non lasciare che le ginocchia vadano verso l'interno e non scendere oltre quanto è comodo.",
+      "fonti": [
+        "nhs-forza"
+      ],
+      "stato": "bozza",
+      "nota_fonti": "Le 5 ripetizioni e la frequenza sono dalla fonte NHS (popolazione generale). Non ho trovato una fonte che dica quante ne servono a un nuotatore."
+    },
+    {
+      "id": "ponte-glutei",
+      "nome": "Ponte per i glutei",
+      "gruppo": "gambe",
+      "scopo": "Rinforzare glutei e retro delle cosce, che lavorano nella battuta di gambe.",
+      "esecuzione": "Sdraiati sulla schiena con le ginocchia piegate e i piedi a terra, larghi come i fianchi. Contrai la pancia e solleva il bacino finché ginocchia, bacino e spalle sono in linea. Fermati un attimo, poi scendi con calma.",
+      "ripetizioni": "2 serie da 10 ripetizioni",
+      "attenzione": "Spingi con i fianchi e non con la schiena: se la senti lavorare o inarcata, abbassa un po' il bacino.",
+      "fonti": [
+        "nasm-ponte",
+        "orlando-health-colonna"
+      ],
+      "stato": "bozza",
+      "nota_fonti": "Le fonti descrivono l'esercizio senza ripetizioni: 2 serie da 10 sono un valore prudente nostro, da validare. Il legame con la battuta di gambe è nostro e non l'ho trovato in una fonte."
+    }
+  ]
+}

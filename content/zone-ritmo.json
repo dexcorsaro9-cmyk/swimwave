@@ -18,7 +18,10 @@
       "velocita_a_pct": 80,
       "fonti": [],
       "stato": "bozza",
-      "nota_fonti": "Percentuali nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole (federazione, ente o articolo scientifico) che dia limiti di zona in percentuale della velocità critica. Il limite alto (80%) è una scelta nostra per tenere la zona sicuramente sotto la velocità critica."
+      "nota_fonti": "Percentuali nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole (federazione, ente o articolo scientifico) che dia limiti di zona in percentuale della velocità critica. Il limite alto (80%) è una scelta nostra per tenere la zona sicuramente sotto la velocità critica.",
+      "intensita": [
+        "facile"
+      ]
     },
     {
       "id": "regolare",
@@ -28,7 +31,10 @@
       "velocita_a_pct": 90,
       "fonti": [],
       "stato": "bozza",
-      "nota_fonti": "Percentuali nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole (federazione, ente o articolo scientifico) che dia limiti di zona in percentuale della velocità critica. Zona sotto la velocità critica, nel campo in cui la letteratura la descrive come intensità sostenibile (raimundo-2022-velocita-critica), ma i limiti 80-90% sono nostri."
+      "nota_fonti": "Percentuali nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole (federazione, ente o articolo scientifico) che dia limiti di zona in percentuale della velocità critica. Zona sotto la velocità critica, nel campo in cui la letteratura la descrive come intensità sostenibile (raimundo-2022-velocita-critica), ma i limiti 80-90% sono nostri.",
+      "intensita": [
+        "media"
+      ]
     },
     {
       "id": "sostenuto",
@@ -48,7 +54,10 @@
       "velocita_a_pct": 103,
       "fonti": [],
       "stato": "bozza",
-      "nota_fonti": "Percentuali nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole (federazione, ente o articolo scientifico) che dia limiti di zona in percentuale della velocità critica. Che la velocità critica sia il confine tra sforzo sostenibile e non sostenibile è sostenuto da wakayoshi-1992-css e raimundo-2022-velocita-critica, ma non le percentuali 97-103%, che sono nostre."
+      "nota_fonti": "Percentuali nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole (federazione, ente o articolo scientifico) che dia limiti di zona in percentuale della velocità critica. Che la velocità critica sia il confine tra sforzo sostenibile e non sostenibile è sostenuto da wakayoshi-1992-css e raimundo-2022-velocita-critica, ma non le percentuali 97-103%, che sono nostre.",
+      "intensita": [
+        "forte"
+      ]
     },
     {
       "id": "veloce",
@@ -60,5 +69,6 @@
       "stato": "bozza",
       "nota_fonti": "Percentuali nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole (federazione, ente o articolo scientifico) che dia limiti di zona in percentuale della velocità critica. Tutti i limiti sono nostri. Lo studio funai-2022-velocita-critica indica che a circa il 110% (della frequenza di bracciata, non della velocità) il lattato supera la soglia: non è lo stesso parametro e non va usato per fissare il limite. Da valutare se proporre questa zona ai non agonisti."
     }
-  ]
+  ],
+  "nota_intensita": "Il campo `intensita` collega le zone alle intensità dei file di allenamento (facile, media, forte) per mostrare un tempo obiettivo a ogni ripetizione quando l'utente ha fatto il test. L'abbinamento è provvisorio, scelto da noi, da confermare dall'istruttore."
 }

@@ -6,6 +6,10 @@ Dati raccolti da schede App Store e articoli, non da un'analisi esaustiva degli 
 
 Allenamento del giorno (nuoto e a secco), libreria di allenamenti, allenamenti guidati con intervalli intelligenti, test set, percorso "Swim Faster in 30 Days", piani per obiettivo, coach IA che crea allenamenti adattivi, tracciamento e analisi (distanza, passo, bracciate, split, SWOLF) in piscina e acque libere, drill e consigli tecnici per i 4 stili, Apple Watch, Garmin, Wear OS, Strava e TrainingPeaks, Apple Health. Italiano tra le lingue. Prova gratuita di 7 giorni. Prezzi non chiari dalle schede lette. Non risulta analisi dei video dell'utente.
 
+## Swim Coach (sito, pagina delle funzioni)
+
+Dati dalla pagina di presentazione in italiano, non verificati nell'app. Dichiara più di 350.000 download, tra nuotatori e triatleti. Promette: scelta della distanza e dell'obiettivo (forza, resistenza, respirazione) con allenamenti personalizzati; più di 50 esercizi gratuiti con molte combinazioni; "massima varietà" per non annoiarsi; allenamenti per nuotatori, triatleti e principianti; trasferimento degli allenamenti su Apple Watch e su Garmin tramite Garmin Connect; registro degli allenamenti con statistiche; interfaccia pulita e senza pubblicità; abbonamento Gold con più di 300 esercizi, piani specifici e registro dei tempi. Il testo italiano sembra una traduzione. Punta su varietà e quantità, non su tecnica, istruttore o continuità del percorso.
+
 ## Altri
 
 - **Swimio**: analisi video con computer vision (scheletro, frequenza di bracciata, distanza per bracciata), richiede video di almeno 25 m con tutto il corpo. Descrizione da una guida di terzi.

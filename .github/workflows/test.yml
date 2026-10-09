@@ -1,0 +1,54 @@
+# Prova di compilazione e test su macchine macOS di GitHub (gratis per i repository pubblici).
+# Affianca Codemagic, che resta quello usato per TestFlight.
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pacchetto-swift:
+    name: Test del pacchetto SwimwaveCore
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Versione di Swift
+        run: swift --version
+      - name: swift test
+        working-directory: Packages/SwimwaveCore
+        run: swift test
+
+  app-ios:
+    name: Compilazione dell'app (iPhone e Watch, senza firma)
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Installa XcodeGen
+        run: brew install xcodegen
+      - name: Genera il progetto
+        working-directory: app
+        run: xcodegen
+      - name: Compila l'app iPhone (simulatore)
+        working-directory: app
+        run: |
+          xcodebuild build \
+            -project Swimwave.xcodeproj -scheme Swimwave \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO | tail -n 150
+
+  servizio-coach:
+    name: Test del servizio coach
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - working-directory: server/coach
+        run: |
+          npm ci || npm install
+          npm test

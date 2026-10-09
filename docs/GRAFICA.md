@@ -2,7 +2,7 @@
 
 Obiettivo: un'interfaccia **bella e accattivante insieme**, calda e curata, che faccia sentire l'utente seguito. Il volto dell'app è il coach scelto (vedi `docs/POPUP_COACH.md`); nessuna mascotte.
 
-I mockup sono nel canvas pubblicato "Swimwave – Mockup interfaccia" (6 schermate: scelta del coach, Oggi, popup, Percorso, fine allenamento, Watch).
+I mockup sono nel canvas pubblicato "Swimwave – Mockup interfaccia" (15 schermate): scelta del coach, Oggi, popup, Percorso, fine allenamento, Watch, primo avvio (nome, menu a tendina, scheda), Storico, Profilo, allenamento in corso, popup di ripartenza e di dolore, Oggi a tema scuro.
 
 ## Colori
 | Uso | Colore |
@@ -13,7 +13,16 @@ I mockup sono nel canvas pubblicato "Swimwave – Mockup interfaccia" (6 scherma
 | Sfondo chiaro | `#F3FAFB` |
 | Testo secondario | `#4A5D73` |
 
-Il testo sul corallo e sul turchese è navy, per contrasto leggibile. Il tema scuro automatico è da disegnare.
+Il testo sul corallo e sul turchese è navy, per contrasto leggibile.
+
+### Tema scuro (automatico, segue il sistema)
+| Uso | Colore |
+|---|---|
+| Sfondo | `#07182C` |
+| Carte | `#10294A`, bordo `#1D3E69` |
+| Barra in basso | `#0B2036` |
+| Testo | `#EAF3FA`, secondario `#A9C7E4` |
+| Turchese e corallo | invariati |
 
 ## Stile
 - Font arrotondato (Nunito per i mockup), titoli molto marcati.
@@ -27,7 +36,7 @@ Il testo sul corallo e sul turchese è navy, per contrasto leggibile. Il tema sc
 Sfondo nero, numeri molto grandi (metri, tempo), una sola informazione dominante, barra delle serie. Nessuna immagine durante l'allenamento.
 
 ## Da decidere
-1. Tema scuro.
+1. Tema scuro: disegnato solo per Oggi, da estendere alle altre schermate.
 2. Animazioni (festa a fine tappa, onda che si riempie).
 3. Icone definitive dei traguardi.
 4. Verifica di contrasto e accessibilità (testi grandi, VoiceOver) sulle schermate reali.

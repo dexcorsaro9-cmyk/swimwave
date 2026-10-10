@@ -9,7 +9,7 @@
       "drill": ["galleggiamento-a-stella"],
       "errori": ["collo-e-spalle-rigidi"],
       "fonti": ["lts-livelli-1-6", "swim-england-stage", "ravenna-unife"],
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": 2,
@@ -19,7 +19,7 @@
       "drill": ["bolle-in-acqua", "respirazione-al-bordo"],
       "errori": ["respiro-trattenuto", "testa-alzata-per-respirare"],
       "fonti": ["swim-england-stage", "lts-livelli-1-6"],
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": 3,
@@ -29,7 +29,7 @@
       "drill": ["scivolamento-a-freccia"],
       "errori": ["testa-alta"],
       "fonti": ["swim-england-stage", "swim-wales-crawl"],
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": 4,
@@ -39,7 +39,7 @@
       "drill": ["battuta-con-tavoletta", "battuta-con-un-braccio-teso"],
       "errori": ["gambe-che-pedalano"],
       "fonti": ["swim-england-stage", "swim-wales-crawl"],
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": 5,
@@ -49,7 +49,7 @@
       "drill": ["catch-up", "un-braccio-solo", "dita-sull-acqua"],
       "errori": ["braccia-incrociate", "braccia-a-mulino", "recupero-anticipato"],
       "fonti": ["swim-england-stage", "lts-livelli-1-6", "special-olympics-crawl", "usa-triathlon-errori"],
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": 6,
@@ -59,7 +59,7 @@
       "drill": ["respirazione-laterale-con-tavoletta", "sei-colpi-e-cambio"],
       "errori": ["testa-alzata-per-respirare", "respiro-trattenuto"],
       "fonti": ["swim-england-stage", "lts-livelli-1-6", "ravenna-unife", "swim-wales-crawl"],
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": 7,
@@ -69,7 +69,7 @@
       "drill": ["nuotata-con-pull-buoy"],
       "errori": ["partenza-troppo-forte", "niente-riscaldamento-e-recupero", "recupero-anticipato"],
       "fonti": ["swim-england-stage", "lts-livelli-1-6", "oms-2020"],
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": 8,
@@ -79,7 +79,7 @@
       "drill": ["battuta-sul-dorso", "dorso-un-braccio-alla-volta", "dorso-battuta-con-rotazione"],
       "errori": ["gambe-che-pedalano", "dorso-testa-troppo-indietro", "dorso-spalla-al-mento"],
       "fonti": ["swim-england-stage", "lts-livelli-1-6", "swim-wales-dorso"],
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": 9,
@@ -89,7 +89,7 @@
       "drill": ["gambata-di-rana-al-bordo", "rana-con-scivolo", "gambata-di-rana-sul-dorso", "rana-due-gambate-una-bracciata", "rana-corpo-verso-le-mani"],
       "errori": ["rana-piedi-non-ruotati", "rana-mani-verso-il-corpo", "rana-senza-scivolo", "rana-testa-alta-dopo-il-respiro"],
       "fonti": ["swim-england-stage", "lts-livelli-1-6", "special-olympics-rana", "swim-wales-rana"],
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": 10,
@@ -99,7 +99,7 @@
       "drill": ["onda-del-delfino", "delfino-un-braccio-alla-volta"],
       "errori": ["delfino-solo-gambe", "delfino-piede-fuori-dall-acqua", "delfino-spalle-alte"],
       "fonti": ["swim-england-stage", "lts-livelli-1-6", "swim-wales-delfino"],
-      "stato": "bozza"
+      "stato": "approvato"
     }
   ]
 }

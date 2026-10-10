@@ -1,6 +1,6 @@
 # Revisione dell'istruttore
 
-Tutti i contenuti tecnici sono in stato `bozza`. Nulla va agli utenti finché non li approvi. Qui sono messi in ordine di importanza, così basta poco tempo. Puoi rispondere "ok" per un gruppo oppure indicare cosa cambiare. Poi aggiorno io lo stato.
+Tutti i contenuti rimasti sono stati approvati dall'istruttore il 10 ottobre 2026 (tolti: drill Delfino sei colpi, Dorso al rallentatore, esercizi a secco). Le note sotto restano come promemoria dei punti con fonte debole o numeri nostri, da riguardare con l'esperienza in acqua.
 
 ## 1. Da verificare per primi (senza fonte diretta o con fonte parziale)
 

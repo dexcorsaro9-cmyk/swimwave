@@ -11,7 +11,7 @@
       "velocita_da_pct": 55,
       "velocita_a_pct": 65,
       "fonti": [],
-      "stato": "bozza",
+      "stato": "approvato",
       "nota_fonti": "Percentuali della velocità sui 200 m a tutta, nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole che dia limiti di zona rispetto a una prova di 200 m. Tutti i limiti sono nostri.",
       "intensita": [
         "facile"
@@ -24,7 +24,7 @@
       "velocita_da_pct": 65,
       "velocita_a_pct": 75,
       "fonti": [],
-      "stato": "bozza",
+      "stato": "approvato",
       "nota_fonti": "Percentuali della velocità sui 200 m a tutta, nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole che dia limiti di zona rispetto a una prova di 200 m. Tutti i limiti sono nostri.",
       "intensita": [
         "media"
@@ -37,7 +37,7 @@
       "velocita_da_pct": 75,
       "velocita_a_pct": 85,
       "fonti": [],
-      "stato": "bozza",
+      "stato": "approvato",
       "nota_fonti": "Percentuali della velocità sui 200 m a tutta, nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole che dia limiti di zona rispetto a una prova di 200 m. Tutti i limiti sono nostri."
     },
     {
@@ -47,7 +47,7 @@
       "velocita_da_pct": 85,
       "velocita_a_pct": 92,
       "fonti": [],
-      "stato": "bozza",
+      "stato": "approvato",
       "nota_fonti": "Percentuali della velocità sui 200 m a tutta, nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole che dia limiti di zona rispetto a una prova di 200 m. Tutti i limiti sono nostri.",
       "intensita": [
         "forte"
@@ -60,7 +60,7 @@
       "velocita_da_pct": 92,
       "velocita_a_pct": 100,
       "fonti": [],
-      "stato": "bozza",
+      "stato": "approvato",
       "nota_fonti": "Percentuali della velocità sui 200 m a tutta, nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole che dia limiti di zona rispetto a una prova di 200 m. Tutti i limiti sono nostri. Da valutare se proporre questa zona ai non agonisti."
     }
   ],

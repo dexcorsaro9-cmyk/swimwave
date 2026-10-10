@@ -13,7 +13,7 @@
 
 ## Prossimi passi (versione 1: iPhone + Apple Watch)
 
-1. **Revisione dei contenuti** da parte dell'istruttore e passaggio ad `approvato` (senza contenuti approvati l'app in Release non mostra allenamenti).
+1. ~~Revisione dei contenuti~~ fatta il 10 ottobre 2026: tutto approvato dall'istruttore (tolti due drill e gli esercizi a secco). Restano da riguardare con l'esperienza in acqua le voci con fonte debole.
 2. **Compilare e provare l'app** con Codemagic (`codemagic.yaml`, vedi `app/README.md`): prima il workflow `test`, poi `ios-testflight`; correggere gli errori di compilazione.
 3. **Collegare l'app al servizio coach**: hosting, chiave del modello, schermata di consenso prima della prima richiesta all'IA.
 4. ~~Completare l'app~~ fatto nel codice (vedi sopra); resta da provarlo: tutto è nella versione 1, non c'è una seconda versione per queste funzioni.

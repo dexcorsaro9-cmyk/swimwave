@@ -9,7 +9,7 @@
       "correzione": "Guarda il fondo con la testa in linea con il corpo, come se fosse un'unica matita.",
       "drill": ["scivolamento-a-freccia", "battuta-con-tavoletta"],
       "fonti": ["usa-triathlon-errori", "swim-wales-crawl"],
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "respiro-trattenuto",
@@ -20,7 +20,7 @@
       "drill": ["bolle-in-acqua", "respirazione-al-bordo"],
       "fonti": ["swim-england-stage", "lts-livelli-1-6"],
       "nota_fonti": "Le fonti sostengono l'abilità (bolle e respirazione ritmica), non descrivono l'errore: da verificare.",
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "gambe-che-pedalano",
@@ -31,7 +31,7 @@
       "drill": ["battuta-con-tavoletta", "battuta-con-un-braccio-teso"],
       "fonti": ["swim-wales-dorso", "swim-wales-crawl"],
       "nota_fonti": "La fonte descrive la battuta dall'anca con poca flessione del ginocchio nel dorso. Per lo stile libero è un'estensione: da verificare.",
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "braccia-incrociate",
@@ -41,7 +41,7 @@
       "correzione": "Fai entrare la mano davanti alla spalla, senza oltrepassare la linea del corpo.",
       "drill": ["catch-up", "un-braccio-solo"],
       "fonti": ["usa-triathlon-errori"],
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "braccia-a-mulino",
@@ -51,7 +51,7 @@
       "correzione": "Tieni un braccio teso davanti finché l'altro non lo raggiunge.",
       "drill": ["catch-up", "un-braccio-solo"],
       "fonti": ["usa-triathlon-errori"],
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "testa-alzata-per-respirare",
@@ -61,7 +61,7 @@
       "correzione": "Ruota testa, spalle e fianchi insieme, senza esagerare.",
       "drill": ["respirazione-laterale-con-tavoletta", "respirazione-al-bordo"],
       "fonti": ["usa-triathlon-errori", "ravenna-unife"],
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "recupero-anticipato",
@@ -71,7 +71,7 @@
       "correzione": "Porta la mano fino alla coscia e conta le bracciate per vasca, cercando di ridurle.",
       "drill": ["un-braccio-solo", "nuotata-con-pull-buoy"],
       "fonti": ["usa-triathlon-errori"],
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "partenza-troppo-forte",
@@ -82,7 +82,7 @@
       "drill": [],
       "fonti": ["oms-2020"],
       "nota_fonti": "La fonte sostiene il principio di partire piano e aumentare gradualmente. Il criterio 'ritmo che permette di parlare' è un'indicazione comune da verificare.",
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "collo-e-spalle-rigidi",
@@ -93,7 +93,7 @@
       "drill": ["galleggiamento-a-stella", "dita-sull-acqua"],
       "fonti": ["ravenna-unife"],
       "nota_fonti": "La fonte insiste sull'acquaticità e sul rilassamento come base. L'errore descritto così è da verificare.",
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "niente-riscaldamento-e-recupero",
@@ -104,7 +104,7 @@
       "drill": [],
       "fonti": ["swim-england-stage"],
       "nota_fonti": "La fase 6 chiede di saper spiegare come prepararsi all'esercizio. Dettagli da verificare.",
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "dorso-testa-troppo-indietro",
@@ -115,7 +115,7 @@
       "drill": ["battuta-sul-dorso", "dorso-battuta-con-rotazione"],
       "fonti": ["swim-wales-dorso"],
       "nota_fonti": "La fonte indica difetto e correzione per nuotatori agonisti. La spiegazione del perché è nostra e l'adattamento al principiante adulto è da verificare.",
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "dorso-spalla-al-mento",
@@ -126,7 +126,7 @@
       "drill": ["dorso-battuta-con-rotazione", "dorso-un-braccio-alla-volta"],
       "fonti": ["swim-wales-dorso"],
       "nota_fonti": "La fonte indica difetto e correzione per nuotatori agonisti. La spiegazione del perché è nostra e l'adattamento al principiante adulto è da verificare.",
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "rana-piedi-non-ruotati",
@@ -137,7 +137,7 @@
       "drill": ["gambata-di-rana-al-bordo", "gambata-di-rana-sul-dorso"],
       "fonti": ["special-olympics-rana", "swim-wales-rana"],
       "nota_fonti": "Special Olympics indica questo come l'errore più frequente della gambata di rana. La spiegazione del perché è nostra: da verificare.",
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "rana-mani-verso-il-corpo",
@@ -148,7 +148,7 @@
       "drill": ["rana-corpo-verso-le-mani", "rana-con-scivolo"],
       "fonti": ["swim-wales-rana"],
       "nota_fonti": "La fonte indica difetto e correzione per nuotatori agonisti. La spiegazione del perché è nostra e l'adattamento al principiante adulto è da verificare.",
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "rana-senza-scivolo",
@@ -159,7 +159,7 @@
       "drill": ["rana-con-scivolo", "rana-due-gambate-una-bracciata"],
       "fonti": ["swim-wales-rana"],
       "nota_fonti": "La fonte indica difetto e correzione per nuotatori agonisti. La spiegazione del perché è nostra e l'adattamento al principiante adulto è da verificare.",
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "rana-testa-alta-dopo-il-respiro",
@@ -170,7 +170,7 @@
       "drill": ["rana-due-gambate-una-bracciata"],
       "fonti": ["swim-wales-rana"],
       "nota_fonti": "La fonte indica difetto e correzione per nuotatori agonisti. La spiegazione del perché è nostra e l'adattamento al principiante adulto è da verificare.",
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "delfino-solo-gambe",
@@ -181,7 +181,7 @@
       "drill": ["onda-del-delfino"],
       "fonti": ["swim-wales-delfino"],
       "nota_fonti": "La fonte indica difetto e correzione per nuotatori agonisti. La spiegazione del perché è nostra e l'adattamento al principiante adulto è da verificare.",
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "delfino-piede-fuori-dall-acqua",
@@ -192,7 +192,7 @@
       "drill": [],
       "fonti": ["swim-wales-delfino"],
       "nota_fonti": "La fonte indica difetto e correzione per nuotatori agonisti. La spiegazione del perché è nostra e l'adattamento al principiante adulto è da verificare.",
-      "stato": "bozza"
+      "stato": "approvato"
     },
     {
       "id": "delfino-spalle-alte",
@@ -203,7 +203,7 @@
       "drill": [],
       "fonti": ["swim-wales-delfino"],
       "nota_fonti": "Nella fonte il difetto riguarda un drill (spinta del petto con scull a gomito alto) che non è nella nostra lista. Spiegazione del perché nostra, adattamento al principiante adulto da verificare.",
-      "stato": "bozza"
+      "stato": "approvato"
     }
   ]
 }

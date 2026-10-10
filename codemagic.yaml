@@ -39,11 +39,10 @@ workflows:
       app_store_connect: codemagic   # nome dell'integrazione in Codemagic (chiave SGQ27RS4M8, già usata per le altre app)
     environment:
       xcode: latest
+      groups:
+        - swimwave_firma   # in Codemagic: variabile segreta CERTIFICATE_PRIVATE_KEY (chiave privata del certificato di distribuzione)
       vars:
         BUNDLE_ID: "com.swimwave.app"
-      ios_signing:
-        distribution_type: app_store
-        bundle_identifier: com.swimwave.app
     triggering:
       events:
         - tag
@@ -58,6 +57,14 @@ workflows:
           # il numero di build cresce a ogni esecuzione
           sed -i '' "s/CURRENT_PROJECT_VERSION: \"1\"/CURRENT_PROJECT_VERSION: \"$BUILD_NUMBER\"/" project.yml
           xcodegen
+      - name: Crea o scarica certificato e profili (iPhone, Watch, complicazione)
+        script: |
+          keychain initialize
+          # --create: se il profilo non esiste lo crea; il certificato di distribuzione si crea con la chiave privata in CERTIFICATE_PRIVATE_KEY
+          app-store-connect fetch-signing-files "com.swimwave.app" --type IOS_APP_STORE --create
+          app-store-connect fetch-signing-files "com.swimwave.app.watchkitapp" --type IOS_APP_STORE --create
+          app-store-connect fetch-signing-files "com.swimwave.app.watchkitapp.complicazione" --type IOS_APP_STORE --create
+          keychain add-certificates
       - name: Imposta la firma sul progetto Xcode
         script: |
           xcode-project use-profiles --project "app/Swimwave.xcodeproj"

@@ -1,7 +1,7 @@
 # Configurazione di Codemagic per Swimwave.
 # BOZZA scritta senza poter eseguire Codemagic: alla prima esecuzione possono servire piccole correzioni.
 # Prima di usarla:
-#  1. cambia il bundle id segnaposto `com.example.swimwave` qui sotto e in app/project.yml (anche il Watch e WKCompanionAppBundleIdentifier);
+#  1. cambia il bundle id segnaposto `com.swimwave.app` qui sotto e in app/project.yml (anche il Watch e WKCompanionAppBundleIdentifier);
 #  2. in Codemagic: Team settings > Team integrations > Developer Portal > aggiungi la chiave API di App Store Connect e dalle un nome;
 #     scrivi quel nome in `integrations.app_store_connect` qui sotto;
 #  3. crea l'app (con il bundle id) in App Store Connect, altrimenti la pubblicazione su TestFlight non parte;
@@ -40,10 +40,10 @@ workflows:
     environment:
       xcode: latest
       vars:
-        BUNDLE_ID: "com.example.swimwave"       # SEGNAPOSTO: uguale a app/project.yml
+        BUNDLE_ID: "com.swimwave.app"
       ios_signing:
         distribution_type: app_store
-        bundle_identifier: com.example.swimwave # SEGNAPOSTO: uguale a BUNDLE_ID
+        bundle_identifier: com.swimwave.app
     triggering:
       events:
         - tag

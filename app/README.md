@@ -14,7 +14,7 @@ open Swimwave.xcodeproj
 ```
 
 Poi in Xcode:
-1. Cambia il bundle id segnaposto `com.example.swimwave` in `project.yml` (anche `com.example.swimwave.watchkitapp` e `WKCompanionAppBundleIdentifier`) e rigenera con `xcodegen`.
+1. Cambia il bundle id segnaposto `com.swimwave.app` (già impostato) in `project.yml` (anche `com.example.swimwave.watchkitapp` e `WKCompanionAppBundleIdentifier`) e rigenera con `xcodegen`.
 2. Imposta il team in *Signing & Capabilities* (o `DEVELOPMENT_TEAM` in `project.yml`) per entrambi i target.
 3. Scegli lo schema `Swimwave` e un iPhone. Il Watch si prova solo su un orologio vero (vedi sotto).
 
@@ -29,7 +29,7 @@ Due workflow:
 - `ios-testflight`: parte quando crei un tag `v*` (per esempio `v0.1.0`), compila le schermate SwiftUI e pubblica su TestFlight.
 
 Prima della prima esecuzione:
-1. Cambia il bundle id segnaposto `com.example.swimwave` in `codemagic.yaml` e in `app/project.yml` (Watch: `<bundle id>.watchkitapp`, più `WKCompanionAppBundleIdentifier`).
+1. Cambia il bundle id segnaposto `com.swimwave.app` (già impostato) in `codemagic.yaml` e in `app/project.yml` (Watch: `<bundle id>.watchkitapp`, più `WKCompanionAppBundleIdentifier`).
 2. In Codemagic aggiungi il repository, poi in *Team settings > Team integrations > Developer Portal* la chiave API di App Store Connect e scrivi il suo nome in `codemagic.yaml` (`integrations.app_store_connect`).
 3. Crea l'app in App Store Connect con lo stesso bundle id.
 4. Avvia prima il workflow `test`. Quando passa, crea il tag `v0.1.0` per far partire `ios-testflight`.

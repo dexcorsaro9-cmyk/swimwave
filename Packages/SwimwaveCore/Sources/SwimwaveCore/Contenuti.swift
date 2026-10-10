@@ -56,12 +56,40 @@ public struct Drill: Codable, Equatable, Sendable, Identifiable, ContenutoConSta
     public var erroreDaEvitare: String
     public var fonti: [String]
     public var stato: StatoContenuto
+    /// Attrezzi che servono per fare il drill (id come in `Attrezzo`). Assente se non ne servono.
+    public var attrezzi: [String]?
+    /// Attrezzi che il testo del drill indica come facoltativi.
+    public var attrezziFacoltativi: [String]?
 
     enum CodingKeys: String, CodingKey {
         case id, nome, tappa, scopo, esecuzione
         case erroreDaEvitare = "errore_da_evitare"
-        case fonti, stato
+        case fonti, stato, attrezzi
+        case attrezziFacoltativi = "attrezzi_facoltativi"
     }
+}
+
+/// Attrezzi che i drill possono richiedere. Gli id sono quelli usati in content/drills.json.
+public enum Attrezzo: String, Codable, Sendable, CaseIterable {
+    case tavoletta
+    case pullBuoy = "pull_buoy"
+    case pinne
+    case snorkel
+}
+
+/// Attrezzi da portare a bordo vasca per un allenamento.
+public struct Attrezzatura: Equatable, Sendable {
+    /// Necessari, nell'ordine in cui compaiono nell'allenamento.
+    public var necessari: [Attrezzo]
+    /// Facoltativi (non già tra i necessari), nell'ordine in cui compaiono.
+    public var facoltativi: [Attrezzo]
+
+    public init(necessari: [Attrezzo] = [], facoltativi: [Attrezzo] = []) {
+        self.necessari = necessari
+        self.facoltativi = facoltativi
+    }
+
+    public var isVuota: Bool { necessari.isEmpty && facoltativi.isEmpty }
 }
 
 /// Errore comune di content/errori-comuni.json.

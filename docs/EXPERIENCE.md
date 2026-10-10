@@ -37,6 +37,7 @@ Si sceglie nell'onboarding e si cambia in qualsiasi momento dal Profilo.
 | Nuota meno del previsto (Regolare o Spronami) | Messaggio gentile e proposta di un allenamento più corto per ripartire |
 | Non nuota da tempo (modalità Libero) | Nessun messaggio. Alla riapertura propone una ripresa morbida |
 | Sempre "dura" | Alleggerisce i volumi e le intensità |
+| "Dura": cosa non andava? | Un tocco: mancava il fiato (recuperi più lunghi), braccia o gambe stanche (meno ripetizioni nella serie principale), esercizio troppo difficile (allenamenti con esercizi più semplici). Il motivo resta sul telefono. Percentuali provvisorie, da confermare con l'istruttore |
 | Sempre "facile" | Propone di salire di livello o di fare il test della tappa |
 | Interrompe a metà più volte | Propone allenamenti più brevi e chiede cosa è successo |
 | Segnala dolore o malessere | Consiglia di fermarsi e, se persiste, di sentire un professionista. Nessuna diagnosi |

@@ -232,7 +232,7 @@ struct LavagnettaView: View {
             MenuScelta(titolo: passo.domanda, opzioni: Obiettivo.allCases,
                        etichetta: { $0.etichetta }, selezione: $profilo.obiettivo)
         case .vasca:
-            MenuScelta(titolo: passo.domanda, opzioni: Vasca.allCases,
+            MenuScelta(titolo: passo.domanda, opzioni: Vasca.opzioniLavagnetta,
                        etichetta: { $0.etichetta }, selezione: $profilo.vasca)
         case .ritmo:
             VStack(alignment: .leading, spacing: 12) {

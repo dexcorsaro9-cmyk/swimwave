@@ -68,6 +68,9 @@ private struct SchermataGuidata: View {
     @State private var concluso = false
     /// Tempo obiettivo per ogni ripetizione del piano (nil dove non c'è: niente test, altro stile, nessuna intensità).
     @State private var tempiObiettivo: [Int?] = []
+    /// "Bordo vasca": numeri enormi, contrasto massimo e un tocco ovunque sul centro per andare avanti.
+    /// Si ricorda tra un allenamento e l'altro.
+    @AppStorage("swimwave.bordoVasca") private var bordoVasca = false
 
     private let orologio = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
 
@@ -82,24 +85,13 @@ private struct SchermataGuidata: View {
 
     var body: some View {
         let passo = sessione.avanzamento.passoCorrente
-        VStack(spacing: 0) {
-            if let passo {
-                intestazione(passo)
-                Spacer(minLength: 8)
-                centro(passo)
-                Spacer(minLength: 8)
+        Group {
+            if bordoVasca {
+                vistaBordoVasca(passo)
             } else {
-                Spacer()
+                vistaNormale(passo)
             }
-            totale
-            pulsanti
-                .padding(.top, 12)
-            barraCoach(passo)
-                .padding(.top, 8)
-                .padding(.bottom, 8)
         }
-        .padding(.horizontal, 20)
-        .sfondoApp()
         .onAppear {
             // Lo schermo resta acceso finché la schermata è aperta.
             UIApplication.shared.isIdleTimerDisabled = true
@@ -129,6 +121,115 @@ private struct SchermataGuidata: View {
         }
     }
 
+    private func vistaNormale(_ passo: Passo?) -> some View {
+        VStack(spacing: 0) {
+            if let passo {
+                intestazione(passo)
+                Spacer(minLength: 8)
+                centro(passo)
+                Spacer(minLength: 8)
+            } else {
+                Spacer()
+            }
+            totale
+            pulsanti
+                .padding(.top, 12)
+            barraCoach(passo)
+                .padding(.top, 8)
+                .padding(.bottom, 8)
+        }
+        .padding(.horizontal, 20)
+        .sfondoApp()
+    }
+
+    /// Modalità a bordo vasca: sfondo nero, testo bianco, numeri enormi. Un tocco sul centro vale "Fatto" / "Vai".
+    private func vistaBordoVasca(_ passo: Passo?) -> some View {
+        VStack(spacing: 0) {
+            HStack(alignment: .firstTextBaseline, spacing: 10) {
+                if let passo {
+                    Text(verbatim: testo("guidato.serie", passo.indiceSerie + 1, sessione.avanzamento.piano.serieTotali))
+                        .font(Tema.titolo2)
+                        .foregroundStyle(Color.white)
+                }
+                Spacer(minLength: 8)
+                Button {
+                    bordoVasca = false
+                } label: {
+                    Text("guidato.bordoVasca.esci")
+                        .font(Tema.sottotitolo)
+                        .foregroundStyle(Color.white)
+                        .padding(.horizontal, 14)
+                        .frame(minHeight: 44)
+                        .overlay(Capsule().stroke(Color.white.opacity(0.8), lineWidth: 1.5))
+                }
+                .buttonStyle(.plain)
+                Button {
+                    confermaTermina = true
+                } label: {
+                    Text("guidato.termina")
+                        .font(Tema.sottotitolo)
+                        .foregroundStyle(Color.white)
+                        .padding(.horizontal, 14)
+                        .frame(minHeight: 44)
+                        .overlay(Capsule().stroke(Color.white.opacity(0.8), lineWidth: 1.5))
+                }
+                .buttonStyle(.plain)
+            }
+            .padding(.top, 12)
+            if let passo {
+                BarraSerieGuidata(totali: sessione.avanzamento.piano.serieTotali, corrente: passo.indiceSerie)
+                    .padding(.top, 8)
+            }
+            ZStack {
+                Color.clear
+                if let passo {
+                    centro(passo, grande: true)
+                }
+            }
+            .frame(maxHeight: .infinity)
+            .contentShape(Rectangle())
+            .onTapGesture {
+                guard !sessione.inPausa else { return }
+                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                avanti()
+            }
+            .accessibilityAddTraits(.isButton)
+            .accessibilityLabel(Text(LocalizedStringKey(sessione.inRecupero ? "guidato.vai" : "guidato.fatto")))
+            Text("guidato.bordoVasca.suggerimento")
+                .font(Tema.piccolo)
+                .foregroundStyle(Color.white.opacity(0.75))
+                .padding(.bottom, 6)
+            Text(verbatim: testo(
+                "guidato.totale",
+                sessione.metriFatti,
+                sessione.avanzamento.piano.metriTotali,
+                FormatoTempo.mmss(sessione.tempoTrascorso(adesso: adesso))
+            ))
+            .font(Tema.sottotitolo)
+            .monospacedDigit()
+            .foregroundStyle(Color.white)
+            .padding(.bottom, 10)
+            Button {
+                if sessione.inPausa {
+                    sessione.riprendi(adesso: Date())
+                } else {
+                    sessione.pausa(adesso: Date())
+                }
+            } label: {
+                Text(LocalizedStringKey(sessione.inPausa ? "guidato.riprendi" : "guidato.pausa"))
+                    .font(Tema.bottone)
+                    .foregroundStyle(Color.white)
+                    .frame(maxWidth: .infinity, minHeight: 56)
+                    .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).stroke(Color.white, lineWidth: 2))
+            }
+            .buttonStyle(.plain)
+            .padding(.bottom, 12)
+        }
+        .padding(.horizontal, 20)
+        .background(Color.black.ignoresSafeArea())
+        .preferredColorScheme(.dark)
+    }
+
     // MARK: Parti della schermata
 
     private func intestazione(_ passo: Passo) -> some View {
@@ -144,6 +245,17 @@ private struct SchermataGuidata: View {
                         .foregroundStyle(Tema.testo)
                 }
                 Spacer(minLength: 8)
+                Button {
+                    bordoVasca = true
+                } label: {
+                    Label("guidato.bordoVasca.attiva", systemImage: "arrow.up.left.and.arrow.down.right")
+                        .labelStyle(.iconOnly)
+                        .font(.system(.body, design: .rounded).weight(.bold))
+                        .foregroundStyle(Tema.testo)
+                        .frame(width: 44, height: 44)
+                        .overlay(Circle().stroke(Tema.testoSecondario, lineWidth: 1.5))
+                }
+                .buttonStyle(.plain)
                 Button {
                     confermaTermina = true
                 } label: {
@@ -162,7 +274,10 @@ private struct SchermataGuidata: View {
     }
 
     @ViewBuilder
-    private func centro(_ passo: Passo) -> some View {
+    private func centro(_ passo: Passo, grande: Bool = false) -> some View {
+        let primario: Color = grande ? Color.white : Tema.testo
+        let secondario: Color = grande ? Color.white.opacity(0.85) : Tema.testoSecondario
+        let dimensione: CGFloat = grande ? 220 : 120
         if sessione.inRecupero {
             VStack(spacing: 6) {
                 Text("guidato.recupero")
@@ -170,7 +285,7 @@ private struct SchermataGuidata: View {
                     .textCase(.uppercase)
                     .foregroundStyle(Tema.turchese)
                 Text(verbatim: testoRecupero(sessione.recuperoRimanente(adesso: adesso)))
-                    .font(.system(size: 120, weight: .heavy, design: .rounded))
+                    .font(.system(size: dimensione, weight: .heavy, design: .rounded))
                     .monospacedDigit()
                     .foregroundStyle(Tema.turchese)
                     .minimumScaleFactor(0.5)
@@ -178,7 +293,7 @@ private struct SchermataGuidata: View {
                 if let prossimo = sessione.prossimoPasso {
                     Text(verbatim: testo("guidato.prossima", descrizioneBreve(prossimo)))
                         .font(Tema.corpo)
-                        .foregroundStyle(Tema.testoSecondario)
+                        .foregroundStyle(secondario)
                         .multilineTextAlignment(.center)
                 }
                 statoPausa
@@ -189,28 +304,28 @@ private struct SchermataGuidata: View {
             VStack(spacing: 6) {
                 Text(verbatim: nomeEsercizio(passo))
                     .font(Tema.titolo2)
-                    .foregroundStyle(Tema.testo)
+                    .foregroundStyle(primario)
                     .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
                 Text(verbatim: dettaglio(passo))
                     .font(Tema.corpo)
-                    .foregroundStyle(Tema.testoSecondario)
+                    .foregroundStyle(secondario)
                     .multilineTextAlignment(.center)
                 Text(verbatim: "\(passo.distanzaMetri)")
-                    .font(.system(size: 120, weight: .heavy, design: .rounded))
+                    .font(.system(size: dimensione, weight: .heavy, design: .rounded))
                     .monospacedDigit()
-                    .foregroundStyle(Tema.testo)
+                    .foregroundStyle(primario)
                     .minimumScaleFactor(0.5)
                     .lineLimit(1)
                 Text(verbatim: metriEVasche(passo))
                     .font(Tema.sottotitolo)
-                    .foregroundStyle(Tema.testoSecondario)
+                    .foregroundStyle(secondario)
                 // Solo un riferimento, senza giudizio: nessun colore di successo o di errore.
                 if let obiettivo = tempoObiettivoCorrente {
                     Text(verbatim: TempoObiettivo.riga(obiettivo))
                         .font(Tema.piccolo)
                         .monospacedDigit()
-                        .foregroundStyle(Tema.testoSecondario)
+                        .foregroundStyle(secondario)
                 }
                 statoPausa
             }

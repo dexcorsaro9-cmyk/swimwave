@@ -257,7 +257,22 @@ final class StatoApp {
     func imposta(sensazione: Sensazione, perNuotata id: UUID) {
         guard let i = nuotate.firstIndex(where: { $0.id == id }) else { return }
         nuotate[i].sensazione = sensazione
+        // Il motivo ha senso solo per "dura".
+        if sensazione != .dura { nuotate[i].motivoDifficolta = nil }
         salva()
+    }
+
+    /// Risposta a "Cosa non andava?" dopo una nuotata "dura". Resta sul telefono.
+    func imposta(motivoDifficolta motivo: MotivoDifficolta, perNuotata id: UUID) {
+        guard let i = nuotate.firstIndex(where: { $0.id == id }), nuotate[i].sensazione == .dura else { return }
+        nuotate[i].motivoDifficolta = motivo
+        salva()
+    }
+
+    /// Il motivo dell'ultima nuotata con una risposta, se quella risposta è "dura".
+    var ultimoMotivoDifficolta: MotivoDifficolta? {
+        guard let ultima = nuotate.first(where: { $0.sensazione != nil }), ultima.sensazione == .dura else { return nil }
+        return ultima.motivoDifficolta
     }
 
     /// Ultima sensazione dichiarata, per adattare il prossimo allenamento.
@@ -406,11 +421,26 @@ final class StatoApp {
     func allenamentoDiOggi(adesso: Date = Date()) -> Workout? {
         let (giorno, chiave) = chiaveOggi(adesso: adesso)
         if let scelto = allenamentoScelto, giornoAllenamentoScelto == giorno { return scelto }
-        if consensoIA == true, let generato = allenamentoGenerato, chiaveGenerato == chiave { return generato }
-        if let cache = cacheAllenamento, cache.chiave == chiave { return cache.workout }
-        let w = contenuti.scegliRiserva(profilo: profilo, scelta: giorno)
-        cacheAllenamento = (chiave, w)
-        return w
+        // Dopo una nuotata "dura" l'allenamento proposto si alleggerisce in base al motivo (solo sul telefono).
+        let motivo = ultimoMotivoDifficolta
+        if consensoIA == true, let generato = allenamentoGenerato, chiaveGenerato == chiave {
+            return Riserva.alleggerisci(generato, motivo: motivo)
+        }
+        let chiaveFissa = chiave + "|" + (motivo?.rawValue ?? "")
+        if let cache = cacheAllenamento, cache.chiave == chiaveFissa {
+            return cache.workout.map { Riserva.alleggerisci($0, motivo: motivo) }
+        }
+        let w = contenuti.scegliRiserva(profilo: profilo, scelta: giorno, motivo: motivo)
+        cacheAllenamento = (chiaveFissa, w)
+        return w.map { Riserva.alleggerisci($0, motivo: motivo) }
+    }
+
+    /// Il motivo per cui l'allenamento proposto oggi è stato alleggerito (nil se non lo è, o se l'ha scelto l'utente).
+    func alleggerimentoDiOggi(adesso: Date = Date()) -> MotivoDifficolta? {
+        let giorno = Calendar.italiano.ordinality(of: .day, in: .year, for: adesso) ?? 0
+        if allenamentoScelto != nil, giornoAllenamentoScelto == giorno { return nil }
+        guard let m = ultimoMotivoDifficolta, m != .altro else { return nil }
+        return m
     }
 
     /// Chiede al servizio coach l'allenamento di oggi. Solo con il consenso all'IA e il servizio configurato.

@@ -16,6 +16,10 @@ struct FineAllenamentoView: View {
         stato.nuotate.first(where: { $0.id == nuotataId })?.sensazione
     }
 
+    private var motivo: MotivoDifficolta? {
+        stato.nuotate.first(where: { $0.id == nuotataId })?.motivoDifficolta
+    }
+
     var body: some View {
         let profilo = stato.profilo
         VStack(spacing: 0) {
@@ -46,6 +50,13 @@ struct FineAllenamentoView: View {
 
                     SceltaSensazione(selezionata: selezionata) { s in
                         rispondi(s)
+                    }
+
+                    if selezionata == .dura {
+                        SceltaMotivoDifficolta(selezionato: motivo) { m in
+                            stato.imposta(motivoDifficolta: m, perNuotata: nuotataId)
+                        }
+                        .carta()
                     }
                 }
                 .padding(.horizontal, 20)

@@ -24,17 +24,21 @@ export function loadInstructions(richiesta = {}) {
 }
 
 /**
- * Adatta un allenamento da 25 m a una vasca da 50 m arrotondando le distanze
- * al multiplo di 50 più vicino (minimo 50). Altre lunghezze non sono adattate.
+ * Adatta un allenamento alla vasca dell'utente (16, 20, 25, 33, 50 m o altra misura) arrotondando
+ * ogni distanza al multiplo della vasca più vicino (minimo una vasca, massimo 2000 m).
  */
 export function adattaVasca(workout, vascaMetri) {
-  if (vascaMetri !== 50 || workout.vasca_metri === 50) return workout;
+  if (!Number.isInteger(vascaMetri) || vascaMetri <= 0 || workout.vasca_metri === vascaMetri) return workout;
   return {
     ...workout,
-    vasca_metri: 50,
+    vasca_metri: vascaMetri,
     blocchi: workout.blocchi.map((b) => ({
       ...b,
-      serie: b.serie.map((s) => ({ ...s, distanza_m: Math.max(50, Math.round(s.distanza_m / 50) * 50) })),
+      serie: b.serie.map((s) => {
+        let multipli = Math.max(1, Math.round(s.distanza_m / vascaMetri));
+        if (multipli * vascaMetri > 2000) multipli = Math.floor(2000 / vascaMetri);
+        return { ...s, distanza_m: multipli * vascaMetri };
+      }),
     })),
   };
 }

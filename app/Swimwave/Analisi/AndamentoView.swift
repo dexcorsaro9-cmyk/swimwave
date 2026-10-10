@@ -25,13 +25,14 @@ private enum PeriodoAndamento: CaseIterable, Hashable {
 }
 
 private enum FiltroVasca: CaseIterable, Hashable {
-    case tutte, vasca25, vasca50, acqueLibere
+    case tutte, vasca25, vasca50, altreVasche, acqueLibere
 
     var etichetta: String {
         switch self {
         case .tutte: return testo("andamento.vasca.tutte")
         case .vasca25: return testo("andamento.vasca.25")
         case .vasca50: return testo("andamento.vasca.50")
+        case .altreVasche: return testo("andamento.vasca.altre")
         case .acqueLibere: return testo("andamento.vasca.acqueLibere")
         }
     }
@@ -42,6 +43,9 @@ private enum FiltroVasca: CaseIterable, Hashable {
         case .tutte: return true
         case .vasca25: return n.ambiente != .acqueLibere && n.vascaMetri == 25
         case .vasca50: return n.ambiente != .acqueLibere && n.vascaMetri == 50
+        case .altreVasche:
+            guard n.ambiente != .acqueLibere, let m = n.vascaMetri, m > 0 else { return false }
+            return m != 25 && m != 50
         case .acqueLibere: return n.ambiente == .acqueLibere
         }
     }

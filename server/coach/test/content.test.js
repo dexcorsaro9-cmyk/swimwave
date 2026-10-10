@@ -85,13 +85,31 @@ test("senza un obiettivo noto usa gli allenamenti del livello", () => {
   assert.equal(validateWorkout(w, drills).ok, true);
 });
 
-test("adatta gli allenamenti alla vasca da 50 m", () => {
-  for (const voce of indice) {
-    const w = adattaVasca(loadContent(`allenamenti/${voce.file}`), 50);
-    assert.equal(w.vasca_metri, 50);
-    const esito = validateWorkout(w, drills);
-    assert.deepEqual(esito.errors, [], voce.file);
+test("gli attrezzi dei drill sono nella lista chiusa", () => {
+  const ammessi = new Set(["tavoletta", "pull_buoy", "pinne", "snorkel"]);
+  for (const d of drillCompleti) {
+    for (const campo of ["attrezzi", "attrezzi_facoltativi"]) {
+      for (const a of d[campo] ?? []) assert.ok(ammessi.has(a), `${d.id}: ${a}`);
+    }
   }
+});
+
+test("adatta gli allenamenti a ogni vasca ammessa", () => {
+  for (const vasca of [16, 20, 33, 50]) {
+    for (const voce of indice) {
+      const w = adattaVasca(loadContent(`allenamenti/${voce.file}`), vasca);
+      assert.equal(w.vasca_metri, vasca);
+      const esito = validateWorkout(w, drills);
+      assert.deepEqual(esito.errors, [], `${voce.file} @${vasca}`);
+    }
+  }
+});
+
+test("l'adattamento arrotonda al multiplo della vasca e non supera 2000 m", () => {
+  const w = { vasca_metri: 25, blocchi: [{ serie: [{ distanza_m: 25 }, { distanza_m: 100 }, { distanza_m: 2000 }] }] };
+  const a = adattaVasca(w, 33);
+  assert.deepEqual(a.blocchi[0].serie.map((s) => s.distanza_m), [33, 99, 1980]);
+  assert.equal(adattaVasca(w, 25), w);
 });
 
 test("il coach scelto cambia il tono ma non le regole", () => {

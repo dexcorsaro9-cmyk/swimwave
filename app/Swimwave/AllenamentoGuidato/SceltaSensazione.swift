@@ -66,6 +66,72 @@ struct SceltaSensazione: View {
     }
 }
 
+/// "Cosa non andava?": compare solo dopo "Dura". Tre pulsanti e un "Non saprei", un tocco solo.
+/// Il motivo resta sul telefono e serve ad alleggerire il prossimo allenamento.
+struct SceltaMotivoDifficolta: View {
+    var selezionato: MotivoDifficolta?
+    let azione: (MotivoDifficolta) -> Void
+
+    private static let voci: [(MotivoDifficolta, String, String)] = [
+        (.fiato, "lungs.fill", "motivo.fiato"),
+        (.stanchezza, "battery.25percent", "motivo.stanchezza"),
+        (.esercizio, "figure.pool.swim", "motivo.esercizio"),
+    ]
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("motivo.titolo")
+                .font(Tema.sottotitolo)
+                .foregroundStyle(Tema.testo)
+            ForEach(Self.voci, id: \.0) { motivo, simbolo, chiave in
+                Button {
+                    azione(motivo)
+                } label: {
+                    HStack(spacing: 12) {
+                        Image(systemName: simbolo)
+                            .font(.system(.title3, design: .rounded).weight(.bold))
+                            .frame(width: 32)
+                            .accessibilityHidden(true)
+                        Text(LocalizedStringKey(chiave))
+                            .font(Tema.corpo.weight(.semibold))
+                            .multilineTextAlignment(.leading)
+                        Spacer(minLength: 0)
+                        if selezionato == motivo {
+                            Image(systemName: "checkmark.circle.fill")
+                                .accessibilityHidden(true)
+                        }
+                    }
+                    .foregroundStyle(Tema.testo)
+                    .padding(.horizontal, 14)
+                    .frame(minHeight: 52)
+                    .background(
+                        RoundedRectangle(cornerRadius: 14, style: .continuous)
+                            .fill(selezionato == motivo ? Tema.corallo.opacity(0.35) : Tema.turchese.opacity(0.14))
+                    )
+                }
+                .buttonStyle(.plain)
+                .accessibilityAddTraits(selezionato == motivo ? .isSelected : [])
+            }
+            if selezionato == nil || selezionato == .altro {
+                Button {
+                    azione(.altro)
+                } label: {
+                    Text("motivo.nonSaprei")
+                        .font(Tema.piccolo.weight(.bold))
+                        .foregroundStyle(selezionato == .altro ? Tema.testo : Tema.testoSecondario)
+                        .frame(minHeight: 44)
+                }
+                .buttonStyle(.plain)
+            } else {
+                Text("motivo.nota")
+                    .font(Tema.piccolo)
+                    .foregroundStyle(Tema.testoSecondario)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
 #Preview("Sensazione") {
     VStack(spacing: 24) {
         SceltaSensazione(selezionata: .giusta, azione: { _ in })

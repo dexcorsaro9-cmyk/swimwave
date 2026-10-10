@@ -62,15 +62,27 @@ public enum Obiettivo: String, Codable, Sendable, CaseIterable {
 }
 
 public enum Vasca: String, Codable, Sendable, CaseIterable {
-    case metri25, metri50, nonLoSo
+    case metri16, metri20, metri25, metri33, metri50, altra, nonLoSo
+
+    /// Limiti della misura libera: gli stessi del contratto del workout (docs/schema/workout.schema.json).
+    public static let misuraLiberaMinima = 10
+    public static let misuraLiberaMassima = 100
+    public static let misuraLiberaPredefinita = 25
 
     /// "Non lo so ancora" vale 25 m (valore prudente di docs/ONBOARDING.md).
+    /// "Altra misura" vale 25 m finché non è scritta; la misura scelta è in `Profilo.vascaPersonalizzata`.
     public var metri: Int {
         switch self {
+        case .metri16: return 16
+        case .metri20: return 20
+        case .metri33: return 33
         case .metri50: return 50
-        case .metri25, .nonLoSo: return 25
+        case .metri25, .altra, .nonLoSo: return 25
         }
     }
+
+    /// Opzioni del menu del primo avvio: la misura libera si imposta dal Profilo, per non allungare la lavagnetta.
+    public static var opzioniLavagnetta: [Vasca] { allCases.filter { $0 != .altra } }
 }
 
 public enum Ritmo: String, Codable, Sendable, CaseIterable {
@@ -97,7 +109,11 @@ public struct Profilo: Codable, Equatable, Sendable {
     public var nome: String
     public var livello: Livello?
     public var obiettivo: Obiettivo?
-    public var vasca: Vasca?
+    public var vasca: Vasca? {
+        didSet { if vasca == .altra && vascaPersonalizzata == nil { vascaPersonalizzata = Vasca.misuraLiberaPredefinita } }
+    }
+    /// Misura scelta con "Altra misura", in metri.
+    public var vascaPersonalizzata: Int?
     public var ritmo: Ritmo?
     public var frequenzaSettimanale: Int?
 
@@ -108,6 +124,7 @@ public struct Profilo: Codable, Equatable, Sendable {
         livello: Livello? = nil,
         obiettivo: Obiettivo? = nil,
         vasca: Vasca? = .metri25,
+        vascaPersonalizzata: Int? = nil,
         ritmo: Ritmo? = .libero,
         frequenzaSettimanale: Int? = nil
     ) {
@@ -116,6 +133,7 @@ public struct Profilo: Codable, Equatable, Sendable {
         self.livello = livello
         self.obiettivo = obiettivo
         self.vasca = vasca
+        self.vascaPersonalizzata = vascaPersonalizzata
         self.ritmo = ritmo
         self.frequenzaSettimanale = frequenzaSettimanale
     }
@@ -126,7 +144,11 @@ public struct Profilo: Codable, Equatable, Sendable {
     }
 
     public var obiettivoEffettivo: Obiettivo { obiettivo ?? .tecnica }
-    public var vascaMetri: Int { (vasca ?? .metri25).metri }
+    public var vascaMetri: Int {
+        if vasca == .altra, let m = vascaPersonalizzata,
+           (Vasca.misuraLiberaMinima...Vasca.misuraLiberaMassima).contains(m) { return m }
+        return (vasca ?? .metri25).metri
+    }
     public var categoriaLivello: CategoriaLivello { livello?.categoria ?? .principiante }
 
     /// Obiettivo settimanale: solo con ritmo Regolare o Spronami e frequenza valida, altrimenti nil.
@@ -143,7 +165,12 @@ public struct Profilo: Codable, Equatable, Sendable {
         let n = nomePulito
         if n.isEmpty || n.count > Profilo.lunghezzaMassimaNome { mancanti.append(.nome) }
         if livello == nil { mancanti.append(.livello) }
-        if vasca == nil { mancanti.append(.vasca) }
+        if vasca == nil {
+            mancanti.append(.vasca)
+        } else if vasca == .altra,
+                  !(Vasca.misuraLiberaMinima...Vasca.misuraLiberaMassima).contains(vascaPersonalizzata ?? 0) {
+            mancanti.append(.vasca)
+        }
         if ritmo == nil {
             mancanti.append(.ritmo)
         } else if let ritmo, ritmo.richiedeFrequenza {

@@ -45,6 +45,14 @@ public enum Sensazione: String, Codable, Sendable, CaseIterable {
     case facile, giusta, dura
 }
 
+/// Perché un allenamento è sembrato "dura". Resta sul telefono: non viene inviato al servizio coach.
+public enum MotivoDifficolta: String, Codable, Sendable, CaseIterable {
+    case fiato        // mancava il fiato: recuperi più lunghi
+    case stanchezza   // braccia o gambe stanche: meno ripetizioni
+    case esercizio    // esercizio troppo difficile: allenamenti con esercizi più semplici
+    case altro        // "non saprei": nessun cambiamento
+}
+
 /// Da dove arriva una nuotata nello storico.
 public enum OrigineNuotata: String, Codable, Sendable {
     case watch      // allenamento guidato dal Watch
@@ -96,12 +104,15 @@ public struct NuotataCompletata: Codable, Equatable, Sendable, Identifiable {
     public var vasche: [SplitVasca]?
     /// true se l'utente ha corretto metri o durata a mano: da quel momento le altre fonti non li sovrascrivono.
     public var corretta: Bool?
+    /// Solo se la sensazione è "dura": cosa non andava (un tocco dopo l'allenamento).
+    public var motivoDifficolta: MotivoDifficolta?
 
     public init(id: UUID = UUID(), data: Date, metri: Int, durataSecondi: Int, titolo: String,
                 sensazione: Sensazione? = nil, origine: OrigineNuotata? = nil,
                 nota: String? = nil, calorie: Int? = nil, frequenzaCardiacaMedia: Int? = nil,
                 bracciate: Int? = nil, vascaMetri: Int? = nil, ambiente: AmbienteNuoto? = nil,
-                vasche: [SplitVasca]? = nil, corretta: Bool? = nil) {
+                vasche: [SplitVasca]? = nil, corretta: Bool? = nil,
+                motivoDifficolta: MotivoDifficolta? = nil) {
         self.id = id
         self.data = data
         self.metri = metri
@@ -117,6 +128,7 @@ public struct NuotataCompletata: Codable, Equatable, Sendable, Identifiable {
         self.ambiente = ambiente
         self.vasche = vasche
         self.corretta = corretta
+        self.motivoDifficolta = motivoDifficolta
     }
 
     /// Secondi ogni 100 m (ritmo medio). Nil se i metri sono zero (o negativi).
@@ -156,6 +168,7 @@ public struct NuotataCompletata: Codable, Equatable, Sendable, Identifiable {
         if r.ambiente == nil { r.ambiente = altra.ambiente }
         if r.vasche == nil { r.vasche = altra.vasche }
         if r.corretta == nil { r.corretta = altra.corretta }
+        if r.motivoDifficolta == nil { r.motivoDifficolta = altra.motivoDifficolta }
         return r
     }
 

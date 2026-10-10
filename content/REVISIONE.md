@@ -91,3 +91,9 @@ Da controllare, in ordine:
 - **Fonti deboli**: il Ponte per i glutei si appoggia a un blog di un ente di certificazione (NASM) e a una scheda di un ospedale. Se preferisci un riferimento federale o il tuo metodo, dimmelo.
 - **Avvertenza**: ogni esercizio ha un solo avviso di errore. Il messaggio generale ("se senti dolore fermati e, se persiste, senti un medico") è nella `nota` del file e va mostrato nell'app.
 - Se la tua esperienza dice che manca qualcosa di importante (per esempio la rotazione delle anche per la rana) o che qualcosa è di troppo, indicalo.
+
+## 9. Attrezzi dei drill e adattamento dopo "dura"
+
+- **Attrezzi** (`attrezzi` e `attrezzi_facoltativi` in `content/drills.json`): l'app mostra "Porta a bordo vasca" in base a questi campi. Li ho ricavati dal testo dei drill. Necessari: tavoletta (Respirazione laterale con tavoletta), pull buoy (Nuotata con pull buoy). Facoltativi: tavoletta (Battuta con tavoletta), pinne (Sei colpi e cambio, Dorso: battuta con rotazione, Delfino: sei colpi una bracciata, Onda del delfino), snorkel (Onda del delfino). Controlla che siano giusti e se ne manca qualcuno.
+- **Dopo "dura", cosa non andava?** Percentuali nostre, provvisorie: mancava il fiato = recuperi +50% (almeno +5 s); braccia o gambe stanche = un quarto di ripetizioni in meno nelle serie principali; esercizio troppo difficile = si sceglie tra la metà di allenamenti con le tappe più basse. Va bene così o preferisci altri valori?
+- **Vasche da 16, 20, 33 m e altre misure**: le distanze degli allenamenti, scritte per 25 m, si arrotondano al multiplo della vasca più vicino (per esempio 50 m diventano 40 m in vasca da 20). Controlla che il risultato abbia senso per i principianti (nelle vasche da 33 m una vasca singola è già lunga).

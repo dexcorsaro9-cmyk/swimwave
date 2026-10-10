@@ -38,3 +38,7 @@ Il campo `durata_min`, se c'è, è la durata che l'utente vuole per questo allen
 ## Input che ricevi
 
 Livello, obiettivo, tappa del percorso, lunghezza della vasca, durata richiesta (se scelta), riassunto dello storico (frequenza reale, durata media, ultime risposte, tempo dall'ultima nuotata) e lista chiusa dei drill.
+
+## Vasca
+
+`vasca_metri` può essere 16, 20, 25, 33, 50 o un'altra misura tra 10 e 100. Ogni `distanza_m` deve essere un multiplo della vasca. I volumi totali del livello restano quelli delle regole dell'istruttore (scritte per 25 m): con una vasca più corta o più lunga si avvicinano i metri totali, non il numero di vasche.

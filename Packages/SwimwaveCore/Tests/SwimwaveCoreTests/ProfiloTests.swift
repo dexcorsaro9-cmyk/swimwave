@@ -64,6 +64,31 @@ final class ProfiloTests: XCTestCase {
         XCTAssertEqual(Profilo(vasca: .metri50).vascaMetri, 50)
     }
 
+    func testVascheNonConvenzionali() {
+        XCTAssertEqual(Profilo(vasca: .metri16).vascaMetri, 16)
+        XCTAssertEqual(Profilo(vasca: .metri20).vascaMetri, 20)
+        XCTAssertEqual(Profilo(vasca: .metri33).vascaMetri, 33)
+    }
+
+    func testAltraMisura() {
+        var p = Profilo(vasca: .metri25)
+        p.vasca = .altra
+        XCTAssertEqual(p.vascaPersonalizzata, 25)  // proposta di partenza
+        p.vascaPersonalizzata = 18
+        XCTAssertEqual(p.vascaMetri, 18)
+        p.vascaPersonalizzata = 500
+        XCTAssertEqual(p.vascaMetri, 25)           // fuori limiti: valore prudente
+        XCTAssertTrue(p.campiMancanti.contains(.vasca))
+        XCTAssertFalse(Vasca.opzioniLavagnetta.contains(.altra))
+    }
+
+    func testProfiloVecchioSenzaMisuraLiberaSiDecodifica() throws {
+        let json = #"{"nome":"Anna","vasca":"metri50","ritmo":"libero"}"#.data(using: .utf8)!
+        let p = try JSONDecoder().decode(Profilo.self, from: json)
+        XCTAssertEqual(p.vascaMetri, 50)
+        XCTAssertNil(p.vascaPersonalizzata)
+    }
+
     func testLivelloCategoriaETappa() {
         XCTAssertEqual(Livello.menoDi25.categoria, .principiante)
         XCTAssertEqual(Livello.menoDi100.categoria, .principiante)

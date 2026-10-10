@@ -71,6 +71,105 @@ final class ContentStoreTests: XCTestCase {
         XCTAssertEqual(Riserva.adattaVasca(w, vascaMetri: 25), w)
     }
 
+    func testAdattaVascaAMisureNonConvenzionali() {
+        let w = Workout(titolo: "x", vascaMetri: 25, durataStimataMin: 20, blocchi: [
+            Blocco(tipo: .principale, serie: [Serie(ripetizioni: 1, distanzaMetri: 25, stile: .libero),
+                                              Serie(ripetizioni: 1, distanzaMetri: 100, stile: .libero),
+                                              Serie(ripetizioni: 1, distanzaMetri: 2000, stile: .libero)])])
+        let a33 = Riserva.adattaVasca(w, vascaMetri: 33)
+        XCTAssertEqual(a33.blocchi[0].serie.map(\.distanzaMetri), [33, 99, 1980])
+        let a20 = Riserva.adattaVasca(w, vascaMetri: 20)
+        XCTAssertEqual(a20.vascaMetri, 20)
+        XCTAssertEqual(a20.blocchi[0].serie.map(\.distanzaMetri), [20, 100, 2000])
+        // Il risultato deve rispettare la regola "distanza multipla della vasca".
+        for v in [16, 20, 33, 50] {
+            let r = Riserva.adattaVasca(w, vascaMetri: v)
+            for s in r.blocchi[0].serie { XCTAssertEqual(s.distanzaMetri % v, 0) }
+        }
+    }
+
+    func testAttrezzaturaDagliDrill() {
+        let file: [String: String] = [
+            "drills.json": """
+            {"drill":[
+              {"id":"t","nome":"T","tappa":1,"scopo":"s","esecuzione":"e","errore_da_evitare":"x","fonti":[],"stato":"approvato","attrezzi":["tavoletta"]},
+              {"id":"p","nome":"P","tappa":1,"scopo":"s","esecuzione":"e","errore_da_evitare":"x","fonti":[],"stato":"approvato","attrezzi":["pull_buoy"],"attrezzi_facoltativi":["pinne","tavoletta"]},
+              {"id":"f","nome":"F","tappa":1,"scopo":"s","esecuzione":"e","errore_da_evitare":"x","fonti":[],"stato":"approvato","attrezzi_facoltativi":["pinne","remo"]},
+              {"id":"n","nome":"N","tappa":1,"scopo":"s","esecuzione":"e","errore_da_evitare":"x","fonti":[],"stato":"approvato"}]}
+            """,
+        ]
+        let store = ContentStore(includeBozze: false, lettore: { file[$0].map { Data($0.utf8) } })
+        func serie(_ d: String?) -> Serie { Serie(ripetizioni: 1, distanzaMetri: 25, stile: .libero, drill: d) }
+        let w = Workout(titolo: "x", vascaMetri: 25, durataStimataMin: 20, blocchi: [
+            Blocco(tipo: .tecnica, serie: [serie("t"), serie("p"), serie("f"), serie("n"), serie(nil), serie("t")])])
+        let a = store.attrezzatura(per: w)
+        XCTAssertEqual(a.necessari, [.tavoletta, .pullBuoy])
+        XCTAssertEqual(a.facoltativi, [.pinne])  // tavoletta è già necessaria, "remo" è sconosciuto
+        let senza = Workout(titolo: "y", vascaMetri: 25, durataStimataMin: 20, blocchi: [
+            Blocco(tipo: .principale, serie: [serie("n"), serie(nil)])])
+        XCTAssertTrue(store.attrezzatura(per: senza).isVuota)
+    }
+
+    private func allenamentoDiProva() -> Workout {
+        Workout(titolo: "x", vascaMetri: 25, durataStimataMin: 30, blocchi: [
+            Blocco(tipo: .riscaldamento, serie: [Serie(ripetizioni: 4, distanzaMetri: 25, stile: .libero, recuperoSecondi: 15)]),
+            Blocco(tipo: .principale, serie: [Serie(ripetizioni: 4, distanzaMetri: 50, stile: .libero, recuperoSecondi: 20),
+                                              Serie(ripetizioni: 1, distanzaMetri: 100, stile: .libero)])])
+    }
+
+    func testAlleggerisciPerIlFiatoAllungaIRecuperi() {
+        let a = Riserva.alleggerisci(allenamentoDiProva(), motivo: .fiato)
+        XCTAssertEqual(a.blocchi[0].serie[0].recuperoSecondi, 25)  // 15 x 1,5 = 22,5 -> 25
+        XCTAssertEqual(a.blocchi[1].serie[0].recuperoSecondi, 30)
+        XCTAssertNil(a.blocchi[1].serie[1].recuperoSecondi)         // senza recupero resta senza
+        XCTAssertEqual(a.blocchi[1].serie[0].ripetizioni, 4)
+        XCTAssertGreaterThan(a.durataStimataMin, 30)
+    }
+
+    func testAlleggerisciPerLaStanchezzaTogliRipetizioniSoloAlPrincipale() {
+        let a = Riserva.alleggerisci(allenamentoDiProva(), motivo: .stanchezza)
+        XCTAssertEqual(a.blocchi[0].serie[0].ripetizioni, 4)  // riscaldamento invariato
+        XCTAssertEqual(a.blocchi[1].serie[0].ripetizioni, 3)  // 4 -> 3
+        XCTAssertEqual(a.blocchi[1].serie[1].ripetizioni, 1)  // una sola ripetizione resta
+        XCTAssertLessThan(a.durataStimataMin, 30)
+        XCTAssertGreaterThanOrEqual(a.durataStimataMin, 5)
+    }
+
+    func testAlleggerisciSenzaMotivoOConEsercizioNonCambiaNulla() {
+        let w = allenamentoDiProva()
+        XCTAssertEqual(Riserva.alleggerisci(w, motivo: nil), w)
+        XCTAssertEqual(Riserva.alleggerisci(w, motivo: .esercizio), w)
+        XCTAssertEqual(Riserva.alleggerisci(w, motivo: .altro), w)
+    }
+
+    func testAlleggerisciRestaValido() {
+        for m in [MotivoDifficolta.fiato, .stanchezza] {
+            let a = Riserva.alleggerisci(allenamentoDiProva(), motivo: m)
+            XCTAssertTrue(WorkoutValidator.validate(a, allowedDrills: []).isEmpty)
+        }
+    }
+
+    func testMotivoEsercizioScegliTraGliAllenamentiPiuSemplici() {
+        func voce(_ f: String, _ tappe: [Int]) -> VoceAllenamento {
+            VoceAllenamento(file: f, livello: "principiante", obiettivi: ["tecnica"], tappe: tappe, stato: .approvato)
+        }
+        let voci = [voce("alto.json", [8]), voce("medio.json", [5]), voce("basso.json", [2]), voce("medio2.json", [6])]
+        for scelta in 0..<8 {
+            let v = Riserva.scegli(voci: voci, categoria: .principiante, obiettivo: .tecnica, scelta: scelta, motivo: .esercizio)
+            XCTAssertTrue(["basso.json", "medio.json"].contains(v?.file ?? ""), v?.file ?? "nil")
+        }
+        // Senza motivo restano tutte possibili.
+        let tutte = Set((0..<4).compactMap { Riserva.scegli(voci: voci, categoria: .principiante, obiettivo: .tecnica, scelta: $0)?.file })
+        XCTAssertEqual(tutte.count, 4)
+    }
+
+    func testMotivoSiUniscePerNuotataDaDueFonti() {
+        let a = NuotataCompletata(data: Date(), metri: 500, durataSecondi: 900, titolo: "t", sensazione: .dura, motivoDifficolta: .fiato)
+        let b = NuotataCompletata(id: a.id, data: a.data, metri: 500, durataSecondi: 900, titolo: "t")
+        XCTAssertEqual(b.unendo(a).motivoDifficolta, .fiato)
+        XCTAssertEqual(a.unendo(b).motivoDifficolta, .fiato)
+    }
+
     func testContenutoMancanteNonRompe() {
         let store = ContentStore(includeBozze: true, lettore: { _ in nil })
         XCTAssertTrue(store.tappe.isEmpty)

@@ -36,10 +36,10 @@ Solo questi campi, e solo con questi valori (il resto viene scartato):
 - `obiettivo`: tecnica, resistenza, dimagrimento. L'app invia quello scelto dall'utente per quell'allenamento, se lo ha scelto, altrimenti quello del profilo
 - `durata_min`: 20, 30, 45 o 60 (durata scelta dall'utente per quell'allenamento; facoltativa). Il coach avvicina `durata_stimata_min` e i metri a questa durata, restando dentro i tetti del livello. La riserva fissa non la tiene in conto
 - `tappa`: numero da 1 a 50 (l'app per ora non lo invia)
-- `vasca_metri`: 25 o 50
+- `vasca_metri`: intero da 10 a 100 (16, 20, 25, 33 e 50 sono le misure del menu; il Profilo permette anche un'altra misura). Il server arrotonda ogni distanza al multiplo della vasca più vicino
 - `ritmo`: libero, regolare, spronami
 - `coach`: uomo o donna
-- `riepilogo`: soltanto `ultimo allenamento: facile`, `giusta` o `dura`
+- `riepilogo`: soltanto `ultimo allenamento: facile`, `giusta` o `dura` (il motivo di "dura" resta sul telefono e non viene inviato)
 
 ## Commento del coach sul mese: `POST /commento`
 

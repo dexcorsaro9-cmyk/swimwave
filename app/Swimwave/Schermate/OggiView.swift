@@ -179,17 +179,24 @@ struct OggiView: View {
     @ViewBuilder
     private var domandaUltimaNuotata: some View {
         if let ultima = stato.nuotate.first,
-           ultima.sensazione == nil,
            Date().timeIntervalSince(ultima.data) < 24 * 3600 {
-            VStack(alignment: .leading, spacing: 12) {
-                Text("oggi.sensazione.titolo")
-                    .font(Tema.sottotitolo)
-                    .foregroundStyle(Tema.testo)
-                SceltaSensazione(selezionata: nil, compatta: true) { s in
-                    rispondi(s, perNuotata: ultima.id)
+            if ultima.sensazione == nil {
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("oggi.sensazione.titolo")
+                        .font(Tema.sottotitolo)
+                        .foregroundStyle(Tema.testo)
+                    SceltaSensazione(selezionata: nil, compatta: true) { s in
+                        rispondi(s, perNuotata: ultima.id)
+                    }
                 }
+                .carta()
+            } else if ultima.sensazione == .dura, ultima.motivoDifficolta == nil {
+                // Risposta "dura" arrivata senza il motivo (per esempio dal Watch): una sola domanda, un tocco.
+                SceltaMotivoDifficolta(selezionato: nil) { m in
+                    stato.imposta(motivoDifficolta: m, perNuotata: ultima.id)
+                }
+                .carta()
             }
-            .carta()
         }
     }
 
@@ -257,6 +264,13 @@ struct OggiView: View {
                 }
                 // Righe delle serie, con il tempo obiettivo se l'utente ha fatto il test del ritmo.
                 AnteprimaAllenamento(workout: w)
+                if let motivo = stato.alleggerimentoDiOggi() {
+                    Label(testo("oggi.alleggerito.\(motivo.rawValue)"), systemImage: "leaf.fill")
+                        .font(Tema.piccolo.weight(.bold))
+                        .foregroundStyle(Tema.testoSecondario)
+                }
+                RiquadroAttrezzatura(attrezzatura: stato.contenuti.attrezzatura(per: w))
+                    .padding(.top, 4)
                 Button {
                     daSeguire = AllenamentoDaSeguire(workout: w)
                 } label: {

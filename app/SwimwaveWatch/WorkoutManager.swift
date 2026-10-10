@@ -11,7 +11,8 @@ import SwimwaveCore
 /// NON TESTATO: scritto senza Xcode. Da provare su un Apple Watch vero, in piscina (il simulatore non produce
 /// dati di nuoto). Cose da verificare sul campo:
 ///  - il rilevamento delle vasche (distanceSwimming arriva a ogni vasca? con che ritardo?);
-///  - il blocco dello schermo in acqua (Water Lock) e il pulsante "Fatto" come riserva dell'avanzamento automatico;
+///  - il blocco dello schermo in acqua (Water Lock, attivato all'avvio con `enableWaterLock()`) e il pulsante "Fatto" come
+///    riserva dell'avanzamento automatico (per toccarlo bisogna prima sbloccare con la Digital Crown);
 ///  - le vibrazioni (si distinguono in acqua?) e la durata della batteria;
 ///  - pausa e ripresa (HKWorkoutSession.pause()/resume()): il cronometro e il recupero si fermano davvero? l'avanzamento
 ///    automatico resta fermo? la distanza nuotata dopo la ripresa viene contata bene?
@@ -265,6 +266,10 @@ final class WorkoutManager: NSObject, ObservableObject {
                         self.stato = .inCorso
                         self.avviaTimer()
                         WKInterfaceDevice.current().play(.start)
+                        // Blocco Acqua: l'acqua sullo schermo non registra tocchi fantasma durante la bracciata.
+                        // Si toglie girando la Digital Crown (per esempio per usare "Fatto" se l'avanzamento
+                        // automatico non scatta). Da provare in piscina.
+                        WKInterfaceDevice.current().enableWaterLock()
                     } else {
                         // La raccolta non è partita: si chiude la sessione già creata, così non blocca la prossima.
                         self.sessione?.end()

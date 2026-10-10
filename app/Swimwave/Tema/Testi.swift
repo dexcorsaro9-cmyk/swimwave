@@ -41,8 +41,12 @@ extension Obiettivo {
 extension Vasca {
     var etichetta: String {
         switch self {
+        case .metri16: return testo("vasca.metri16")
+        case .metri20: return testo("vasca.metri20")
         case .metri25: return testo("vasca.metri25")
+        case .metri33: return testo("vasca.metri33")
         case .metri50: return testo("vasca.metri50")
+        case .altra: return testo("vasca.altra")
         case .nonLoSo: return testo("vasca.nonLoSo")
         }
     }

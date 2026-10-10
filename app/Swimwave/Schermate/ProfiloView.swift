@@ -51,8 +51,19 @@ struct ProfiloView: View {
                                        etichetta: { $0.etichetta }, selezione: $stato.profilo.obiettivo)
                         }
                         riga("profilo.vasca") {
-                            MenuScelta(titolo: testo("profilo.vasca"), opzioni: Vasca.allCases,
-                                       etichetta: { $0.etichetta }, selezione: $stato.profilo.vasca)
+                            VStack(alignment: .leading, spacing: 10) {
+                                MenuScelta(titolo: testo("profilo.vasca"), opzioni: Vasca.allCases,
+                                           etichetta: { $0.etichetta }, selezione: $stato.profilo.vasca)
+                                if stato.profilo.vasca == .altra {
+                                    Text("profilo.vasca.altra.domanda")
+                                        .font(Tema.piccolo.weight(.bold))
+                                        .foregroundStyle(Tema.testo)
+                                    MenuScelta(titolo: testo("profilo.vasca.altra.domanda"),
+                                               opzioni: Array(Vasca.misuraLiberaMinima...Vasca.misuraLiberaMassima),
+                                               etichetta: { testo("profilo.vasca.altra.valore", $0) },
+                                               selezione: $stato.profilo.vascaPersonalizzata)
+                                }
+                            }
                         }
                         riga("profilo.ritmo") {
                             VStack(alignment: .leading, spacing: 10) {

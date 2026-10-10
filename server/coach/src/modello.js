@@ -20,7 +20,7 @@ const VALORI_AMMESSI = {
   livello: (v) => ["principiante", "intermedio", "avanzato"].includes(v),
   obiettivo: (v) => ["tecnica", "resistenza", "dimagrimento"].includes(v),
   tappa: (v) => Number.isInteger(v) && v >= 1 && v <= 50,
-  vasca_metri: (v) => v === 25 || v === 50,
+  vasca_metri: (v) => Number.isInteger(v) && v >= 10 && v <= 100,
   ritmo: (v) => ["libero", "regolare", "spronami"].includes(v),
   coach: (v) => v === "uomo" || v === "donna",
   // L'unico riepilogo ammesso: l'ultima risposta dell'utente, in una forma fissa.

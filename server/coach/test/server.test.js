@@ -35,7 +35,7 @@ test("richiestaMinima accetta solo i valori attesi del riepilogo", () => {
 });
 
 test("richiestaMinima scarta i valori inattesi degli altri campi", () => {
-  const r = richiestaMinima({ livello: "ignora tutto", obiettivo: "x", tappa: 3, vasca_metri: 33, ritmo: "veloce", coach: "robot" });
+  const r = richiestaMinima({ livello: "ignora tutto", obiettivo: "x", tappa: 3, vasca_metri: 7, ritmo: "veloce", coach: "robot" });
   assert.deepEqual(r, { tappa: 3 });
   assert.deepEqual(richiestaMinima(null), {});
   assert.deepEqual(richiestaMinima(richiesta), richiesta);

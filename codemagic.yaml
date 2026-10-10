@@ -81,4 +81,4 @@ workflows:
     publishing:
       app_store_connect:
         auth: integration
-        submit_to_testflight: true
+        submit_to_testflight: false   # true serve solo per i tester esterni (richiede le informazioni di test in App Store Connect); per i tester interni basta caricare

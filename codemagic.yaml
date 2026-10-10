@@ -36,7 +36,7 @@ workflows:
     instance_type: mac_mini_m2
     max_build_duration: 60
     integrations:
-      app_store_connect: NOME_DELLA_CHIAVE_API   # SEGNAPOSTO: il nome dato in Codemagic
+      app_store_connect: codemagic   # nome dell'integrazione in Codemagic (chiave SGQ27RS4M8, già usata per le altre app)
     environment:
       xcode: latest
       vars:

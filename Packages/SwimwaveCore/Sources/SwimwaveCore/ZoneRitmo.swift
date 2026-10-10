@@ -1,28 +1,39 @@
 import Foundation
 
-/// Test per trovare il proprio ritmo di riferimento: due prove a tutta (200 m e 400 m di stile libero),
-/// da cui si ricava la velocità critica (CSS). Il calcolo è matematica; le zone (percentuali e parole)
-/// sono in content/zone-ritmo.json e restano in bozza finché l'istruttore non le approva (CLAUDE.md).
+/// Test per trovare il proprio ritmo di riferimento: una prova a tutta sui 200 m di stile libero.
+/// Il test dei 400 m non si propone agli adulti (decisione dell'istruttore, 11 ottobre 2026); `tempo400Secondi`
+/// resta opzionale solo per leggere i test già salvati. Le zone (percentuali e parole) sono in
+/// content/zone-ritmo.json e restano in bozza finché l'istruttore non le approva (CLAUDE.md).
 public struct TestRitmo: Codable, Equatable, Sendable {
     public var data: Date
     public var tempo200Secondi: Int
-    public var tempo400Secondi: Int
+    public var tempo400Secondi: Int?
 
-    public init(data: Date = Date(), tempo200Secondi: Int, tempo400Secondi: Int) {
+    public init(data: Date = Date(), tempo200Secondi: Int, tempo400Secondi: Int? = nil) {
         self.data = data
         self.tempo200Secondi = tempo200Secondi
         self.tempo400Secondi = tempo400Secondi
     }
 
-    /// Secondi ogni 100 m alla velocità critica: (T400 - T200) / 2. Nil se i tempi non sono plausibili
-    /// (il 400 deve richiedere più del doppio del 200, e i tempi devono essere positivi).
+    /// Secondi ogni 100 m alla velocità critica: (T400 - T200) / 2. Nil senza il tempo dei 400 m o se i tempi non
+    /// sono plausibili (il 400 deve richiedere più del doppio del 200). Non usato dall'app, che parte dai 200 m.
     public var ritmoCriticoPer100: Double? {
-        guard tempo200Secondi > 0, tempo400Secondi > 2 * tempo200Secondi else { return nil }
-        return Double(tempo400Secondi - tempo200Secondi) / 2.0
+        guard let t400 = tempo400Secondi, tempo200Secondi > 0, t400 > 2 * tempo200Secondi else { return nil }
+        return Double(t400 - tempo200Secondi) / 2.0
+    }
+
+    /// Tempi dei 200 m che l'app considera plausibili: da 1:30 a 15:00.
+    public static let durata200Plausibile = 90...900
+
+    /// Secondi ogni 100 m al ritmo dei 200 m a tutta: T200 / 2. È il ritmo di riferimento delle zone
+    /// (percentuali della velocità sui 200 m, vedi content/zone-ritmo.json). Nil se il tempo non è plausibile.
+    public var ritmoRiferimentoPer100: Double? {
+        guard Self.durata200Plausibile.contains(tempo200Secondi) else { return nil }
+        return Double(tempo200Secondi) / 2.0
     }
 }
 
-/// Zona di ritmo di content/zone-ritmo.json: un intervallo di velocità in percentuale della velocità critica.
+/// Zona di ritmo di content/zone-ritmo.json: un intervallo di velocità in percentuale della velocità sui 200 m a tutta.
 public struct ZonaRitmo: Codable, Equatable, Sendable, Identifiable, ContenutoConStato {
     public var id: String
     public var nome: String
@@ -42,7 +53,7 @@ public struct ZonaRitmo: Codable, Equatable, Sendable, Identifiable, ContenutoCo
     }
 
     /// Ritmo ogni 100 m (secondi) per questa zona, dato il ritmo critico. Più veloce = numero più basso.
-    /// Velocità = percentuale della velocità critica, quindi ritmo = ritmo critico * 100 / percentuale.
+    /// Velocità = percentuale della velocità di riferimento, quindi ritmo = ritmo di riferimento * 100 / percentuale.
     public func intervalloRitmo(ritmoCriticoPer100: Double) -> (piuVeloce: Double, piuLento: Double)? {
         guard velocitaDaPercentuale > 0, velocitaAPercentuale > 0, ritmoCriticoPer100 > 0 else { return nil }
         let a = ritmoCriticoPer100 * 100.0 / velocitaDaPercentuale

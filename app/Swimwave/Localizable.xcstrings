@@ -8195,19 +8195,19 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hai fatto il test dei 200 e dei 400 metri"
+            "value": "Hai fatto il test dei 200 metri"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "You've done the 200 m and 400 m tests"
+            "value": "You've done the 200 m test"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Has hecho la prueba de los 200 y de los 400 metros"
+            "value": "Has hecho la prueba de los 200 metros"
           }
         }
       }
@@ -9368,19 +9368,19 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Il tuo ritmo critico: %@ ogni 100 m"
+            "value": "Il tuo ritmo sui 200 m: %@ ogni 100 m"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Your critical pace: %@ per 100 m"
+            "value": "Your 200 m pace: %@ per 100 m"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tu ritmo crítico: %@ cada 100 m"
+            "value": "Tu ritmo en 200 m: %@ cada 100 m"
           }
         }
       }
@@ -9391,19 +9391,19 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Due prove per scoprire a che ritmo nuotare."
+            "value": "Una prova di 200 m per scoprire a che ritmo nuotare."
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Two tests to find out what pace to swim at."
+            "value": "One 200 m test to find out what pace to swim at."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dos pruebas para descubrir a qué ritmo nadar."
+            "value": "Una prueba de 200 m para descubrir a qué ritmo nadar."
           }
         }
       }
@@ -11783,19 +11783,19 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Il tuo ritmo critico"
+            "value": "Il tuo ritmo sui 200 m"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Your critical pace"
+            "value": "Your 200 m pace"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tu ritmo crítico"
+            "value": "Tu ritmo en 200 m"
           }
         }
       }
@@ -11921,19 +11921,19 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ricontrolla i tempi: il 400 dovrebbe richiedere più del doppio del 200. Puoi rifare il test quando vuoi."
+            "value": "Ricontrolla il tempo: i 200 m dovrebbero richiedere tra 1:30 e 15:00. Puoi rifare il test quando vuoi."
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Double-check your times: the 400 should take more than twice as long as the 200. You can retake the test anytime."
+            "value": "Double-check your time: 200 m should take between 1:30 and 15:00. You can retake the test anytime."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Revisa los tiempos: el de 400 debería llevar más del doble que el de 200. Puedes repetir el test cuando quieras."
+            "value": "Revisa el tiempo: los 200 m deberían llevar entre 1:30 y 15:00. Puedes repetir el test cuando quieras."
           }
         }
       }
@@ -12128,19 +12128,19 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dopo le due prove, scegli i tuoi tempi: vedrai subito il tuo ritmo."
+            "value": "Dopo la prova dei 200 m, scegli il tuo tempo: vedrai subito il tuo ritmo."
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "After the two tests, choose your times: you'll see your pace right away."
+            "value": "After the 200 m test, choose your time: you'll see your pace right away."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Después de las dos pruebas, elige tus tiempos: verás enseguida tu ritmo."
+            "value": "Después de la prueba de 200 m, elige tu tiempo: verás enseguida tu ritmo."
           }
         }
       }

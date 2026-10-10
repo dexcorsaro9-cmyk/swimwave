@@ -1,7 +1,7 @@
 import SwiftUI
 import SwimwaveCore
 
-/// "Trova il tuo ritmo": due prove (200 m e 400 m) da cui si ricava il ritmo critico e le zone di ritmo.
+/// "Trova il tuo ritmo": una prova sui 200 m a tutta da cui si ricavano il ritmo di riferimento e le zone di ritmo.
 /// Le zone e le istruzioni vengono da content/zone-ritmo.json; la vista compare solo se ci sono zone visibili.
 struct TestRitmoView: View {
     @Environment(StatoApp.self) private var stato
@@ -10,8 +10,6 @@ struct TestRitmoView: View {
     @State private var istruzioni: [String] = []
     @State private var minuti200: Int?
     @State private var secondi200 = 0
-    @State private var minuti400: Int?
-    @State private var secondi400 = 0
     @State private var rifacendo: Bool
 
     /// `rifacendo: true` apre subito il modulo per ripetere il test (dall'invito nel Percorso).
@@ -92,8 +90,6 @@ struct TestRitmoView: View {
                 .foregroundStyle(Tema.testoSecondario)
             SelettoreTempo(titolo: testo("oggi.metri", 200), minutiPossibili: 1...10,
                            minuti: $minuti200, secondi: $secondi200)
-            SelettoreTempo(titolo: testo("oggi.metri", 400), minutiPossibili: 2...20,
-                           minuti: $minuti400, secondi: $secondi400)
         }
         .carta()
 
@@ -111,12 +107,9 @@ struct TestRitmoView: View {
 
     @ViewBuilder
     private var risultato: some View {
-        if let m200 = minuti200, let m400 = minuti400 {
-            let test = TestRitmo(
-                tempo200Secondi: m200 * 60 + secondi200,
-                tempo400Secondi: m400 * 60 + secondi400
-            )
-            if let ritmo = test.ritmoCriticoPer100 {
+        if let m200 = minuti200 {
+            let test = TestRitmo(tempo200Secondi: m200 * 60 + secondi200)
+            if let ritmo = test.ritmoRiferimentoPer100 {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("ritmo.critico.titolo")
                         .font(Tema.sottotitolo)
@@ -151,7 +144,7 @@ struct TestRitmoView: View {
 
     @ViewBuilder
     private func testSalvato(_ test: TestRitmo) -> some View {
-        if let ritmo = test.ritmoCriticoPer100 {
+        if let ritmo = test.ritmoRiferimentoPer100 {
             VStack(alignment: .leading, spacing: 6) {
                 Text("ritmo.critico.titolo")
                     .font(Tema.sottotitolo)
@@ -176,8 +169,6 @@ struct TestRitmoView: View {
         Button {
             minuti200 = nil
             secondi200 = 0
-            minuti400 = nil
-            secondi400 = 0
             rifacendo = true
         } label: {
             Text("ritmo.rifai")

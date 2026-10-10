@@ -123,6 +123,18 @@ final class ZoneRitmoTests: XCTestCase {
         XCTAssertNil(TestRitmo(tempo200Secondi: 180, tempo400Secondi: 300).ritmoCriticoPer100)  // 400 non oltre il doppio del 200
         XCTAssertNil(TestRitmo(tempo200Secondi: 0, tempo400Secondi: 300).ritmoCriticoPer100)
         XCTAssertNil(TestRitmo(tempo200Secondi: 180, tempo400Secondi: 360).ritmoCriticoPer100)  // uguale al doppio
+
+    func testRitmoDiRiferimentoSoloDai200() throws {
+        XCTAssertEqual(TestRitmo(tempo200Secondi: 200).ritmoRiferimentoPer100, 100)
+        XCTAssertNil(TestRitmo(tempo200Secondi: 200).ritmoCriticoPer100)   // senza i 400 m niente velocità critica
+        XCTAssertNil(TestRitmo(tempo200Secondi: 60).ritmoRiferimentoPer100)
+        XCTAssertNil(TestRitmo(tempo200Secondi: 901).ritmoRiferimentoPer100)
+        // Un test salvato prima, con i 400 m, si legge ancora; uno nuovo senza 400 m pure.
+        let vecchio = #"{"data":0,"tempo200Secondi":180,"tempo400Secondi":390}"#
+        let nuovo = #"{"data":0,"tempo200Secondi":180}"#
+        XCTAssertEqual(try JSONDecoder().decode(TestRitmo.self, from: Data(vecchio.utf8)).tempo400Secondi, 390)
+        XCTAssertNil(try JSONDecoder().decode(TestRitmo.self, from: Data(nuovo.utf8)).tempo400Secondi)
+    }
     }
 
     func testIntervalloRitmoDellaZona() {

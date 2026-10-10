@@ -52,8 +52,7 @@ struct PercorsoView: View {
                             .buttonStyle(.plain)
                         }
                     }
-                    // Il test del ritmo (200 m + 400 m a tutta) non si propone agli adulti: l'istruttore lo ha escluso.
-                    // Resta nel codice e nei dati, spento da `Funzioni.testRitmoAgliAdulti`.
+                    // Il test del ritmo è solo sui 200 m (il 400 m non si propone agli adulti). Compare quando le zone sono approvate.
                     if Funzioni.testRitmoAgliAdulti, !stato.contenuti.zone.isEmpty {
                         Button { foglio = .testRitmo } label: {
                             cartaTestRitmo
@@ -127,7 +126,7 @@ struct PercorsoView: View {
     /// Sotto la carta del test: se è stato fatto, dice dove si vedono i tempi obiettivo; dopo qualche settimana, un invito gentile a rifarlo.
     @ViewBuilder
     private var invitoTestRitmo: some View {
-        if let t = stato.testRitmo, t.ritmoCriticoPer100 != nil {
+        if let t = stato.testRitmo, t.ritmoRiferimentoPer100 != nil {
             VStack(alignment: .leading, spacing: 10) {
                 Text("retest.nota")
                     .font(Tema.piccolo)
@@ -179,7 +178,7 @@ struct PercorsoView: View {
     }
 
     private var sottotitoloTestRitmo: String {
-        if let t = stato.testRitmo, let rc = t.ritmoCriticoPer100 {
+        if let t = stato.testRitmo, let rc = t.ritmoRiferimentoPer100 {
             return testo("percorso.ritmo.salvato", FormatoRitmo.minutiSecondi(rc))
         }
         return testo("percorso.ritmo.sottotitolo")

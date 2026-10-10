@@ -1,24 +1,18 @@
 {
-  "nota": "BOZZA scritta da Claude, da controllare dall'istruttore. Le zone sono intervalli di velocità in percentuale della velocità critica (CSS) e l'app le trasforma in ritmo per 100 m: ritmo = ritmo critico x 100 / percentuale. La velocità critica è sostenuta dalle fonti (wakayoshi-1992-css, funai-2022-velocita-critica, scott-2024-css-200-400, raimundo-2022-velocita-critica), che però riguardano nuotatori agonisti e non danno percentuali di zone. I limiti delle zone sono quindi proposte prudenti nostre, senza fonte, e vanno validate. Un sito divulgativo (topendsports.com) riporta fasce simili, ma non l'ho considerato autorevole e non l'ho registrato come fonte.",
-  "istruzioni_test": "Il test serve a trovare il tuo ritmo di riferimento. Prima del test: fallo solo se ti senti bene e sei abituato a nuotare in continuità (è consigliato dal livello intermedio in su). Due prove a tutta sono faticose: in caso di dubbio chiedi al medico. Come si fa: 1) Riscaldati con 200-400 m facili, più qualche allungo corto. 2) Nuota 200 m di stile libero a tutta, cioè al ritmo più veloce che riesci a tenere fino alla fine, partendo dal bordo (niente tuffo). Annota il tempo. 3) Riposa a lungo, finché senti di aver recuperato bene: circa 20 minuti camminando o nuotando piano. In alternativa, fai le due prove in due giorni diversi. 4) Nuota 400 m di stile libero a tutta, sempre dal bordo. Annota il tempo. Usa la stessa vasca (25 o 50 m) per entrambe le prove. Se il tempo dei 400 m è meno del doppio di quello dei 200 m, qualcosa non torna: ripeti il test un altro giorno. Se ti senti male, fermati e riposa.",
-  "fonti": [
-    "wakayoshi-1992-css",
-    "funai-2022-velocita-critica",
-    "scott-2024-css-200-400",
-    "raimundo-2022-velocita-critica",
-    "usms-css-botyarov"
-  ],
-  "nota_fonti": "Le fonti (funai-2022-velocita-critica, scott-2024-css-200-400) sostengono solo l'idea di due prove massimali su 200 m e 400 m di stile libero; nello studio di Scott le prove sono in giorni diversi (almeno 48 ore). Riscaldamento, durata del riposo (circa 20 minuti), partenza dal bordo, scelta della vasca e l'avvertimento sono proposte nostre, senza fonte: da confermare dall'istruttore. L'articolo di Botyarov (usms-css-botyarov) propone invece uno sforzo sostenibile, non a tutta. Wakayoshi (wakayoshi-1992-css) e gli altri studi riguardano nuotatori agonisti, non adulti alle prime armi.",
+  "nota": "BOZZA scritta da Claude, da controllare dall'istruttore. Le zone sono intervalli di velocità in percentuale della velocità tenuta nei 200 m di stile libero a tutta; l'app le trasforma in ritmo per 100 m: ritmo = ritmo dei 200 m x 100 / percentuale (ritmo dei 200 m = tempo / 2). Decisione dell'istruttore: il test dei 400 m non si propone agli adulti, quindi non si calcola la velocità critica (CSS). Non ho trovato una fonte autorevole che dia zone in percentuale della velocità sui 200 m: i limiti sono proposte prudenti nostre, senza fonte, e vanno validate o sostituite con il metodo dell'istruttore. Gli studi sulla velocità critica (wakayoshi-1992-css, funai-2022-velocita-critica, scott-2024-css-200-400, raimundo-2022-velocita-critica) riguardano nuotatori agonisti e due prove; non sostengono questo uso.",
+  "istruzioni_test": "Il test serve a trovare il tuo ritmo di riferimento. Prima del test: fallo solo se ti senti bene e sei abituato a nuotare in continuità (è consigliato dal livello intermedio in su). Una prova a tutta è faticosa: in caso di dubbio chiedi al medico. Come si fa: 1) Riscaldati con 200-400 m facili, più qualche allungo corto. 2) Nuota 200 m di stile libero a tutta, cioè al ritmo più veloce che riesci a tenere fino alla fine, partendo dal bordo (niente tuffo). Dividi lo sforzo con intelligenza: non partire troppo forte. 3) Annota il tempo e inseriscilo nell'app. Se il tempo ti sembra troppo lontano da quello che fai di solito, ripeti il test un altro giorno. Se ti senti male, fermati e riposa.",
+  "fonti": [],
+  "nota_fonti": "Nessuna fonte registrata per il test dei 200 m come unica prova: le fonti sulla velocità critica (wakayoshi-1992-css, funai-2022-velocita-critica, scott-2024-css-200-400, raimundo-2022-velocita-critica, usms-css-botyarov) usano due distanze (200 m e 400 m) e nuotatori agonisti o master. Usare un solo 200 m a tutta come riferimento delle zone è una scelta nostra, da confermare dall'istruttore. Riscaldamento, partenza dal bordo, consiglio sul passo e avvertimento sono proposte nostre, senza fonte.",
   "zone": [
     {
       "id": "facile",
       "nome": "Facile",
       "descrizione": "Un ritmo comodo, con cui riesci anche a respirare tranquillo e a pensare alla tecnica. Va bene per scaldarti, per recuperare e per quando vuoi nuotare senza fatica.",
-      "velocita_da_pct": 70,
-      "velocita_a_pct": 80,
+      "velocita_da_pct": 55,
+      "velocita_a_pct": 65,
       "fonti": [],
       "stato": "bozza",
-      "nota_fonti": "Percentuali nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole (federazione, ente o articolo scientifico) che dia limiti di zona in percentuale della velocità critica. Il limite alto (80%) è una scelta nostra per tenere la zona sicuramente sotto la velocità critica.",
+      "nota_fonti": "Percentuali della velocità sui 200 m a tutta, nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole che dia limiti di zona rispetto a una prova di 200 m. Tutti i limiti sono nostri.",
       "intensita": [
         "facile"
       ]
@@ -27,11 +21,11 @@
       "id": "regolare",
       "nome": "Regolare",
       "descrizione": "Un ritmo costante che senti ma che puoi tenere a lungo. È la zona per costruire resistenza, vasca dopo vasca.",
-      "velocita_da_pct": 80,
-      "velocita_a_pct": 90,
+      "velocita_da_pct": 65,
+      "velocita_a_pct": 75,
       "fonti": [],
       "stato": "bozza",
-      "nota_fonti": "Percentuali nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole (federazione, ente o articolo scientifico) che dia limiti di zona in percentuale della velocità critica. Zona sotto la velocità critica, nel campo in cui la letteratura la descrive come intensità sostenibile (raimundo-2022-velocita-critica), ma i limiti 80-90% sono nostri.",
+      "nota_fonti": "Percentuali della velocità sui 200 m a tutta, nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole che dia limiti di zona rispetto a una prova di 200 m. Tutti i limiti sono nostri.",
       "intensita": [
         "media"
       ]
@@ -40,21 +34,21 @@
       "id": "sostenuto",
       "nome": "Sostenuto",
       "descrizione": "Un ritmo impegnativo ma controllato, appena sotto il tuo ritmo di riferimento. Si sente la fatica, ma sai che puoi arrivare in fondo alla serie.",
-      "velocita_da_pct": 90,
-      "velocita_a_pct": 97,
+      "velocita_da_pct": 75,
+      "velocita_a_pct": 85,
       "fonti": [],
       "stato": "bozza",
-      "nota_fonti": "Percentuali nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole (federazione, ente o articolo scientifico) che dia limiti di zona in percentuale della velocità critica. Tutti i limiti sono nostri."
+      "nota_fonti": "Percentuali della velocità sui 200 m a tutta, nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole che dia limiti di zona rispetto a una prova di 200 m. Tutti i limiti sono nostri."
     },
     {
       "id": "ritmo-critico",
-      "nome": "Ritmo critico",
-      "descrizione": "Il tuo ritmo di riferimento: il più veloce che in teoria potresti tenere a lungo. Si usa in serie corte con pause brevi, non per nuotare a lungo di fila.",
-      "velocita_da_pct": 97,
-      "velocita_a_pct": 103,
+      "nome": "Impegnativo",
+      "descrizione": "Un ritmo duro, un po' sotto quello dei tuoi 200 m a tutta. Si usa in serie corte con pause brevi, non per nuotare a lungo di fila.",
+      "velocita_da_pct": 85,
+      "velocita_a_pct": 92,
       "fonti": [],
       "stato": "bozza",
-      "nota_fonti": "Percentuali nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole (federazione, ente o articolo scientifico) che dia limiti di zona in percentuale della velocità critica. Che la velocità critica sia il confine tra sforzo sostenibile e non sostenibile è sostenuto da wakayoshi-1992-css e raimundo-2022-velocita-critica, ma non le percentuali 97-103%, che sono nostre.",
+      "nota_fonti": "Percentuali della velocità sui 200 m a tutta, nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole che dia limiti di zona rispetto a una prova di 200 m. Tutti i limiti sono nostri.",
       "intensita": [
         "forte"
       ]
@@ -62,12 +56,12 @@
     {
       "id": "veloce",
       "nome": "Veloce",
-      "descrizione": "Un ritmo più veloce del tuo riferimento, per tratti brevi. Dopo ogni tratto ti serve una pausa vera per recuperare: la usano solo i più esperti.",
-      "velocita_da_pct": 103,
-      "velocita_a_pct": 110,
+      "descrizione": "Il ritmo dei tuoi 200 m a tutta o quasi. Per tratti brevi, con una pausa vera dopo ogni tratto: la usano solo i più esperti.",
+      "velocita_da_pct": 92,
+      "velocita_a_pct": 100,
       "fonti": [],
       "stato": "bozza",
-      "nota_fonti": "Percentuali nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole (federazione, ente o articolo scientifico) che dia limiti di zona in percentuale della velocità critica. Tutti i limiti sono nostri. Lo studio funai-2022-velocita-critica indica che a circa il 110% (della frequenza di bracciata, non della velocità) il lattato supera la soglia: non è lo stesso parametro e non va usato per fissare il limite. Da valutare se proporre questa zona ai non agonisti."
+      "nota_fonti": "Percentuali della velocità sui 200 m a tutta, nostre e prudenti, DA CONFERMARE DALL'ISTRUTTORE: non ho trovato una fonte autorevole che dia limiti di zona rispetto a una prova di 200 m. Tutti i limiti sono nostri. Da valutare se proporre questa zona ai non agonisti."
     }
   ],
   "nota_intensita": "Il campo `intensita` collega le zone alle intensità dei file di allenamento (facile, media, forte) per mostrare un tempo obiettivo a ogni ripetizione quando l'utente ha fatto il test. L'abbinamento è provvisorio, scelto da noi, da confermare dall'istruttore."

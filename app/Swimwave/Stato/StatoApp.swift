@@ -482,7 +482,7 @@ final class StatoApp {
     /// Tempo obiettivo per ogni ripetizione, se l'utente ha fatto il test del ritmo e le zone sono visibili.
     func targetRitmo(per workout: Workout) -> [Int?] {
         TargetRitmo.target(per: PianoAllenamento(workout: workout),
-                           ritmoCriticoPer100: testRitmo?.ritmoCriticoPer100,
+                           ritmoCriticoPer100: testRitmo?.ritmoRiferimentoPer100,
                            zone: contenuti.zone)
     }
 
@@ -639,6 +639,6 @@ final class StatoApp {
 
 /// Interruttori di funzioni previste ma non offerte.
 enum Funzioni {
-    /// Test 200 m + 400 m a tutta per il ritmo critico: spento per gli adulti (decisione dell'istruttore, 11 ottobre 2026).
-    static let testRitmoAgliAdulti = false
+    /// Test del ritmo: solo i 200 m a tutta. Il test dei 400 m non si propone agli adulti (decisione dell'istruttore, 11 ottobre 2026).
+    static let testRitmoAgliAdulti = true
 }

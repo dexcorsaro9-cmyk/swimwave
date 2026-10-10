@@ -80,7 +80,8 @@ public enum Medaglie {
             let fatta = tappeSuperate.contains(tappa)
             risultato.append(Medaglia(id: "tappa-\(tappa)", ottenuta: fatta, soglia: 1, attuale: fatta ? 1 : 0, categoria: .percorso))
         }
-        // Nessuna medaglia per il test del ritmo: il test dei 400 m non si propone agli adulti (decisione dell'istruttore).
+        let testFatto = testRitmo != nil
+        risultato.append(Medaglia(id: "test-ritmo", ottenuta: testFatto, soglia: 1, attuale: testFatto ? 1 : 0, categoria: .percorso))
         // 100 m di stile libero senza soste: servono i tempi delle vasche con il loro istante di inizio (vedi `MiglioriTempi`).
         let cento = !MiglioriTempi.calcola(nuotate: nuotate, stile: .libero, distanze: [100]).isEmpty
         risultato.append(Medaglia(id: "cento-continui", ottenuta: cento, soglia: 1, attuale: cento ? 1 : 0, categoria: .percorso))

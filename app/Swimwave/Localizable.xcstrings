@@ -1864,6 +1864,75 @@
         }
       }
     },
+    "celebrazione.continua": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continua"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar"
+          }
+        }
+      }
+    },
+    "celebrazione.prossima": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vedi la prossima"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See the next one"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver la siguiente"
+          }
+        }
+      }
+    },
+    "celebrazione.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuova medaglia"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New medal"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nueva medalla"
+          }
+        }
+      }
+    },
     "chiedi.attesa": {
       "extractionState": "manual",
       "localizations": {
@@ -2481,6 +2550,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "m"
+          }
+        }
+      }
+    },
+    "condividi.vasca": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vasca"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pool"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Piscina"
           }
         }
       }
@@ -3727,25 +3819,186 @@
         }
       }
     },
+    "dettaglio.scivolamento.meno": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oggi hai fatto meno bracciate per vasca dell'ultima volta (%@ contro %@): stai scivolando meglio nell'acqua."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You took fewer strokes per length than last time (%@ vs %@): you're gliding better through the water."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoy has dado menos brazadas por largo que la última vez (%@ frente a %@): te estás deslizando mejor en el agua."
+          }
+        }
+      }
+    },
+    "dettaglio.scivolamento.nota": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meno bracciate per la stessa vasca vuol dire che ogni bracciata ti porta più lontano. Il confronto è con l'ultima nuotata nella stessa vasca."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fewer strokes over the same length means each stroke takes you further. It's compared with your last swim in the same pool."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menos brazadas en el mismo largo significa que cada brazada te lleva más lejos. Se compara con tu última sesión en la misma piscina."
+          }
+        }
+      }
+    },
+    "dettaglio.scivolamento.piu": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oggi hai fatto più bracciate per vasca dell'ultima volta (%@ contro %@)."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You took more strokes per length than last time (%@ vs %@)."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hoy has dado más brazadas por largo que la última vez (%@ frente a %@)."
+          }
+        }
+      }
+    },
+    "dettaglio.scivolamento.simile": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Come l'ultima volta: circa %@ bracciate per vasca."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Same as last time: about %@ strokes per length."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Igual que la última vez: unas %@ brazadas por largo."
+          }
+        }
+      }
+    },
+    "dettaglio.scivolamento.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Come scivoli"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How you glide"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cómo te deslizas"
+          }
+        }
+      }
+    },
+    "dettaglio.stili.metri": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metri"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meters"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Metros"
+          }
+        }
+      }
+    },
+    "dettaglio.stili.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stili nuotati"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Strokes swum"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estilos nadados"
+          }
+        }
+      }
+    },
     "dettaglio.swolf.nota": {
       "extractionState": "manual",
       "localizations": {
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "È il tempo di una vasca in secondi più le bracciate: più è basso, più sei efficiente."
+            "value": "È il tempo di una vasca in secondi più le bracciate: più è basso, meglio scivoli."
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "It's the time of one length in seconds plus your strokes: the lower it is, the more efficient you are."
+            "value": "It's the time of one length in seconds plus your strokes: the lower it is, the better you glide."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Es el tiempo de un largo en segundos más las brazadas: cuanto más bajo, más eficiente eres."
+            "value": "Es el tiempo de un largo en segundos más las brazadas: cuanto más bajo, mejor te deslizas."
           }
         }
       }
@@ -3756,19 +4009,19 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "SWOLF indicativo"
+            "value": "Efficienza (SWOLF)"
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Estimated SWOLF"
+            "value": "Efficiency (SWOLF)"
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "SWOLF orientativo"
+            "value": "Eficiencia (SWOLF)"
           }
         }
       }
@@ -6533,6 +6786,121 @@
         }
       }
     },
+    "medaglia.cento-continui.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai nuotato 100 metri a stile libero senza fermarti"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You've swum 100 meters of freestyle without stopping"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Has nadado 100 metros de estilo libre sin parar"
+          }
+        }
+      }
+    },
+    "medaglia.cento-continui.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cento di fila"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A Hundred Straight"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cien seguidos"
+          }
+        }
+      }
+    },
+    "medaglia.condividi.messaggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ho ottenuto la medaglia «%@» su Swimwave"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I earned the “%@” medal on Swimwave"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "He conseguido la medalla «%@» en Swimwave"
+          }
+        }
+      }
+    },
+    "medaglia.fedele-vasca.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per 3 settimane di fila hai nuotato almeno 2 volte"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You've swum at least twice a week for 3 weeks in a row"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durante 3 semanas seguidas has nadado al menos 2 veces"
+          }
+        }
+      }
+    },
+    "medaglia.fedele-vasca.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fedele alla vasca"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "True to the Pool"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fiel a la piscina"
+          }
+        }
+      }
+    },
     "medaglia.metri-1000.descrizione": {
       "extractionState": "manual",
       "localizations": {
@@ -7863,6 +8231,190 @@
           "stringUnit": {
             "state": "translated",
             "value": "Mi ritmo"
+          }
+        }
+      }
+    },
+    "medaglia.traversata-bonifacio.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai nuotato 11 km in tutto: la distanza tra Sardegna e Corsica nel punto più stretto"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You've swum 11 km in total: the distance between Sardinia and Corsica at the narrowest point"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Has nadado 11 km en total: la distancia entre Cerdeña y Córcega en el punto más estrecho"
+          }
+        }
+      }
+    },
+    "medaglia.traversata-bonifacio.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bocche di Bonifacio"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Strait of Bonifacio"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bocas de Bonifacio"
+          }
+        }
+      }
+    },
+    "medaglia.traversata-gibilterra.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai nuotato 14,2 km in tutto: la distanza tra Europa e Africa nel punto più stretto"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You've swum 14.2 km in total: the distance between Europe and Africa at the narrowest point"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Has nadado 14,2 km en total: la distancia entre Europa y África en el punto más estrecho"
+          }
+        }
+      }
+    },
+    "medaglia.traversata-gibilterra.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stretto di Gibilterra"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Strait of Gibraltar"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estrecho de Gibraltar"
+          }
+        }
+      }
+    },
+    "medaglia.traversata-manica.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai nuotato 34 km in tutto: la distanza tra Inghilterra e Francia nel punto più stretto"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You've swum 34 km in total: the distance between England and France at the narrowest point"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Has nadado 34 km en total: la distancia entre Inglaterra y Francia en el punto más estrecho"
+          }
+        }
+      }
+    },
+    "medaglia.traversata-manica.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La Manica"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The English Channel"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El Canal de la Mancha"
+          }
+        }
+      }
+    },
+    "medaglia.traversata-messina.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hai nuotato 3,1 km in tutto: la larghezza dello Stretto di Messina nel punto più stretto"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You've swum 3.1 km in total: the width of the Strait of Messina at its narrowest"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Has nadado 3,1 km en total: la anchura del estrecho de Mesina en su punto más estrecho"
+          }
+        }
+      }
+    },
+    "medaglia.traversata-messina.nome": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stretto di Messina"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Strait of Messina"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estrecho de Mesina"
           }
         }
       }
@@ -13548,6 +14100,29 @@
         }
       }
     },
+    "traguardi.categoria.traversate": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Traversate"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crossings"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Travesías"
+          }
+        }
+      }
+    },
     "traguardi.conteggio": {
       "extractionState": "manual",
       "localizations": {
@@ -13571,6 +14146,52 @@
         }
       }
     },
+    "traguardi.prossima": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La prossima"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next up"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La siguiente"
+          }
+        }
+      }
+    },
+    "traguardi.suTotale": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "su %ld"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "of %ld"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "de %ld"
+          }
+        }
+      }
+    },
     "traguardi.titolo": {
       "extractionState": "manual",
       "localizations": {
@@ -13590,6 +14211,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Logros"
+          }
+        }
+      }
+    },
+    "traguardi.titolo2": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le tue medaglie"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your medals"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tus medallas"
           }
         }
       }

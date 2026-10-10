@@ -39,6 +39,8 @@ final class WorkoutManager: NSObject, ObservableObject {
     /// Vero quando la sessione HealthKit è in pausa (allineato allo stato reale nel delegate).
     @Published var inPausa = false
     @Published var recuperoRimanente = 0
+    /// Vero dopo l'avviso dei 5 secondi di fine recupero (una vibrazione sola per recupero).
+    private var avvisoRecuperoDato = false
     /// Metri nuotati nella ripetizione corrente, letti da HealthKit.
     @Published var metriNellaRipetizione = 0.0
     @Published var messaggioErrore: String?
@@ -309,6 +311,8 @@ final class WorkoutManager: NSObject, ObservableObject {
             terminaSessione()
         case .recupero(let secondi):
             recuperoRimanente = secondi
+            // Un recupero di 5 secondi o meno non ha bisogno dell'avviso.
+            avvisoRecuperoDato = secondi <= 5
             recuperoFine = Date().addingTimeInterval(TimeInterval(secondi))
             WKInterfaceDevice.current().play(.success)
         case .nuoto:
@@ -356,6 +360,10 @@ final class WorkoutManager: NSObject, ObservableObject {
         if modo == .scheda, let av = avanzamento, case .recupero = av.fase, let fine = recuperoFine {
             let resto = Int(ceil(fine.timeIntervalSinceNow))
             recuperoRimanente = max(0, resto)
+            if resto <= 5, resto > 0, !avvisoRecuperoDato {
+                avvisoRecuperoDato = true
+                WKInterfaceDevice.current().play(.notification)
+            }
             if resto <= 0 { recuperoFinito() }
         }
     }

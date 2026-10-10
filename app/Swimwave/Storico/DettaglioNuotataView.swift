@@ -35,6 +35,15 @@ struct DettaglioNuotataView: View {
                 numeriPrincipali(n)
                 altriNumeri(n)
                 sensazione
+                if let confronto = Efficienza.confronto(di: n, con: stato.nuotate) {
+                    SezioneScivolamento(confronto: confronto)
+                }
+                if let vasche = n.vasche {
+                    let quote = Efficienza.distribuzioneStili(vasche)
+                    if !quote.isEmpty {
+                        SezioneStili(quote: quote)
+                    }
+                }
                 if let vasche = n.vasche, !vasche.isEmpty {
                     SezioneVasche(nuotata: n, vasche: vasche)
                 }
@@ -327,6 +336,115 @@ private struct NumeroGrande: View {
         }
         .frame(maxWidth: .infinity)
         .accessibilityElement(children: .combine)
+    }
+}
+
+// MARK: - Scivolamento
+
+/// "Come scivoli": le bracciate per vasca di oggi contro l'ultima volta nella stessa vasca, in una frase sola.
+private struct SezioneScivolamento: View {
+    let confronto: ConfrontoBracciate
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Label {
+                Text("dettaglio.scivolamento.titolo")
+                    .font(Tema.sottotitolo)
+                    .foregroundStyle(Tema.testo)
+            } icon: {
+                Image(systemName: simbolo)
+                    .foregroundStyle(Tema.turchese)
+            }
+            .accessibilityAddTraits(.isHeader)
+            Text(verbatim: frase)
+                .font(Tema.corpo)
+                .foregroundStyle(Tema.testo)
+                .fixedSize(horizontal: false, vertical: true)
+            Text("dettaglio.scivolamento.nota")
+                .font(Tema.piccolo)
+                .foregroundStyle(Tema.testoSecondario)
+        }
+        .carta()
+    }
+
+    private var simbolo: String {
+        switch confronto {
+        case .meno: return "arrow.down.right.circle.fill"
+        case .simile: return "equal.circle.fill"
+        case .piu: return "arrow.up.right.circle.fill"
+        }
+    }
+
+    private var frase: String {
+        switch confronto {
+        case .meno(let oggi, let prima):
+            return testo("dettaglio.scivolamento.meno", FormatiStorico.decimale(oggi), FormatiStorico.decimale(prima))
+        case .simile(let oggi, _):
+            return testo("dettaglio.scivolamento.simile", FormatiStorico.decimale(oggi))
+        case .piu(let oggi, let prima):
+            return testo("dettaglio.scivolamento.piu", FormatiStorico.decimale(oggi), FormatiStorico.decimale(prima))
+        }
+    }
+}
+
+// MARK: - Stili
+
+/// Gli stili nuotati in una ciambella, con la percentuale di ogni stile. Solo stili che l'orologio ha riconosciuto.
+private struct SezioneStili: View {
+    let quote: [QuotaStile]
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Text("dettaglio.stili.titolo")
+                .font(Tema.sottotitolo)
+                .foregroundStyle(Tema.testo)
+                .accessibilityAddTraits(.isHeader)
+            HStack(alignment: .center, spacing: 18) {
+                Chart(quote) { q in
+                    SectorMark(
+                        angle: .value(testo("dettaglio.stili.metri"), q.metri),
+                        innerRadius: .ratio(0.6),
+                        angularInset: quote.count > 1 ? 2 : 0
+                    )
+                    .cornerRadius(4)
+                    .foregroundStyle(colore(q.stile))
+                }
+                .chartLegend(.hidden)
+                .frame(width: 130, height: 130)
+                .accessibilityHidden(true)
+                VStack(alignment: .leading, spacing: 8) {
+                    ForEach(quote) { q in
+                        HStack(spacing: 8) {
+                            Circle()
+                                .fill(colore(q.stile))
+                                .frame(width: 12, height: 12)
+                                .accessibilityHidden(true)
+                            Text(verbatim: q.stile.etichetta)
+                                .font(Tema.corpo)
+                                .foregroundStyle(Tema.testo)
+                            Spacer(minLength: 4)
+                            Text(verbatim: "\(q.percentuale)%")
+                                .font(Tema.sottotitolo)
+                                .monospacedDigit()
+                                .foregroundStyle(Tema.testo)
+                        }
+                        .accessibilityElement(children: .combine)
+                    }
+                }
+            }
+        }
+        .carta()
+    }
+
+    /// Un colore per stile, scelti perché si distinguano anche con il tema scuro.
+    private func colore(_ stile: Stile) -> Color {
+        switch stile {
+        case .libero: return Tema.turchese
+        case .dorso: return Color(red: 0.36, green: 0.55, blue: 0.95)
+        case .rana: return Tema.corallo
+        case .delfino: return Color(red: 0.62, green: 0.45, blue: 0.92)
+        case .misto: return Tema.testoSecondario
+        }
     }
 }
 

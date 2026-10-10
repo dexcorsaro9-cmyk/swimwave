@@ -3,11 +3,11 @@ import Foundation
 /// Le medaglie (in italiano "traguardi") si sbloccano con dati reali dell'utente. Nomi e grafica li decidono le schermate:
 /// qui ci sono solo id, soglie e avanzamento.
 public enum CategoriaMedaglia: String, Sendable, CaseIterable {
-    case nuotate, distanza, costanza, percorso
+    case nuotate, distanza, traversate, costanza, percorso
 }
 
 public struct Medaglia: Equatable, Sendable, Identifiable {
-    /// "prima-nuotata", "nuotate-10", "metri-5000", "serie-4", "tappa-5", "test-ritmo".
+    /// "prima-nuotata", "nuotate-10", "metri-5000", "traversata-messina", "serie-4", "fedele-vasca", "tappa-5", "test-ritmo", "cento-continui".
     public var id: String
     public var ottenuta: Bool
     /// Valore da raggiungere (per "tappa-N" e "test-ritmo": 1).
@@ -31,8 +31,21 @@ public enum Medaglie {
     /// Come le tappe di content/percorso.json (1...10).
     public static let tappe = Array(1...10)
 
+    /// Traversate simboliche: i metri nuotati in totale (tutte le nuotate) contro la larghezza minima dello stretto.
+    /// Larghezze da Wikipedia: Messina 3,1 km, Bonifacio 11 km, Gibilterra 14,2 km, Manica (Dover) 34 km.
+    public static let traversate: [(id: String, metri: Int)] = [
+        ("traversata-messina", 3_100),
+        ("traversata-bonifacio", 11_000),
+        ("traversata-gibilterra", 14_200),
+        ("traversata-manica", 34_000),
+    ]
+
+    /// "Fedele alla vasca": settimane di fila con almeno `nuotateFedele` nuotate.
+    public static let settimaneFedele = 3
+    public static let nuotateFedele = 2
+
     /// Elenco completo, ottenute e da ottenere, in ordine di categoria e soglia:
-    /// nuotate (1, 10, 25, 50, 100; la prima ha id "prima-nuotata"), distanza (metri totali), costanza (serie di settimane,
+    /// nuotate (1, 10, 25, 50, 100; la prima ha id "prima-nuotata"), distanza (metri totali), traversate (metri totali contro la larghezza di uno stretto), costanza (serie di settimane,
     /// soglie di `SerieSettimane.traguardi`), percorso (tappe 1...10 e "test-ritmo").
     /// `serieSettimane` è il valore da confrontare con le soglie: per non togliere una medaglia a chi interrompe la serie,
     /// chi chiama passa la serie migliore mai raggiunta (`RecordPersonali.serieMassimaSettimane`), non solo quella in corso.
@@ -52,9 +65,16 @@ public enum Medaglie {
             risultato.append(Medaglia(id: "metri-\(soglia)", ottenuta: metri >= soglia, soglia: soglia, attuale: metri, categoria: .distanza))
         }
 
+        for t in traversate {
+            risultato.append(Medaglia(id: t.id, ottenuta: metri >= t.metri, soglia: t.metri, attuale: metri, categoria: .traversate))
+        }
+
         for soglia in SerieSettimane.traguardi {
             risultato.append(Medaglia(id: "serie-\(soglia)", ottenuta: serieSettimane >= soglia, soglia: soglia, attuale: serieSettimane, categoria: .costanza))
         }
+        let fedele = SerieSettimane.serieMassima(conAlmeno: nuotateFedele, date: nuotate.map(\.data))
+        risultato.append(Medaglia(id: "fedele-vasca", ottenuta: fedele >= settimaneFedele, soglia: settimaneFedele,
+                                  attuale: fedele, categoria: .costanza))
 
         for tappa in tappe {
             let fatta = tappeSuperate.contains(tappa)
@@ -62,6 +82,9 @@ public enum Medaglie {
         }
         let testFatto = testRitmo != nil
         risultato.append(Medaglia(id: "test-ritmo", ottenuta: testFatto, soglia: 1, attuale: testFatto ? 1 : 0, categoria: .percorso))
+        // 100 m di stile libero senza soste: servono i tempi delle vasche con il loro istante di inizio (vedi `MiglioriTempi`).
+        let cento = !MiglioriTempi.calcola(nuotate: nuotate, stile: .libero, distanze: [100]).isEmpty
+        risultato.append(Medaglia(id: "cento-continui", ottenuta: cento, soglia: 1, attuale: cento ? 1 : 0, categoria: .percorso))
 
         return risultato
     }

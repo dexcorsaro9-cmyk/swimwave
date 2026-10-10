@@ -97,3 +97,10 @@ Da controllare, in ordine:
 - **Attrezzi** (`attrezzi` e `attrezzi_facoltativi` in `content/drills.json`): l'app mostra "Porta a bordo vasca" in base a questi campi. Li ho ricavati dal testo dei drill. Necessari: tavoletta (Respirazione laterale con tavoletta), pull buoy (Nuotata con pull buoy). Facoltativi: tavoletta (Battuta con tavoletta), pinne (Sei colpi e cambio, Dorso: battuta con rotazione, Delfino: sei colpi una bracciata, Onda del delfino), snorkel (Onda del delfino). Controlla che siano giusti e se ne manca qualcuno.
 - **Dopo "dura", cosa non andava?** Percentuali nostre, provvisorie: mancava il fiato = recuperi +50% (almeno +5 s); braccia o gambe stanche = un quarto di ripetizioni in meno nelle serie principali; esercizio troppo difficile = si sceglie tra la metà di allenamenti con le tappe più basse. Va bene così o preferisci altri valori?
 - **Vasche da 16, 20, 33 m e altre misure**: le distanze degli allenamenti, scritte per 25 m, si arrotondano al multiplo della vasca più vicino (per esempio 50 m diventano 40 m in vasca da 20). Controlla che il risultato abbia senso per i principianti (nelle vasche da 33 m una vasca singola è già lunga).
+
+## 10. Medaglie, traversate ed efficienza
+
+- **Traversate** (`Medaglie.traversate`): Stretto di Messina 3.100 m, Bonifacio 11.000 m, Gibilterra 14.200 m, Manica 34.000 m. Sono distanze indicative della traversata a nuoto, verificate su fonti pubbliche (Wikipedia); le medaglie contano i metri nuotati in totale nell'app, non sono traversate vere. Sono i numeri giusti per l'istruttore, o preferisci altre tappe?
+- **Fedele alla vasca**: 2 nuotate a settimana per 3 settimane di fila. **Cento di fila**: 100 m senza fermarsi. Soglie nostre, provvisorie.
+- **Efficienza (SWOLF)**: l'app confronta le bracciate per vasca con la nuotata precedente e dice "meno / simile / più" se la differenza è almeno 1,0 bracciata. La soglia di 1,0 è provvisoria: dimmi se ti sembra giusta.
+- **Avviso a 5 secondi dalla fine del recupero**: una vibrazione, sia sul Watch che sull'iPhone guidato. Da provare in acqua con il Watch vero.

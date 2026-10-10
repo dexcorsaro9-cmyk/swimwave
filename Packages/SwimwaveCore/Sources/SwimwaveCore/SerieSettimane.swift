@@ -44,6 +44,30 @@ public enum SerieSettimane {
         return serie
     }
 
+    /// La serie più lunga mai fatta di settimane di fila con almeno `minimo` nuotate (a prescindere dal profilo).
+    public static func serieMassima(conAlmeno minimo: Int, date: [Date], calendar: Calendar = .italiano) -> Int {
+        var perSettimana: [Date: Int] = [:]
+        for d in date {
+            if let inizio = calendar.dateInterval(of: .weekOfYear, for: d)?.start {
+                perSettimana[inizio, default: 0] += 1
+            }
+        }
+        let valide = perSettimana.filter { $0.value >= minimo }.keys.sorted()
+        var migliore = 0
+        var corrente = 0
+        var precedente: Date?
+        for inizio in valide {
+            if let p = precedente, calendar.date(byAdding: .weekOfYear, value: 1, to: p) == inizio {
+                corrente += 1
+            } else {
+                corrente = 1
+            }
+            migliore = max(migliore, corrente)
+            precedente = inizio
+        }
+        return migliore
+    }
+
     /// Il traguardo appena raggiunto con questo valore, se `serie` è proprio uno dei traguardi.
     public static func traguardo(per serie: Int) -> Int? {
         traguardi.contains(serie) ? serie : nil

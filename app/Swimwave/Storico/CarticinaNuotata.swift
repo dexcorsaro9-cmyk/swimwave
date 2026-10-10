@@ -35,6 +35,9 @@ struct CarticinaNuotata: View {
                 if let r = nuotata.ritmoPer100Secondi {
                     voce(valore: FormatoRitmo.minutiSecondi(r), etichetta: "condividi.ritmo")
                 }
+                if nuotata.ambiente != .acqueLibere, let v = nuotata.vascaMetri, v > 0 {
+                    voce(valore: "\(v) m", etichetta: "condividi.vasca")
+                }
             }
 
             HStack(spacing: 8) {

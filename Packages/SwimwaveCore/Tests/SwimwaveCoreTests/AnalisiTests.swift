@@ -623,23 +623,25 @@ final class MedaglieTests: XCTestCase {
         XCTAssertEqual(e.map(\.id), [
             "prima-nuotata", "nuotate-10", "nuotate-25", "nuotate-50", "nuotate-100",
             "metri-1000", "metri-5000", "metri-10000", "metri-25000", "metri-50000", "metri-100000",
-            "serie-2", "serie-4", "serie-8", "serie-12", "serie-26", "serie-52",
+            "traversata-messina", "traversata-bonifacio", "traversata-gibilterra", "traversata-manica",
+            "serie-2", "serie-4", "serie-8", "serie-12", "serie-26", "serie-52", "fedele-vasca",
             "tappa-1", "tappa-2", "tappa-3", "tappa-4", "tappa-5", "tappa-6", "tappa-7", "tappa-8", "tappa-9", "tappa-10",
-            "test-ritmo"
+            "test-ritmo", "cento-continui"
         ])
         XCTAssertEqual(Set(e.map(\.id)).count, e.count)                  // id tutti diversi
         XCTAssertTrue(e.allSatisfy { !$0.ottenuta && $0.attuale == 0 })
         // Ordine per categoria.
         XCTAssertEqual(e.map(\.categoria), CategoriaMedaglia.allCases.flatMap { c in e.filter { $0.categoria == c }.map(\.categoria) })
-        XCTAssertEqual(CategoriaMedaglia.allCases, [.nuotate, .distanza, .costanza, .percorso])
+        XCTAssertEqual(CategoriaMedaglia.allCases, [.nuotate, .distanza, .traversate, .costanza, .percorso])
     }
 
     func testSoglie() {
         let e = Medaglie.elenco(nuotate: [], serieSettimane: 0, tappeSuperate: [], testRitmo: nil)
         XCTAssertEqual(e.filter { $0.categoria == .nuotate }.map(\.soglia), [1, 10, 25, 50, 100])
         XCTAssertEqual(e.filter { $0.categoria == .distanza }.map(\.soglia), [1000, 5000, 10000, 25000, 50000, 100000])
-        XCTAssertEqual(e.filter { $0.categoria == .costanza }.map(\.soglia), SerieSettimane.traguardi)
-        XCTAssertEqual(e.filter { $0.categoria == .percorso }.map(\.soglia), Array(repeating: 1, count: 11))
+        XCTAssertEqual(e.filter { $0.categoria == .traversate }.map(\.soglia), [3_100, 11_000, 14_200, 34_000])
+        XCTAssertEqual(e.filter { $0.categoria == .costanza }.map(\.soglia), SerieSettimane.traguardi + [Medaglie.settimaneFedele])
+        XCTAssertEqual(e.filter { $0.categoria == .percorso }.map(\.soglia), Array(repeating: 1, count: 12))
     }
 
     func testNuotateAllaSoglia() throws {
@@ -684,6 +686,49 @@ final class MedaglieTests: XCTestCase {
         XCTAssertTrue(e(massima, "serie-52"))
     }
 
+    func testTraversateSuMetriTotali() {
+        let sotto = Medaglie.elenco(nuotate: [Prova.nuotata(1, 1, metri: 3_099)], serieSettimane: 0, tappeSuperate: [], testRitmo: nil)
+        XCTAssertFalse(e(sotto, "traversata-messina"))
+        let messina = Medaglie.elenco(nuotate: [Prova.nuotata(1, 1, metri: 3_100)], serieSettimane: 0, tappeSuperate: [], testRitmo: nil)
+        XCTAssertTrue(e(messina, "traversata-messina"))
+        XCTAssertFalse(e(messina, "traversata-bonifacio"))
+        let manica = Medaglie.elenco(nuotate: [Prova.nuotata(1, 1, metri: 20_000), Prova.nuotata(2, 1, metri: 14_000)],
+                                     serieSettimane: 0, tappeSuperate: [], testRitmo: nil)
+        XCTAssertTrue(e(manica, "traversata-manica"))
+        XCTAssertEqual(trova(manica, "traversata-gibilterra")?.attuale, 34_000)
+    }
+
+    func testFedeleAllaVasca() {
+        // Tre settimane di fila con due nuotate (settimane del 5, 12 e 19 gennaio 2026, lunedì).
+        let date = [(1, 5), (1, 7), (1, 12), (1, 14), (1, 19), (1, 21)].map { Prova.data($0.0, $0.1) }
+        XCTAssertEqual(SerieSettimane.serieMassima(conAlmeno: 2, date: date), 3)
+        // Una settimana con una sola nuotata interrompe la serie.
+        let interrotta = [(1, 5), (1, 7), (1, 12), (1, 19), (1, 21), (1, 26), (1, 28)].map { Prova.data($0.0, $0.1) }
+        XCTAssertEqual(SerieSettimane.serieMassima(conAlmeno: 2, date: interrotta), 2)
+        XCTAssertEqual(SerieSettimane.serieMassima(conAlmeno: 2, date: []), 0)
+        let con = Medaglie.elenco(nuotate: date.map { NuotataCompletata(data: $0, metri: 500, durataSecondi: 900, titolo: "x") },
+                                  serieSettimane: 0, tappeSuperate: [], testRitmo: nil)
+        XCTAssertTrue(e(con, "fedele-vasca"))
+        XCTAssertEqual(trova(con, "fedele-vasca")?.attuale, 3)
+        XCTAssertFalse(e(Medaglie.elenco(nuotate: [], serieSettimane: 0, tappeSuperate: [], testRitmo: nil), "fedele-vasca"))
+    }
+
+    func testCentoContinui() {
+        func vasca(_ inizio: Double) -> SplitVasca {
+            SplitVasca(metri: 25, durataSecondi: 30, stile: .libero, inizioSecondi: inizio)
+        }
+        let continue_ = NuotataCompletata(data: Prova.data(1, 5), metri: 100, durataSecondi: 120, titolo: "x",
+                                          vasche: [vasca(0), vasca(30), vasca(60), vasca(90)])
+        XCTAssertTrue(e(Medaglie.elenco(nuotate: [continue_], serieSettimane: 0, tappeSuperate: [], testRitmo: nil), "cento-continui"))
+        // Con una sosta di 10 secondi a metà non vale.
+        let conSosta = NuotataCompletata(data: Prova.data(1, 5), metri: 100, durataSecondi: 130, titolo: "x",
+                                         vasche: [vasca(0), vasca(30), vasca(70), vasca(100)])
+        XCTAssertFalse(e(Medaglie.elenco(nuotate: [conSosta], serieSettimane: 0, tappeSuperate: [], testRitmo: nil), "cento-continui"))
+        // Senza i tempi delle vasche non si può sapere.
+        let senza = NuotataCompletata(data: Prova.data(1, 5), metri: 100, durataSecondi: 120, titolo: "x")
+        XCTAssertFalse(e(Medaglie.elenco(nuotate: [senza], serieSettimane: 0, tappeSuperate: [], testRitmo: nil), "cento-continui"))
+    }
+
     func testPercorsoETest() throws {
         let t = TestRitmo(data: Prova.data(10, 1), tempo200Secondi: 180, tempo400Secondi: 390)
         let el = Medaglie.elenco(nuotate: [], serieSettimane: 0, tappeSuperate: [1, 3, 10], testRitmo: t)
@@ -699,7 +744,7 @@ final class MedaglieTests: XCTestCase {
         XCTAssertEqual(try XCTUnwrap(trova(el, "tappa-3")).categoria, .percorso)
         // Tappe fuori elenco (es. 11) non creano medaglie.
         let fuori = Medaglie.elenco(nuotate: [], serieSettimane: 0, tappeSuperate: [11], testRitmo: nil)
-        XCTAssertEqual(fuori.count, 28)
+        XCTAssertEqual(fuori.count, 34)
         XCTAssertFalse(e(fuori, "test-ritmo"))
     }
 }

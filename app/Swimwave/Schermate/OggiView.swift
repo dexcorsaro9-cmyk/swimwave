@@ -6,6 +6,8 @@ struct OggiView: View {
     @State private var popup: PopupCoach?
     @State private var esitoInvio: EsitoInvioWatch?
     @State private var daSeguire: AllenamentoDaSeguire?
+    /// Medaglia nuova mostrata a schermo intero.
+    @State private var medagliaDaFesteggiare: Medaglia?
     @State private var mostraPermessoSalute = false
     @State private var permessoSaluteProposto = false
     @State private var cambiaAperto = false
@@ -61,6 +63,13 @@ struct OggiView: View {
             AllenamentoGuidatoView(workout: da.workout)
                 .environment(stato)
         }
+        .fullScreenCover(item: $medagliaDaFesteggiare) { medaglia in
+            CelebrazioneMedaglia(medaglia: medaglia, restanti: max(0, stato.medaglieDaFesteggiare.count - 1)) {
+                stato.segnaVista(medaglia: medaglia.id)
+                medagliaDaFesteggiare = nil
+                programmaCelebrazione(dopo: 0.7)
+            }
+        }
         .sheet(isPresented: $cambiaAperto) {
             CambiaAllenamentoView(
                 chiudi: { cambiaAperto = false },
@@ -74,9 +83,15 @@ struct OggiView: View {
             )
             .environment(stato)
         }
-        .onAppear { avviaSeRichiestoDaSiri() }
+        .onAppear {
+            avviaSeRichiestoDaSiri()
+            programmaCelebrazione(dopo: 1.2)
+        }
         .onChange(of: scenePhase) { _, fase in
-            if fase == .active { avviaSeRichiestoDaSiri() }
+            if fase == .active {
+                avviaSeRichiestoDaSiri()
+                programmaCelebrazione(dopo: 1.2)
+            }
         }
         .sheet(isPresented: $mostraPermessoSalute) {
             PermessoSaluteView(onFine: { mostraPermessoSalute = false })
@@ -84,15 +99,22 @@ struct OggiView: View {
         }
         .onChange(of: stato.nuotate.count) { _, _ in
             // Mai popup durante l'allenamento guidato: se ne parla alla chiusura.
-            if daSeguire == nil { mostraPopupSeServe() }
+            if daSeguire == nil {
+                mostraPopupSeServe()
+                programmaCelebrazione(dopo: 1.5)
+            }
         }
         .onChange(of: daSeguire?.id) { _, nuovo in
             if nuovo == nil {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { mostraPopupSeServe() }
+                programmaCelebrazione(dopo: 1.5)
             }
         }
         .onChange(of: popup?.id) { _, nuovo in
-            if nuovo == nil { programmaPermessoSalute(dopo: 1.0) }
+            if nuovo == nil {
+                programmaPermessoSalute(dopo: 1.0)
+                programmaCelebrazione(dopo: 0.8)
+            }
         }
         .onChange(of: stato.allenamentoGenerato) { _, _ in
             // Arrivato l'allenamento del coach: il Watch riceve quello aggiornato.
@@ -334,6 +356,16 @@ struct OggiView: View {
         guard RichiestaAvvio.consuma() else { return }
         if let w = stato.allenamentoDiOggi() {
             daSeguire = AllenamentoDaSeguire(workout: w)
+        }
+    }
+
+    /// Dopo un attimo, se non c'è altro a schermo, festeggia la prossima medaglia nuova.
+    private func programmaCelebrazione(dopo secondi: Double) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + secondi) {
+            guard medagliaDaFesteggiare == nil, daSeguire == nil, popup == nil, !cambiaAperto, !mostraPermessoSalute,
+                  stato.onboardingCompletato,
+                  let prima = stato.medaglieDaFesteggiare.first else { return }
+            medagliaDaFesteggiare = prima
         }
     }
 

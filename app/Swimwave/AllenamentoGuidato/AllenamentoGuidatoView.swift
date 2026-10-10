@@ -64,6 +64,8 @@ private struct SchermataGuidata: View {
     @Environment(StatoApp.self) private var stato
     @State private var sessione: SessioneGuidata
     @State private var adesso = Date()
+    /// Vero dopo l'avviso dei 5 secondi, così vibra una sola volta per recupero.
+    @State private var avvisoRecuperoDato = false
     @State private var confermaTermina = false
     @State private var concluso = false
     /// Tempo obiettivo per ogni ripetizione del piano (nil dove non c'è: niente test, altro stile, nessuna intensità).
@@ -106,6 +108,16 @@ private struct SchermataGuidata: View {
             if sessione.aggiorna(adesso: istante) {
                 // Il recupero è finito: si riparte da soli, con una vibrazione leggera.
                 UINotificationFeedbackGenerator().notificationOccurred(.success)
+                avvisoRecuperoDato = false
+            } else if sessione.inRecupero {
+                // Cinque secondi prima della fine del recupero: un colpo leggero per prepararsi a partire.
+                let resto = sessione.recuperoRimanente(adesso: istante)
+                if resto <= 5, resto > 0, !avvisoRecuperoDato {
+                    avvisoRecuperoDato = true
+                    UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
+                }
+            } else {
+                avvisoRecuperoDato = false
             }
         }
         .confirmationDialog(

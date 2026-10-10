@@ -43,6 +43,8 @@ final class StatoApp {
     /// Allenamento scelto dall'utente per oggi (dalla libreria o chiesto al coach): vale fino a fine giornata.
     var allenamentoScelto: Workout?
     var giornoAllenamentoScelto: Int?
+    /// Medaglie già festeggiate a schermo intero.
+    var medaglieViste: Set<String> = []
 
     // MARK: Non osservati
     // Le costanti (`let`) non sono mai osservate dalla macro @Observable: qui @ObservationIgnored serve solo per le `var`.
@@ -119,6 +121,8 @@ final class StatoApp {
         var commentiMese: [String: String]?
         var allenamentoScelto: Workout?
         var giornoAllenamentoScelto: Int?
+        /// Id delle medaglie già mostrate con la celebrazione a schermo intero.
+        var medaglieViste: [String]?
     }
 
     private func carica() {
@@ -143,6 +147,8 @@ final class StatoApp {
         commentiMese = d.commentiMese ?? [:]
         allenamentoScelto = d.allenamentoScelto
         giornoAllenamentoScelto = d.giornoAllenamentoScelto
+        // Chi aggiorna l'app non rivede la festa per le medaglie già ottenute.
+        medaglieViste = Set(d.medaglieViste ?? medaglie.filter(\.ottenuta).map(\.id))
     }
 
     func salva() {
@@ -165,7 +171,8 @@ final class StatoApp {
             obiettivoMensileMetri: obiettivoMensileMetri,
             commentiMese: commentiMese,
             allenamentoScelto: allenamentoScelto,
-            giornoAllenamentoScelto: giornoAllenamentoScelto
+            giornoAllenamentoScelto: giornoAllenamentoScelto,
+            medaglieViste: medaglieViste.sorted()
         )
         if let data = try? JSONEncoder().encode(d) {
             defaults.set(data, forKey: StatoApp.chiaveDati)
@@ -194,6 +201,7 @@ final class StatoApp {
         commentiMese = [:]
         allenamentoScelto = nil
         giornoAllenamentoScelto = nil
+        medaglieViste = []
         cacheAllenamento = nil
         Task { await self.notifiche.cancellaTutti() }
     }
@@ -307,6 +315,17 @@ final class StatoApp {
             tappeSuperate: tappeSuperate,
             testRitmo: testRitmo
         )
+    }
+
+    /// Medaglie ottenute che l'utente non ha ancora visto con la celebrazione, nell'ordine dell'elenco.
+    var medaglieDaFesteggiare: [Medaglia] {
+        medaglie.filter { $0.ottenuta && !medaglieViste.contains($0.id) }
+    }
+
+    func segnaVista(medaglia id: String) {
+        guard !medaglieViste.contains(id) else { return }
+        medaglieViste.insert(id)
+        salva()
     }
 
     func riepilogoAnno(_ anno: Int) -> RiepilogoAnno {

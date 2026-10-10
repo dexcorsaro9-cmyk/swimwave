@@ -199,3 +199,73 @@ final class ContentStoreTests: XCTestCase {
         XCTAssertEqual(utente.problemi, [])
     }
 }
+
+final class EfficienzaTests: XCTestCase {
+    private func nuotata(giorno: Int, bracciate: Int?, vasca: Int? = 25, metri: Int = 500,
+                         ambiente: AmbienteNuoto? = .vasca) -> NuotataCompletata {
+        let data = Date(timeIntervalSince1970: 1_700_000_000 + Double(giorno) * 86_400)
+        return NuotataCompletata(data: data, metri: metri, durataSecondi: 900, titolo: "x",
+                                 bracciate: bracciate, vascaMetri: vasca, ambiente: ambiente)
+    }
+
+    func testMenoBracciateDellUltimaVolta() {
+        // 500 m in vasca da 25 = 20 vasche: 400 bracciate = 20 per vasca; 360 = 18.
+        let prima = nuotata(giorno: 1, bracciate: 400)
+        let oggi = nuotata(giorno: 3, bracciate: 360)
+        guard case .meno(let o, let p)? = Efficienza.confronto(di: oggi, con: [prima, oggi]) else {
+            return XCTFail("atteso .meno")
+        }
+        XCTAssertEqual(o, 18, accuracy: 0.001)
+        XCTAssertEqual(p, 20, accuracy: 0.001)
+    }
+
+    func testPiuEUgualiConSoglia() {
+        let prima = nuotata(giorno: 1, bracciate: 400)                       // 20
+        XCTAssertEqual(Efficienza.confronto(di: nuotata(giorno: 2, bracciate: 440), con: [prima]),
+                       .piu(oggi: 22, prima: 20))
+        XCTAssertEqual(Efficienza.confronto(di: nuotata(giorno: 2, bracciate: 410), con: [prima]),
+                       .simile(oggi: 20.5, prima: 20))
+        // Differenza di esattamente una bracciata per vasca: conta.
+        XCTAssertEqual(Efficienza.confronto(di: nuotata(giorno: 2, bracciate: 380), con: [prima]),
+                       .meno(oggi: 19, prima: 20))
+    }
+
+    func testUsaSoloL_UltimaConfrontabile() {
+        let vecchia = nuotata(giorno: 1, bracciate: 500)                       // 25
+        let altraVasca = nuotata(giorno: 2, bracciate: 200, vasca: 50)         // altra lunghezza
+        let acqueLibere = nuotata(giorno: 3, bracciate: 300, ambiente: .acqueLibere)
+        let senzaDato = nuotata(giorno: 4, bracciate: nil)
+        let futura = nuotata(giorno: 9, bracciate: 100)
+        let oggi = nuotata(giorno: 5, bracciate: 400)                          // 20
+        XCTAssertEqual(Efficienza.confronto(di: oggi, con: [vecchia, altraVasca, acqueLibere, senzaDato, futura]),
+                       .meno(oggi: 20, prima: 25))
+    }
+
+    func testSenzaConfrontoONessunDato() {
+        XCTAssertNil(Efficienza.confronto(di: nuotata(giorno: 2, bracciate: 400), con: []))
+        XCTAssertNil(Efficienza.confronto(di: nuotata(giorno: 2, bracciate: nil), con: [nuotata(giorno: 1, bracciate: 400)]))
+        XCTAssertNil(Efficienza.confronto(di: nuotata(giorno: 2, bracciate: 400, ambiente: .acqueLibere),
+                                          con: [nuotata(giorno: 1, bracciate: 400)]))
+    }
+
+    func testDistribuzioneStili() {
+        let v = [SplitVasca(metri: 25, durataSecondi: 30, stile: .libero), SplitVasca(metri: 25, durataSecondi: 30, stile: .libero),
+                 SplitVasca(metri: 25, durataSecondi: 30, stile: .libero), SplitVasca(metri: 25, durataSecondi: 40, stile: .dorso),
+                 SplitVasca(metri: 25, durataSecondi: 40, stile: nil)]
+        let q = Efficienza.distribuzioneStili(v)
+        XCTAssertEqual(q.map(\.stile), [.libero, .dorso])
+        XCTAssertEqual(q.map(\.metri), [75, 25])
+        XCTAssertEqual(q.map(\.percentuale), [75, 25])
+    }
+
+    func testPercentualiSommanoSempreCento() {
+        // Tre stili uguali: 33 + 33 + 33 = 99, il punto che manca va al primo nell'ordine.
+        let v = [Stile.libero, .dorso, .rana].map { SplitVasca(metri: 25, durataSecondi: 30, stile: $0) }
+        let q = Efficienza.distribuzioneStili(v)
+        XCTAssertEqual(q.map(\.percentuale).reduce(0, +), 100)
+        XCTAssertEqual(q.map(\.percentuale), [34, 33, 33])
+        XCTAssertEqual(q.map(\.stile), [.libero, .dorso, .rana])
+        XCTAssertTrue(Efficienza.distribuzioneStili([]).isEmpty)
+        XCTAssertTrue(Efficienza.distribuzioneStili([SplitVasca(metri: 25, durataSecondi: 30)]).isEmpty)
+    }
+}

@@ -67,6 +67,8 @@ Non ho potuto leggere il programma della Federazione Italiana Nuoto né i manual
 
 ## 7. Zone di ritmo (`content/zone-ritmo.json`)
 
+> **Decisione dell'istruttore (11 ottobre 2026): il test dei 400 m non si propone agli adulti.** L'app non lo mostra più (interruttore `Funzioni.testRitmoAgliAdulti`, spento) e la medaglia "test del ritmo" è stata tolta (33 medaglie). Il contenuto resta in `bozza` e nel repository per un eventuale uso futuro (altro pubblico, altro test). Le domande qui sotto sono quindi in sospeso.
+
 Le zone dicono a che ritmo nuotare, in base a due prove a tutta (200 m e 400 m di stile libero). È la parte con meno appoggio nelle fonti, quindi guardala con attenzione.
 
 - **Percentuali**: le 5 zone vanno da 70% a 110% della velocità critica (facile 70-80, regolare 80-90, sostenuto 90-97, ritmo critico 97-103, veloce 103-110). **Sono numeri nostri e prudenti, senza fonte**: non ho trovato una federazione, un ente o un articolo scientifico che li dia. Le fonti sostengono solo il concetto di velocità critica e il suo calcolo. Ti sembrano giusti? Vuoi usare quelli del tuo metodo?

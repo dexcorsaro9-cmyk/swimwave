@@ -626,7 +626,7 @@ final class MedaglieTests: XCTestCase {
             "traversata-messina", "traversata-bonifacio", "traversata-gibilterra", "traversata-manica",
             "serie-2", "serie-4", "serie-8", "serie-12", "serie-26", "serie-52", "fedele-vasca",
             "tappa-1", "tappa-2", "tappa-3", "tappa-4", "tappa-5", "tappa-6", "tappa-7", "tappa-8", "tappa-9", "tappa-10",
-            "test-ritmo", "cento-continui"
+            "cento-continui"
         ])
         XCTAssertEqual(Set(e.map(\.id)).count, e.count)                  // id tutti diversi
         XCTAssertTrue(e.allSatisfy { !$0.ottenuta && $0.attuale == 0 })
@@ -739,12 +739,11 @@ final class MedaglieTests: XCTestCase {
         XCTAssertEqual(try XCTUnwrap(trova(el, "tappa-1")).attuale, 1)
         XCTAssertEqual(try XCTUnwrap(trova(el, "tappa-2")).attuale, 0)
         XCTAssertEqual(try XCTUnwrap(trova(el, "tappa-2")).soglia, 1)
-        XCTAssertTrue(e(el, "test-ritmo"))
-        XCTAssertEqual(try XCTUnwrap(trova(el, "test-ritmo")).attuale, 1)
+        XCTAssertFalse(e(el, "test-ritmo"))                              // il test dei 400 m non dà medaglia
         XCTAssertEqual(try XCTUnwrap(trova(el, "tappa-3")).categoria, .percorso)
         // Tappe fuori elenco (es. 11) non creano medaglie.
         let fuori = Medaglie.elenco(nuotate: [], serieSettimane: 0, tappeSuperate: [11], testRitmo: nil)
-        XCTAssertEqual(fuori.count, 34)
+        XCTAssertEqual(fuori.count, 33)
         XCTAssertFalse(e(fuori, "test-ritmo"))
     }
 }

@@ -52,8 +52,9 @@ struct PercorsoView: View {
                             .buttonStyle(.plain)
                         }
                     }
-                    // Il test del ritmo compare solo quando le zone sono approvate (in Release, dopo la revisione).
-                    if !stato.contenuti.zone.isEmpty {
+                    // Il test del ritmo (200 m + 400 m a tutta) non si propone agli adulti: l'istruttore lo ha escluso.
+                    // Resta nel codice e nei dati, spento da `Funzioni.testRitmoAgliAdulti`.
+                    if Funzioni.testRitmoAgliAdulti, !stato.contenuti.zone.isEmpty {
                         Button { foglio = .testRitmo } label: {
                             cartaTestRitmo
                         }

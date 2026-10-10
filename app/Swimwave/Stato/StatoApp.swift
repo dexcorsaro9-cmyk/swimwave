@@ -636,3 +636,9 @@ final class StatoApp {
         salva()
     }
 }
+
+/// Interruttori di funzioni previste ma non offerte.
+enum Funzioni {
+    /// Test 200 m + 400 m a tutta per il ritmo critico: spento per gli adulti (decisione dell'istruttore, 11 ottobre 2026).
+    static let testRitmoAgliAdulti = false
+}

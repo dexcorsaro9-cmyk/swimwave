@@ -76,7 +76,7 @@
       "nome": "Dorso",
       "obiettivo": "Nuotare il dorso con battuta e bracciata coordinate.",
       "test": "Nuoti 25 metri di dorso con battuta e bracciata coordinate.",
-      "drill": ["battuta-sul-dorso", "dorso-un-braccio-alla-volta", "dorso-battuta-con-rotazione", "dorso-al-rallentatore"],
+      "drill": ["battuta-sul-dorso", "dorso-un-braccio-alla-volta", "dorso-battuta-con-rotazione"],
       "errori": ["gambe-che-pedalano", "dorso-testa-troppo-indietro", "dorso-spalla-al-mento"],
       "fonti": ["swim-england-stage", "lts-livelli-1-6", "swim-wales-dorso"],
       "stato": "bozza"

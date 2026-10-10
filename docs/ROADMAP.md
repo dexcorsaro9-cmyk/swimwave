@@ -8,7 +8,7 @@
 - Due coach con immagini, espressioni e avatar (`assets/coach/`)
 - Specifiche: esperienza, primo avvio, popup, grafica (`docs/`)
 - Mockup dell'interfaccia (canvas dei mockup)
-- App SwiftUI iPhone + Watch e pacchetto condiviso (`app/`, `Packages/`), **scritta per intero ma mai compilata**: 18+, consenso IA, permessi, allenamento guidato su iPhone e Watch (pausa/ripresa, nuoto libero, acque libere), domanda facile/giusta/dura, storico con dettaglio, calendario e confronto, andamento, riepiloghi, record e migliori tempi, traguardi, il tuo anno, obiettivo mensile, serie di settimane, test del ritmo con zone, libreria di allenamenti, richiesta al coach, esercizi a secco, Spronami, tema scuro, icona (bracciata-onda), scorciatoia Siri, complicazione del Watch, interfaccia in italiano, inglese e spagnolo (i contenuti tecnici restano in italiano)
+- App SwiftUI iPhone + Watch e pacchetto condiviso (`app/`, `Packages/`), **scritta per intero ma mai compilata**: 18+, consenso IA, permessi, allenamento guidato su iPhone e Watch (pausa/ripresa, nuoto libero, acque libere), domanda facile/giusta/dura, storico con dettaglio, calendario e confronto, andamento, riepiloghi, record e migliori tempi, traguardi, il tuo anno, obiettivo mensile, serie di settimane, test del ritmo con zone, libreria di allenamenti, richiesta al coach, Spronami, tema scuro, icona (bracciata-onda), scorciatoia Siri, complicazione del Watch, interfaccia in italiano, inglese e spagnolo (i contenuti tecnici restano in italiano)
 - Bozze legali e checklist di conformità (`docs/legale/`)
 
 ## Prossimi passi (versione 1: iPhone + Apple Watch)
@@ -37,6 +37,10 @@ Note tecniche:
 ## Più avanti
 
 Wear OS e Garmin, solo se richiesti dagli utenti. Strava, acque libere, dryland, community.
+
+## Tolto dalla versione 1
+
+Esercizi a secco (decisione dell'istruttore, ottobre 2026): file, schermata e fonti rimossi; si può riprendere in seguito dalla cronologia di git.
 
 ## Cose da non fare
 

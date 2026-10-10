@@ -10,7 +10,7 @@ Tutti i contenuti tecnici sono in stato `bozza`. Nulla va agli utenti finché no
 - Errore **Partenza troppo forte**: il criterio "ritmo che permette di parlare" è comune ma non l'ho trovato in una fonte.
 - Errore **Collo e spalle rigidi**.
 - Errore **Niente riscaldamento e recupero**.
-- Nuovi drill (tappe 8-10), tutti da quadri Swim Wales scritti per nuotatori agonisti o per l'allenatore che osserva: controlla che siano adatti a un adulto alle prime armi. Il drill **Delfino: sei colpi, una bracciata** è stato tolto perché troppo avanzato (decisione dell'istruttore): l'errore **Piede che esce tutto dall'acqua nel delfino** ora non ha un drill collegato. Il più dubbio rimasto è **Dorso al rallentatore** (la fonte lo pensa per chi osserva dal bordo, non per chi nuota da solo).
+- Nuovi drill (tappe 8-10), tutti da quadri Swim Wales scritti per nuotatori agonisti o per l'allenatore che osserva: controlla che siano adatti a un adulto alle prime armi. Il drill **Delfino: sei colpi, una bracciata** è stato tolto perché troppo avanzato (decisione dell'istruttore): l'errore **Piede che esce tutto dall'acqua nel delfino** ora non ha un drill collegato. Anche **Dorso al rallentatore** è stato tolto (la fonte lo pensa per chi osserva dal bordo, non per chi nuota da solo).
 - Nuovi errori di dorso, rana e delfino: nelle fonti sono sostenuti il difetto e la correzione, mentre la spiegazione del "perché è un problema" è nostra. Per **Spalle verso la testa nel delfino** il drill della fonte non è nella nostra lista, quindi l'errore non ha un drill collegato.
 - Fonte che manca: nessuna fonte di federazione (né Swim Wales né Swim England) descrive la rana o il delfino per adulti principianti. Per questo le tappe 9 e 10 restano le più fragili.
 
@@ -29,7 +29,7 @@ Tutti i contenuti tecnici sono in stato `bozza`. Nulla va agli utenti finché no
 
 - Le 10 tappe e il loro ordine, in particolare dorso, rana e delfino (le fonti non sono d'accordo).
 - I 10 errori scelti sono i giusti? Ora ce ne sono 19: 10 di base più 9 di dorso, rana e delfino.
-- La lista dei 23 drill (17 più 6 nuovi per le tappe 8-10): manca qualcosa di importante?
+- La lista dei 22 drill (17 più 5 nuovi per le tappe 8-10): manca qualcosa di importante?
 - Esercizi al bordo come **Gambata di rana al bordo** e **Respirazione al bordo** non si possono mettere in un allenamento, che ragiona per distanze. Vanno proposti come consigli a parte? Oppure il formato deve prevedere serie a tempo?
 - Le tappe 1 (galleggiamento) e 2 (respirazione) non hanno allenamenti dedicati per lo stesso motivo.
 
@@ -79,28 +79,13 @@ Le zone dicono a che ritmo nuotare, in base a una prova a tutta sui 200 m di sti
 - **Descrizioni**: controlla tono e parole ("ritmo critico" è comprensibile?).
 - Il tempo dei 200 m è accettato tra 1:30 e 15:00; fuori da questo intervallo l'app chiede di ricontrollarlo.
 
-## 8. Esercizi a secco (`content/a-secco.json`)
-
-11 esercizi fuori dall'acqua, a corpo libero o con elastico e asciugamano: 3 di mobilità, 3 per le spalle, 3 per il core, 2 per le gambe. Sono esercizi di supporto, non terapia. Tutti in `bozza`.
-
-Da controllare, in ordine:
-
-- **Adatti a un adulto principiante?** Le fonti sono quasi tutte per la popolazione generale o per la riabilitazione, non per adulti che imparano a nuotare. Nessuna federazione di nuoto che ho potuto leggere dà un programma a secco per principianti. Guarda soprattutto **Dead bug** e **Plank laterale dalle ginocchia** (coordinazione e tenuta del tronco).
-- **Sicurezza**: cerca esercizi o parole che non daresti a un principiante. Ho escluso sbarra, manubri, pressa sopra la testa e salti. Gli esercizi con elastico (rotazione interna, rotazione esterna, remata) richiedono un elastico leggero: la **Remata con elastico** si ancora a una porta chiusa, un adattamento nostro che va controllato.
-- **Spalle**: i numeri vengono dal programma AAOS (3 serie da 8), pensato per la riabilitazione sotto controllo del medico, e dall'articolo USMS (3 serie da 12, non uno studio). L'unico studio su nuotatori che ho trovato (Frontiers 2023, elastico, 8 settimane) **non ha trovato effetti significativi**. Quindi l'app non deve promettere che questi esercizi prevengano i problemi di spalla. Per un principiante, partire da meno serie?
-- **Ripetizioni**: sono della fonte per Libro aperto, Braccio incrociato (4 da 30 secondi, tanti per un adulto sano?), Polpaccio (3 per gamba, tempo non indicato), Rotazioni, Remata, Bird dog, Plank laterale, Mini-squat. Sono **un valore prudente nostro, senza fonte**, per **Dead bug** (2 da 8) e **Ponte per i glutei** (2 da 10).
-- **Il legame con il nuoto** (rotazione del busto, battuta di gambe) è nostro per Libro aperto, Stretching del polpaccio e Ponte per i glutei: nelle fonti lette non c'è. Va bene lasciarlo nello scopo?
-- **Fonti deboli**: il Ponte per i glutei si appoggia a un blog di un ente di certificazione (NASM) e a una scheda di un ospedale. Se preferisci un riferimento federale o il tuo metodo, dimmelo.
-- **Avvertenza**: ogni esercizio ha un solo avviso di errore. Il messaggio generale ("se senti dolore fermati e, se persiste, senti un medico") è nella `nota` del file e va mostrato nell'app.
-- Se la tua esperienza dice che manca qualcosa di importante (per esempio la rotazione delle anche per la rana) o che qualcosa è di troppo, indicalo.
-
-## 9. Attrezzi dei drill e adattamento dopo "dura"
+## 8. Attrezzi dei drill e adattamento dopo "dura"
 
 - **Attrezzi** (`attrezzi` e `attrezzi_facoltativi` in `content/drills.json`): l'app mostra "Porta a bordo vasca" in base a questi campi. Li ho ricavati dal testo dei drill. Necessari: tavoletta (Respirazione laterale con tavoletta), pull buoy (Nuotata con pull buoy). Facoltativi: tavoletta (Battuta con tavoletta), pinne (Sei colpi e cambio, Dorso: battuta con rotazione, Delfino: sei colpi una bracciata, Onda del delfino), snorkel (Onda del delfino). Controlla che siano giusti e se ne manca qualcuno.
 - **Dopo "dura", cosa non andava?** Percentuali nostre, provvisorie: mancava il fiato = recuperi +50% (almeno +5 s); braccia o gambe stanche = un quarto di ripetizioni in meno nelle serie principali; esercizio troppo difficile = si sceglie tra la metà di allenamenti con le tappe più basse. Va bene così o preferisci altri valori?
 - **Vasche da 16, 20, 33 m e altre misure**: le distanze degli allenamenti, scritte per 25 m, si arrotondano al multiplo della vasca più vicino (per esempio 50 m diventano 40 m in vasca da 20). Controlla che il risultato abbia senso per i principianti (nelle vasche da 33 m una vasca singola è già lunga).
 
-## 10. Medaglie, traversate ed efficienza
+## 9. Medaglie, traversate ed efficienza
 
 - **Traversate** (`Medaglie.traversate`): Stretto di Messina 3.100 m, Bonifacio 11.000 m, Gibilterra 14.200 m, Manica 34.000 m. Sono distanze indicative della traversata a nuoto, verificate su fonti pubbliche (Wikipedia); le medaglie contano i metri nuotati in totale nell'app, non sono traversate vere. Sono i numeri giusti per l'istruttore, o preferisci altre tappe?
 - **Fedele alla vasca**: 2 nuotate a settimana per 3 settimane di fila. **Cento di fila**: 100 m senza fermarsi. Soglie nostre, provvisorie.

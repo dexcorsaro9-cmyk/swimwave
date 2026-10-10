@@ -254,8 +254,10 @@ struct Coriandoli: View {
                     let tempo = t - ritardo
                     guard tempo > 0 else { continue }
                     let velocita = 160 + r2 * 220
-                    let x = dimensione.width * r3 + CGFloat(sin(tempo * (1.5 + r1 * 2) + seme)) * 26
-                    let y = -20 + CGFloat(tempo * velocita)
+                    let fase: Double = tempo * (1.5 + r1 * 2) + seme
+                    let ondeggia: CGFloat = CGFloat(sin(fase)) * 26
+                    let x: CGFloat = dimensione.width * CGFloat(r3) + ondeggia
+                    let y: CGFloat = -20 + CGFloat(tempo * velocita)
                     guard y < dimensione.height + 30 else { continue }
                     let dissolvenza = t > durata ? max(0, 1 - (t - durata) / 2) : 1
                     var pezzo = gc

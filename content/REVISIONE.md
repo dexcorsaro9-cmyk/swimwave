@@ -10,7 +10,7 @@ Tutti i contenuti tecnici sono in stato `bozza`. Nulla va agli utenti finché no
 - Errore **Partenza troppo forte**: il criterio "ritmo che permette di parlare" è comune ma non l'ho trovato in una fonte.
 - Errore **Collo e spalle rigidi**.
 - Errore **Niente riscaldamento e recupero**.
-- Nuovi drill (tappe 8-10), tutti da quadri Swim Wales scritti per nuotatori agonisti o per l'allenatore che osserva: controlla che siano adatti a un adulto alle prime armi. Il più dubbio è **Delfino: sei colpi, una bracciata** (può essere troppo avanzato); poi **Dorso al rallentatore** (la fonte lo pensa per chi osserva dal bordo, non per chi nuota da solo).
+- Nuovi drill (tappe 8-10), tutti da quadri Swim Wales scritti per nuotatori agonisti o per l'allenatore che osserva: controlla che siano adatti a un adulto alle prime armi. Il drill **Delfino: sei colpi, una bracciata** è stato tolto perché troppo avanzato (decisione dell'istruttore): l'errore **Piede che esce tutto dall'acqua nel delfino** ora non ha un drill collegato. Il più dubbio rimasto è **Dorso al rallentatore** (la fonte lo pensa per chi osserva dal bordo, non per chi nuota da solo).
 - Nuovi errori di dorso, rana e delfino: nelle fonti sono sostenuti il difetto e la correzione, mentre la spiegazione del "perché è un problema" è nostra. Per **Spalle verso la testa nel delfino** il drill della fonte non è nella nostra lista, quindi l'errore non ha un drill collegato.
 - Fonte che manca: nessuna fonte di federazione (né Swim Wales né Swim England) descrive la rana o il delfino per adulti principianti. Per questo le tappe 9 e 10 restano le più fragili.
 
@@ -29,7 +29,7 @@ Tutti i contenuti tecnici sono in stato `bozza`. Nulla va agli utenti finché no
 
 - Le 10 tappe e il loro ordine, in particolare dorso, rana e delfino (le fonti non sono d'accordo).
 - I 10 errori scelti sono i giusti? Ora ce ne sono 19: 10 di base più 9 di dorso, rana e delfino.
-- La lista dei 24 drill (17 più 7 nuovi per le tappe 8-10): manca qualcosa di importante?
+- La lista dei 23 drill (17 più 6 nuovi per le tappe 8-10): manca qualcosa di importante?
 - Esercizi al bordo come **Gambata di rana al bordo** e **Respirazione al bordo** non si possono mettere in un allenamento, che ragiona per distanze. Vanno proposti come consigli a parte? Oppure il formato deve prevedere serie a tempo?
 - Le tappe 1 (galleggiamento) e 2 (respirazione) non hanno allenamenti dedicati per lo stesso motivo.
 

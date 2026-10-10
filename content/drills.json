@@ -243,18 +243,6 @@
       "fonti": ["swim-wales-delfino"],
       "nota_fonti": "La fonte è un quadro per nuotatori agonisti: l'adattamento al principiante adulto è da verificare.",
       "stato": "bozza"
-    },
-    {
-      "id": "delfino-sei-colpi-una-bracciata",
-      "nome": "Delfino: sei colpi, una bracciata",
-      "tappa": 10,
-      "scopo": "Dare ritmo alla battuta del delfino, che parte dalla parte alta del corpo come una frustata.",
-      "esecuzione": "Fai sei colpi di gambe per ogni bracciata. Il colpo parte dal movimento del busto: un colpo verso il basso accompagna l'uscita delle mani dall'acqua, un altro aiuta l'avanzamento quando le mani entrano. Le pinne più rigide aiutano la spinta.",
-      "errore_da_evitare": "Far uscire dall'acqua tutto il piede, o battere fuori tempo rispetto all'uscita e all'entrata delle mani.",
-      "fonti": ["swim-wales-delfino"],
-      "nota_fonti": "La fonte è un quadro per nuotatori agonisti: per l'adulto alle prime armi può essere troppo avanzato. Da verificare.",
-      "stato": "bozza",
-      "attrezzi_facoltativi": ["pinne"]
     }
   ]
 }

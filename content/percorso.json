@@ -96,7 +96,7 @@
       "nome": "Delfino",
       "obiettivo": "Imparare l'ondulazione e la sua coordinazione.",
       "test": "Nuoti 25 metri di delfino con ondulazione guidata dal petto.",
-      "drill": ["onda-del-delfino", "delfino-un-braccio-alla-volta", "delfino-sei-colpi-una-bracciata"],
+      "drill": ["onda-del-delfino", "delfino-un-braccio-alla-volta"],
       "errori": ["delfino-solo-gambe", "delfino-piede-fuori-dall-acqua", "delfino-spalle-alte"],
       "fonti": ["swim-england-stage", "lts-livelli-1-6", "swim-wales-delfino"],
       "stato": "bozza"

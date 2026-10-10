@@ -36,7 +36,7 @@ workflows:
     instance_type: mac_mini_m2
     max_build_duration: 60
     integrations:
-      app_store_connect: codemagic   # nome dell'integrazione in Codemagic (chiave SGQ27RS4M8, già usata per le altre app)
+      app_store_connect: swimwave   # nome dell'integrazione in Codemagic (chiave PRSUW86VK9, creata per Swimwave)
     environment:
       xcode: latest
       groups:
@@ -59,6 +59,8 @@ workflows:
           xcodegen
       - name: Crea o scarica certificato e profili (iPhone, Watch, complicazione)
         script: |
+          # diagnosi: quante variabili di App Store Connect arrivano dall'integrazione (solo il numero, mai i valori)
+          echo "variabili App Store Connect presenti: $(env | grep -c '^APP_STORE_CONNECT_')"
           keychain initialize
           # --create: se il profilo non esiste lo crea; il certificato di distribuzione si crea con la chiave privata in CERTIFICATE_PRIVATE_KEY
           app-store-connect fetch-signing-files "com.swimwave.app" --type IOS_APP_STORE --create

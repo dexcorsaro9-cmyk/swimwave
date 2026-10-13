@@ -8,12 +8,12 @@
 - Due coach con immagini, espressioni e avatar (`assets/coach/`)
 - Specifiche: esperienza, primo avvio, popup, grafica (`docs/`)
 - Mockup dell'interfaccia (canvas dei mockup)
-- App SwiftUI iPhone + Watch e pacchetto condiviso (`app/`, `Packages/`), **scritta per intero ma mai compilata**: 18+, consenso IA, permessi, allenamento guidato su iPhone e Watch (pausa/ripresa, nuoto libero, acque libere), domanda facile/giusta/dura, storico con dettaglio, calendario e confronto, andamento, riepiloghi, record e migliori tempi, traguardi, il tuo anno, obiettivo mensile, serie di settimane, test del ritmo con zone, libreria di allenamenti, richiesta al coach, esercizi a secco, Spronami, tema scuro, icona (bracciata-onda), scorciatoia Siri, complicazione del Watch, interfaccia in italiano, inglese e spagnolo (i contenuti tecnici restano in italiano)
+- App SwiftUI iPhone + Watch e pacchetto condiviso (`app/`, `Packages/`), **scritta per intero ma mai compilata**: 18+, consenso IA, permessi, allenamento guidato su iPhone e Watch (pausa/ripresa, nuoto libero, acque libere), domanda facile/giusta/dura, storico con dettaglio, calendario e confronto, andamento, riepiloghi, record e migliori tempi, traguardi, il tuo anno, obiettivo mensile, serie di settimane, test del ritmo con zone, libreria di allenamenti, richiesta al coach, Spronami, tema scuro, icona (bracciata-onda), scorciatoia Siri, complicazione del Watch, interfaccia in italiano, inglese e spagnolo (i contenuti tecnici restano in italiano)
 - Bozze legali e checklist di conformità (`docs/legale/`)
 
 ## Prossimi passi (versione 1: iPhone + Apple Watch)
 
-1. **Revisione dei contenuti** da parte dell'istruttore e passaggio ad `approvato` (senza contenuti approvati l'app in Release non mostra allenamenti).
+1. ~~Revisione dei contenuti~~ fatta il 10 ottobre 2026: tutto approvato dall'istruttore (tolti due drill e gli esercizi a secco). Restano da riguardare con l'esperienza in acqua le voci con fonte debole.
 2. **Compilare e provare l'app** con Codemagic (`codemagic.yaml`, vedi `app/README.md`): prima il workflow `test`, poi `ios-testflight`; correggere gli errori di compilazione.
 3. **Collegare l'app al servizio coach**: hosting, chiave del modello, schermata di consenso prima della prima richiesta all'IA.
 4. ~~Completare l'app~~ fatto nel codice (vedi sopra); resta da provarlo: tutto è nella versione 1, non c'è una seconda versione per queste funzioni.
@@ -37,6 +37,10 @@ Note tecniche:
 ## Più avanti
 
 Wear OS e Garmin, solo se richiesti dagli utenti. Strava, acque libere, dryland, community.
+
+## Tolto dalla versione 1
+
+Esercizi a secco (decisione dell'istruttore, ottobre 2026): file, schermata e fonti rimossi; si può riprendere in seguito dalla cronologia di git.
 
 ## Cose da non fare
 

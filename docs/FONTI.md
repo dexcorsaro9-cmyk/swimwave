@@ -57,10 +57,6 @@ Ogni voce dei file in `content/` ha:
 
 `content/zone-ritmo.json`: le 5 fonti sopra sostengono il concetto di velocità critica e il test 200 m + 400 m, ma **nessuna dà le percentuali delle zone**. I limiti (70-110% della velocità critica) sono proposte nostre e prudenti, con `fonti` vuoto e una `nota_fonti`. Riscaldamento, riposo e partenza del test sono pure nostri. Non consultati: Swim England, British Swimming, USA Swimming, FIN, ACSM/NSCA (nessuna pagina utile trovata o leggibile).
 
-## Esercizi a secco (9 ottobre 2026)
-
-`content/a-secco.json`: 11 esercizi fuori dall'acqua, sostenuti dalle 10 fonti nuove nella tabella. Sono quasi tutte per la popolazione generale o per la riabilitazione: **nessuna federazione di nuoto letta dà un programma a secco per adulti principianti**. Lo studio sui nuotatori con l'elastico (Frontiers 2023) non ha trovato effetti significativi. Le ripetizioni sono quelle delle fonti, tranne Dead bug e Ponte per i glutei, che sono valori prudenti nostri e lo dice la `nota_fonti`. Non letti: la pagina di PMC sulla flessibilità della caviglia (bloccata da un controllo del browser), Swim England, British Swimming, USA Swimming, FIN, ACSM, NSCA. Non usati: sbarra, manubri, pressa sopra la testa dell'articolo USMS.
-
 ## Limiti
 
 - Le fasi di Swim England e i livelli Learn-to-Swim sono pensati per i bambini. Le usiamo per l'ordine di apprendimento, non come soglie per gli adulti.

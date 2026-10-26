@@ -118,6 +118,10 @@ public struct VoceAllenamento: Codable, Equatable, Sendable, ContenutoConStato {
     public var obiettivi: [String]
     public var tappe: [Int]
     public var stato: StatoContenuto
+    /// Valore di `Tipologia` (a1, a2, b1, b2, c1). Opzionale: le voci senza tipologia non entrano nei consigli.
+    public var tipologia: String? = nil
+
+    public var tipologiaTipo: Tipologia? { tipologia.flatMap(Tipologia.init(rawValue:)) }
 }
 
 // Contenitori dei file JSON (la chiave "nota" viene ignorata).

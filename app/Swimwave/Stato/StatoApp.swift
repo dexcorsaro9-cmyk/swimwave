@@ -445,13 +445,35 @@ final class StatoApp {
         if consensoIA == true, let generato = allenamentoGenerato, chiaveGenerato == chiave {
             return Riserva.alleggerisci(generato, motivo: motivo)
         }
-        let chiaveFissa = chiave + "|" + (motivo?.rawValue ?? "")
+        let consiglio = consiglioDiOggi(adesso: adesso)
+        let chiaveFissa = chiave + "|" + (motivo?.rawValue ?? "") + "|" + consiglio.tipologia.rawValue
         if let cache = cacheAllenamento, cache.chiave == chiaveFissa {
             return cache.workout.map { Riserva.alleggerisci($0, motivo: motivo) }
         }
-        let w = contenuti.scegliRiserva(profilo: profilo, scelta: giorno, motivo: motivo)
+        let w = contenuti.scegliRiserva(profilo: profilo, scelta: giorno, motivo: motivo, tipologia: consiglio.tipologia)
         cacheAllenamento = (chiaveFissa, w)
         return w.map { Riserva.alleggerisci($0, motivo: motivo) }
+    }
+
+    /// La tipologia consigliata oggi in base a livello, obiettivo, ultima sensazione e giorni dall'ultima nuotata.
+    func consiglioDiOggi(adesso: Date = Date()) -> Consiglio {
+        let giorno = Calendar.italiano.ordinality(of: .day, in: .year, for: adesso) ?? 0
+        var giorniDallUltima: Int?
+        if let ultima = nuotate.first {
+            giorniDallUltima = Calendar.italiano.dateComponents([.day], from: Calendar.italiano.startOfDay(for: ultima.data),
+                                                                to: Calendar.italiano.startOfDay(for: adesso)).day
+        }
+        return Tipologia.consigliata(categoria: profilo.categoriaLivello, obiettivo: profilo.obiettivoEffettivo,
+                                     ultimaSensazione: ultimaSensazione, giorniDallUltima: giorniDallUltima, giorno: giorno)
+    }
+
+    /// Il consiglio da mostrare sull'allenamento di oggi: solo se quello proposto è un allenamento fisso scelto da noi
+    /// (non uno scelto dall'utente dalla libreria, né uno generato dal coach, che non ha una tipologia).
+    func consiglioMostrato(adesso: Date = Date()) -> Consiglio? {
+        let (giorno, chiave) = chiaveOggi(adesso: adesso)
+        if allenamentoScelto != nil, giornoAllenamentoScelto == giorno { return nil }
+        if consensoIA == true, allenamentoGenerato != nil, chiaveGenerato == chiave { return nil }
+        return consiglioDiOggi(adesso: adesso)
     }
 
     /// Il motivo per cui l'allenamento proposto oggi è stato alleggerito (nil se non lo è, o se l'ha scelto l'utente).

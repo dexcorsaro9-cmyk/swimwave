@@ -279,6 +279,16 @@ struct OggiView: View {
                 Text(verbatim: w.titolo)
                     .font(Tema.titolo2)
                     .foregroundStyle(Tema.testo)
+                if let consiglio = stato.consiglioMostrato() {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(verbatim: testo("consiglio.titolo", testo("tipologia.\(consiglio.tipologia.rawValue).nome")))
+                            .font(Tema.piccolo.weight(.bold))
+                            .foregroundStyle(Tema.testo)
+                        Text(LocalizedStringKey("consiglio.perche.\(consiglio.motivo.rawValue)"))
+                            .font(Tema.piccolo)
+                            .foregroundStyle(Tema.testoSecondario)
+                    }
+                }
                 HStack(spacing: 8) {
                     Etichetta(contenuto: testo("oggi.minuti", w.durataStimataMin))
                     Etichetta(contenuto: testo("oggi.metri", w.metriTotali))

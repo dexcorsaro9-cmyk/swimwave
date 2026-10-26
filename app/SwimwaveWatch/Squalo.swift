@@ -15,22 +15,117 @@ struct CorsiaSqualo: View {
     private let larghezza: CGFloat = 40
     private let altezza: CGFloat = 20
 
+    /// Quanto salgono le bolle sopra lo squalo, in punti.
+    var salita: CGFloat = 12
+
     var body: some View {
         let animato = !inPausa && !schermoAttenuato
         GeometryReader { geo in
             TimelineView(.animation(minimumInterval: 0.066, paused: !animato)) { linea in
                 let t = linea.date.timeIntervalSinceReferenceDate
                 let onda = animato ? sin(t * (nuota ? 3.5 : 1.4)) * (nuota ? 1 : 2) : 0
-                OndaSqualo(fase: animato ? t * (nuota ? 8 : 2.2) : 0, ampiezza: animato ? (nuota ? 0.085 : 0.03) : 0)
-                    .frame(width: larghezza, height: altezza)
-                    .rotationEffect(.degrees(6))   // l'immagine ha il muso leggermente in su: +6° lo mette in piano
-                    .offset(x: max(0, geo.size.width - larghezza) * min(1, max(0, progresso)), y: onda)
-                    .opacity(inPausa ? 0.5 : 1)
+                let x = max(0, geo.size.width - larghezza) * min(1, max(0, progresso))
+                ZStack(alignment: .topLeading) {
+                    if animato {
+                        // Bolle che salgono dalla coda e scia dietro lo squalo (solo mentre nuota).
+                        BolleSqualo(sinistra: x, altezzaSqualo: altezza, tempo: t, nuota: nuota, salita: salita)
+                            .frame(width: geo.size.width, height: salita + altezza)
+                            .offset(y: 3 + altezza - (salita + altezza))
+                            .allowsHitTesting(false)
+                    }
+                    OndaSqualo(fase: animato ? t * (nuota ? 8 : 2.2) : 0, ampiezza: animato ? (nuota ? 0.085 : 0.03) : 0)
+                        .frame(width: larghezza, height: altezza)
+                        .rotationEffect(.degrees(6))   // l'immagine ha il muso leggermente in su: +6° lo mette in piano
+                        .offset(x: x, y: 3 + onda)
+                        .opacity(inPausa ? 0.5 : 1)
+                }
             }
             .animation(.easeInOut(duration: 0.5), value: progresso)
         }
         .frame(height: altezza + 6)
         .accessibilityHidden(true)
+    }
+}
+
+/// Bolle sottili che salgono dalla coda e tre trattini di scia dietro lo squalo. Disegnate con un solo Canvas: costano poco.
+struct BolleSqualo: View {
+    var sinistra: CGFloat
+    var altezzaSqualo: CGFloat
+    var tempo: Double
+    var nuota: Bool
+    var salita: CGFloat
+
+    private static let colore = Color(red: 127.0 / 255.0, green: 227.0 / 255.0, blue: 238.0 / 255.0)
+
+    var body: some View {
+        Canvas { contesto, dimensione in
+            let centro = dimensione.height - altezzaSqualo / 2
+            for k in 0..<6 {
+                let ciclo = 1.6 + 0.35 * Double(k)
+                let p = (tempo / ciclo + Double(k) * 0.31).truncatingRemainder(dividingBy: 1)
+                let bx = sinistra + 6 + CGFloat(k % 3) * 4 - (nuota ? CGFloat(p) * 12 : 0)
+                let by = centro - CGFloat(p) * salita
+                let d = 2.2 + CGFloat(k % 3) * 1.2
+                let opacita = sin(p * .pi) * 0.85
+                contesto.stroke(Path(ellipseIn: CGRect(x: bx - d / 2, y: by - d / 2, width: d, height: d)),
+                                with: .color(Self.colore.opacity(opacita)), lineWidth: 0.9)
+            }
+            if nuota {
+                for j in 0..<3 {
+                    let q = (tempo * 1.6 + Double(j) * 0.33).truncatingRemainder(dividingBy: 1)
+                    let x1 = sinistra - 2 - CGFloat(q) * 14
+                    var scia = Path()
+                    scia.move(to: CGPoint(x: x1, y: centro + CGFloat(j - 1) * 4))
+                    scia.addLine(to: CGPoint(x: x1 + 5, y: centro + CGFloat(j - 1) * 4))
+                    contesto.stroke(scia, with: .color(Self.colore.opacity((1 - q) * 0.6)), style: StrokeStyle(lineWidth: 1.4, lineCap: .round))
+                }
+            }
+        }
+    }
+}
+
+/// Fine allenamento: lo squalo salta fuori dall'acqua, con schizzi e un'onda in primo piano.
+struct SqualoFesta: View {
+    @Environment(\.isLuminanceReduced) private var schermoAttenuato
+
+    var body: some View {
+        TimelineView(.animation(minimumInterval: 0.066, paused: schermoAttenuato)) { linea in
+            let t = linea.date.timeIntervalSinceReferenceDate
+            let q = (t / 2.6).truncatingRemainder(dividingBy: 1)
+            let salto = q > 0.5 ? (q - 0.5) / 0.5 : -1     // 0...1 durante il salto
+            let altezzaSalto = salto >= 0 ? CGFloat(sin(salto * .pi)) * 30 : 0
+            ZStack(alignment: .bottom) {
+                OndaSqualo(fase: schermoAttenuato ? 0 : t * 8, ampiezza: schermoAttenuato ? 0 : 0.06)
+                    .frame(width: 60, height: 29)
+                    .rotationEffect(.degrees(salto >= 0 ? -22 + salto * 44 : 6))
+                    .offset(y: salto >= 0 ? 8 - altezzaSalto : 18)
+                OndaAcqua(fase: t * 2)
+                    .fill(WatchTema.turchese.opacity(0.55))
+                    .frame(height: 16)
+            }
+            .frame(height: 46)
+            .clipped()
+        }
+        .accessibilityHidden(true)
+    }
+}
+
+/// Una riga d'onda per la fine dell'allenamento.
+struct OndaAcqua: Shape {
+    var fase: Double
+
+    func path(in rect: CGRect) -> Path {
+        var p = Path()
+        p.move(to: CGPoint(x: rect.minX, y: rect.maxY))
+        p.addLine(to: CGPoint(x: rect.minX, y: rect.minY + 6))
+        var x = rect.minX
+        while x <= rect.maxX {
+            p.addLine(to: CGPoint(x: x, y: rect.minY + 6 + CGFloat(sin(Double(x) / 11 + fase)) * 3.5))
+            x += 2
+        }
+        p.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
+        p.closeSubpath()
+        return p
     }
 }
 

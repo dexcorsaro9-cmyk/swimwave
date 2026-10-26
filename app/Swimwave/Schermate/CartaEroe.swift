@@ -22,7 +22,7 @@ struct AcquaEroe: View {
             let t = ferma ? 0 : linea.date.timeIntervalSinceReferenceDate
             ZStack(alignment: .top) {
                 LinearGradient(
-                    colors: [Color(squaloHex: 0x46CFE0), Color(squaloHex: 0x1FB5C9), Color(squaloHex: 0x1A86AD), Color(squaloHex: 0x145F94)],
+                    colors: tipologia?.acqua ?? Tipologia.a2.acqua,
                     startPoint: .top, endPoint: .bottom
                 )
                 RaggiNellAcqua(t: t)
@@ -32,12 +32,13 @@ struct AcquaEroe: View {
                 SqualoEBolle(t: t, ferma: ferma)
                 HStack(alignment: .top) {
                     if let tipologia {
-                        EtichettaTipologia(tipologia: tipologia)
+                        EtichettaTipologia(tipologia: tipologia, forma: .pillola)
                             .font(Tema.piccolo.weight(.heavy))
                             .foregroundStyle(.white)
-                            .padding(.horizontal, 10)
+                            .padding(.leading, 4)
+                            .padding(.trailing, 10)
                             .padding(.vertical, 4)
-                            .background(Capsule().fill(Color.black.opacity(0.22)))
+                            .background(Capsule().fill(Color.black.opacity(0.28)))
                     } else if let etichetta {
                         Text(verbatim: etichetta)
                             .font(Tema.piccolo.weight(.heavy))

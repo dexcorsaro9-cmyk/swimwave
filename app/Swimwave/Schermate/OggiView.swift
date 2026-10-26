@@ -163,9 +163,10 @@ struct OggiView: View {
                                 Image(systemName: fatta ? "checkmark.circle.fill" : "circle")
                                     .foregroundStyle(fatta ? Tema.turchese : Tema.testoSecondario)
                                     .accessibilityHidden(true)
-                                EtichettaTipologia(tipologia: t)
+                                EtichettaTipologia(tipologia: t, forma: .pillola)
                                     .font(prossima ? Tema.corpo.weight(.bold) : Tema.corpo)
                                     .foregroundStyle(fatta ? Tema.testoSecondario : Tema.testo)
+                                    .opacity(fatta ? 0.6 : 1)
                                 if prossima {
                                     Text("oggi.obiettivo.prossima")
                                         .font(Tema.piccolo.weight(.bold))
@@ -209,7 +210,7 @@ struct OggiView: View {
         if n >= 2 {
             HStack(spacing: 8) {
                 Image(systemName: "flame.fill")
-                    .foregroundStyle(Tema.corallo)
+                    .foregroundStyle(Color(squaloHex: 0xFFC857))
                     .accessibilityHidden(true)
                 Text(verbatim: testo("oggi.serie", n))
                     .font(Tema.sottotitolo)
@@ -346,7 +347,7 @@ struct OggiView: View {
             .padding(16)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
-                LinearGradient(colors: [Color(squaloHex: 0x145F94), Tema.navyChiaro, Tema.navy], startPoint: .top, endPoint: .bottom)
+                LinearGradient(colors: consiglio?.tipologia.fondoTesto ?? Tipologia.a2.fondoTesto, startPoint: .top, endPoint: .bottom)
             )
         }
         .clipShape(RoundedRectangle(cornerRadius: 26, style: .continuous))

@@ -40,24 +40,37 @@ extension Tipologia {
     /// Giorni senza nuotare dopo i quali si riparte con un allenamento leggero.
     public static let giorniDiPausa = 14
 
-    /// La tipologia consigliata per oggi, secondo le esigenze dell'atleta.
-    /// - dopo una nuotata "dura" o dopo una pausa lunga: A1;
-    /// - altrimenti si alternano le tipologie adatte a livello e obiettivo, un passo al giorno.
+    /// La sequenza di tipologie per livello e obiettivo. Chi ha un obiettivo settimanale la percorre una nuotata dopo l'altra:
+    /// il piano di una settimana sono le `obiettivo` voci a partire da `settimana * obiettivo`.
     /// PROVVISORIO: le sequenze sono una scelta nostra, da riguardare con l'esperienza degli utenti.
+    public static func ciclo(categoria: CategoriaLivello, obiettivo: Obiettivo) -> [Tipologia] {
+        switch (categoria, obiettivo) {
+        case (.principiante, .tecnica), (.principiante, .stareBene): return [.a1, .a1, .a2]
+        case (.principiante, .resistenza), (.principiante, .dimagrimento): return [.a2, .a1, .a2]
+        case (.intermedio, .tecnica): return [.a1, .a2, .b1, .a1]
+        case (.intermedio, .stareBene): return [.a1, .a2]
+        case (.intermedio, .resistenza): return [.a2, .b1, .a1, .b2, .a2, .c1]
+        case (.intermedio, .dimagrimento): return [.a2, .a1, .b1, .a2]
+        }
+    }
+
+    /// Le nuotate consigliate per una settimana con `nuotate` da fare. `settimana` è il numero della settimana dell'anno.
+    public static func pianoSettimana(categoria: CategoriaLivello, obiettivo: Obiettivo, nuotate: Int, settimana: Int) -> [Tipologia] {
+        guard nuotate > 0 else { return [] }
+        let c = ciclo(categoria: categoria, obiettivo: obiettivo)
+        return (0..<nuotate).map { c[(settimana * nuotate + $0) % c.count] }
+    }
+
+    /// La tipologia consigliata oggi, secondo le esigenze dell'atleta.
+    /// - dopo una nuotata "dura" o dopo una pausa lunga: A1;
+    /// - altrimenti la voce `posizione` della sequenza: con un obiettivo settimanale è la prossima nuotata del piano della settimana
+    ///   (`settimana * nuotate + già fatte`), senza obiettivo (ritmo Libero) un passo al giorno.
     public static func consigliata(categoria: CategoriaLivello, obiettivo: Obiettivo,
-                                   ultimaSensazione: Sensazione?, giorniDallUltima: Int?, giorno: Int) -> Consiglio {
+                                   ultimaSensazione: Sensazione?, giorniDallUltima: Int?, posizione: Int) -> Consiglio {
         if ultimaSensazione == .dura { return Consiglio(tipologia: .a1, motivo: .dura) }
         if let g = giorniDallUltima, g >= giorniDiPausa { return Consiglio(tipologia: .a1, motivo: .pausa) }
-        let ciclo: [Tipologia]
-        switch (categoria, obiettivo) {
-        case (.principiante, .tecnica), (.principiante, .stareBene): ciclo = [.a1, .a1, .a2]
-        case (.principiante, .resistenza), (.principiante, .dimagrimento): ciclo = [.a2, .a1, .a2]
-        case (.intermedio, .tecnica): ciclo = [.a1, .a2, .b1, .a1]
-        case (.intermedio, .stareBene): ciclo = [.a1, .a2]
-        case (.intermedio, .resistenza): ciclo = [.a2, .b1, .a1, .b2, .a2, .c1]
-        case (.intermedio, .dimagrimento): ciclo = [.a2, .a1, .b1, .a2]
-        }
-        let i = ((giorno % ciclo.count) + ciclo.count) % ciclo.count
-        return Consiglio(tipologia: ciclo[i], motivo: .alternanza)
+        let c = ciclo(categoria: categoria, obiettivo: obiettivo)
+        let i = ((posizione % c.count) + c.count) % c.count
+        return Consiglio(tipologia: c[i], motivo: .alternanza)
     }
 }

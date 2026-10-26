@@ -41,18 +41,20 @@
   .bolla { position: absolute; border-radius: 50%; border: 1.5px solid #7FE3EEcc; opacity: 0; animation: sale 3.6s linear infinite; }
   @keyframes sale { 0% { transform: translateY(0) scale(.6); opacity: 0; } 15% { opacity: .9; } 100% { transform: translateY(-90px) scale(1.15); opacity: 0; } }
 
-  /* Schermata 2: in vasca */
-  .s2 .vasca { position: absolute; top: 14px; left: 0; right: 0; text-align: center; font-size: 12px; color: var(--turchese-chiaro); font-weight: 700; letter-spacing: .04em; }
-  .s2 .numero { position: absolute; top: 30px; left: 0; right: 0; text-align: center; font-size: 62px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
-  .s2 .numero small { font-size: 20px; font-weight: 700; color: var(--turchese-chiaro); }
-  .s2 .tratto { position: absolute; top: 108px; left: 0; right: 0; text-align: center; font-size: 14px; }
-  .s2 .corsia { position: absolute; left: 18px; right: 18px; bottom: 44px; height: 4px; border-radius: 2px; background: #ffffff33; }
-  .s2 .corsia i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 2px; background: var(--turchese); animation: riempi 8s linear infinite; }
-  .s2 .squalo { width: 56px; height: 28px; bottom: 33px; left: 18px; animation: percorre 8s linear infinite; }
+  /* Schermata 2: in vasca (stessa disposizione dell'app: serie, numero, stile, tempo, corsia con squalo, segmenti, pulsante) */
+  .s2 .vasca { position: absolute; top: 12px; left: 0; right: 0; text-align: center; font-size: 12px; color: #ffffffaa; font-weight: 600; }
+  .s2 .numero { position: absolute; top: 26px; left: 0; right: 0; text-align: center; font-size: 56px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+  .s2 .tratto { position: absolute; top: 84px; left: 0; right: 0; text-align: center; font-size: 12px; color: #ffffffaa; font-weight: 600; }
+  .s2 .tempo { position: absolute; top: 98px; left: 0; right: 0; text-align: center; font-size: 19px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .s2 .corsia { position: absolute; left: 14px; right: 14px; top: 130px; height: 2px; border-radius: 1px; background: #ffffff22; }
+  .s2 .squalo { width: 38px; height: 19px; top: 120px; left: 14px; animation: percorre 8s linear infinite; }
   .s2 .squalo .coda { animation-duration: .55s; }
-  @keyframes riempi { from { width: 0; } to { width: 100%; } }
-  @keyframes percorre { from { transform: translateX(-6px); } to { transform: translateX(118px); } }
-  .s2 .giri { position: absolute; bottom: 12px; left: 0; right: 0; text-align: center; font-size: 12px; color: #ffffffcc; }
+  @keyframes percorre { from { transform: translateX(0); } to { transform: translateX(110px); } }
+  .s2 .segmenti { position: absolute; left: 14px; right: 14px; top: 144px; display: flex; gap: 2px; }
+  .s2 .segmenti b { flex: 1; height: 6px; border-radius: 3px; background: #ffffff44; }
+  .s2 .segmenti b.fatto { background: var(--turchese); }
+  .s2 .segmenti b.corr { background: var(--corallo); }
+  .s2 .fatto-btn { position: absolute; left: 14px; right: 14px; bottom: 14px; height: 34px; border-radius: 17px; background: var(--corallo); color: var(--navy); font-weight: 800; display: grid; place-items: center; font-size: 15px; }
 
   /* Schermata 3: fine vasca */
   .s3 .squalo { width: 96px; height: 48px; left: 52px; top: 60px; animation: salto 2.4s cubic-bezier(.3,.7,.4,1) infinite; }
@@ -106,13 +108,16 @@
 
     <figure>
       <div class="watch"><div class="schermo s2">
-        <div class="vasca">VASCA 3 DI 8</div>
-        <div class="numero">50<small> m</small></div>
-        <div class="tratto">Media · recupero 20 s</div>
+        <div class="vasca">3/8 · 2/4</div>
+        <div class="numero">50</div>
+        <div class="tratto">Stile libero</div>
+        <div class="tempo">12:40</div>
         <div class="corsia"><i></i></div>
         <div class="squalo"><svg viewBox="0 0 180 100"><use href="#squalo-simbolo"/></svg></div>
+        <div class="segmenti"><b class="fatto"></b><b class="fatto"></b><b class="corr"></b><b></b><b></b><b></b><b></b><b></b></div>
+        <div class="fatto-btn">Fatto</div>
       </div></div>
-      <figcaption>2 · In vasca<small>Lo squalo avanza lungo la corsia</small></figcaption>
+      <figcaption>2 · In vasca<small>Il numero resta il protagonista: lo squalo nuota lungo la corsia sopra i segmenti delle serie</small></figcaption>
     </figure>
 
     <figure>
@@ -129,15 +134,15 @@
   <section class="note">
     <h2>Cosa guardare</h2>
     <ul>
-      <li>I numeri restano grandi e leggibili: lo squalo non copre mai il dato.</li>
+      <li>Lo squalo resta sempre in vista ma è piccolo: occupa una striscia sottile sopra i segmenti delle serie e non copre mai i numeri.</li>
+      <li>Nuotando avanza con la ripetizione; nel recupero galleggia piano a fine corsia; in pausa si ferma e si attenua.</li>
       <li>Colori e onda sono quelli di Swimwave (blu, turchese, corallo). Il personaggio è disegnato da zero.</li>
       <li>In acqua l'animazione è leggera: si ferma quando il Watch va in risparmio energetico.</li>
     </ul>
     <h2>Da decidere</h2>
     <ul>
       <li>Lo squalo ha un nome? Ha espressioni diverse come i coach (felice, stanco, festa)?</li>
-      <li>Nell'allenamento resta sempre in vista o compare solo a fine vasca?</li>
-      <li>Con "Spronami" può andare un po' avanti rispetto al tuo ritmo obiettivo?</li>
+            <li>Con "Spronami" può andare un po' avanti rispetto al tuo ritmo obiettivo?</li>
     </ul>
     <p>Questa è solo una bozza visiva: nell'app andrà ridisegnata con SwiftUI e va provata sul Watch vero.</p>
   </section>

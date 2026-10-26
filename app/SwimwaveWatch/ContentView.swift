@@ -27,6 +27,8 @@ struct InAttesaView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 8) {
+                // Lo squalo aspetta con te: galleggia piano.
+                CorsiaSqualo(progresso: 0.5, nuota: false, inPausa: false)
                 Text("watch.attesa.titolo")
                     .font(.system(.headline, design: .rounded))
                     .multilineTextAlignment(.center)

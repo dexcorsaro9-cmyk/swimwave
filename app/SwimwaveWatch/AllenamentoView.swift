@@ -1,5 +1,6 @@
 import SwiftUI
 import SwimwaveCore
+import WatchKit
 
 /// Allenamento in acqua. Numeri grandi, una sola informazione dominante, nessuna immagine (docs/GRAFICA.md).
 ///  - Nuoto: i metri che mancano alla fine della ripetizione.
@@ -23,6 +24,9 @@ struct AllenamentoView: View {
 
 struct PaginaAllenamento: View {
     @EnvironmentObject private var manager: WorkoutManager
+
+    /// Il numero dominante: un po' più piccolo sugli orologi da 40/41 mm, per fare posto allo squalo senza tagliare nulla.
+    private var dimensioneNumero: CGFloat { WKInterfaceDevice.current().screenBounds.height < 220 ? 54 : 64 }
 
     var body: some View {
         if let av = manager.avanzamento, let passo = av.passoCorrente {
@@ -53,8 +57,15 @@ struct PaginaAllenamento: View {
                     .monospacedDigit()
                     .opacity(manager.inPausa ? 0.35 : 1)
 
-                BarraSerie(totali: av.piano.serieTotali, corrente: passo.indiceSerie)
-                    .padding(.vertical, 4)
+                // Lo squalo nuota lungo la corsia con l'avanzamento della ripetizione; sotto, i segmenti delle serie.
+                // Nel recupero resta a fine corsia e galleggia piano. Una nuova ripetizione lo riporta all'inizio senza scivolare all'indietro.
+                VStack(spacing: 1) {
+                    CorsiaSqualo(progresso: progressoRipetizione(av: av, passo: passo),
+                                 nuota: !isRecupero(av), inPausa: manager.inPausa)
+                        .id(passo.indiceSerie * 1000 + passo.ripetizione)
+                    BarraSerie(totali: av.piano.serieTotali, corrente: passo.indiceSerie)
+                }
+                .padding(.vertical, 2)
 
                 Button {
                     manager.avanti()
@@ -74,6 +85,13 @@ struct PaginaAllenamento: View {
         }
     }
 
+    /// Quanto della ripetizione è stato nuotato (0...1). Nel recupero la ripetizione è finita: 1.
+    private func progressoRipetizione(av: AvanzamentoAllenamento, passo: Passo) -> Double {
+        if isRecupero(av) { return 1 }
+        guard passo.distanzaMetri > 0 else { return 0 }
+        return min(1, max(0, manager.metriNellaRipetizione / Double(passo.distanzaMetri)))
+    }
+
     private func isRecupero(_ av: AvanzamentoAllenamento) -> Bool {
         if case .recupero = av.fase { return true }
         return false
@@ -87,7 +105,7 @@ struct PaginaAllenamento: View {
                     .font(.system(.footnote, design: .rounded).weight(.bold))
                     .foregroundStyle(WatchTema.turchese)
                 Text(verbatim: "\(manager.recuperoRimanente)")
-                    .font(.system(size: 64, weight: .heavy, design: .rounded))
+                    .font(.system(size: dimensioneNumero, weight: .heavy, design: .rounded))
                     .foregroundStyle(WatchTema.turchese)
                     .monospacedDigit()
                     .minimumScaleFactor(0.5)
@@ -98,7 +116,7 @@ struct PaginaAllenamento: View {
                 // Quanto manca alla fine della ripetizione (non scende sotto zero).
                 let mancano = max(0, passo.distanzaMetri - Int(manager.metriNellaRipetizione.rounded()))
                 Text(verbatim: "\(mancano)")
-                    .font(.system(size: 64, weight: .heavy, design: .rounded))
+                    .font(.system(size: dimensioneNumero, weight: .heavy, design: .rounded))
                     .monospacedDigit()
                     .minimumScaleFactor(0.5)
                     .lineLimit(1)

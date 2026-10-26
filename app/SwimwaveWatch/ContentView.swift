@@ -210,6 +210,11 @@ struct RiepilogoView: View {
                         .minimumScaleFactor(0.7)
                     }
                 }
+                // Il recap del coach compare sull'iPhone appena la nuotata arriva.
+                Text("watch.fine.recap")
+                    .font(.system(.footnote, design: .rounded))
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
                 Button {
                     manager.chiudiRiepilogo()
                 } label: {

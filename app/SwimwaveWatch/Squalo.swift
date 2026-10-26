@@ -28,7 +28,7 @@ struct CorsiaSqualo: View {
                 ZStack(alignment: .topLeading) {
                     if animato {
                         // Bolle che salgono dalla coda e scia dietro lo squalo (solo mentre nuota).
-                        BolleSqualo(sinistra: x, altezzaSqualo: altezza, tempo: t, nuota: nuota, salita: salita)
+                        BolleSqualo(sinistra: x, larghezzaSqualo: larghezza, altezzaSqualo: altezza, tempo: t, nuota: nuota, salita: salita)
                             .frame(width: geo.size.width, height: salita + altezza)
                             .offset(y: 3 + altezza - (salita + altezza))
                             .allowsHitTesting(false)
@@ -47,9 +47,11 @@ struct CorsiaSqualo: View {
     }
 }
 
-/// Bolle sottili che salgono dalla coda e tre trattini di scia dietro lo squalo. Disegnate con un solo Canvas: costano poco.
+/// Poche bolle sottili che escono dalla bocca e salgono davanti e sopra il muso (mai sul corpo), e tre trattini di scia dietro
+/// la coda mentre nuota. Disegnate con un solo Canvas: costano poco.
 struct BolleSqualo: View {
     var sinistra: CGFloat
+    var larghezzaSqualo: CGFloat
     var altezzaSqualo: CGFloat
     var tempo: Double
     var nuota: Bool
@@ -60,12 +62,14 @@ struct BolleSqualo: View {
     var body: some View {
         Canvas { contesto, dimensione in
             let centro = dimensione.height - altezzaSqualo / 2
-            for k in 0..<6 {
-                let ciclo = 1.6 + 0.35 * Double(k)
-                let p = (tempo / ciclo + Double(k) * 0.31).truncatingRemainder(dividingBy: 1)
-                let bx = sinistra + 6 + CGFloat(k % 3) * 4 - (nuota ? CGFloat(p) * 12 : 0)
-                let by = centro - CGFloat(p) * salita
-                let d = 2.2 + CGFloat(k % 3) * 1.2
+            // Bolle dalla bocca (a destra, un po' sotto il centro): salgono e si spostano appena indietro.
+            let bocca = CGPoint(x: sinistra + larghezzaSqualo * 0.96, y: centro + altezzaSqualo * 0.14)
+            for k in 0..<3 {
+                let ciclo = 1.5 + 0.4 * Double(k)
+                let p = (tempo / ciclo + Double(k) * 0.37).truncatingRemainder(dividingBy: 1)
+                let bx = bocca.x + 2 + CGFloat(k) * 1.5 - CGFloat(p) * (nuota ? 9 : 2)
+                let by = bocca.y - CGFloat(p) * salita
+                let d = 1.8 + CGFloat(k) * 0.9
                 let opacita = sin(p * .pi) * 0.85
                 contesto.stroke(Path(ellipseIn: CGRect(x: bx - d / 2, y: by - d / 2, width: d, height: d)),
                                 with: .color(Self.colore.opacity(opacita)), lineWidth: 0.9)

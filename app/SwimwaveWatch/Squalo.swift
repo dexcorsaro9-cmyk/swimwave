@@ -33,9 +33,8 @@ struct CorsiaSqualo: View {
                             .offset(y: 3 + altezza - (salita + altezza))
                             .allowsHitTesting(false)
                     }
-                    OndaSqualo(fase: animato ? t * (nuota ? 8 : 2.2) : 0, ampiezza: animato ? (nuota ? 0.085 : 0.03) : 0)
+                    SqualoSprite(fotogramma: animato ? Int(t * (nuota ? 12 : 8)) % SqualoSprite.totale : 0)
                         .frame(width: larghezza, height: altezza)
-                        .rotationEffect(.degrees(6))   // l'immagine ha il muso leggermente in su: +6° lo mette in piano
                         .offset(x: x, y: 3 + onda)
                         .opacity(inPausa ? 0.5 : 1)
                 }
@@ -130,6 +129,28 @@ struct OndaAcqua: Shape {
         p.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
         p.closeSubpath()
         return p
+    }
+}
+
+/// Lo squalo che nuota: una striscia di fotogrammi (Assets.xcassets/squalo-nuota-sheet, 9 colonne x 5 righe, 44 fotogrammi a 12 al secondo)
+/// ricavata dal video generato con Flow, con lo sfondo verde tolto e la ripartenza del ciclo rifinita. Sorgenti in assets/squalo/.
+struct SqualoSprite: View {
+    static let colonne = 9
+    static let righe = 5
+    static let totale = 44
+    var fotogramma: Int
+
+    var body: some View {
+        Canvas { contesto, dimensione in
+            let immagine = contesto.resolve(Image("squalo-nuota-sheet"))
+            let colonna = fotogramma % Self.colonne
+            let riga = (fotogramma / Self.colonne) % Self.righe
+            let tutta = CGRect(x: -CGFloat(colonna) * dimensione.width, y: -CGFloat(riga) * dimensione.height,
+                               width: dimensione.width * CGFloat(Self.colonne), height: dimensione.height * CGFloat(Self.righe))
+            contesto.clip(to: Path(CGRect(origin: .zero, size: dimensione)))
+            contesto.draw(immagine, in: tutta)
+        }
+        .accessibilityHidden(true)
     }
 }
 

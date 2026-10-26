@@ -14,6 +14,7 @@ struct LibreriaView: View {
     @State private var livello: String?
     @State private var durata: FasciaDurata = .tutte
     @State private var tipologia: Tipologia?
+    @State private var guidaTipologie = false
 
     /// Livelli proposti nel filtro (valori di `livello` in content/allenamenti/indice.json).
     private static let livelli = ["principiante", "intermedio"]
@@ -103,6 +104,19 @@ struct LibreriaView: View {
                 }
             }
             .modifier(ContornoMenuScelta())
+            // Cosa significano A, B e C: chi non conosce la nomenclatura la legge qui.
+            Button {
+                guidaTipologie = true
+            } label: {
+                Label("libreria.guidaTipologie", systemImage: "info.circle")
+                    .font(Tema.piccolo.weight(.bold))
+                    .foregroundStyle(Tema.testoSecondario)
+            }
+            .buttonStyle(.plain)
+            .sheet(isPresented: $guidaTipologie) {
+                SpiegazioneTipologiaView(iniziale: stato.consiglioDiOggi().tipologia)
+                    .presentationDetents([.medium, .large])
+            }
         }
     }
 

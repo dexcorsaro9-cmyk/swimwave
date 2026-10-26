@@ -15272,6 +15272,397 @@
           }
         }
       }
+    },
+    "tipologia.a1.spiega": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuoto molto tranquillo: serve per scaldarsi, recuperare dopo un allenamento duro e curare la tecnica."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Very easy swimming: for warming up, recovering after a hard workout and working on technique."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Natación muy tranquila: sirve para calentar, recuperarse tras un entrenamiento duro y cuidar la técnica."
+          }
+        }
+      }
+    },
+    "tipologia.a2.spiega": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ritmo costante che puoi tenere a lungo. Costruisce la resistenza di base."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A steady pace you can hold for a long time. It builds your basic endurance."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ritmo constante que puedes mantener mucho tiempo. Construye la resistencia de base."
+          }
+        }
+      }
+    },
+    "tipologia.b1.spiega": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ritmo impegnativo ma regolare, vicino al limite che riesci a sostenere. Aiuta a mantenere a lungo un buon ritmo."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A demanding but steady pace, close to the limit you can sustain. It helps you hold a good pace for longer."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ritmo exigente pero regular, cerca del límite que puedes sostener. Ayuda a mantener un buen ritmo durante más tiempo."
+          }
+        }
+      }
+    },
+    "tipologia.b2.spiega": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ripetute veloci con recuperi più lunghi: allena cuore e polmoni a lavorare molto, senza accumulare troppa fatica."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fast repeats with longer rests: it trains your heart and lungs to work hard without piling up too much fatigue."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repeticiones rápidas con descansos más largos: entrena el corazón y los pulmones para trabajar mucho sin acumular demasiada fatiga."
+          }
+        }
+      }
+    },
+    "tipologia.c1.spiega": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Serie intense di 50-150 m con recuperi lunghi: abitua i muscoli a reggere la fatica a ritmo forte."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intense sets of 50-150 m with long rests: it teaches your muscles to cope with fatigue at a hard pace."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Series intensas de 50-150 m con descansos largos: acostumbra los músculos a aguantar la fatiga a ritmo fuerte."
+          }
+        }
+      }
+    },
+    "tipologia.a1.senti": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Respiri con calma e riesci a parlare tra una vasca e l'altra."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You breathe calmly and can talk between lengths."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Respiras con calma y puedes hablar entre largos."
+          }
+        }
+      }
+    },
+    "tipologia.a2.senti": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un po' di fiato in più, ma sempre sotto controllo: potresti proseguire a lungo."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A bit more breathing, but always under control: you could keep going for a long time."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Algo más de aire, pero siempre bajo control: podrías seguir mucho tiempo."
+          }
+        }
+      }
+    },
+    "tipologia.b1.senti": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fai fatica a parlare, ma il ritmo resta stabile fino alla fine della serie."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Talking is hard, but your pace stays steady to the end of the set."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cuesta hablar, pero el ritmo se mantiene estable hasta el final de la serie."
+          }
+        }
+      }
+    },
+    "tipologia.b2.senti": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Respiro affannato nelle ripetute, poi un recupero per riprendere fiato."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Heavy breathing during the repeats, then a rest to catch your breath."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Respiración agitada en las repeticiones, luego un descanso para recuperar el aire."
+          }
+        }
+      }
+    },
+    "tipologia.c1.senti": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sforzo alto per poco tempo; i recuperi servono per ripartire bene."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "High effort for a short time; the rests are there so you can start again well."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esfuerzo alto durante poco tiempo; los descansos sirven para arrancar bien de nuevo."
+          }
+        }
+      }
+    },
+    "tipologia.spiega.senti": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "COME LO SENTI"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HOW IT FEELS"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CÓMO SE SIENTE"
+          }
+        }
+      }
+    },
+    "tipologia.spiega.solo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo dal livello intermedio"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "From the intermediate level only"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo desde el nivel intermedio"
+          }
+        }
+      }
+    },
+    "tipologia.spiega.perTe": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per ora ti proponiamo gli allenamenti A, che ti fanno crescere senza strafare."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "For now we suggest A workouts, which help you improve without overdoing it."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por ahora te proponemos los entrenamientos A, que te hacen mejorar sin excederte."
+          }
+        }
+      }
+    },
+    "tipologia.spiega.prudenza": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Se non ti senti bene, scegli un allenamento A e, se serve, parlane con un professionista."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If you don't feel well, pick an A workout and, if needed, talk to a professional."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Si no te sientes bien, elige un entrenamiento A y, si hace falta, consúltalo con un profesional."
+          }
+        }
+      }
+    },
+    "tipologia.spiega.lettere": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La lettera dice quanto è intensa la nuotata: A è leggera, B è impegnativa, C è molto intensa. Il numero distingue il tipo di lavoro."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The letter says how intense the swim is: A is light, B is demanding, C is very intense. The number tells the type of work."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La letra indica la intensidad de la nadada: A es ligera, B es exigente, C es muy intensa. El número distingue el tipo de trabajo."
+          }
+        }
+      }
+    },
+    "tipologia.spiega.hint": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tocca per capire cosa significa"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap to see what it means"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toca para entender qué significa"
+          }
+        }
+      }
+    },
+    "libreria.guidaTipologie": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cosa significano A, B e C?"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What do A, B and C mean?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Qué significan A, B y C?"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

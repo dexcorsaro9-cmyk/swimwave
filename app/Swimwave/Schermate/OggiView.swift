@@ -163,7 +163,7 @@ struct OggiView: View {
                                 Image(systemName: fatta ? "checkmark.circle.fill" : "circle")
                                     .foregroundStyle(fatta ? Tema.turchese : Tema.testoSecondario)
                                     .accessibilityHidden(true)
-                                Text(verbatim: nomeTipologia(t))
+                                EtichettaTipologia(tipologia: t)
                                     .font(prossima ? Tema.corpo.weight(.bold) : Tema.corpo)
                                     .foregroundStyle(fatta ? Tema.testoSecondario : Tema.testo)
                                 if prossima {
@@ -177,7 +177,7 @@ struct OggiView: View {
                 }
             }
             .carta()
-            .accessibilityElement(children: .combine)
+            .accessibilityElement(children: .contain)
         } else {
             // Ritmo Libero: nessun obiettivo, solo un conteggio discreto.
             VStack(alignment: .leading, spacing: 6) {
@@ -294,7 +294,8 @@ struct OggiView: View {
         let consiglio = stato.consiglioMostrato()
         return VStack(spacing: 0) {
             AcquaEroe(
-                etichetta: consiglio.map { nomeTipologia($0.tipologia) } ?? (sceltoPerOggi ? testo("libreria.scelto") : nil),
+                tipologia: consiglio?.tipologia,
+                etichetta: sceltoPerOggi && consiglio == nil ? testo("libreria.scelto") : nil,
                 cambia: { cambiaAperto = true }
             )
             VStack(alignment: .leading, spacing: 10) {

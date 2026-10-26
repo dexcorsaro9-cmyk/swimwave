@@ -1,9 +1,13 @@
 import SwiftUI
+import SwimwaveCore
 
 /// La zona d'acqua in alto nella carta eroe di Oggi (bozza: docs/mockup/oggi-eroe.html).
 /// Lo squalo nuota sul posto con un leggero dondolio, dentro margini larghi, e lascia salire le bolle dalla bocca.
 /// Con "Riduci movimento" attivo, o con l'app non in primo piano, l'animazione si ferma (e con lei il consumo di batteria).
 struct AcquaEroe: View {
+    /// La tipologia dell'allenamento: l'etichetta si può toccare per leggerne la spiegazione.
+    var tipologia: Tipologia?
+    /// Etichetta di testo semplice (per esempio "Scelto da te"), quando non c'è una tipologia.
     var etichetta: String?
     var cambia: () -> Void
 
@@ -27,7 +31,14 @@ struct AcquaEroe: View {
                     .frame(height: 14)
                 SqualoEBolle(t: t, ferma: ferma)
                 HStack(alignment: .top) {
-                    if let etichetta {
+                    if let tipologia {
+                        EtichettaTipologia(tipologia: tipologia)
+                            .font(Tema.piccolo.weight(.heavy))
+                            .foregroundStyle(.white)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 4)
+                            .background(Capsule().fill(Color.black.opacity(0.22)))
+                    } else if let etichetta {
                         Text(verbatim: etichetta)
                             .font(Tema.piccolo.weight(.heavy))
                             .foregroundStyle(.white)

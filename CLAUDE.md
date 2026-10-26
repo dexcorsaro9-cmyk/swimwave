@@ -4,6 +4,7 @@ Progetto: Swimwave, app di coaching di nuoto per iPhone e Apple Watch (SwiftUI, 
 
 Regole di lavoro:
 - Il fondatore è un istruttore di nuoto ma non ha tempo di inserire i contenuti: li scrive Claude e lui li controlla. Ogni contenuto tecnico (drill, errori, tappe, regole, allenamenti) si basa solo su fonti autorevoli (federazioni, enti, testi accademici), registrate in content/fonti.json e riassunte con parole nostre. Non inventare: se una fonte non si trova, lascia il campo `fonti` vuoto con una `nota_fonti` che lo dice.
+- Eccezione per gli allenamenti (decisione dell'istruttore, 26 ottobre 2026): gli allenamenti nuovi possono nascere `approvato` e vengono proposti all'utente in automatico, senza attendere il suo ok. Restano le regole di sicurezza (nessuna intensità forte per il principiante, validazione, lista chiusa di drill) e le fonti dichiarate. Per drill, errori, tappe e regole vale ancora la regola sotto.
 - Ogni contenuto nasce con `stato: "bozza"`. Passa ad `approvato` solo dopo il controllo dell'istruttore. Gli utenti vedono solo contenuti approvati. La checklist è in content/REVISIONE.md.
 - I due coach virtuali (uomo e donna) hanno stessa competenza e tono: vedi docs/COACH_PERSONAS.md. L'app dice che sono virtuali.
 - Il formato dell'allenamento in docs/WORKOUT_FORMAT.md è il contratto tra coach IA, iPhone e Watch.

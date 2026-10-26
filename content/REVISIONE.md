@@ -91,3 +91,12 @@ Le zone dicono a che ritmo nuotare, in base a una prova a tutta sui 200 m di sti
 - **Fedele alla vasca**: 2 nuotate a settimana per 3 settimane di fila. **Cento di fila**: 100 m senza fermarsi. Soglie nostre, provvisorie.
 - **Efficienza (SWOLF)**: l'app confronta le bracciate per vasca con la nuotata precedente e dice "meno / simile / più" se la differenza è almeno 1,0 bracciata. La soglia di 1,0 è provvisoria: dimmi se ti sembra giusta.
 - **Avviso a 5 secondi dalla fine del recupero**: una vibrazione, sia sul Watch che sull'iPhone guidato. Da provare in acqua con il Watch vero.
+
+## 10. Tipologie di allenamento (A1, A2, B1, B2, C1)
+
+Decisione dell'istruttore (26 ottobre 2026): gli allenamenti non richiedono più la sua approvazione e l'app li propone in automatico, ogni giorno, in base alle esigenze dell'atleta (ultima sensazione, pausa, livello, obiettivo); l'utente può sempre sceglierne un'altra dalla libreria.
+
+- **Tipologie**: A1 recupero e tecnica, A2 fondo aerobico, B1 soglia, B2 alta intensità aerobica, C1 tolleranza al ritmo forte. C2, C3 e D (picco lattacido, sprint, ritmo gara) non sono nella v1: sono per agonisti.
+- **Chi le fa**: A1 e A2 tutti; B1, B2 e C1 solo dal livello intermedio. Il principiante non ha mai serie "forte".
+- **Fonti**: la classificazione è quella indicata dall'istruttore. Le fonti accademiche e USMS trovate con la ricerca web **non sono state aperte** (sito non raggiungibile): sono registrate con questa nota. Volumi, recuperi e sequenze del consiglio sono nostre proposte prudenti.
+- **Da riguardare con l'esperienza degli utenti**: la sequenza giornaliera (`Tipologia.consigliata`), i recuperi di B2 (30-60 s) e C1, e se B2/C1 vanno nascosti ai livelli bassi.

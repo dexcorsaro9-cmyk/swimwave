@@ -149,6 +149,32 @@ struct OggiView: View {
                 Text(verbatim: frase(per: p.mancanti))
                     .font(Tema.corpo)
                     .foregroundStyle(Tema.testoSecondario)
+                // Quali sono le nuotate dell'obiettivo: le tipologie consigliate questa settimana, con quelle già fatte spuntate.
+                if let piano = stato.pianoSettimana() {
+                    Text(verbatim: testo("oggi.obiettivo.spiegazione", piano.piano.count))
+                        .font(Tema.piccolo)
+                        .foregroundStyle(Tema.testoSecondario)
+                        .padding(.top, 2)
+                    VStack(alignment: .leading, spacing: 6) {
+                        ForEach(Array(piano.piano.enumerated()), id: \.offset) { i, t in
+                            let fatta = i < piano.fatte
+                            let prossima = i == piano.fatte
+                            HStack(spacing: 8) {
+                                Image(systemName: fatta ? "checkmark.circle.fill" : "circle")
+                                    .foregroundStyle(fatta ? Tema.turchese : Tema.testoSecondario)
+                                    .accessibilityHidden(true)
+                                Text(verbatim: nomeTipologia(t))
+                                    .font(prossima ? Tema.corpo.weight(.bold) : Tema.corpo)
+                                    .foregroundStyle(fatta ? Tema.testoSecondario : Tema.testo)
+                                if prossima {
+                                    Text("oggi.obiettivo.prossima")
+                                        .font(Tema.piccolo.weight(.bold))
+                                        .foregroundStyle(Tema.coralloOmbra)
+                                }
+                            }
+                        }
+                    }
+                }
             }
             .carta()
             .accessibilityElement(children: .combine)

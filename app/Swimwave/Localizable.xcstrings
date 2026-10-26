@@ -14352,6 +14352,52 @@
           }
         }
       }
+    },
+    "oggi.obiettivo.spiegazione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il tuo obiettivo: %ld nuotate questa settimana. Ti consigliamo queste, in quest'ordine; le puoi cambiare quando vuoi."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your goal: %ld swims this week. We recommend these, in this order; you can change them any time."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu objetivo: %ld nadadas esta semana. Te recomendamos estas, en este orden; puedes cambiarlas cuando quieras."
+          }
+        }
+      }
+    },
+    "oggi.obiettivo.prossima": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prossima"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Siguiente"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

@@ -455,7 +455,18 @@ final class StatoApp {
         return w.map { Riserva.alleggerisci($0, motivo: motivo) }
     }
 
+    /// Il piano della settimana: le tipologie consigliate per le nuotate dell'obiettivo (Regolare e Spronami) e quante ne sono già fatte.
+    /// nil per il ritmo Libero, che non ha un obiettivo settimanale.
+    func pianoSettimana(adesso: Date = Date()) -> (piano: [Tipologia], fatte: Int)? {
+        guard let n = profilo.obiettivoSettimanale, n > 0 else { return nil }
+        let settimana = Calendar.italiano.component(.weekOfYear, from: adesso)
+        let fatte = ObiettivoSettimanale.conteggio(date: nuotate.map(\.data), rispetto: adesso)
+        return (Tipologia.pianoSettimana(categoria: profilo.categoriaLivello, obiettivo: profilo.obiettivoEffettivo,
+                                         nuotate: n, settimana: settimana), fatte)
+    }
+
     /// La tipologia consigliata oggi in base a livello, obiettivo, ultima sensazione e giorni dall'ultima nuotata.
+    /// Con un obiettivo settimanale è la prossima nuotata del piano della settimana; senza (ritmo Libero) un passo al giorno.
     func consiglioDiOggi(adesso: Date = Date()) -> Consiglio {
         let giorno = Calendar.italiano.ordinality(of: .day, in: .year, for: adesso) ?? 0
         var giorniDallUltima: Int?
@@ -463,8 +474,13 @@ final class StatoApp {
             giorniDallUltima = Calendar.italiano.dateComponents([.day], from: Calendar.italiano.startOfDay(for: ultima.data),
                                                                 to: Calendar.italiano.startOfDay(for: adesso)).day
         }
+        var posizione = giorno
+        if let n = profilo.obiettivoSettimanale, n > 0 {
+            let settimana = Calendar.italiano.component(.weekOfYear, from: adesso)
+            posizione = settimana * n + ObiettivoSettimanale.conteggio(date: nuotate.map(\.data), rispetto: adesso)
+        }
         return Tipologia.consigliata(categoria: profilo.categoriaLivello, obiettivo: profilo.obiettivoEffettivo,
-                                     ultimaSensazione: ultimaSensazione, giorniDallUltima: giorniDallUltima, giorno: giorno)
+                                     ultimaSensazione: ultimaSensazione, giorniDallUltima: giorniDallUltima, posizione: posizione)
     }
 
     /// Il consiglio da mostrare sull'allenamento di oggi: solo se quello proposto è un allenamento fisso scelto da noi

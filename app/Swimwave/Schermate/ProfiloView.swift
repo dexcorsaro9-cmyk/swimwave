@@ -138,16 +138,17 @@ struct ProfiloView: View {
                             Text("profilo.cancella.messaggio")
                         }
 
-                        #if DEBUG
+                        // Riga di controllo visibile anche in Release: serve ai tester per capire se i contenuti sono arrivati nell'app.
                         VStack(alignment: .leading, spacing: 4) {
+                            #if DEBUG
                             Text(verbatim: "Solo debug: bozze incluse = \(stato.contenuti.includeBozze)")
-                            Text(verbatim: "Tappe \(stato.contenuti.tappe.count), drill \(stato.contenuti.drill.count), riserve \(stato.contenuti.voci.count)")
+                            #endif
+                            Text(verbatim: "Contenuti: \(stato.contenuti.tappe.count) tappe, \(stato.contenuti.drill.count) drill, \(stato.contenuti.voci.count) allenamenti")
                             ForEach(stato.contenuti.problemi, id: \.self) { Text(verbatim: $0) }
                         }
                         .font(Tema.piccolo)
                         .foregroundStyle(Tema.testoSecondario)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        #endif
                     }
                     .padding(.horizontal, 16)
                     .padding(.top, 8)

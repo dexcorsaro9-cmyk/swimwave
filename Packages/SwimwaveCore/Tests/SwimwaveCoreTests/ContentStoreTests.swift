@@ -194,9 +194,17 @@ final class ContentStoreTests: XCTestCase {
         for voce in store.voci {
             XCTAssertNotNil(store.workout(della: voce), "\(voce.file) non è valido")
         }
-        // Gli utenti finali oggi non vedono nulla: tutto è in bozza.
+        // Gli utenti finali (senza bozze) devono avere tappe e allenamenti per ogni livello e obiettivo.
         let utente = ContentStore(includeBozze: false) { try? Data(contentsOf: cartella.appendingPathComponent($0)) }
         XCTAssertEqual(utente.problemi, [])
+        XCTAssertEqual(utente.tappe.count, 10)
+        XCTAssertFalse(utente.voci.isEmpty)
+        for livello in Livello.allCases {
+            for obiettivo in Obiettivo.allCases {
+                let p = Profilo(livello: livello, obiettivo: obiettivo)
+                XCTAssertNotNil(utente.scegliRiserva(profilo: p, scelta: 0), "nessun allenamento per \(livello) / \(obiettivo)")
+            }
+        }
     }
 }
 

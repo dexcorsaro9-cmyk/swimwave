@@ -145,6 +145,8 @@ struct FoglioSprite {
     static let concentrato = FoglioSprite(nome: "squalo-concentrato-sheet", colonne: 9, righe: 4, totale: 32)
     /// Lo squalo stanco che sbadiglia e dondola, per il recupero (3,7 s a 12 fotogrammi al secondo).
     static let stanco = FoglioSprite(nome: "squalo-stanco-sheet", colonne: 9, righe: 5, totale: 44)
+    /// Lo squalo che aspetta, rilassato e curioso, per la schermata di avvio (8 s a 8 fotogrammi al secondo, andata e ritorno).
+    static let attesa = FoglioSprite(nome: "squalo-attesa-sheet", colonne: 9, righe: 8, totale: 64)
 }
 
 /// Un fotogramma di un foglio sprite. Le immagini sono senza sfondo (verde tolto, ciclo rifinito): sorgenti in assets/squalo/.

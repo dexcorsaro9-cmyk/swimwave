@@ -28,7 +28,7 @@ struct InAttesaView: View {
         ScrollView {
             VStack(spacing: 8) {
                 // Lo squalo aspetta con te: galleggia piano.
-                CorsiaSqualo(progresso: 0.5, nuota: false, inPausa: false, salita: 22)
+                CorsiaSqualo(progresso: 0.5, nuota: false, inPausa: false, salita: 22, foglio: .attesa)
                 Text("watch.attesa.titolo")
                     .font(.system(.headline, design: .rounded))
                     .multilineTextAlignment(.center)

@@ -60,8 +60,10 @@ struct PaginaAllenamento: View {
                 // Lo squalo nuota lungo la corsia con l'avanzamento della ripetizione; sotto, i segmenti delle serie.
                 // Nel recupero resta a fine corsia e galleggia piano. Una nuova ripetizione lo riporta all'inizio senza scivolare all'indietro.
                 VStack(spacing: 1) {
+                    // Nel recupero lo squalo sbadiglia e dondola; nella serie principale è concentrato; nel resto nuota tranquillo.
                     CorsiaSqualo(progresso: progressoRipetizione(av: av, passo: passo),
-                                 nuota: !isRecupero(av), inPausa: manager.inPausa)
+                                 nuota: !isRecupero(av), inPausa: manager.inPausa,
+                                 foglio: isRecupero(av) ? .stanco : (passo.tipoBlocco == .principale ? .concentrato : .nuota))
                         .id(passo.indiceSerie * 1000 + passo.ripetizione)
                     BarraSerie(totali: av.piano.serieTotali, corrente: passo.indiceSerie)
                 }

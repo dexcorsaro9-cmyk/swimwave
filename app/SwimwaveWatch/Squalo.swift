@@ -17,6 +17,8 @@ struct CorsiaSqualo: View {
 
     /// Quanto salgono le bolle sopra lo squalo, in punti.
     var salita: CGFloat = 12
+    /// Quale squalo disegnare: quello che nuota, o quello concentrato nella serie principale.
+    var foglio: FoglioSprite = .nuota
 
     var body: some View {
         let animato = !inPausa && !schermoAttenuato
@@ -33,7 +35,7 @@ struct CorsiaSqualo: View {
                             .offset(y: 3 + altezza - (salita + altezza))
                             .allowsHitTesting(false)
                     }
-                    SqualoSprite(fotogramma: animato ? Int(t * (nuota ? 12 : 8)) % SqualoSprite.totale : 0)
+                    SqualoSprite(foglio: foglio, fotogramma: animato ? Int(t * (nuota ? 12 : 8)) : 0)
                         .frame(width: larghezza, height: altezza)
                         .offset(x: x, y: 3 + onda)
                         .opacity(inPausa ? 0.5 : 1)
@@ -87,26 +89,22 @@ struct BolleSqualo: View {
     }
 }
 
-/// Fine allenamento: lo squalo salta fuori dall'acqua, con schizzi e un'onda in primo piano.
+/// Fine allenamento: lo squalo fa un balzo di gioia (video di Flow a fotogrammi) con un'onda in primo piano.
 struct SqualoFesta: View {
     @Environment(\.isLuminanceReduced) private var schermoAttenuato
 
     var body: some View {
-        TimelineView(.animation(minimumInterval: 0.066, paused: schermoAttenuato)) { linea in
+        TimelineView(.animation(minimumInterval: 0.08, paused: schermoAttenuato)) { linea in
             let t = linea.date.timeIntervalSinceReferenceDate
-            let q = (t / 2.6).truncatingRemainder(dividingBy: 1)
-            let salto = q > 0.5 ? (q - 0.5) / 0.5 : -1     // 0...1 durante il salto
-            let altezzaSalto = salto >= 0 ? CGFloat(sin(salto * .pi)) * 30 : 0
             ZStack(alignment: .bottom) {
-                OndaSqualo(fase: schermoAttenuato ? 0 : t * 8, ampiezza: schermoAttenuato ? 0 : 0.06)
-                    .frame(width: 60, height: 29)
-                    .rotationEffect(.degrees(salto >= 0 ? -22 + salto * 44 : 6))
-                    .offset(y: salto >= 0 ? 8 - altezzaSalto : 18)
-                OndaAcqua(fase: t * 2)
+                SqualoSprite(foglio: .festa, fotogramma: schermoAttenuato ? 0 : Int(t * 12))
+                    .frame(width: 66, height: 40)
+                    .offset(y: -6)
+                OndaAcqua(fase: schermoAttenuato ? 0 : t * 2)
                     .fill(WatchTema.turchese.opacity(0.55))
-                    .frame(height: 16)
+                    .frame(height: 14)
             }
-            .frame(height: 46)
+            .frame(height: 50)
             .clipped()
         }
         .accessibilityHidden(true)
@@ -132,21 +130,36 @@ struct OndaAcqua: Shape {
     }
 }
 
-/// Lo squalo che nuota: una striscia di fotogrammi (Assets.xcassets/squalo-nuota-sheet, 9 colonne x 5 righe, 44 fotogrammi a 12 al secondo)
-/// ricavata dal video generato con Flow, con lo sfondo verde tolto e la ripartenza del ciclo rifinita. Sorgenti in assets/squalo/.
+/// Una striscia di fotogrammi dentro un'unica immagine (colonne x righe, tutti della stessa misura).
+struct FoglioSprite {
+    let nome: String
+    let colonne: Int
+    let righe: Int
+    let totale: Int
+
+    /// Lo squalo che nuota in loop (4 s a 12 fotogrammi al secondo). Ricavato dal video generato con Flow.
+    static let nuota = FoglioSprite(nome: "squalo-nuota-sheet", colonne: 9, righe: 5, totale: 44)
+    /// Lo squalo che festeggia con un balzo (3,5 s a 12 fotogrammi al secondo).
+    static let festa = FoglioSprite(nome: "squalo-festa-sheet", colonne: 9, righe: 5, totale: 42)
+    /// Lo squalo concentrato, per la serie principale (2,7 s a 12 fotogrammi al secondo).
+    static let concentrato = FoglioSprite(nome: "squalo-concentrato-sheet", colonne: 9, righe: 4, totale: 32)
+    /// Lo squalo stanco che sbadiglia e dondola, per il recupero (3,7 s a 12 fotogrammi al secondo).
+    static let stanco = FoglioSprite(nome: "squalo-stanco-sheet", colonne: 9, righe: 5, totale: 44)
+}
+
+/// Un fotogramma di un foglio sprite. Le immagini sono senza sfondo (verde tolto, ciclo rifinito): sorgenti in assets/squalo/.
 struct SqualoSprite: View {
-    static let colonne = 9
-    static let righe = 5
-    static let totale = 44
+    var foglio: FoglioSprite
     var fotogramma: Int
 
     var body: some View {
         Canvas { contesto, dimensione in
-            let immagine = contesto.resolve(Image("squalo-nuota-sheet"))
-            let colonna = fotogramma % Self.colonne
-            let riga = (fotogramma / Self.colonne) % Self.righe
+            let immagine = contesto.resolve(Image(foglio.nome))
+            let indice = ((fotogramma % foglio.totale) + foglio.totale) % foglio.totale
+            let colonna = indice % foglio.colonne
+            let riga = indice / foglio.colonne
             let tutta = CGRect(x: -CGFloat(colonna) * dimensione.width, y: -CGFloat(riga) * dimensione.height,
-                               width: dimensione.width * CGFloat(Self.colonne), height: dimensione.height * CGFloat(Self.righe))
+                               width: dimensione.width * CGFloat(foglio.colonne), height: dimensione.height * CGFloat(foglio.righe))
             contesto.clip(to: Path(CGRect(origin: .zero, size: dimensione)))
             contesto.draw(immagine, in: tutta)
         }
@@ -154,30 +167,3 @@ struct SqualoSprite: View {
     }
 }
 
-/// L'immagine dello squalo tagliata in fettine verticali che ondeggiano una dopo l'altra, più forte verso la coda
-/// (a sinistra): l'effetto di un pesce che nuota, partendo da una sola immagine.
-struct OndaSqualo: View {
-    var fase: Double
-    /// Spostamento massimo della coda, in frazione dell'altezza dell'immagine.
-    var ampiezza: CGFloat
-
-    private let fettine = 24
-
-    var body: some View {
-        Canvas { contesto, dimensione in
-            let immagine = contesto.resolve(Image("squalo-nuota"))
-            let larghezzaFettina = dimensione.width / CGFloat(fettine)
-            for i in 0..<fettine {
-                let x = CGFloat(i) * larghezzaFettina
-                let posizione = Double(i) / Double(fettine - 1)         // 0 = coda, 1 = muso
-                let peso = CGFloat(pow(1 - posizione, 1.6))               // la coda si muove di più, il muso quasi niente
-                let spostamento = sin(fase - posizione * 4.2) * Double(ampiezza * peso * dimensione.height)
-                contesto.drawLayer { strato in
-                    strato.clip(to: Path(CGRect(x: x - 0.4, y: -dimensione.height, width: larghezzaFettina + 0.8, height: dimensione.height * 3)))
-                    strato.translateBy(x: 0, y: CGFloat(spostamento))
-                    strato.draw(immagine, in: CGRect(origin: .zero, size: dimensione))
-                }
-            }
-        }
-    }
-}

@@ -1,0 +1,60 @@
+{
+  "titolo": "Tecnica: delfino un braccio alla volta e battuta sul dorso con rotazione",
+  "vasca_metri": 25,
+  "durata_stimata_min": 45,
+  "blocchi": [
+    {
+      "tipo": "riscaldamento",
+      "serie": [
+        {
+          "ripetizioni": 1,
+          "distanza_m": 300,
+          "stile": "libero",
+          "intensita": "facile"
+        }
+      ]
+    },
+    {
+      "tipo": "tecnica",
+      "serie": [
+        {
+          "ripetizioni": 4,
+          "distanza_m": 50,
+          "stile": "delfino",
+          "drill": "delfino-un-braccio-alla-volta",
+          "recupero_s": 20
+        },
+        {
+          "ripetizioni": 4,
+          "distanza_m": 25,
+          "stile": "dorso",
+          "drill": "dorso-battuta-con-rotazione",
+          "recupero_s": 20
+        }
+      ]
+    },
+    {
+      "tipo": "principale",
+      "serie": [
+        {
+          "ripetizioni": 4,
+          "distanza_m": 100,
+          "stile": "misto",
+          "intensita": "facile",
+          "recupero_s": 20
+        }
+      ]
+    },
+    {
+      "tipo": "defaticamento",
+      "serie": [
+        {
+          "ripetizioni": 1,
+          "distanza_m": 200,
+          "stile": "libero",
+          "intensita": "facile"
+        }
+      ]
+    }
+  ]
+}

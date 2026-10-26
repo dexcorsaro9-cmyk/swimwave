@@ -1,0 +1,60 @@
+{
+  "titolo": "Tecnica: catch-up e dorso un braccio alla volta",
+  "vasca_metri": 25,
+  "durata_stimata_min": 41,
+  "blocchi": [
+    {
+      "tipo": "riscaldamento",
+      "serie": [
+        {
+          "ripetizioni": 1,
+          "distanza_m": 200,
+          "stile": "libero",
+          "intensita": "facile"
+        }
+      ]
+    },
+    {
+      "tipo": "tecnica",
+      "serie": [
+        {
+          "ripetizioni": 6,
+          "distanza_m": 25,
+          "stile": "libero",
+          "drill": "catch-up",
+          "recupero_s": 20
+        },
+        {
+          "ripetizioni": 6,
+          "distanza_m": 25,
+          "stile": "dorso",
+          "drill": "dorso-un-braccio-alla-volta",
+          "recupero_s": 20
+        }
+      ]
+    },
+    {
+      "tipo": "principale",
+      "serie": [
+        {
+          "ripetizioni": 4,
+          "distanza_m": 100,
+          "stile": "misto",
+          "intensita": "facile",
+          "recupero_s": 20
+        }
+      ]
+    },
+    {
+      "tipo": "defaticamento",
+      "serie": [
+        {
+          "ripetizioni": 1,
+          "distanza_m": 100,
+          "stile": "libero",
+          "intensita": "facile"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "titolo": "Soglia: 5 × 100 m · 1000 m",
+  "vasca_metri": 25,
+  "durata_stimata_min": 36,
+  "blocchi": [
+    {
+      "tipo": "riscaldamento",
+      "serie": [
+        {
+          "ripetizioni": 1,
+          "distanza_m": 300,
+          "stile": "libero",
+          "intensita": "facile"
+        }
+      ]
+    },
+    {
+      "tipo": "tecnica",
+      "serie": [
+        {
+          "ripetizioni": 4,
+          "distanza_m": 25,
+          "stile": "delfino",
+          "drill": "onda-del-delfino",
+          "recupero_s": 20
+        }
+      ]
+    },
+    {
+      "tipo": "principale",
+      "serie": [
+        {
+          "ripetizioni": 5,
+          "distanza_m": 100,
+          "stile": "libero",
+          "intensita": "media",
+          "recupero_s": 15
+        }
+      ]
+    },
+    {
+      "tipo": "defaticamento",
+      "serie": [
+        {
+          "ripetizioni": 1,
+          "distanza_m": 100,
+          "stile": "libero",
+          "intensita": "facile"
+        }
+      ]
+    }
+  ]
+}

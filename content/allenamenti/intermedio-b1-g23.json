@@ -1,0 +1,62 @@
+{
+  "titolo": "Soglia: 6 × 100 m · 1150 m",
+  "vasca_metri": 25,
+  "durata_stimata_min": 44,
+  "blocchi": [
+    {
+      "tipo": "riscaldamento",
+      "serie": [
+        {
+          "ripetizioni": 4,
+          "distanza_m": 50,
+          "stile": "libero",
+          "intensita": "facile",
+          "recupero_s": 15
+        }
+      ]
+    },
+    {
+      "tipo": "tecnica",
+      "serie": [
+        {
+          "ripetizioni": 6,
+          "distanza_m": 25,
+          "stile": "libero",
+          "drill": "un-braccio-solo",
+          "recupero_s": 15
+        },
+        {
+          "ripetizioni": 4,
+          "distanza_m": 25,
+          "stile": "libero",
+          "drill": "battuta-con-un-braccio-teso",
+          "recupero_s": 25
+        }
+      ]
+    },
+    {
+      "tipo": "principale",
+      "serie": [
+        {
+          "ripetizioni": 6,
+          "distanza_m": 100,
+          "stile": "libero",
+          "intensita": "media",
+          "recupero_s": 20
+        }
+      ]
+    },
+    {
+      "tipo": "defaticamento",
+      "serie": [
+        {
+          "ripetizioni": 2,
+          "distanza_m": 50,
+          "stile": "libero",
+          "intensita": "facile",
+          "recupero_s": 15
+        }
+      ]
+    }
+  ]
+}

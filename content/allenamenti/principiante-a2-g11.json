@@ -1,0 +1,61 @@
+{
+  "titolo": "Fondo facile: 8 × 25 m · 475 m",
+  "vasca_metri": 25,
+  "durata_stimata_min": 31,
+  "blocchi": [
+    {
+      "tipo": "riscaldamento",
+      "serie": [
+        {
+          "ripetizioni": 4,
+          "distanza_m": 25,
+          "stile": "libero",
+          "intensita": "facile",
+          "recupero_s": 20
+        }
+      ]
+    },
+    {
+      "tipo": "tecnica",
+      "serie": [
+        {
+          "ripetizioni": 4,
+          "distanza_m": 25,
+          "stile": "libero",
+          "drill": "catch-up",
+          "recupero_s": 30
+        },
+        {
+          "ripetizioni": 2,
+          "distanza_m": 25,
+          "stile": "libero",
+          "drill": "nuotata-con-pull-buoy",
+          "recupero_s": 20
+        }
+      ]
+    },
+    {
+      "tipo": "principale",
+      "serie": [
+        {
+          "ripetizioni": 8,
+          "distanza_m": 25,
+          "stile": "libero",
+          "intensita": "media",
+          "recupero_s": 20
+        }
+      ]
+    },
+    {
+      "tipo": "defaticamento",
+      "serie": [
+        {
+          "ripetizioni": 1,
+          "distanza_m": 25,
+          "stile": "libero",
+          "intensita": "facile"
+        }
+      ]
+    }
+  ]
+}

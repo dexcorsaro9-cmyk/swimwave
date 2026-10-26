@@ -1,0 +1,61 @@
+{
+  "titolo": "Soglia: 3 × 150 m + 3 × 100 m",
+  "vasca_metri": 25,
+  "durata_stimata_min": 43,
+  "blocchi": [
+    {
+      "tipo": "riscaldamento",
+      "serie": [
+        {
+          "ripetizioni": 2,
+          "distanza_m": 100,
+          "stile": "libero",
+          "intensita": "facile",
+          "recupero_s": 15
+        }
+      ]
+    },
+    {
+      "tipo": "tecnica",
+      "serie": [
+        {
+          "ripetizioni": 6,
+          "distanza_m": 25,
+          "stile": "libero",
+          "drill": "battuta-con-tavoletta",
+          "recupero_s": 25
+        }
+      ]
+    },
+    {
+      "tipo": "principale",
+      "serie": [
+        {
+          "ripetizioni": 3,
+          "distanza_m": 150,
+          "stile": "libero",
+          "intensita": "media",
+          "recupero_s": 20
+        },
+        {
+          "ripetizioni": 3,
+          "distanza_m": 100,
+          "stile": "libero",
+          "intensita": "media",
+          "recupero_s": 15
+        }
+      ]
+    },
+    {
+      "tipo": "defaticamento",
+      "serie": [
+        {
+          "ripetizioni": 1,
+          "distanza_m": 100,
+          "stile": "libero",
+          "intensita": "facile"
+        }
+      ]
+    }
+  ]
+}

@@ -295,7 +295,7 @@ struct RecapCoachView: View {
             Text("recap.adesso.titolo")
                 .font(Tema.piccolo.weight(.heavy))
                 .foregroundStyle(Tema.testoSecondario)
-            Text(verbatim: nomeTipologia(c.tipologia))
+            EtichettaTipologia(tipologia: c.tipologia)
                 .font(Tema.sottotitolo)
                 .foregroundStyle(Tema.testo)
             Text(LocalizedStringKey("consiglio.perche.\(c.motivo.rawValue)"))
@@ -303,7 +303,7 @@ struct RecapCoachView: View {
                 .foregroundStyle(Tema.testoSecondario)
         }
         .carta()
-        .accessibilityElement(children: .combine)
+        .accessibilityElement(children: .contain)
     }
 
     private func recupero(dura: Bool) -> some View {

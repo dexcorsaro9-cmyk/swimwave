@@ -782,6 +782,29 @@
           }
         }
       }
+    },
+    "watch.fine.recap": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il recap del coach ti aspetta sull'iPhone"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your coach's recap is waiting on your iPhone"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El resumen de tu entrenador te espera en el iPhone"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

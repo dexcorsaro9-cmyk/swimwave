@@ -51,6 +51,16 @@ struct RootView: View {
 }
 
 struct SchedaPrincipale: View {
+    @Environment(StatoApp.self) private var stato
+
+    /// Il recap di una nuotata finita sul Watch compare appena l'iPhone la riceve (o alla prossima apertura dell'app).
+    private var recapDaWatchVisibile: Binding<Bool> {
+        Binding(
+            get: { stato.recapDaWatch() != nil },
+            set: { visibile in if !visibile { stato.chiudiRecapDaWatch() } }
+        )
+    }
+
     var body: some View {
         TabView {
             OggiView()
@@ -66,5 +76,17 @@ struct SchedaPrincipale: View {
         // Barra in basso con i colori del tema (scuro: #0B2036).
         .toolbarBackground(Tema.barra, for: .tabBar)
         .toolbarBackground(.visible, for: .tabBar)
+        .fullScreenCover(isPresented: recapDaWatchVisibile) {
+            if let recap = stato.recapDaWatch() {
+                FineAllenamentoView(
+                    nuotataId: recap.nuotata.id,
+                    workout: recap.workout,
+                    metri: recap.nuotata.metri,
+                    durataSecondi: recap.nuotata.durataSecondi,
+                    onChiudi: { stato.chiudiRecapDaWatch() }
+                )
+                .environment(stato)
+            }
+        }
     }
 }

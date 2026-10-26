@@ -36,6 +36,10 @@ final class StatoApp {
     /// Allenamento generato dal servizio coach per `chiaveGenerato` (cambia ogni giorno o se cambia il profilo).
     var allenamentoGenerato: Workout?
     var chiaveGenerato: String?
+    /// L'ultimo allenamento mandato al Watch (per il recap quando la nuotata torna sull'iPhone).
+    var workoutPerWatch: Workout?
+    /// La nuotata fatta con il Watch per cui l'utente deve ancora vedere il recap del coach (se ne occupa SchedaPrincipale).
+    var recapInAttesa: UUID?
     /// Obiettivo personale di metri al mese (nil = nessuno).
     var obiettivoMensileMetri: Int?
     /// Commenti del coach sul mese, per mese ("2026-10"): si chiedono una volta e si ricordano.
@@ -75,7 +79,7 @@ final class StatoApp {
         self.lettoreSalute = lettoreSalute
         self.notifiche = notifiche
         carica()
-        watch.onNuotata = { [weak self] nuotata in self?.registra(nuotata) }
+        watch.onNuotata = { [weak self] nuotata in self?.nuotataDalWatch(nuotata) }
         watch.attiva()
     }
 
@@ -123,6 +127,8 @@ final class StatoApp {
         var giornoAllenamentoScelto: Int?
         /// Id delle medaglie già mostrate con la celebrazione a schermo intero.
         var medaglieViste: [String]?
+        var workoutPerWatch: Workout?
+        var recapInAttesa: UUID?
     }
 
     private func carica() {
@@ -149,6 +155,8 @@ final class StatoApp {
         giornoAllenamentoScelto = d.giornoAllenamentoScelto
         // Chi aggiorna l'app non rivede la festa per le medaglie già ottenute.
         medaglieViste = Set(d.medaglieViste ?? medaglie.filter(\.ottenuta).map(\.id))
+        workoutPerWatch = d.workoutPerWatch
+        recapInAttesa = d.recapInAttesa
     }
 
     func salva() {
@@ -172,7 +180,9 @@ final class StatoApp {
             commentiMese: commentiMese,
             allenamentoScelto: allenamentoScelto,
             giornoAllenamentoScelto: giornoAllenamentoScelto,
-            medaglieViste: medaglieViste.sorted()
+            medaglieViste: medaglieViste.sorted(),
+            workoutPerWatch: workoutPerWatch,
+            recapInAttesa: recapInAttesa
         )
         if let data = try? JSONEncoder().encode(d) {
             defaults.set(data, forKey: StatoApp.chiaveDati)
@@ -202,6 +212,8 @@ final class StatoApp {
         allenamentoScelto = nil
         giornoAllenamentoScelto = nil
         medaglieViste = []
+        workoutPerWatch = nil
+        recapInAttesa = nil
         cacheAllenamento = nil
         Task { await self.notifiche.cancellaTutti() }
     }
@@ -526,7 +538,33 @@ final class StatoApp {
 
     func inviaAlWatch() -> EsitoInvioWatch {
         guard let w = allenamentoDiOggi() else { return .errore }
+        workoutPerWatch = w
+        salva()
         return watch.invia(allenamento: w, target: targetRitmo(per: w))
+    }
+
+    /// Una nuotata finita sul Watch arriva sull'iPhone: si registra e, se è nuova e recente, al prossimo sguardo
+    /// il coach mostra il recap (con la domanda "Com'è andata?"), come per gli allenamenti seguiti sul telefono.
+    func nuotataDalWatch(_ nuotata: NuotataCompletata, adesso: Date = Date()) {
+        let nuova = !nuotate.contains { $0.id == nuotata.id }
+        registra(nuotata)
+        let recente = adesso.timeIntervalSince(nuotata.data) < 36 * 3600
+        if nuova, recente, nuotata.origine == .watch, nuotata.metri > 0 {
+            recapInAttesa = nuotata.id
+            salva()
+        }
+    }
+
+    /// Il recap da mostrare: la nuotata e, se è quella dell'allenamento mandato al Watch, anche l'allenamento (per il consiglio tecnico).
+    func recapDaWatch() -> (nuotata: NuotataCompletata, workout: Workout?)? {
+        guard let id = recapInAttesa, let n = nuotate.first(where: { $0.id == id }) else { return nil }
+        let w = workoutPerWatch.flatMap { $0.titolo == n.titolo ? $0 : nil }
+        return (n, w)
+    }
+
+    func chiudiRecapDaWatch() {
+        recapInAttesa = nil
+        salva()
     }
 
     // MARK: Libreria e richieste al coach
@@ -544,6 +582,7 @@ final class StatoApp {
     func scegli(allenamento: Workout, adesso: Date = Date()) {
         allenamentoScelto = allenamento
         giornoAllenamentoScelto = Calendar.italiano.ordinality(of: .day, in: .year, for: adesso) ?? 0
+        workoutPerWatch = allenamento
         _ = watch.invia(allenamento: allenamento, target: targetRitmo(per: allenamento))
         salva()
     }

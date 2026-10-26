@@ -5,7 +5,8 @@ import SwimwaveCore
 /// Se la risposta è "Dura" il coach dice una parola in un popup con un solo pulsante.
 struct FineAllenamentoView: View {
     let nuotataId: UUID
-    let workout: Workout
+    /// L'allenamento seguito, se si conosce (per i metri previsti e il consiglio tecnico del recap).
+    let workout: Workout?
     let metri: Int
     let durataSecondi: Int
     let onChiudi: () -> Void

@@ -6,7 +6,8 @@ import SwimwaveCore
 /// Tutto è calcolato con regole sui dati (`Recap` nel pacchetto), senza IA. Dopo una nuotata "dura" il tono è più leggero.
 struct RecapCoachView: View {
     let nuotataId: UUID
-    let workout: Workout
+    /// L'allenamento seguito, se si conosce: senza, il recap non ha metri previsti né consiglio tecnico.
+    let workout: Workout?
     let onChiudi: () -> Void
 
     @Environment(StatoApp.self) private var stato
@@ -18,7 +19,7 @@ struct RecapCoachView: View {
         let dura = sensazione == .dura
         let giorno = Calendar.italiano.ordinality(of: .day, in: .year, for: nuotata?.data ?? Date()) ?? 0
         let evidenze = calcolaEvidenze(nuotata: nuotata, sensazione: sensazione)
-        let errore = dura ? nil : Recap.erroreConsigliato(workout: workout, errori: stato.contenuti.errori, giorno: giorno)
+        let errore = erroreDaConsigliare(dura: dura, giorno: giorno)
 
         VStack(spacing: 0) {
             ScrollView {
@@ -60,6 +61,12 @@ struct RecapCoachView: View {
         .sfondoApp()
     }
 
+    /// L'errore comune da consigliare: solo se si conosce l'allenamento e la nuotata non è stata "dura".
+    private func erroreDaConsigliare(dura: Bool, giorno: Int) -> ErroreComune? {
+        guard !dura, let workout else { return nil }
+        return Recap.erroreConsigliato(workout: workout, errori: stato.contenuti.errori, giorno: giorno)
+    }
+
     /// Le cose che spiccano (calcolo fuori dal corpo della vista: nel corpo non si possono fare assegnamenti).
     private func calcolaEvidenze(nuotata: NuotataCompletata?, sensazione: Sensazione?) -> [Evidenza] {
         guard let nuotata else { return [] }
@@ -67,7 +74,7 @@ struct RecapCoachView: View {
         return Recap.evidenze(
             nuotata: nuotata,
             precedenti: precedenti,
-            metriPrevisti: workout.metriTotali,
+            metriPrevisti: workout?.metriTotali ?? 0,
             sensazione: sensazione,
             progresso: stato.progressoSettimana,
             serieSettimane: stato.serieSettimane
@@ -123,8 +130,8 @@ struct RecapCoachView: View {
         HStack(spacing: 8) {
             cella(FormatiUI.numero(n.metri), "recap.numero.metri")
             cella("\(FormatoTempo.minutiArrotondati(n.durataSecondi))", "recap.numero.minuti")
-            if workout.metriTotali > 0 {
-                let percento = min(100, Int((Double(n.metri) / Double(workout.metriTotali) * 100).rounded()))
+            if let previsti = workout?.metriTotali, previsti > 0 {
+                let percento = min(100, Int((Double(n.metri) / Double(previsti) * 100).rounded()))
                 cella("\(percento)%", "recap.numero.programma")
             }
         }
@@ -215,7 +222,7 @@ struct RecapCoachView: View {
         case .facile:
             frasi.append(testo("recap.commento.facile"))
         default:
-            let previsti = workout.metriTotali
+            let previsti = workout?.metriTotali ?? 0
             let fatti = nuotata?.metri ?? 0
             if previsti > 0, Double(fatti) < Double(previsti) * Recap.sogliaProgrammaCompleto {
                 frasi.append(testo("recap.commento.giusta.parziale", FormatiUI.numero(fatti), FormatiUI.numero(previsti)))

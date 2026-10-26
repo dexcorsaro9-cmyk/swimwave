@@ -149,8 +149,10 @@ test("ogni livello e obiettivo ha almeno due allenamenti di riserva", () => {
 test("serie e recuperi rispettano le regole dell'istruttore", () => {
   for (const voce of indice) {
     const w = loadContent(`allenamenti/${voce.file}`);
-    const [recMin, recMax] = voce.livello === "principiante" ? [20, 45] : [15, 30];
+    // B2 e C1 (alta intensità) hanno recuperi più lunghi per costruzione.
+    const alta = voce.tipologia === "b2" || voce.tipologia === "c1";
     for (const b of w.blocchi) {
+      const [recMin, recMax] = voce.livello === "principiante" ? [20, 45] : alta && b.tipo === "principale" ? [30, 60] : [15, 30];
       for (const s of b.serie) {
         if (voce.livello === "principiante") {
           const max = b.tipo === "riscaldamento" ? 100 : 50;
@@ -164,6 +166,29 @@ test("serie e recuperi rispettano le regole dell'istruttore", () => {
         }
       }
     }
+  }
+});
+
+test("tipologie: ogni voce ne ha una, 'forte' solo in b2 e c1, nulla di forte per il principiante", () => {
+  const ammesse = ["a1", "a2", "b1", "b2", "c1"];
+  for (const voce of indice) {
+    assert.ok(ammesse.includes(voce.tipologia), `${voce.file}: tipologia ${voce.tipologia}`);
+    if (voce.livello === "principiante") assert.ok(["a1", "a2"].includes(voce.tipologia), `${voce.file}: tipologia non adatta al principiante`);
+    const w = loadContent(`allenamenti/${voce.file}`);
+    const forte = w.blocchi.flatMap((b) => b.serie).some((s) => s.intensita === "forte");
+    if (forte) assert.ok(["b2", "c1"].includes(voce.tipologia) && voce.livello === "intermedio", `${voce.file}: intensità forte non ammessa`);
+    if (["b2", "c1"].includes(voce.tipologia)) assert.ok(forte, `${voce.file}: ${voce.tipologia} senza serie forte`);
+  }
+});
+
+test("ogni tipologia ha almeno due allenamenti per chi può farla", () => {
+  for (const t of ["a1", "a2"]) {
+    for (const livello of ["principiante", "intermedio"]) {
+      assert.ok(indice.filter((a) => a.livello === livello && a.tipologia === t).length >= 2, `${livello}/${t}`);
+    }
+  }
+  for (const t of ["b1", "b2", "c1"]) {
+    assert.ok(indice.filter((a) => a.livello === "intermedio" && a.tipologia === t).length >= 2, `intermedio/${t}`);
   }
 });
 

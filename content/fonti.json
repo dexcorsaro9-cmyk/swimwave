@@ -168,6 +168,30 @@
       "url": "https://www.usms.org/fitness-and-training/articles-and-videos/articles/how-to-train-with-critical-swim-speed-intervals",
       "usata_per": "Test con un 400 e un 200 e uso della velocità critica come ritmo 'di soglia' per nuotatori master. Attenzione: l'articolo consiglia uno sforzo sostenibile, 'poco sopra il moderato', e non a tutta; non dà percentuali né zone. Per questo non è usato per le percentuali e la differenza va decisa dall'istruttore.",
       "affidabilita": "media: articolo divulgativo di un allenatore, su un sito di federazione master"
+    },
+    {
+      "id": "istruttore-tipologie",
+      "titolo": "Classificazione delle zone di allenamento A1, A2, B1, B2, C1, C2, C3, D",
+      "ente": "Istruttore di nuoto (fondatore del progetto), 26 ottobre 2026",
+      "url": "",
+      "usata_per": "Definizione e scopo delle tipologie A1 (recupero, tecnica), A2 (fondo aerobico), B1 (soglia), B2 (VO2 max), C1 (tolleranza al lattato). Il testo dell'istruttore rimanda a siti divulgativi (nuotomania.it, cibo360.it, endu.net) che non abbiamo letto.",
+      "affidabilita": "media: indicazione dell'istruttore, senza fonte federale o accademica letta da noi"
+    },
+    {
+      "id": "cejssm-zone-nuoto",
+      "titolo": "Zone di intensità nell'allenamento del nuoto (REC, EN1, EN2, EN3, SP1): studio su nuotatori con disabilità",
+      "ente": "Central European Journal of Sport Sciences and Medicine (Università di Zielona Góra)",
+      "url": "https://wnus.usz.edu.pl/cejssm/file/article/download/19001.pdf",
+      "usata_per": "Riscontro che le zone di allenamento (base, soglia anaerobica, VO2 max, tolleranza al lattato) sono usate anche in letteratura accademica con altri nomi. Trovata con la ricerca web, NON aperta (il sito non era raggiungibile): è stata letta solo la sintesi del risultato di ricerca.",
+      "affidabilita": "media: rivista scientifica, ma non letta e su nuotatori con disabilità"
+    },
+    {
+      "id": "usms-swimmaster-1991",
+      "titolo": "Articolo su allenamento di soglia, Swimmaster 1991 (v20n2)",
+      "ente": "United States Masters Swimming (organizzazione dei nuotatori master)",
+      "url": "https://cd3.usms.org/hist/swimmaster/1991_swimmaster_v20n2_02.pdf",
+      "usata_per": "Riscontro che il lavoro di soglia è il più utile per i master e costituisce gran parte del volume di chi nuota meno di circa 9.000 m a settimana. Trovata con la ricerca web, NON aperta (sito non raggiungibile): letta solo la sintesi del risultato di ricerca.",
+      "affidabilita": "media: fonte di un ente reale ma datata e non letta direttamente"
     }
   ],
   "non_consultate": "Federazione Italiana Nuoto (programma della Scuola Nuoto Federale): il sito non era leggibile in automatico. Manuali di riferimento come Counsilman, Maglischo e Laughlin: non consultati. Vanno confrontati dall'istruttore."

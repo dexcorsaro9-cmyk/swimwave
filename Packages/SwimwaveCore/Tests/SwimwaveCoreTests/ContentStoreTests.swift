@@ -277,3 +277,43 @@ final class EfficienzaTests: XCTestCase {
         XCTAssertTrue(Efficienza.distribuzioneStili([SplitVasca(metri: 25, durataSecondi: 30)]).isEmpty)
     }
 }
+
+final class TipologiaTests: XCTestCase {
+    func testPrincipianteNonHaMaiTipologieForti() {
+        for obiettivo in Obiettivo.allCases {
+            for giorno in 0..<60 {
+                let c = Tipologia.consigliata(categoria: .principiante, obiettivo: obiettivo, ultimaSensazione: .facile, giorniDallUltima: 2, giorno: giorno)
+                XCTAssertTrue(c.tipologia.ammessa(a: .principiante), "\(obiettivo) giorno \(giorno): \(c.tipologia)")
+            }
+        }
+        XCTAssertEqual(Tipologia.ammesse(per: .principiante), [.a1, .a2])
+        XCTAssertEqual(Tipologia.ammesse(per: .intermedio), Tipologia.allCases)
+    }
+
+    func testDopoNuotataDuraSiVaLeggeri() {
+        let c = Tipologia.consigliata(categoria: .intermedio, obiettivo: .resistenza, ultimaSensazione: .dura, giorniDallUltima: 1, giorno: 3)
+        XCTAssertEqual(c, Consiglio(tipologia: .a1, motivo: .dura))
+    }
+
+    func testDopoUnaPausaLungaSiRipartePiano() {
+        let c = Tipologia.consigliata(categoria: .intermedio, obiettivo: .resistenza, ultimaSensazione: .facile, giorniDallUltima: 20, giorno: 3)
+        XCTAssertEqual(c, Consiglio(tipologia: .a1, motivo: .pausa))
+    }
+
+    func testIntermedioResistenzaAlternaTutteLeTipologie() {
+        let viste = Set((0..<6).map {
+            Tipologia.consigliata(categoria: .intermedio, obiettivo: .resistenza, ultimaSensazione: .giusta, giorniDallUltima: 1, giorno: $0).tipologia
+        })
+        XCTAssertEqual(viste, Set(Tipologia.allCases))
+    }
+
+    func testLaRiservaRispettaLaTipologiaESeMancaRicade() {
+        func voce(_ f: String, _ t: String?) -> VoceAllenamento {
+            VoceAllenamento(file: f, livello: "intermedio", obiettivi: ["resistenza"], tappe: [7], stato: .approvato, tipologia: t)
+        }
+        let voci = [voce("a.json", "a2"), voce("b.json", "b1"), voce("c.json", nil)]
+        XCTAssertEqual(Riserva.scegli(voci: voci, categoria: .intermedio, obiettivo: .resistenza, scelta: 5, tipologia: .b1)?.file, "b.json")
+        // Nessun allenamento della tipologia richiesta: ricade su tutto il livello.
+        XCTAssertNotNil(Riserva.scegli(voci: voci, categoria: .intermedio, obiettivo: .resistenza, scelta: 0, tipologia: .c1))
+    }
+}

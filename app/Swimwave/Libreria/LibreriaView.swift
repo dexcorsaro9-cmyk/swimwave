@@ -13,6 +13,7 @@ struct LibreriaView: View {
     @State private var caricata = false
     @State private var livello: String?
     @State private var durata: FasciaDurata = .tutte
+    @State private var tipologia: Tipologia?
 
     /// Livelli proposti nel filtro (valori di `livello` in content/allenamenti/indice.json).
     private static let livelli = ["principiante", "intermedio"]
@@ -75,7 +76,8 @@ struct LibreriaView: View {
     // MARK: Filtri
 
     private var filtri: some View {
-        HStack(spacing: 10) {
+        VStack(spacing: 10) {
+            HStack(spacing: 10) {
             Picker(testo("libreria.filtro.livello"), selection: $livello) {
                 Text("libreria.filtro.tuttiLivelli").tag(Optional<String>.none)
                 ForEach(LibreriaView.livelli, id: \.self) { l in
@@ -90,17 +92,35 @@ struct LibreriaView: View {
                 }
             }
             .modifier(ContornoMenuScelta())
+            }
+            Picker(testo("libreria.filtro.tipologia"), selection: $tipologia) {
+                Text("libreria.filtro.tutteTipologie").tag(Optional<Tipologia>.none)
+                ForEach(Tipologia.allCases) { t in
+                    Text(verbatim: nomeTipologia(t)).tag(Optional(t))
+                }
+            }
+            .modifier(ContornoMenuScelta())
         }
     }
 
     private func passaFiltri(_ e: ElementoLibreria) -> Bool {
         if let scelto = livello, e.voce.livello != scelto { return false }
+        if let scelta = tipologia, e.voce.tipologiaTipo != scelta { return false }
         return durata.contiene(e.workout.durataStimataMin)
     }
 
     private var gruppi: [GruppoLibreria] {
         let filtrati = elementi.filter { passaFiltri($0) }
         var risultato: [GruppoLibreria] = []
+        // In cima gli allenamenti della tipologia consigliata oggi, per il livello dell'utente.
+        let consiglio = stato.consiglioDiOggi()
+        let consigliati = filtrati.filter {
+            $0.voce.livello == stato.profilo.categoriaLivello.rawValue && $0.voce.tipologiaTipo == consiglio.tipologia
+        }
+        if !consigliati.isEmpty {
+            risultato.append(GruppoLibreria(id: "consigliati", titolo: testo("libreria.gruppo.consigliati", nomeTipologia(consiglio.tipologia)),
+                                            elementi: consigliati))
+        }
         for chiave in LibreriaView.obiettivi {
             let dentro = filtrati.filter { $0.voce.obiettivi.contains(chiave) }
             if !dentro.isEmpty {
@@ -185,7 +205,12 @@ private struct RigaLibreria: View {
                     Etichetta(contenuto: testo("oggi.metri", w.metriTotali))
                     Etichetta(contenuto: testo("oggi.vasca", w.vascaMetri))
                 }
-                Etichetta(contenuto: etichettaLivelloAllenamento(elemento.voce.livello))
+                HStack(spacing: 8) {
+                    Etichetta(contenuto: etichettaLivelloAllenamento(elemento.voce.livello))
+                    if let t = elemento.voce.tipologiaTipo {
+                        Etichetta(contenuto: nomeTipologia(t))
+                    }
+                }
             }
             Spacer(minLength: 0)
             Image(systemName: "chevron.right")

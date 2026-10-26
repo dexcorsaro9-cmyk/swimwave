@@ -6,8 +6,6 @@ import Foundation
 /// "allenamenti/indice.json") e restituisce i byte, o nil se manca. In app legge dal Bundle,
 /// nei test legge dalla cartella content del repository.
 ///
-/// ATTENZIONE: oggi tutti i contenuti sono in stato "bozza": con `includeBozze == false`
-/// l'app non mostra nulla finché l'istruttore non approva.
 public final class ContentStore {
     public let includeBozze: Bool
     public private(set) var tappe: [Tappa] = []
@@ -83,17 +81,18 @@ public final class ContentStore {
 
     /// Allenamento fisso per livello e obiettivo, adattato alla vasca. Stessa logica di `scegliRiserva` in server/coach/src/coach.js.
     /// `scelta` varia tra gli allenamenti adatti (per esempio il giorno dell'anno).
-    public func scegliRiserva(profilo: Profilo, scelta: Int, motivo: MotivoDifficolta? = nil) -> Workout? {
+    public func scegliRiserva(profilo: Profilo, scelta: Int, motivo: MotivoDifficolta? = nil, tipologia: Tipologia? = nil) -> Workout? {
         guard let voce = Riserva.scegli(
             voci: voci,
             categoria: profilo.categoriaLivello,
             obiettivo: profilo.obiettivoEffettivo,
             scelta: scelta,
-            motivo: motivo
+            motivo: motivo,
+            tipologia: tipologia
         ) else { return nil }
         // Se la voce scelta non è valida (file mancante o drill non visibile) prova le altre, in ordine.
         if let w = workout(della: voce) { return Riserva.adattaVasca(w, vascaMetri: profilo.vascaMetri) }
-        let altre = Riserva.candidate(voci: voci, categoria: profilo.categoriaLivello, obiettivo: profilo.obiettivoEffettivo)
+        let altre = Riserva.candidate(voci: voci, categoria: profilo.categoriaLivello, obiettivo: profilo.obiettivoEffettivo, tipologia: tipologia)
         for v in altre where v != voce {
             if let w = workout(della: v) { return Riserva.adattaVasca(w, vascaMetri: profilo.vascaMetri) }
         }
@@ -103,8 +102,14 @@ public final class ContentStore {
 
 public enum Riserva {
     /// Voci adatte: stesso gruppo di livello (avanzato usa intermedio), poi per obiettivo se ce ne sono.
-    public static func candidate(voci: [VoceAllenamento], categoria: CategoriaLivello, obiettivo: Obiettivo) -> [VoceAllenamento] {
-        let delLivello = voci.filter { $0.livello == categoria.rawValue }
+    public static func candidate(voci: [VoceAllenamento], categoria: CategoriaLivello, obiettivo: Obiettivo,
+                                 tipologia: Tipologia? = nil) -> [VoceAllenamento] {
+        var delLivello = voci.filter { $0.livello == categoria.rawValue }
+        // Se esiste almeno un allenamento della tipologia consigliata la si rispetta, altrimenti si ricade su tutto il livello.
+        if let tipologia {
+            let dellaTipologia = delLivello.filter { $0.tipologia == tipologia.rawValue }
+            if !dellaTipologia.isEmpty { delLivello = dellaTipologia }
+        }
         let perObiettivo = delLivello.filter { $0.obiettivi.contains(obiettivo.chiaveIndice) }
         return perObiettivo.isEmpty ? delLivello : perObiettivo
     }
@@ -112,8 +117,8 @@ public enum Riserva {
     /// Con `motivo == .esercizio` (l'ultimo allenamento era "dura" perché l'esercizio era troppo difficile)
     /// sceglie tra la metà di allenamenti con le tappe più basse, cioè con gli esercizi più semplici.
     public static func scegli(voci: [VoceAllenamento], categoria: CategoriaLivello, obiettivo: Obiettivo, scelta: Int,
-                              motivo: MotivoDifficolta? = nil) -> VoceAllenamento? {
-        var c = candidate(voci: voci, categoria: categoria, obiettivo: obiettivo)
+                              motivo: MotivoDifficolta? = nil, tipologia: Tipologia? = nil) -> VoceAllenamento? {
+        var c = candidate(voci: voci, categoria: categoria, obiettivo: obiettivo, tipologia: tipologia)
         guard !c.isEmpty else { return nil }
         if motivo == .esercizio, c.count > 1 {
             // sorted non è stabile: l'indice originale fa da spareggio.

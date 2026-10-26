@@ -33,6 +33,11 @@ func nomeBreveObiettivo(_ obiettivo: Obiettivo) -> String {
     }
 }
 
+/// "A2 · Fondo aerobico" (codice e nome della tipologia).
+func nomeTipologia(_ t: Tipologia) -> String {
+    "\(t.rawValue.uppercased()) · \(testo("tipologia.\(t.rawValue).nome"))"
+}
+
 // MARK: - Menu a tendina
 
 /// Contorno turchese dei menu a tendina (come `MenuScelta` di Tema, ma per Picker con una voce "tutti" o "come vuoi").

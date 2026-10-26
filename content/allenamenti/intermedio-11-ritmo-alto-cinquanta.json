@@ -1,0 +1,53 @@
+{
+  "titolo": "Ritmo alto: serie da 50",
+  "vasca_metri": 25,
+  "durata_stimata_min": 40,
+  "blocchi": [
+    {
+      "tipo": "riscaldamento",
+      "serie": [
+        {
+          "ripetizioni": 1,
+          "distanza_m": 200,
+          "stile": "libero",
+          "intensita": "facile"
+        }
+      ]
+    },
+    {
+      "tipo": "tecnica",
+      "serie": [
+        {
+          "ripetizioni": 4,
+          "distanza_m": 50,
+          "stile": "libero",
+          "drill": "un-braccio-solo",
+          "recupero_s": 20
+        }
+      ]
+    },
+    {
+      "tipo": "principale",
+      "serie": [
+        {
+          "ripetizioni": 10,
+          "distanza_m": 50,
+          "stile": "libero",
+          "intensita": "forte",
+          "recupero_s": 30
+        }
+      ]
+    },
+    {
+      "tipo": "defaticamento",
+      "serie": [
+        {
+          "ripetizioni": 1,
+          "distanza_m": 100,
+          "stile": "libero",
+          "intensita": "facile"
+        }
+      ]
+    }
+  ]
+}

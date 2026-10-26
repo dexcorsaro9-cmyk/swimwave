@@ -1,6 +1,6 @@
-# Revisione dell'istruttore
+# Note sulle fonti e sui punti deboli
 
-Tutti i contenuti rimasti sono stati approvati dall'istruttore il 10 ottobre 2026 (tolti: drill Delfino sei colpi, Dorso al rallentatore, esercizi a secco). Le note sotto restano come promemoria dei punti con fonte debole o numeri nostri, da riguardare con l'esperienza in acqua.
+Non c'è nessuna revisione da fare: tutti i contenuti sono approvati (decisione dell'istruttore). Tolti: drill Delfino sei colpi, Dorso al rallentatore, esercizi a secco. Le note sotto restano come promemoria dei punti con fonte debole o numeri nostri, da riguardare con l'esperienza in acqua.
 
 ## 1. Da verificare per primi (senza fonte diretta o con fonte parziale)
 

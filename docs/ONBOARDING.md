@@ -45,6 +45,6 @@ Dopo le domande, due richieste di permesso **spiegate dal coach nel momento gius
 ## Da verificare
 1. **Fastidi fisici = dato sulla salute**: per il GDPR è una categoria particolare. Va chiesto con consenso esplicito e in forma facoltativa, oppure tolto dalla prima versione. Proposta: tenerlo, facoltativo, salvato solo sul dispositivo.
 2. **Minori**: chiedere solo "Hai almeno 18 anni?" prima di cominciare, o decidere che l'app è per adulti nella prima versione.
-3. **Soglie del livello** (domanda 2): confermate dall'istruttore in `content/REVISIONE.md`.
+3. **Soglie del livello** (domanda 2): descritte in `content/REVISIONE.md`.
 4. **Obiettivo "Dimagrire"**: formulazione e tono da rivedere, per non spingere verso pratiche poco sane.
 5. **Come arrivano i dati al coach IA**: del nome serve solo il tono; non passa al servizio altro che il necessario (vedi `docs/ARCHITECTURE.md`).

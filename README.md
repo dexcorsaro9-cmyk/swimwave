@@ -7,7 +7,7 @@ App per chi nuota da solo e non ha nessuno che lo segua: coach IA che crea allen
 ## Stato
 
 - Nome scelto: **Swimwave** (provvisorio fino alle verifiche, vedi sotto)
-- Fase: progettazione avanzata. I contenuti tecnici sono **approvati dall'istruttore** (10 ottobre 2026), con note sulle fonti più deboli in `content/REVISIONE.md`; l'app è completa nel codice ma **non ancora compilata**
+- Fase: progettazione avanzata. I contenuti tecnici sono **già approvati** e non richiedono revisione (decisione dell'istruttore); le note sulle fonti più deboli sono in `content/REVISIONE.md`; l'app è completa nel codice ma **non ancora compilata**
 - Piattaforma della prima versione: iPhone + Apple Watch (SwiftUI, HealthKit, WatchKit)
 - Distribuzione di prova: TestFlight (già disponibile)
 
@@ -18,7 +18,7 @@ App per chi nuota da solo e non ha nessuno che lo segua: coach IA che crea allen
 - `codemagic.yaml`: build e test su Codemagic (nessun Xcode locale necessario) e pubblicazione su TestFlight
 - `app/`: scheletro dell'app SwiftUI per iPhone e Watch, generato con XcodeGen. **Non compilato né testato**: vedi `app/README.md`
 - `Packages/SwimwaveCore/`: pacchetto Swift condiviso (modello, validazione, profilo, saluti, contenuti). **Non ancora compilato né testato**: lo prova Codemagic (workflow `test`, `swift test`)
-- `content/`: contenuti tecnici in bozza, con le fonti: drill, errori comuni, percorso a tappe, allenamenti di riserva, tono, coach. Da controllare con `content/REVISIONE.md`
+- `content/`: contenuti tecnici con le fonti: drill, errori comuni, percorso a tappe, allenamenti di riserva, tono, coach. Note sulle fonti deboli in `content/REVISIONE.md`
 - `assets/coach/`: immagini dei due coach (bozze) e avatar
 - `fixtures/`: esempi per i test
 

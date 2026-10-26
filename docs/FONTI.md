@@ -3,7 +3,7 @@
 I drill, gli errori comuni e le tappe del percorso sono stati scritti confrontandoli con fonti di federazioni, enti e testi accademici, consultate il 9 ottobre 2026. I contenuti sono riassunti con parole nostre. L'elenco completo, con i link, è in `content/fonti.json`.
 
 Ogni voce dei file in `content/` ha:
-- `stato`: `bozza` finché l'istruttore non l'ha controllata, poi `approvato`. Nella versione per gli utenti vanno solo le voci approvate.
+- `stato`: `approvato` (nessuna revisione obbligatoria). `bozza` si usa solo per tenere una voce fuori dalla versione per gli utenti.
 - `fonti`: gli id delle fonti che la sostengono. Se è vuoto c'è una `nota_fonti` che spiega perché.
 
 ## Fonti usate

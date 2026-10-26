@@ -38,8 +38,8 @@ Prima versione solo per adulti (da confermare con la verifica dei 18 anni). Non 
 
 ## Contenuti: chi fa cosa
 
-- **Claude** scrive tutti i contenuti tecnici partendo da fonti autorevoli, li registra in `content/fonti.json` e li marca `bozza`. Dove non trova una fonte lo dichiara.
-- **Il fondatore, istruttore** li rivede con `content/REVISIONE.md` e li fa passare ad `approvato`. Gli utenti vedono solo contenuti approvati.
+- **Claude** scrive tutti i contenuti tecnici partendo da fonti autorevoli, li registra in `content/fonti.json` e li approva direttamente (nessuna revisione obbligatoria, decisione dell'istruttore). Dove non trova una fonte lo dichiara.
+- **Il fondatore, istruttore** può leggere le note in `content/REVISIONE.md` quando vuole, ma non deve approvare nulla. Gli utenti vedono i contenuti `approvato`.
 - **I coach IA** non inventano esercizi: scelgono da una lista chiusa e le loro risposte sono validate (schema, distanze, regole) prima di arrivare all'utente.
 
 ## Funzione differenziante (da validare)
@@ -70,7 +70,7 @@ Punti aperti:
 
 ## Punti aperti
 
-1. Revisione dei contenuti da parte dell'istruttore (`content/REVISIONE.md`).
+1. Note sulle fonti deboli (`content/REVISIONE.md`), da riguardare con l'esperienza in acqua: non è una revisione obbligatoria.
 2. Obiettivo "Dimagrire": formulazione e tono.
 3. Solo adulti: verifica dei 18 anni.
 4. Parere legale su AI Act, privacy e regole dell'App Store.

@@ -67,13 +67,14 @@ private struct SqualoEBolle: View {
 
     var body: some View {
         GeometryReader { geo in
-            let larghezza = min(geo.size.width * 0.58, 200)
-            let altezza = larghezza * Self.proporzione
+            let larghezza: CGFloat = min(geo.size.width * 0.58, 200)
+            let altezza: CGFloat = larghezza * Self.proporzione
             // Deriva lenta, sempre dentro l'acqua: lascia almeno ~16 pt di margine su tutti i lati.
-            let dx = sin(t * 0.55) * min(12, max(0, (geo.size.width - larghezza) / 2 - 16))
-            let dy = sin(t * 1.4) * 3
-            let sinistra = (geo.size.width - larghezza) / 2 + dx
-            let alto = (geo.size.height - altezza) / 2 + 8 + dy
+            let margine: CGFloat = max(0, (geo.size.width - larghezza) / 2 - 16)
+            let dx: CGFloat = CGFloat(sin(t * 0.55)) * min(12, margine)
+            let dy: CGFloat = CGFloat(sin(t * 1.4)) * 3
+            let sinistra: CGFloat = (geo.size.width - larghezza) / 2 + dx
+            let alto: CGFloat = (geo.size.height - altezza) / 2 + 8 + dy
             ZStack(alignment: .topLeading) {
                 Ellipse()
                     .fill(RadialGradient(colors: [Color.black.opacity(0.28), .clear], center: .center, startRadius: 0, endRadius: larghezza * 0.45))

@@ -192,6 +192,29 @@ test("ogni tipologia ha almeno due allenamenti per chi può farla", () => {
   }
 });
 
+test("ci sono molti allenamenti per ogni livello e tipologia (app non vuota)", () => {
+  assert.ok(indice.length >= 100, `solo ${indice.length} allenamenti`);
+  for (const [livello, tipologie] of [["principiante", ["a1", "a2"]], ["intermedio", ["a1", "a2", "b1", "b2", "c1"]]]) {
+    for (const t of tipologie) {
+      const n = indice.filter((a) => a.livello === livello && a.tipologia === t).length;
+      assert.ok(n >= 20, `${livello}/${t}: solo ${n}`);
+    }
+  }
+  const titoli = indice.map((a) => `${a.livello}|${loadContent(`allenamenti/${a.file}`).titolo}`);
+  assert.equal(new Set(titoli).size, titoli.length, "titoli duplicati");
+});
+
+test("le durate stimate sono realistiche per il livello", () => {
+  for (const voce of indice) {
+    const w = loadContent(`allenamenti/${voce.file}`);
+    const [min, max] = voce.livello === "principiante" ? [20, 35] : [30, 55];
+    assert.ok(w.durata_stimata_min >= min && w.durata_stimata_min <= max, `${voce.file}: ${w.durata_stimata_min} min`);
+    const metri = w.blocchi.flatMap((b) => b.serie).reduce((t, s) => t + s.ripetizioni * s.distanza_m, 0);
+    const [mMin, mMax] = voce.livello === "principiante" ? [250, 600] : [600, 1200];
+    assert.ok(metri >= mMin && metri <= mMax, `${voce.file}: ${metri} m`);
+  }
+});
+
 test("le tappe 8, 9 e 10 hanno almeno due drill e un errore", () => {
   for (const id of [8, 9, 10]) {
     const t = tappe.find((x) => x.id === id);

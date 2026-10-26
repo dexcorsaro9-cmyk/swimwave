@@ -50,7 +50,8 @@ struct LibreriaView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
+            // Con più di duecento allenamenti i gruppi si creano man mano che si scorre.
+            LazyVStack(alignment: .leading, spacing: 16) {
                 if caricata && elementi.isEmpty {
                     vuoto
                 } else {
@@ -68,6 +69,8 @@ struct LibreriaView: View {
                 elementi = stato.libreria().map {
                     ElementoLibreria(id: $0.voce.file, voce: $0.voce, workout: $0.workout)
                 }
+                // Si parte dal proprio livello: con tanti allenamenti l'elenco completo è solo un tocco più in là.
+                if livello == nil { livello = stato.profilo.categoriaLivello.rawValue }
                 caricata = true
             }
         }

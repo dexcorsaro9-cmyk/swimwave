@@ -1,0 +1,61 @@
+{
+  "titolo": "Ritmo alto: 10 × 50 m · 1100 m",
+  "vasca_metri": 25,
+  "durata_stimata_min": 47,
+  "blocchi": [
+    {
+      "tipo": "riscaldamento",
+      "serie": [
+        {
+          "ripetizioni": 1,
+          "distanza_m": 200,
+          "stile": "libero",
+          "intensita": "facile"
+        }
+      ]
+    },
+    {
+      "tipo": "tecnica",
+      "serie": [
+        {
+          "ripetizioni": 6,
+          "distanza_m": 25,
+          "stile": "libero",
+          "drill": "nuotata-con-pull-buoy",
+          "recupero_s": 20
+        },
+        {
+          "ripetizioni": 6,
+          "distanza_m": 25,
+          "stile": "libero",
+          "drill": "respirazione-laterale-con-tavoletta",
+          "recupero_s": 20
+        }
+      ]
+    },
+    {
+      "tipo": "principale",
+      "serie": [
+        {
+          "ripetizioni": 10,
+          "distanza_m": 50,
+          "stile": "libero",
+          "intensita": "forte",
+          "recupero_s": 40
+        }
+      ]
+    },
+    {
+      "tipo": "defaticamento",
+      "serie": [
+        {
+          "ripetizioni": 2,
+          "distanza_m": 50,
+          "stile": "libero",
+          "intensita": "facile",
+          "recupero_s": 15
+        }
+      ]
+    }
+  ]
+}

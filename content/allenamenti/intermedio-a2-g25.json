@@ -1,0 +1,60 @@
+{
+  "titolo": "Fondo: 6 × 100 m · 1200 m · variante 2",
+  "vasca_metri": 25,
+  "durata_stimata_min": 43,
+  "blocchi": [
+    {
+      "tipo": "riscaldamento",
+      "serie": [
+        {
+          "ripetizioni": 1,
+          "distanza_m": 300,
+          "stile": "libero",
+          "intensita": "facile"
+        }
+      ]
+    },
+    {
+      "tipo": "tecnica",
+      "serie": [
+        {
+          "ripetizioni": 4,
+          "distanza_m": 25,
+          "stile": "libero",
+          "drill": "sei-colpi-e-cambio",
+          "recupero_s": 25
+        },
+        {
+          "ripetizioni": 4,
+          "distanza_m": 25,
+          "stile": "rana",
+          "drill": "rana-corpo-verso-le-mani",
+          "recupero_s": 20
+        }
+      ]
+    },
+    {
+      "tipo": "principale",
+      "serie": [
+        {
+          "ripetizioni": 6,
+          "distanza_m": 100,
+          "stile": "libero",
+          "intensita": "media",
+          "recupero_s": 15
+        }
+      ]
+    },
+    {
+      "tipo": "defaticamento",
+      "serie": [
+        {
+          "ripetizioni": 1,
+          "distanza_m": 100,
+          "stile": "libero",
+          "intensita": "facile"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "titolo": "Tecnica: battuta sul dorso con rotazione e nuotata con pull buoy",
+  "vasca_metri": 25,
+  "durata_stimata_min": 43,
+  "blocchi": [
+    {
+      "tipo": "riscaldamento",
+      "serie": [
+        {
+          "ripetizioni": 2,
+          "distanza_m": 100,
+          "stile": "libero",
+          "intensita": "facile",
+          "recupero_s": 15
+        }
+      ]
+    },
+    {
+      "tipo": "tecnica",
+      "serie": [
+        {
+          "ripetizioni": 6,
+          "distanza_m": 25,
+          "stile": "dorso",
+          "drill": "dorso-battuta-con-rotazione",
+          "recupero_s": 25
+        },
+        {
+          "ripetizioni": 4,
+          "distanza_m": 25,
+          "stile": "libero",
+          "drill": "nuotata-con-pull-buoy",
+          "recupero_s": 20
+        }
+      ]
+    },
+    {
+      "tipo": "principale",
+      "serie": [
+        {
+          "ripetizioni": 5,
+          "distanza_m": 100,
+          "stile": "libero",
+          "intensita": "facile",
+          "recupero_s": 15
+        }
+      ]
+    },
+    {
+      "tipo": "defaticamento",
+      "serie": [
+        {
+          "ripetizioni": 2,
+          "distanza_m": 50,
+          "stile": "libero",
+          "intensita": "facile",
+          "recupero_s": 15
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "titolo": "Ritmo alto: 6 × 100 m",
+  "vasca_metri": 25,
+  "durata_stimata_min": 45,
+  "blocchi": [
+    {
+      "tipo": "riscaldamento",
+      "serie": [
+        {
+          "ripetizioni": 1,
+          "distanza_m": 200,
+          "stile": "libero",
+          "intensita": "facile"
+        }
+      ]
+    },
+    {
+      "tipo": "tecnica",
+      "serie": [
+        {
+          "ripetizioni": 4,
+          "distanza_m": 50,
+          "stile": "rana",
+          "drill": "rana-corpo-verso-le-mani",
+          "recupero_s": 20
+        }
+      ]
+    },
+    {
+      "tipo": "principale",
+      "serie": [
+        {
+          "ripetizioni": 6,
+          "distanza_m": 100,
+          "stile": "libero",
+          "intensita": "forte",
+          "recupero_s": 60
+        }
+      ]
+    },
+    {
+      "tipo": "defaticamento",
+      "serie": [
+        {
+          "ripetizioni": 1,
+          "distanza_m": 200,
+          "stile": "libero",
+          "intensita": "facile"
+        }
+      ]
+    }
+  ]
+}

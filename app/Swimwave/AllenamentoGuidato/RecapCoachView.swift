@@ -17,18 +17,7 @@ struct RecapCoachView: View {
         let sensazione = nuotata?.sensazione
         let dura = sensazione == .dura
         let giorno = Calendar.italiano.ordinality(of: .day, in: .year, for: nuotata?.data ?? Date()) ?? 0
-        var evidenze: [Evidenza] = []
-        if let nuotata {
-            let precedenti = stato.nuotate.filter { altra in altra.id != nuotataId }
-            evidenze = Recap.evidenze(
-                nuotata: nuotata,
-                precedenti: precedenti,
-                metriPrevisti: workout.metriTotali,
-                sensazione: sensazione,
-                progresso: stato.progressoSettimana,
-                serieSettimane: stato.serieSettimane
-            )
-        }
+        let evidenze = calcolaEvidenze(nuotata: nuotata, sensazione: sensazione)
         let errore = dura ? nil : Recap.erroreConsigliato(workout: workout, errori: stato.contenuti.errori, giorno: giorno)
 
         VStack(spacing: 0) {
@@ -69,6 +58,20 @@ struct RecapCoachView: View {
             .padding(.bottom, 12)
         }
         .sfondoApp()
+    }
+
+    /// Le cose che spiccano (calcolo fuori dal corpo della vista: nel corpo non si possono fare assegnamenti).
+    private func calcolaEvidenze(nuotata: NuotataCompletata?, sensazione: Sensazione?) -> [Evidenza] {
+        guard let nuotata else { return [] }
+        let precedenti = stato.nuotate.filter { altra in altra.id != nuotataId }
+        return Recap.evidenze(
+            nuotata: nuotata,
+            precedenti: precedenti,
+            metriPrevisti: workout.metriTotali,
+            sensazione: sensazione,
+            progresso: stato.progressoSettimana,
+            serieSettimane: stato.serieSettimane
+        )
     }
 
     // MARK: Intestazione

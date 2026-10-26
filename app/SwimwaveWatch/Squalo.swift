@@ -18,24 +18,46 @@ struct CorsiaSqualo: View {
     var body: some View {
         let animato = !inPausa && !schermoAttenuato
         GeometryReader { geo in
-            TimelineView(.animation(minimumInterval: 0.1, paused: !animato)) { linea in
+            TimelineView(.animation(minimumInterval: 0.066, paused: !animato)) { linea in
                 let t = linea.date.timeIntervalSinceReferenceDate
-                // L'immagine ha il muso leggermente in su: +6° lo mette in piano. Poi un'ondulazione da nuotata.
-                let ondulazione = animato ? sin(t * (nuota ? 7 : 2)) * (nuota ? 4 : 1.5) : 0
-                let respiro = animato ? sin(t * (nuota ? 7 : 2)) * (nuota ? 0.05 : 0.02) : 0
                 let onda = animato ? sin(t * (nuota ? 3.5 : 1.4)) * (nuota ? 1 : 2) : 0
-                Image("squalo-nuota")
-                    .resizable()
-                    .scaledToFit()
+                OndaSqualo(fase: animato ? t * (nuota ? 8 : 2.2) : 0, ampiezza: animato ? (nuota ? 0.085 : 0.03) : 0)
                     .frame(width: larghezza, height: altezza)
-                    .rotationEffect(.degrees(6 + ondulazione))
-                    .scaleEffect(x: 1 + respiro, y: 1 - respiro)
+                    .rotationEffect(.degrees(6))   // l'immagine ha il muso leggermente in su: +6° lo mette in piano
                     .offset(x: max(0, geo.size.width - larghezza) * min(1, max(0, progresso)), y: onda)
                     .opacity(inPausa ? 0.5 : 1)
             }
             .animation(.easeInOut(duration: 0.5), value: progresso)
         }
-        .frame(height: altezza + 4)
+        .frame(height: altezza + 6)
         .accessibilityHidden(true)
+    }
+}
+
+/// L'immagine dello squalo tagliata in fettine verticali che ondeggiano una dopo l'altra, più forte verso la coda
+/// (a sinistra): l'effetto di un pesce che nuota, partendo da una sola immagine.
+struct OndaSqualo: View {
+    var fase: Double
+    /// Spostamento massimo della coda, in frazione dell'altezza dell'immagine.
+    var ampiezza: CGFloat
+
+    private let fettine = 24
+
+    var body: some View {
+        Canvas { contesto, dimensione in
+            let immagine = contesto.resolve(Image("squalo-nuota"))
+            let larghezzaFettina = dimensione.width / CGFloat(fettine)
+            for i in 0..<fettine {
+                let x = CGFloat(i) * larghezzaFettina
+                let posizione = Double(i) / Double(fettine - 1)         // 0 = coda, 1 = muso
+                let peso = CGFloat(pow(1 - posizione, 1.6))               // la coda si muove di più, il muso quasi niente
+                let spostamento = sin(fase - posizione * 4.2) * Double(ampiezza * peso * dimensione.height)
+                contesto.drawLayer { strato in
+                    strato.clip(to: Path(CGRect(x: x - 0.4, y: -dimensione.height, width: larghezzaFettina + 0.8, height: dimensione.height * 3)))
+                    strato.translateBy(x: 0, y: CGFloat(spostamento))
+                    strato.draw(immagine, in: CGRect(origin: .zero, size: dimensione))
+                }
+            }
+        }
     }
 }

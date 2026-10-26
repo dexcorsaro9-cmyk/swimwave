@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Squalo Swimwave: tre varianti (bozza)</title>
+<style>
+  :root { --navy:#0B2545; --navy-chiaro:#134074; --turchese:#1FB5C9; --turchese-chiaro:#7FE3EE; --corallo:#FF7A66; --pagina:#0a1424; --carta:#10213a; --testo:#E8F1F8; --testo-2:#9db4c8; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--pagina); color:var(--testo); font:16px/1.5 -apple-system,system-ui,"Segoe UI",sans-serif; }
+  main { max-width: 980px; margin:0 auto; padding:24px 16px 48px; }
+  h1 { font-size:1.4rem; margin:0 0 4px; }
+  .sotto { color:var(--testo-2); margin:0 0 22px; }
+  .griglia { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:18px; }
+  .scheda { background:var(--carta); border-radius:22px; padding:18px 16px 20px; text-align:center; }
+  .scheda h2 { margin:0; font-size:1.15rem; }
+  .scheda .motto { color:var(--testo-2); font-size:.92rem; margin:2px 0 6px; }
+  .grande { background:radial-gradient(circle at 50% 35%, var(--navy-chiaro), var(--navy) 72%); border-radius:18px; height:200px; display:grid; place-items:center; overflow:hidden; position:relative; }
+  .grande svg { width:250px; height:auto; overflow:visible; }
+  .piccoli { display:flex; justify-content:center; align-items:flex-end; gap:18px; margin-top:14px; }
+  .mini { width:124px; height:74px; border-radius:22px; background:radial-gradient(circle at 50% 30%, var(--navy-chiaro), var(--navy) 70%); display:grid; place-items:center; box-shadow: inset 0 0 0 2px #50565f; }
+  .mini svg { width:52px; height:auto; overflow:visible; }
+  .mini.picco svg { width:38px; }
+  .legenda { font-size:.78rem; color:var(--testo-2); margin-top:6px; }
+  .pesi { text-align:left; font-size:.9rem; color:var(--testo-2); margin-top:12px; padding-left:18px; }
+  .pesi li { margin:2px 0; }
+  .bozza { display:inline-block; padding:2px 10px; border-radius:99px; background:var(--corallo); color:var(--navy); font-weight:800; font-size:.75rem; vertical-align:middle; margin-left:8px; }
+
+  /* movimento */
+  .coda { transform-box:view-box; transform-origin:52px 90px; animation:coda 1s ease-in-out infinite alternate; }
+  .pinna { transform-box:view-box; transform-origin:122px 112px; animation:pinna 2s ease-in-out infinite alternate; }
+  .sale { animation:sale 3.4s ease-in-out infinite alternate; }
+  .occhio { transform-box:fill-box; transform-origin:center; animation:ammicca 4.2s infinite; }
+  .stella { transform-box:fill-box; transform-origin:center; animation:scintilla 1.6s ease-in-out infinite; }
+  .scia { animation:scia .7s linear infinite; }
+  @keyframes coda { from{transform:rotate(-13deg)} to{transform:rotate(13deg)} }
+  @keyframes pinna { from{transform:rotate(-7deg)} to{transform:rotate(9deg)} }
+  @keyframes sale { from{transform:translateY(5px)} to{transform:translateY(-6px)} }
+  @keyframes ammicca { 0%,92%,100%{transform:scaleY(1)} 95%{transform:scaleY(.08)} }
+  @keyframes scintilla { 0%,100%{transform:scale(.4) rotate(0);opacity:.3} 50%{transform:scale(1.1) rotate(25deg);opacity:1} }
+  @keyframes scia { from{transform:translateX(14px);opacity:0} 30%{opacity:.8} to{transform:translateX(-18px);opacity:0} }
+  @media (prefers-reduced-motion:reduce){ *{animation-duration:.01ms!important;animation-iteration-count:1!important} }
+</style>
+</head>
+<body>
+<main>
+  <h1>Squalo Swimwave: tre varianti <span class="bozza">BOZZA</span></h1>
+  <p class="sotto">Disegnati da zero, con occhi grandi e luce morbida. In basso ogni squalo è alla dimensione che avrebbe sul Watch (a sinistra) e ancora più piccolo, come in allenamento (a destra).</p>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <!-- A -->
+    <linearGradient id="a-dorso" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4FD3E4"/><stop offset=".55" stop-color="#1FB5C9"/><stop offset="1" stop-color="#1590A8"/></linearGradient>
+    <linearGradient id="a-pancia" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#CFF3F8"/></linearGradient>
+    <linearGradient id="a-pinna" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1FA3B8"/><stop offset="1" stop-color="#127A91"/></linearGradient>
+    <!-- B -->
+    <linearGradient id="b-dorso" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FA5E8"/><stop offset=".5" stop-color="#1F86D1"/><stop offset="1" stop-color="#14609F"/></linearGradient>
+    <linearGradient id="b-pancia" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4FBFF"/><stop offset="1" stop-color="#BFE3F5"/></linearGradient>
+    <linearGradient id="b-pinna" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A6EB5"/><stop offset="1" stop-color="#0F4C82"/></linearGradient>
+    <linearGradient id="b-lente" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9FBFF"/><stop offset="1" stop-color="#8FDDF0"/></linearGradient>
+    <!-- C -->
+    <linearGradient id="c-dorso" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5BE0D0"/><stop offset=".5" stop-color="#1FC0BE"/><stop offset="1" stop-color="#14919E"/></linearGradient>
+    <linearGradient id="c-pancia" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D6F6F2"/></linearGradient>
+    <linearGradient id="c-pinna" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#17A2A8"/><stop offset="1" stop-color="#0E7080"/></linearGradient>
+
+    <!-- A -->
+    <symbol id="sq-a" viewBox="0 0 240 160">
+      <g class="sale">
+        <g class="coda"><path d="M56 92 L8 50 C20 82 20 104 8 136 Z" fill="url(#a-pinna)"/></g>
+        <path d="M46 90 C50 40 150 24 206 76 C222 92 210 114 188 118 C140 144 44 140 46 90 Z" fill="url(#a-dorso)"/>
+        <path d="M60 106 C100 130 162 130 198 106 C208 114 200 122 188 124 C140 144 70 142 60 106 Z" fill="url(#a-pancia)"/>
+        <path d="M100 56 C130 40 170 44 190 62 C160 52 128 54 100 56 Z" fill="#fff" opacity=".28"/>
+        <path d="M106 42 L128 8 C138 26 146 38 154 48 Z" fill="url(#a-pinna)"/>
+        <g class="pinna"><path d="M122 112 L100 148 C126 144 142 132 150 116 Z" fill="url(#a-pinna)"/></g>
+        <path d="M112 78 q4 8 0 16 M120 76 q4 8 0 16 M128 76 q4 8 0 16" stroke="#0B2545" stroke-opacity=".28" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+        <circle cx="146" cy="104" r="9" fill="#FF7A66" opacity=".7"/>
+        <g class="occhio"><ellipse cx="170" cy="78" rx="19" ry="21" fill="#fff"/><circle cx="174" cy="80" r="13" fill="#0B2545"/><circle cx="179" cy="73" r="5" fill="#fff"/><circle cx="168" cy="87" r="2.4" fill="#fff"/></g>
+        <path d="M150 62 Q164 52 182 56" stroke="#0B2545" stroke-width="3" fill="none" stroke-linecap="round" opacity=".55"/>
+        <path d="M172 106 Q190 122 206 100" stroke="#0B2545" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M184 112 l4 7 l4 -8 M194 110 l4 7 l3 -9" fill="#fff" stroke="#0B2545" stroke-width="1.4" stroke-linejoin="round"/>
+      </g>
+    </symbol>
+
+    <!-- B -->
+    <symbol id="sq-b" viewBox="0 0 240 160">
+      <g class="sale">
+        <g class="coda"><path d="M56 92 L6 44 C20 80 20 104 6 140 Z" fill="url(#b-pinna)"/></g>
+        <path d="M42 92 C62 52 156 32 222 80 C232 88 230 100 220 106 C156 138 64 134 42 92 Z" fill="url(#b-dorso)"/>
+        <path d="M58 106 C100 130 164 128 214 104 C206 118 192 126 176 130 C130 144 74 138 58 106 Z" fill="url(#b-pancia)"/>
+        <path d="M96 56 C130 42 176 46 204 66 C168 56 128 56 96 56 Z" fill="#fff" opacity=".25"/>
+        <path d="M100 44 L124 4 C134 24 144 36 152 48 Z" fill="url(#b-pinna)"/>
+        <g class="pinna"><path d="M124 112 L98 150 C128 146 146 134 154 116 Z" fill="url(#b-pinna)"/></g>
+        <path d="M112 80 q4 8 0 16 M120 78 q4 8 0 16 M128 78 q4 8 0 16" stroke="#0B2545" stroke-opacity=".28" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+        <path d="M150 70 C134 70 122 82 118 100" stroke="#FF7A66" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <ellipse cx="176" cy="76" rx="25" ry="20" fill="#FF7A66"/>
+        <ellipse cx="176" cy="76" rx="20" ry="15" fill="url(#b-lente)"/>
+        <g class="occhio"><circle cx="180" cy="77" r="9.5" fill="#fff"/><circle cx="182" cy="78" r="6.4" fill="#0B2545"/><circle cx="184.5" cy="75" r="2.4" fill="#fff"/></g>
+        <path d="M162 68 Q166 62 174 61" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".85"/>
+        <path d="M156 52 L194 58" stroke="#0B2545" stroke-width="4.4" stroke-linecap="round" opacity=".8"/>
+        <path d="M184 106 Q204 120 220 100" stroke="#0B2545" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M190 112 l4 7 l4 -8 M202 112 l4 6 l3 -9 M214 104 l3 5 l2 -7" fill="#fff" stroke="#0B2545" stroke-width="1.3" stroke-linejoin="round"/>
+      </g>
+    </symbol>
+
+    <!-- C -->
+    <symbol id="sq-c" viewBox="0 0 240 160">
+      <g class="sale">
+        <g transform="rotate(-8 120 86)">
+          <g class="coda"><path d="M56 92 L4 40 C20 80 20 106 4 146 Z" fill="url(#c-pinna)"/></g>
+          <path d="M42 92 C70 48 164 36 232 84 C238 90 236 96 230 100 C164 132 70 136 42 92 Z" fill="url(#c-dorso)"/>
+          <path d="M60 108 C104 130 166 126 222 100 C208 118 192 128 176 132 C130 146 78 142 60 108 Z" fill="url(#c-pancia)"/>
+          <path d="M70 92 C110 80 170 80 214 92 L210 99 C168 88 112 88 74 100 Z" fill="#FF7A66"/>
+          <path d="M98 50 C130 36 180 40 210 62 C170 52 128 52 98 50 Z" fill="#fff" opacity=".28"/>
+          <path d="M96 46 L128 0 C136 24 148 38 158 50 Z" fill="url(#c-pinna)"/>
+          <g class="pinna"><path d="M124 114 L92 152 C126 150 148 136 158 118 Z" fill="url(#c-pinna)"/></g>
+          <path d="M110 70 q4 6 0 12 M118 68 q4 6 0 12" stroke="#0B2545" stroke-opacity=".28" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          <circle cx="156" cy="106" r="8" fill="#FF7A66" opacity=".7"/>
+          <path d="M158 76 Q172 62 188 76" stroke="#0B2545" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M150 58 L188 60" stroke="#0B2545" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+          <path d="M184 104 Q206 120 226 98" stroke="#0B2545" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path d="M194 112 l4 7 l4 -8 M208 110 l4 6 l3 -9" fill="#fff" stroke="#0B2545" stroke-width="1.3" stroke-linejoin="round"/>
+          <path class="stella" d="M214 54 l3 9 l9 3 l-9 3 l-3 9 l-3 -9 l-9 -3 l9 -3 Z" fill="#fff"/>
+        </g>
+        <g stroke="#7FE3EE" stroke-width="3" stroke-linecap="round" opacity=".7">
+          <path class="scia" d="M14 70 H-14"/><path class="scia" style="animation-delay:.25s" d="M20 96 H-18"/><path class="scia" style="animation-delay:.5s" d="M12 120 H-12"/>
+        </g>
+      </g>
+    </symbol>
+  </defs></svg>
+
+  <div class="griglia">
+    <section class="scheda">
+      <h2>Variante A</h2>
+      <p class="motto">Tondo, occhi enormi, simpatico.</p>
+      <div class="grande"><svg viewBox="-10 0 250 160"><use href="#sq-a"/></svg></div>
+      <div class="piccoli"><div><div class="mini"><svg viewBox="0 0 240 160"><use href="#sq-a"/></svg></div><div class="legenda">sul Watch</div></div><div><div class="mini picco"><svg viewBox="0 0 240 160"><use href="#sq-a"/></svg></div><div class="legenda">in allenamento</div></div></div>
+      <ul class="pesi"><li>Il più simpatico e leggibile anche piccolo</li><li>Più adatto a chi inizia e al tono "coccolato"</li></ul>
+    </section>
+
+    <section class="scheda">
+      <h2>Variante B</h2>
+      <p class="motto">Sportivo, con gli occhialini da nuoto.</p>
+      <div class="grande"><svg viewBox="-10 0 250 160"><use href="#sq-b"/></svg></div>
+      <div class="piccoli"><div><div class="mini"><svg viewBox="0 0 240 160"><use href="#sq-b"/></svg></div><div class="legenda">sul Watch</div></div><div><div class="mini picco"><svg viewBox="0 0 240 160"><use href="#sq-b"/></svg></div><div class="legenda">in allenamento</div></div></div>
+      <ul class="pesi"><li>Racconta subito "nuoto" senza parole</li><li>Più serio: bene per Regolare e Spronami</li></ul>
+    </section>
+
+    <section class="scheda">
+      <h2>Variante C</h2>
+      <p class="motto">Scattante: occhiolino, striscia corallo, scia di velocità.</p>
+      <div class="grande"><svg viewBox="-24 0 270 160"><use href="#sq-c"/></svg></div>
+      <div class="piccoli"><div><div class="mini"><svg viewBox="-24 0 270 160"><use href="#sq-c"/></svg></div><div class="legenda">sul Watch</div></div><div><div class="mini picco"><svg viewBox="-24 0 270 160"><use href="#sq-c"/></svg></div><div class="legenda">in allenamento</div></div></div>
+      <ul class="pesi"><li>Il più dinamico, usa i colori Swimwave</li><li>Il dettaglio dell'occhiolino si perde sul Watch piccolo</li></ul>
+    </section>
+  </div>
+  <p class="sotto" style="margin-top:22px">Queste sono bozze di stile. Per il Watch si sceglie una variante e si ridisegna in SwiftUI con le espressioni (felice, concentrato, stanco, festa).</p>
+</main>
+</body>
+</html>

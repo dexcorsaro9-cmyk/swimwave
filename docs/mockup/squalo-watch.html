@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Squalo Swimwave sul Watch (bozza)</title>
+<style>
+  :root {
+    --navy: #0B2545; --navy-chiaro: #134074; --turchese: #1FB5C9; --turchese-chiaro: #7FE3EE; --corallo: #FF7A66; --bianco: #FFFFFF;
+    --pagina: #0a1424; --testo: #E8F1F8; --testo-2: #9db4c8;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--pagina); color: var(--testo); font: 16px/1.5 -apple-system, system-ui, "Segoe UI", sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 1.4rem; margin: 0 0 4px; }
+  .sotto { color: var(--testo-2); margin: 0 0 24px; }
+  .schede { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px 20px; justify-items: center; }
+  figure { margin: 0; text-align: center; }
+  figcaption { margin-top: 14px; font-weight: 700; }
+  figcaption small { display: block; font-weight: 400; color: var(--testo-2); }
+
+  /* Cassa del Watch */
+  .watch { width: 200px; height: 244px; padding: 9px; border-radius: 50px; background: linear-gradient(145deg, #3a3f47, #15181c); box-shadow: 0 10px 30px #0008, inset 0 0 0 2px #50565f; position: relative; }
+  .watch::after { content: ""; position: absolute; right: -7px; top: 62px; width: 7px; height: 36px; border-radius: 0 4px 4px 0; background: #50565f; }
+  .schermo { width: 100%; height: 100%; border-radius: 42px; overflow: hidden; position: relative; background: radial-gradient(circle at 50% 30%, var(--navy-chiaro), var(--navy) 70%); color: var(--bianco); }
+
+  /* Squalo */
+  .squalo { width: 120px; height: 60px; position: absolute; }
+  .squalo svg { width: 100%; height: 100%; overflow: visible; }
+  .coda { transform-box: view-box; transform-origin: 36px 52px; animation: coda 0.9s ease-in-out infinite alternate; }
+  .pinna { transform-box: view-box; transform-origin: 100px 66px; animation: pinna 1.8s ease-in-out infinite alternate; }
+  @keyframes coda { from { transform: rotate(-14deg); } to { transform: rotate(14deg); } }
+  @keyframes pinna { from { transform: rotate(-6deg); } to { transform: rotate(8deg); } }
+
+  /* Schermata 1: avvio */
+  .s1 .squalo { left: 40px; top: 84px; animation: galleggia 3.2s ease-in-out infinite alternate; }
+  @keyframes galleggia { from { transform: translate(-14px, 4px); } to { transform: translate(14px, -8px); } }
+  .saluto { position: absolute; top: 20px; left: 0; right: 0; text-align: center; font-weight: 700; font-size: 17px; }
+  .saluto small { display: block; font-weight: 500; font-size: 12px; color: var(--turchese-chiaro); }
+  .bottone { position: absolute; left: 22px; right: 22px; bottom: 20px; height: 38px; border-radius: 19px; background: var(--corallo); color: var(--navy); font-weight: 800; display: grid; place-items: center; font-size: 15px; }
+  .bolla { position: absolute; border-radius: 50%; border: 1.5px solid #7FE3EEcc; opacity: 0; animation: sale 3.6s linear infinite; }
+  @keyframes sale { 0% { transform: translateY(0) scale(.6); opacity: 0; } 15% { opacity: .9; } 100% { transform: translateY(-90px) scale(1.15); opacity: 0; } }
+
+  /* Schermata 2: in vasca (stessa disposizione dell'app: serie, numero, stile, tempo, corsia con squalo, segmenti, pulsante) */
+  .s2 .vasca { position: absolute; top: 12px; left: 0; right: 0; text-align: center; font-size: 12px; color: #ffffffaa; font-weight: 600; }
+  .s2 .numero { position: absolute; top: 26px; left: 0; right: 0; text-align: center; font-size: 56px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+  .s2 .tratto { position: absolute; top: 84px; left: 0; right: 0; text-align: center; font-size: 12px; color: #ffffffaa; font-weight: 600; }
+  .s2 .tempo { position: absolute; top: 98px; left: 0; right: 0; text-align: center; font-size: 19px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .s2 .corsia { position: absolute; left: 14px; right: 14px; top: 130px; height: 2px; border-radius: 1px; background: #ffffff22; }
+  .s2 .squalo { width: 38px; height: 19px; top: 120px; left: 14px; animation: percorre 8s linear infinite; }
+  .s2 .squalo .coda { animation-duration: .55s; }
+  @keyframes percorre { from { transform: translateX(0); } to { transform: translateX(110px); } }
+  .s2 .segmenti { position: absolute; left: 14px; right: 14px; top: 144px; display: flex; gap: 2px; }
+  .s2 .segmenti b { flex: 1; height: 6px; border-radius: 3px; background: #ffffff44; }
+  .s2 .segmenti b.fatto { background: var(--turchese); }
+  .s2 .segmenti b.corr { background: var(--corallo); }
+  .s2 .fatto-btn { position: absolute; left: 14px; right: 14px; bottom: 14px; height: 34px; border-radius: 17px; background: var(--corallo); color: var(--navy); font-weight: 800; display: grid; place-items: center; font-size: 15px; }
+
+  /* Schermata 3: fine vasca */
+  .s3 .squalo { width: 96px; height: 48px; left: 52px; top: 60px; animation: salto 2.4s cubic-bezier(.3,.7,.4,1) infinite; }
+  @keyframes salto { 0%, 55% { transform: translateY(40px) rotate(0); } 70% { transform: translateY(-14px) rotate(-18deg); } 85% { transform: translateY(14px) rotate(10deg); } 100% { transform: translateY(40px) rotate(0); } }
+  .s3 .grande { position: absolute; top: 18px; left: 0; right: 0; text-align: center; font-weight: 800; font-size: 20px; }
+  .s3 .grande small { display: block; font-size: 12px; font-weight: 500; color: var(--turchese-chiaro); }
+  .s3 .onda { position: absolute; left: 0; right: 0; bottom: 0; height: 74px; background: linear-gradient(var(--turchese), #138aa0); clip-path: polygon(0 24%, 12% 14%, 25% 24%, 37% 14%, 50% 24%, 62% 14%, 75% 24%, 87% 14%, 100% 24%, 100% 100%, 0 100%); opacity: .55; }
+  .s3 .dato { position: absolute; bottom: 18px; left: 0; right: 0; text-align: center; font-weight: 800; font-size: 15px; }
+
+  .note { margin-top: 36px; color: var(--testo-2); font-size: .95rem; }
+  .note h2 { color: var(--testo); font-size: 1.05rem; margin: 18px 0 6px; }
+  .note ul { padding-left: 20px; margin: 6px 0; }
+  .etichetta { display: inline-block; padding: 2px 10px; border-radius: 99px; background: var(--corallo); color: var(--navy); font-weight: 800; font-size: .75rem; vertical-align: middle; margin-left: 8px; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Lo squalo di Swimwave sul Watch <span class="etichetta">BOZZA</span></h1>
+  <p class="sotto">Dentro l'app (non sul quadrante di sistema, che Apple non permette di modificare). Tre momenti.</p>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="dorso" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1FB5C9"/><stop offset="1" stop-color="#1590A8"/></linearGradient>
+      <symbol id="squalo-simbolo" viewBox="0 0 180 100">
+        <g class="coda"><path d="M40 52 L4 20 C14 42 14 62 4 84 Z" fill="#1590A8"/></g>
+        <path d="M30 52 C55 22 120 20 170 50 C120 80 55 78 30 52 Z" fill="url(#dorso)"/>
+        <path d="M42 58 C80 76 132 74 166 53 C132 80 62 80 42 58 Z" fill="#E8FBFD"/>
+        <path d="M90 32 L104 6 C112 20 118 28 126 35 Z" fill="#1590A8"/>
+        <g class="pinna"><path d="M100 66 L86 92 C104 86 116 78 124 68 Z" fill="#1590A8"/></g>
+        <path d="M118 40 q3 6 0 12 M124 40 q3 6 0 12 M130 40 q3 6 0 12" stroke="#0B2545" stroke-opacity=".35" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <circle cx="146" cy="46" r="5" fill="#fff"/><circle cx="147.5" cy="46.5" r="2.6" fill="#0B2545"/>
+        <path d="M150 58 Q159 63 166 55" stroke="#0B2545" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <circle cx="136" cy="58" r="3.4" fill="#FF7A66" opacity=".75"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="schede">
+    <figure>
+      <div class="watch"><div class="schermo s1">
+        <div class="saluto">Buongiorno, Marco<small>Oggi: Fondo aerobico</small></div>
+        <i class="bolla" style="left:48px;top:150px;width:9px;height:9px;animation-delay:0s"></i>
+        <i class="bolla" style="left:140px;top:160px;width:7px;height:7px;animation-delay:1.2s"></i>
+        <i class="bolla" style="left:96px;top:170px;width:11px;height:11px;animation-delay:2.2s"></i>
+        <div class="squalo"><svg viewBox="0 0 180 100"><use href="#squalo-simbolo"/></svg></div>
+        <div class="bottone">Inizia</div>
+      </div></div>
+      <figcaption>1 · Avvio<small>Lo squalo galleggia e muove la coda</small></figcaption>
+    </figure>
+
+    <figure>
+      <div class="watch"><div class="schermo s2">
+        <div class="vasca">3/8 · 2/4</div>
+        <div class="numero">50</div>
+        <div class="tratto">Stile libero</div>
+        <div class="tempo">12:40</div>
+        <div class="corsia"><i></i></div>
+        <div class="squalo"><svg viewBox="0 0 180 100"><use href="#squalo-simbolo"/></svg></div>
+        <div class="segmenti"><b class="fatto"></b><b class="fatto"></b><b class="corr"></b><b></b><b></b><b></b><b></b><b></b></div>
+        <div class="fatto-btn">Fatto</div>
+      </div></div>
+      <figcaption>2 · In vasca<small>Il numero resta il protagonista: lo squalo nuota lungo la corsia sopra i segmenti delle serie</small></figcaption>
+    </figure>
+
+    <figure>
+      <div class="watch"><div class="schermo s3">
+        <div class="grande">Fatto!<small>Serie completata</small></div>
+        <div class="squalo"><svg viewBox="0 0 180 100"><use href="#squalo-simbolo"/></svg></div>
+        <div class="onda"></div>
+        <div class="dato">400 m</div>
+      </div></div>
+      <figcaption>3 · Fine serie<small>Un salto e una vibrazione</small></figcaption>
+    </figure>
+  </div>
+
+  <section class="note">
+    <h2>Cosa guardare</h2>
+    <ul>
+      <li>Lo squalo resta sempre in vista ma è piccolo: occupa una striscia sottile sopra i segmenti delle serie e non copre mai i numeri.</li>
+      <li>Nuotando avanza con la ripetizione; nel recupero galleggia piano a fine corsia; in pausa si ferma e si attenua.</li>
+      <li>Colori e onda sono quelli di Swimwave (blu, turchese, corallo). Il personaggio è disegnato da zero.</li>
+      <li>In acqua l'animazione è leggera: si ferma quando il Watch va in risparmio energetico.</li>
+    </ul>
+    <h2>Da decidere</h2>
+    <ul>
+      <li>Ha espressioni diverse come i coach (felice, concentrato, stanco, festa)? Lo squalo non ha un nome.</li>
+            <li>Con "Spronami" può andare un po' avanti rispetto al tuo ritmo obiettivo?</li>
+    </ul>
+    <p>Questa è solo una bozza visiva: nell'app andrà ridisegnata con SwiftUI e va provata sul Watch vero.</p>
+  </section>
+</main>
+</body>
+</html>

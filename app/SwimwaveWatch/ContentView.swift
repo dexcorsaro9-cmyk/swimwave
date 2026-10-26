@@ -27,6 +27,8 @@ struct InAttesaView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 8) {
+                // Lo squalo aspetta con te: galleggia piano.
+                CorsiaSqualo(progresso: 0.5, nuota: false, inPausa: false, salita: 22, foglio: .attesa)
                 Text("watch.attesa.titolo")
                     .font(.system(.headline, design: .rounded))
                     .multilineTextAlignment(.center)
@@ -177,6 +179,7 @@ struct RiepilogoView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 6) {
+                SqualoFesta()
                 Text("watch.fine.titolo")
                     .font(.system(.headline, design: .rounded))
                 if let r = manager.riepilogo {

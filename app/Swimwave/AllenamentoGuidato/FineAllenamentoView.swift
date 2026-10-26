@@ -5,12 +5,15 @@ import SwimwaveCore
 /// Se la risposta è "Dura" il coach dice una parola in un popup con un solo pulsante.
 struct FineAllenamentoView: View {
     let nuotataId: UUID
+    let workout: Workout
     let metri: Int
     let durataSecondi: Int
     let onChiudi: () -> Void
 
     @Environment(StatoApp.self) private var stato
     @State private var popup: PopupCoach?
+    /// Dopo la domanda "Com'è andata?" il coach racconta l'allenamento (RecapCoachView).
+    @State private var mostraRecap = false
 
     private var selezionata: Sensazione? {
         stato.nuotate.first(where: { $0.id == nuotataId })?.sensazione
@@ -21,6 +24,15 @@ struct FineAllenamentoView: View {
     }
 
     var body: some View {
+        if mostraRecap {
+            RecapCoachView(nuotataId: nuotataId, workout: workout, onChiudi: onChiudi)
+        } else {
+            domanda
+        }
+    }
+
+    @ViewBuilder
+    private var domanda: some View {
         let profilo = stato.profilo
         VStack(spacing: 0) {
             ScrollView {
@@ -62,8 +74,10 @@ struct FineAllenamentoView: View {
                 .padding(.horizontal, 20)
                 .padding(.bottom, 16)
             }
-            Button(action: onChiudi) {
-                Text("comune.fatto")
+            Button {
+                mostraRecap = true
+            } label: {
+                Text("recap.avanti")
             }
             .buttonStyle(.primario)
             .padding(.horizontal, 20)

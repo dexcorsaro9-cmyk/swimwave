@@ -23,6 +23,7 @@ struct AllenamentoGuidatoView: View {
             if let esito {
                 FineAllenamentoView(
                     nuotataId: esito.nuotataId,
+                    workout: workout,
                     metri: esito.metri,
                     durataSecondi: esito.durataSecondi,
                     onChiudi: { dismiss() }

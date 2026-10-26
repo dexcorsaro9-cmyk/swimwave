@@ -264,91 +264,10 @@ struct OggiView: View {
     @ViewBuilder
     private var allenamento: some View {
         if let w = stato.allenamentoDiOggi() {
-            VStack(alignment: .leading, spacing: 14) {
-                HStack(alignment: .center, spacing: 8) {
-                    Text("oggi.allenamento.titolo")
-                        .font(Tema.piccolo)
-                        .foregroundStyle(Tema.testoSecondario)
-                    Spacer(minLength: 8)
-                    Button {
-                        cambiaAperto = true
-                    } label: {
-                        Image(systemName: "arrow.left.arrow.right")
-                            .font(.system(.body, design: .rounded).weight(.bold))
-                            .foregroundStyle(Tema.testo)
-                            .frame(width: 44, height: 44)
-                            .background(Circle().fill(Tema.turchese.opacity(0.18)))
-                    }
-                    .buttonStyle(.plain)
-                    .accessibilityLabel(Text("libreria.cambia"))
-                }
-                if sceltoPerOggi {
-                    HStack(spacing: 8) {
-                        Text("libreria.scelto")
-                            .font(Tema.piccolo.weight(.bold))
-                            .foregroundStyle(Tema.testoSecondario)
-                        Spacer(minLength: 8)
-                        Button {
-                            stato.annullaSceltaAllenamento()
-                            esitoInvio = nil
-                            // Il Watch torna all'allenamento proposto.
-                            _ = stato.inviaAlWatch()
-                        } label: {
-                            Text("libreria.tornaProposto")
-                                .font(Tema.piccolo.weight(.bold))
-                                .foregroundStyle(Tema.coralloOmbra)
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }
-                // Titolo e righe vengono da content/ (testo in italiano, non ancora localizzato).
-                Text(verbatim: w.titolo)
-                    .font(Tema.titolo2)
-                    .foregroundStyle(Tema.testo)
-                if let consiglio = stato.consiglioMostrato() {
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(verbatim: testo("consiglio.titolo", testo("tipologia.\(consiglio.tipologia.rawValue).nome")))
-                            .font(Tema.piccolo.weight(.bold))
-                            .foregroundStyle(Tema.testo)
-                        Text(LocalizedStringKey("consiglio.perche.\(consiglio.motivo.rawValue)"))
-                            .font(Tema.piccolo)
-                            .foregroundStyle(Tema.testoSecondario)
-                    }
-                }
-                HStack(spacing: 8) {
-                    Etichetta(contenuto: testo("oggi.minuti", w.durataStimataMin))
-                    Etichetta(contenuto: testo("oggi.metri", w.metriTotali))
-                    Etichetta(contenuto: testo("oggi.vasca", w.vascaMetri))
-                }
-                // Righe delle serie, con il tempo obiettivo se l'utente ha fatto il test del ritmo.
-                AnteprimaAllenamento(workout: w)
-                if let motivo = stato.alleggerimentoDiOggi() {
-                    Label(testo("oggi.alleggerito.\(motivo.rawValue)"), systemImage: "leaf.fill")
-                        .font(Tema.piccolo.weight(.bold))
-                        .foregroundStyle(Tema.testoSecondario)
-                }
-                RiquadroAttrezzatura(attrezzatura: stato.contenuti.attrezzatura(per: w))
-                    .padding(.top, 4)
-                Button {
-                    daSeguire = AllenamentoDaSeguire(workout: w)
-                } label: {
-                    Text("oggi.inizia")
-                }
-                .buttonStyle(.primario)
-                .padding(.top, 4)
-                Button {
-                    esitoInvio = stato.inviaAlWatch()
-                } label: {
-                    Text("oggi.invia")
-                }
-                .buttonStyle(.secondario)
-                if let esito = esitoInvio {
-                    Text(verbatim: messaggio(per: esito))
-                        .font(Tema.piccolo)
-                        .foregroundStyle(Tema.testoSecondario)
-                }
+            VStack(spacing: 14) {
+                cartaEroe(w)
+                dettagli(w)
             }
-            .carta()
         } else {
             // Nessun allenamento approvato (o contenuti non leggibili).
             VStack(alignment: .leading, spacing: 8) {
@@ -368,6 +287,100 @@ struct OggiView: View {
             }
             .carta()
         }
+    }
+
+    /// La carta eroe: in alto l'acqua con lo squalo, sotto titolo, durata e il pulsante per iniziare.
+    private func cartaEroe(_ w: Workout) -> some View {
+        let consiglio = stato.consiglioMostrato()
+        return VStack(spacing: 0) {
+            AcquaEroe(
+                etichetta: consiglio.map { nomeTipologia($0.tipologia) } ?? (sceltoPerOggi ? testo("libreria.scelto") : nil),
+                cambia: { cambiaAperto = true }
+            )
+            VStack(alignment: .leading, spacing: 10) {
+                if sceltoPerOggi {
+                    HStack(spacing: 8) {
+                        Text("libreria.scelto")
+                            .font(Tema.piccolo.weight(.bold))
+                            .foregroundStyle(Color.white.opacity(0.75))
+                        Spacer(minLength: 8)
+                        Button {
+                            stato.annullaSceltaAllenamento()
+                            esitoInvio = nil
+                            // Il Watch torna all'allenamento proposto.
+                            _ = stato.inviaAlWatch()
+                        } label: {
+                            Text("libreria.tornaProposto")
+                                .font(Tema.piccolo.weight(.bold))
+                                .foregroundStyle(Tema.corallo)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+                Text("oggi.allenamento.titolo")
+                    .font(Tema.piccolo.weight(.bold))
+                    .foregroundStyle(Color.white.opacity(0.7))
+                // Titolo e righe vengono da content/ (testo in italiano, non ancora localizzato).
+                Text(verbatim: w.titolo)
+                    .font(Tema.titolo2)
+                    .foregroundStyle(.white)
+                if let consiglio {
+                    Text(LocalizedStringKey("consiglio.perche.\(consiglio.motivo.rawValue)"))
+                        .font(Tema.piccolo)
+                        .foregroundStyle(Color.white.opacity(0.8))
+                }
+                HStack(spacing: 8) {
+                    EtichettaChiara(contenuto: testo("oggi.minuti", w.durataStimataMin))
+                    EtichettaChiara(contenuto: testo("oggi.metri", w.metriTotali))
+                    EtichettaChiara(contenuto: testo("oggi.vasca", w.vascaMetri))
+                }
+                Button {
+                    daSeguire = AllenamentoDaSeguire(workout: w)
+                } label: {
+                    Text("oggi.inizia")
+                }
+                .buttonStyle(.primario)
+                .padding(.top, 4)
+            }
+            .padding(16)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(
+                LinearGradient(colors: [Color(squaloHex: 0x145F94), Tema.navyChiaro, Tema.navy], startPoint: .top, endPoint: .bottom)
+            )
+        }
+        .clipShape(RoundedRectangle(cornerRadius: 26, style: .continuous))
+        .shadow(color: Tema.ombra, radius: 12, x: 0, y: 6)
+        .overlay(RoundedRectangle(cornerRadius: 26, style: .continuous).stroke(Tema.bordo, lineWidth: 1))
+        .accessibilityElement(children: .contain)
+    }
+
+    /// Le serie, gli attrezzi e l'invio al Watch, sotto la carta eroe.
+    private func dettagli(_ w: Workout) -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("oggi.dettagli.titolo")
+                .font(Tema.sottotitolo)
+                .foregroundStyle(Tema.testo)
+            // Righe delle serie, con il tempo obiettivo se l'utente ha fatto il test del ritmo.
+            AnteprimaAllenamento(workout: w)
+            if let motivo = stato.alleggerimentoDiOggi() {
+                Label(testo("oggi.alleggerito.\(motivo.rawValue)"), systemImage: "leaf.fill")
+                    .font(Tema.piccolo.weight(.bold))
+                    .foregroundStyle(Tema.testoSecondario)
+            }
+            RiquadroAttrezzatura(attrezzatura: stato.contenuti.attrezzatura(per: w))
+            Button {
+                esitoInvio = stato.inviaAlWatch()
+            } label: {
+                Text("oggi.invia")
+            }
+            .buttonStyle(.secondario)
+            if let esito = esitoInvio {
+                Text(verbatim: messaggio(per: esito))
+                    .font(Tema.piccolo)
+                    .foregroundStyle(Tema.testoSecondario)
+            }
+        }
+        .carta()
     }
 
     /// Vero se l'utente ha scelto lui l'allenamento di oggi (dalla libreria o chiedendolo al coach).

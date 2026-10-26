@@ -14398,6 +14398,29 @@
           }
         }
       }
+    },
+    "oggi.dettagli.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le serie di oggi"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Today's sets"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las series de hoy"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

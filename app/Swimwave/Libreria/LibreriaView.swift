@@ -225,7 +225,9 @@ private struct RigaLibreria: View {
                 HStack(spacing: 8) {
                     Etichetta(contenuto: etichettaLivelloAllenamento(elemento.voce.livello))
                     if let t = elemento.voce.tipologiaTipo {
-                        Etichetta(contenuto: nomeTipologia(t))
+                        PillolaTipologia(tipologia: t)
+                            .font(Tema.piccolo.weight(.bold))
+                            .foregroundStyle(Tema.testo)
                     }
                 }
             }

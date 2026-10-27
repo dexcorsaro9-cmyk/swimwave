@@ -16,10 +16,10 @@ struct RigaNuotata: View {
                     .accessibilityHidden(true)
             }
             ZStack {
-                Circle().fill(Tema.turchese.opacity(0.18))
+                Circle().fill(nuotata.sensazione?.colore ?? SezioneColore.storico.accento)
                 Image(systemName: simboloOrigine)
                     .font(.system(.body, design: .rounded).weight(.bold))
-                    .foregroundStyle(Tema.testo)
+                    .foregroundStyle(Tema.navy)
             }
             .frame(width: 44, height: 44)
             .accessibilityHidden(true)
@@ -39,7 +39,7 @@ struct RigaNuotata: View {
             }
             Spacer(minLength: 0)
             if let s = nuotata.sensazione {
-                Etichetta(contenuto: PresentazioneSensazione.etichetta(s))
+                PillolaColore(testoPillola: PresentazioneSensazione.etichetta(s), colore: s.colore)
             } else {
                 Text("storico.comeVa")
                     .font(Tema.piccolo.weight(.bold))

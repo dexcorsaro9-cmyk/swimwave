@@ -15,7 +15,7 @@ struct ProfiloView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 0) {
-                    IntestazioneOnda {
+                    IntestazioneOnda(colori: SezioneColore.profilo.gradiente) {
                         HStack(spacing: 14) {
                             Text("profilo.titolo").font(Tema.titolo2)
                             Spacer(minLength: 0)
@@ -204,12 +204,19 @@ struct ProfiloView: View {
     }
 
     private func riga<Contenuto: View>(_ titolo: String, @ViewBuilder contenuto: () -> Contenuto) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(LocalizedStringKey(titolo))
-                .font(Tema.piccolo.weight(.bold))
-                .foregroundStyle(Tema.testoSecondario)
+        let colore = PalettePagine.colore(per: titolo)
+        return VStack(alignment: .leading, spacing: 8) {
+            HStack(spacing: 6) {
+                Circle().fill(colore).frame(width: 9, height: 9).accessibilityHidden(true)
+                Text(LocalizedStringKey(titolo))
+                    .font(Tema.piccolo.weight(.bold))
+                    .foregroundStyle(Tema.testoSecondario)
+            }
             contenuto()
         }
         .carta()
+        .overlay(alignment: .leading) {
+            Capsule().fill(colore).frame(width: 5).padding(.vertical, 14)
+        }
     }
 }

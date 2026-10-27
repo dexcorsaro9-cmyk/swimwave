@@ -24,10 +24,20 @@ struct PercorsoView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
-                IntestazioneOnda {
+                IntestazioneOnda(colori: SezioneColore.percorso.gradiente) {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("percorso.titolo").font(Tema.titolo2)
                         Text("percorso.sottotitolo").font(Tema.corpo).opacity(0.9)
+                        // Le tappe superate si accendono, ognuna del suo colore.
+                        HStack(spacing: 3) {
+                            ForEach(stato.contenuti.tappe) { t in
+                                Capsule()
+                                    .fill(stato.tappaSuperata(t.id) ? PaletteTappe.colore(t.id) : Color.white.opacity(0.3))
+                                    .frame(height: 6)
+                            }
+                        }
+                        .padding(.top, 8)
+                        .accessibilityHidden(true)
                     }
                 }
                 LazyVStack(spacing: 12) {
@@ -170,12 +180,12 @@ private struct RigaTappa: View {
     var body: some View {
         HStack(spacing: 14) {
             ZStack {
-                Circle().fill(completata ? Tema.turchese : (attuale ? Tema.corallo : Tema.carta))
-                Circle().stroke(completata ? Tema.turchese : (attuale ? Tema.coralloOmbra : Tema.turchese), lineWidth: 2)
+                Circle().fill(completata ? PaletteTappe.colore(tappa.id) : (attuale ? Tema.corallo : PaletteTappe.colore(tappa.id).opacity(0.2)))
+                Circle().stroke(attuale && !completata ? Tema.coralloOmbra : PaletteTappe.colore(tappa.id), lineWidth: 2)
                 if completata {
                     Image(systemName: "checkmark")
                         .font(.system(.headline, design: .rounded).weight(.heavy))
-                        .foregroundStyle(Tema.navy)
+                        .foregroundStyle(PaletteTappe.testoSu(tappa.id))
                 } else {
                     Text(verbatim: "\(tappa.id)")
                         .font(Tema.sottotitolo)

@@ -79,7 +79,7 @@ struct StoricoView: View {
     }
 
     private var intestazione: some View {
-        IntestazioneOnda {
+        IntestazioneOnda(colori: SezioneColore.storico.gradiente) {
             HStack(alignment: .top, spacing: 12) {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("storico.titolo").font(Tema.titolo2)
@@ -127,16 +127,20 @@ struct StoricoView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment: .top, spacing: 12) {
                 NavigationLink { RiepilogoView() } label: {
-                    SchedaRapida(icona: "chart.bar.fill", titolo: testo("storico.scheda.riepilogo"), dato: datoRiepilogo)
+                    SchedaRapida(icona: "chart.bar.fill", titolo: testo("storico.scheda.riepilogo"), dato: datoRiepilogo,
+                                 colore: Color(squaloHex: 0x1FB5C9))
                 }
                 NavigationLink { RecordView() } label: {
-                    SchedaRapida(icona: "star.fill", titolo: testo("storico.scheda.record"), dato: datoRecord)
+                    SchedaRapida(icona: "star.fill", titolo: testo("storico.scheda.record"), dato: datoRecord,
+                                 colore: Color(squaloHex: 0xFFC857))
                 }
                 NavigationLink { TraguardiView() } label: {
-                    SchedaRapida(icona: "rosette", titolo: testo("storico.scheda.traguardi"), dato: datoTraguardi)
+                    SchedaRapida(icona: "rosette", titolo: testo("storico.scheda.traguardi"), dato: datoTraguardi,
+                                 colore: Color(squaloHex: 0xFF8A4C))
                 }
                 NavigationLink { IlTuoAnnoView() } label: {
-                    SchedaRapida(icona: "calendar", titolo: testo("storico.scheda.anno"), dato: datoAnno)
+                    SchedaRapida(icona: "calendar", titolo: testo("storico.scheda.anno"), dato: datoAnno,
+                                 colore: Color(squaloHex: 0x9B6BFF), iconaSuColore: .white)
                 }
             }
             .buttonStyle(.plain)
@@ -399,14 +403,16 @@ private struct SchedaRapida: View {
     let icona: String
     let titolo: String
     let dato: String
+    var colore: Color = Tema.turchese
+    var iconaSuColore: Color = Tema.navy
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             ZStack {
-                Circle().fill(Tema.turchese.opacity(0.18))
+                Circle().fill(colore)
                 Image(systemName: icona)
                     .font(.system(.body, design: .rounded).weight(.bold))
-                    .foregroundStyle(Tema.testo)
+                    .foregroundStyle(iconaSuColore)
             }
             .frame(width: 40, height: 40)
             .accessibilityHidden(true)
@@ -423,6 +429,7 @@ private struct SchedaRapida: View {
         }
         .frame(minHeight: 120, alignment: .topLeading)
         .carta(padding: 14)
+        .overlay(RoundedRectangle(cornerRadius: Tema.raggio, style: .continuous).stroke(colore.opacity(0.55), lineWidth: 2))
         .frame(width: 160)
         .accessibilityElement(children: .combine)
     }

@@ -135,9 +135,12 @@ struct Onda: Shape {
 /// Intestazione navy con l'onda in basso. Il testo dentro è chiaro.
 struct IntestazioneOnda<Contenuto: View>: View {
     private let contenuto: Contenuto
+    private let colori: [Color]
 
-    init(@ViewBuilder contenuto: () -> Contenuto) {
+    /// `colori` è il gradiente dell'intestazione (dallo scuro al chiaro); di default il navy dell'inizio.
+    init(colori: [Color]? = nil, @ViewBuilder contenuto: () -> Contenuto) {
         self.contenuto = contenuto()
+        self.colori = colori ?? [Tema.navy, Tema.navyChiaro]
     }
 
     var body: some View {
@@ -149,7 +152,7 @@ struct IntestazioneOnda<Contenuto: View>: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
                 Onda()
-                    .fill(LinearGradient(colors: [Tema.navy, Tema.navyChiaro],
+                    .fill(LinearGradient(colors: colori,
                                          startPoint: .topLeading, endPoint: .bottomTrailing))
                     .ignoresSafeArea(edges: .top)
             )

@@ -193,7 +193,8 @@ struct RiepilogoView: View {
                     x: .value("Periodo", barra.etichetta),
                     y: .value("Metri", barra.metri)
                 )
-                .foregroundStyle(Tema.turchese)
+                .foregroundStyle(LinearGradient(colors: [SezioneColore.analisi.accento, Color(squaloHex: 0x9B6BFF)],
+                                                startPoint: .top, endPoint: .bottom))
             }
             .frame(height: 180)
             .accessibilityLabel(Text(verbatim: testo("riepilogo.grafico.accessibilita", FormatiUI.numero(d.somma.metri))))

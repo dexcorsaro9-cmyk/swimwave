@@ -18,7 +18,7 @@ struct OggiView: View {
         let fascia = FasciaOraria(data: Date(), calendar: .italiano)
         ScrollView {
             VStack(spacing: 0) {
-                IntestazioneOnda {
+                IntestazioneOnda(colori: Array(stato.consiglioDiOggi().tipologia.fondoTesto.reversed())) {
                     HStack(spacing: 14) {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(verbatim: fascia.saluto(nome: profilo.nomePulito))

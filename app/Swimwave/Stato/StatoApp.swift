@@ -134,6 +134,10 @@ final class StatoApp {
     private func carica() {
         guard let data = defaults.data(forKey: StatoApp.chiaveDati),
               let d = try? JSONDecoder().decode(DatiSalvati.self, from: data) else { return }
+        applica(d)
+    }
+
+    private func applica(_ d: DatiSalvati) {
         profilo = d.profilo
         onboardingCompletato = d.onboardingCompletato
         nuotate = d.nuotate
@@ -160,7 +164,13 @@ final class StatoApp {
     }
 
     func salva() {
-        let d = DatiSalvati(
+        if let data = try? JSONEncoder().encode(datiCorrenti()) {
+            defaults.set(data, forKey: StatoApp.chiaveDati)
+        }
+    }
+
+    private func datiCorrenti() -> DatiSalvati {
+        DatiSalvati(
             profilo: profilo,
             onboardingCompletato: onboardingCompletato,
             nuotate: nuotate,
@@ -184,9 +194,58 @@ final class StatoApp {
             workoutPerWatch: workoutPerWatch,
             recapInAttesa: recapInAttesa
         )
-        if let data = try? JSONEncoder().encode(d) {
-            defaults.set(data, forKey: StatoApp.chiaveDati)
-        }
+    }
+
+    // MARK: Backup
+
+    /// Contenuto del file di backup: i dati dell'app dentro una busta con formato e versione,
+    /// così un file di un'altra cosa (o di una versione futura) si riconosce e non viene applicato a caso.
+    private struct PacchettoBackup: Codable {
+        var formato: String
+        var versione: Int
+        var creatoIl: Date
+        var dati: DatiSalvati
+    }
+
+    private static let formatoBackup = "swimwave-backup"
+    private static let versioneBackup = 1
+
+    enum ErroreBackup: Error {
+        case nonValido
+        case versioneFutura
+    }
+
+    /// Nome proposto per il file, per esempio "Swimwave-backup-2026-10-30".
+    static func nomeFileBackup(_ data: Date = Date()) -> String {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "en_US_POSIX")
+        f.dateFormat = "yyyy-MM-dd"
+        return "Swimwave-backup-\(f.string(from: data))"
+    }
+
+    /// Crea il file di backup con tutto ciò che l'app ricorda (profilo, nuotate, progressi). Niente viene inviato altrove.
+    func creaBackup() throws -> Data {
+        let pacchetto = PacchettoBackup(formato: StatoApp.formatoBackup, versione: StatoApp.versioneBackup,
+                                        creatoIl: Date(), dati: datiCorrenti())
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        return try encoder.encode(pacchetto)
+    }
+
+    /// Ripristina un backup sostituendo i dati attuali. Se il file non è valido non cambia nulla.
+    @MainActor
+    func ripristina(da data: Data) async throws {
+        let decoder = JSONDecoder()
+        // Prima la busta, per distinguere "non è un backup" da "è di una versione più nuova".
+        struct Intestazione: Decodable { var formato: String; var versione: Int }
+        guard let testa = try? decoder.decode(Intestazione.self, from: data),
+              testa.formato == StatoApp.formatoBackup else { throw ErroreBackup.nonValido }
+        guard testa.versione <= StatoApp.versioneBackup else { throw ErroreBackup.versioneFutura }
+        guard let pacchetto = try? decoder.decode(PacchettoBackup.self, from: data) else { throw ErroreBackup.nonValido }
+        applica(pacchetto.dati)
+        cacheAllenamento = nil
+        salva()
+        await riprogrammaPromemoria()
     }
 
     /// L'utente può vedere e cancellare tutto ciò che l'app ha memorizzato (docs/EXPERIENCE.md).

@@ -114,6 +114,24 @@ struct ProfiloView: View {
                         }
 
                         NavigationLink {
+                            BackupView()
+                        } label: {
+                            HStack(spacing: 12) {
+                                Image(systemName: "externaldrive.fill.badge.icloud")
+                                    .foregroundStyle(SezioneColore.profilo.accento)
+                                    .accessibilityHidden(true)
+                                Text("profilo.backup")
+                                    .font(Tema.sottotitolo)
+                                    .foregroundStyle(Tema.testo)
+                                Spacer()
+                                Image(systemName: "chevron.right").foregroundStyle(Tema.testoSecondario)
+                                    .accessibilityHidden(true)
+                            }
+                            .carta()
+                        }
+                        .buttonStyle(.plain)
+
+                        NavigationLink {
                             InformazioniView()
                         } label: {
                             HStack {

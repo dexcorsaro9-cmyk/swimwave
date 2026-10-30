@@ -1266,6 +1266,374 @@
         }
       }
     },
+    "backup.avviso": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il file è tuo: non viene inviato a nessuno. Chi lo apre può leggere i tuoi dati, quindi conservalo in un posto sicuro."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The file is yours: it is not sent to anyone. Anyone who opens it can read your data, so keep it somewhere safe."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El archivo es tuyo: no se envía a nadie. Quien lo abra puede leer tus datos, así que guárdalo en un lugar seguro."
+          }
+        }
+      }
+    },
+    "backup.contenuto": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Include profilo, nuotate, progressi, tappe, traguardi e allenamenti scelti. Non include i dati di Apple Salute, che restano lì."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Includes profile, swims, progress, steps, milestones and chosen workouts. It does not include Apple Health data, which stays there."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Incluye perfil, nadadas, progresos, etapas, logros y entrenamientos elegidos. No incluye los datos de Apple Salud, que se quedan allí."
+          }
+        }
+      }
+    },
+    "backup.crea": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crea backup"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create backup"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crear copia"
+          }
+        }
+      }
+    },
+    "backup.errore.nonvalido": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Questo file non è un backup di Swimwave."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This file is not a Swimwave backup."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este archivo no es una copia de Swimwave."
+          }
+        }
+      }
+    },
+    "backup.errore.versione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il backup è stato creato con una versione più recente di Swimwave. Aggiorna l'app e riprova."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The backup was created with a newer version of Swimwave. Update the app and try again."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La copia se creó con una versión más reciente de Swimwave. Actualiza la app e inténtalo de nuevo."
+          }
+        }
+      }
+    },
+    "backup.esito.errore": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non è andata a buon fine"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That didn't work"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No ha funcionado"
+          }
+        }
+      }
+    },
+    "backup.esito.ripristinato": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Backup ripristinato"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Backup restored"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copia restaurada"
+          }
+        }
+      }
+    },
+    "backup.esito.salvato": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Backup salvato"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Backup saved"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copia guardada"
+          }
+        }
+      }
+    },
+    "backup.mai": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non hai ancora creato un backup."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You haven't created a backup yet."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todavía no has creado una copia."
+          }
+        }
+      }
+    },
+    "backup.ripristina": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ripristina da un backup"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore from a backup"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurar desde una copia"
+          }
+        }
+      }
+    },
+    "backup.ripristina.azione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ripristina"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurar"
+          }
+        }
+      }
+    },
+    "backup.ripristina.conferma": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ripristinare questo backup?"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore this backup?"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Restaurar esta copia?"
+          }
+        }
+      }
+    },
+    "backup.ripristina.messaggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I dati attuali dell'app vengono sostituiti da quelli del backup."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The app's current data will be replaced by the backup's."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los datos actuales de la app se sustituirán por los de la copia."
+          }
+        }
+      }
+    },
+    "backup.spiegazione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I tuoi dati restano solo su questo telefono. Se lo cambi, lo perdi o cancelli l'app, si perdono anche loro. Crea un backup e conservalo in File, iCloud Drive o dove preferisci."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your data stays only on this phone. If you change phone, lose it or delete the app, it is lost too. Create a backup and keep it in Files, iCloud Drive or wherever you prefer."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tus datos se quedan solo en este teléfono. Si lo cambias, lo pierdes o borras la app, se pierden también. Crea una copia y guárdala en Archivos, iCloud Drive o donde prefieras."
+          }
+        }
+      }
+    },
+    "backup.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Backup"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Backup"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copia de seguridad"
+          }
+        }
+      }
+    },
+    "backup.ultimo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ultimo backup: %@"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Last backup: %@"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Última copia: %@"
+          }
+        }
+      }
+    },
     "blocco.defaticamento": {
       "extractionState": "manual",
       "localizations": {
@@ -9703,6 +10071,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Objetivo de la semana alcanzado, %@. ¡Buen trabajo!"
+          }
+        }
+      }
+    },
+    "profilo.backup": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Backup dei dati"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Back up your data"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copia de seguridad"
           }
         }
       }

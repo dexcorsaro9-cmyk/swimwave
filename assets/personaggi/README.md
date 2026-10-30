@@ -20,8 +20,8 @@ Tutti si possono scegliere da chiunque: "per lui" e "per lei" indicano solo il c
 
 ## Stato
 
-- **Delfino**, **tartaruga marina** e **razza manta:** fatti. Fogli in `assets/personaggi/<id>/`, già nell'app (iPhone e Watch).
-- Polpo e pinguino: in attesa dei video.
+- **Delfino**, **tartaruga marina**, **razza manta** e **polpo:** fatti. Fogli in `assets/personaggi/<id>/`, già nell'app (iPhone e Watch).
+- Pinguino: in attesa dei video.
 
 ## Come si producono (come per lo squalo)
 

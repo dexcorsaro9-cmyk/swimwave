@@ -30,7 +30,7 @@ struct AcquaEroe: View {
                 OndaSuperficie(fase: t * 1.1)
                     .fill(Color.white.opacity(0.2))
                     .frame(height: 14)
-                SqualoEBolle(t: t, ferma: ferma, foglio: Personaggio.con(id: stato.profilo.personaggio).nuota)
+                SqualoEBolle(t: t, ferma: ferma, personaggio: Personaggio.con(id: stato.profilo.personaggio))
                 HStack(alignment: .top) {
                     if let tipologia {
                         EtichettaTipologia(tipologia: tipologia, forma: .pillola)
@@ -72,13 +72,17 @@ struct AcquaEroe: View {
 private struct SqualoEBolle: View {
     let t: Double
     let ferma: Bool
-    let foglio: FoglioPersonaggio
+    let personaggio: Personaggio
+
+    private var foglio: FoglioPersonaggio { personaggio.nuota }
 
     private static let colonne = FoglioPersonaggio.colonne
 
     var body: some View {
         GeometryReader { geo in
-            let larghezza: CGFloat = min(geo.size.width * 0.58, 200)
+            // Larghezza: al massimo 200 pt, e mai così grande da uscire in altezza (il polpo è molto più alto dello squalo).
+            let altezzaMassima: CGFloat = geo.size.height - 20
+            let larghezza: CGFloat = min(geo.size.width * 0.58, 200, altezzaMassima / foglio.proporzione)
             let altezza: CGFloat = larghezza * foglio.proporzione
             // Deriva lenta, sempre dentro l'acqua: lascia almeno ~16 pt di margine su tutti i lati.
             let margine: CGFloat = max(0, (geo.size.width - larghezza) / 2 - 16)
@@ -91,7 +95,7 @@ private struct SqualoEBolle: View {
                     .fill(RadialGradient(colors: [Color.black.opacity(0.28), .clear], center: .center, startRadius: 0, endRadius: larghezza * 0.45))
                     .frame(width: larghezza * 0.8, height: 12)
                     .position(x: sinistra + larghezza / 2, y: geo.size.height - 12)
-                BolleDellaBocca(t: t, bocca: CGPoint(x: sinistra + larghezza * 0.9, y: alto + altezza * 0.55), alto: 12)
+                BolleDellaBocca(t: t, bocca: CGPoint(x: sinistra + larghezza * personaggio.bocca.x, y: alto + altezza * personaggio.bocca.y), alto: 12)
                     .allowsHitTesting(false)
                 Canvas { contesto, dimensione in
                     let immagine = contesto.resolve(Image(foglio.nome))

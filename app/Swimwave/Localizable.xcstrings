@@ -9891,6 +9891,29 @@
         }
       }
     },
+    "personaggio.polpo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Polpo"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Octopus"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pulpo"
+          }
+        }
+      }
+    },
     "personaggio.scelta.sottotitolo": {
       "extractionState": "manual",
       "localizations": {

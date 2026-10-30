@@ -9937,6 +9937,29 @@
         }
       }
     },
+    "personaggio.tartaruga": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tartaruga marina"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sea turtle"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tortuga marina"
+          }
+        }
+      }
+    },
     "picker.scegli": {
       "extractionState": "manual",
       "localizations": {

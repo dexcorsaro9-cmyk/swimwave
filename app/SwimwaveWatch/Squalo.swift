@@ -176,13 +176,21 @@ struct PersonaggioWatch {
 
     static let delfino = PersonaggioWatch(
         id: "delfino",
-        nuota: foglio("delfino", "nuota", righe: 3, totale: 19, 72.0 / 128.0),
-        festa: foglio("delfino", "festa", righe: 5, totale: 44, 73.0 / 128.0),
-        concentrato: foglio("delfino", "concentrato", righe: 5, totale: 44, 72.0 / 128.0),
+        nuota: foglio("delfino", "nuota", righe: 3, totale: 20, 58.0 / 128.0),
+        festa: foglio("delfino", "festa", righe: 5, totale: 44, 72.0 / 128.0),
+        concentrato: foglio("delfino", "concentrato", righe: 5, totale: 44, 56.0 / 128.0),
         stanco: foglio("delfino", "stanco", righe: 5, totale: 44, 58.0 / 128.0),
-        attesa: foglio("delfino", "attesa", righe: 8, totale: 64, 72.0 / 128.0))
+        attesa: foglio("delfino", "attesa", righe: 8, totale: 64, 56.0 / 128.0))
 
-    static let tutti: [PersonaggioWatch] = [squalo, delfino]
+    static let tartaruga = PersonaggioWatch(
+        id: "tartaruga",
+        nuota: foglio("tartaruga", "nuota", righe: 5, totale: 37, 66.0 / 128.0),
+        festa: foglio("tartaruga", "festa", righe: 5, totale: 44, 76.0 / 128.0),
+        concentrato: foglio("tartaruga", "concentrato", righe: 3, totale: 27, 67.0 / 128.0),
+        stanco: foglio("tartaruga", "stanco", righe: 5, totale: 44, 64.0 / 128.0),
+        attesa: foglio("tartaruga", "attesa", righe: 8, totale: 64, 67.0 / 128.0))
+
+    static let tutti: [PersonaggioWatch] = [squalo, delfino, tartaruga]
     private static let chiave = "swimwave.watch.personaggio"
 
     /// Il personaggio scelto, o lo squalo se manca o non è conosciuto da questa versione dell'app.

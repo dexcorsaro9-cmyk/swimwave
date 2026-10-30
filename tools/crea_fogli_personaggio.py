@@ -21,10 +21,27 @@ LARGHEZZA_WATCH = 128
 COLONNE = 9
 
 
+def tinta_sfondo(a):
+    """Tinta (in gradi) del verde di sfondo, misurata sui quattro angoli: ogni video di Flow ha un verde un po' diverso
+    (verde puro per lo squalo, più verso il turchese per delfino e tartaruga) e un valore fisso lascerebbe puntini."""
+    angoli = np.concatenate([a[:30, :30].reshape(-1, 3), a[:30, -30:].reshape(-1, 3),
+                             a[-30:, :30].reshape(-1, 3), a[-30:, -30:].reshape(-1, 3)])
+    r, g, b = np.median(angoli, axis=0)
+    mx, mn = max(r, g, b), min(r, g, b)
+    d = mx - mn + 1e-6
+    if mx == g:
+        return 60 * ((b - r) / d) + 120
+    if mx == b:
+        return 60 * ((r - g) / d) + 240
+    return (60 * ((g - b) / d)) % 360
+
+
 def chiave(path):
-    """Toglie lo sfondo verde e tiene la sola figura più grande (scarta granelli e riflessi isolati)."""
+    """Toglie lo sfondo verde e tiene la sola figura più grande (scarta granelli e riflessi isolati).
+    Si toglie solo ciò che ha la tinta e la forza del verde di sfondo: una pelle verde chiaro (tartaruga) resta."""
     im = Image.open(path).convert("RGB")
     a = np.asarray(im).astype(np.float32) / 255.0
+    h0 = tinta_sfondo(a)
     r, g, b = a[..., 0], a[..., 1], a[..., 2]
     mx, mn = a.max(-1), a.min(-1)
     d = mx - mn + 1e-6
@@ -33,7 +50,7 @@ def chiave(path):
     h = np.where(mx == r, (60 * ((g - b) / d)) % 360, h)
     h = np.where(mx == b, 60 * ((r - g) / d) + 240, h)
     s = d / (mx + 1e-6)
-    verde = np.clip(1 - np.abs(h - 125) / 40.0, 0, 1) * np.clip((s - 0.16) / 0.16, 0, 1)
+    verde = np.clip(1 - np.abs(h - h0) / 30.0, 0, 1) * np.clip((s - 0.45) / 0.2, 0, 1)
     al = np.asarray(Image.fromarray(((1 - verde) * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.7)))
     etichette, n = ndimage.label(al > 128)
     if n == 0:

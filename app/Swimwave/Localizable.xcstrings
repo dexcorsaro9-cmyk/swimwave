@@ -13065,6 +13065,29 @@
         }
       }
     },
+    "splash.slogan": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il tuo istruttore di nuoto in tasca"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your swim coach in your pocket"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu entrenador de natación en el bolsillo"
+          }
+        }
+      }
+    },
     "stile.delfino": {
       "extractionState": "manual",
       "localizations": {

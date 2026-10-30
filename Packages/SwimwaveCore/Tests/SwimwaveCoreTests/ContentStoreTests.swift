@@ -294,6 +294,114 @@ final class TraduzioniContenutiTests: XCTestCase {
     }
 }
 
+final class SuMisuraTests: XCTestCase {
+    private func cartella() throws -> URL {
+        let radice = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+            .deletingLastPathComponent().deletingLastPathComponent()
+        let c = radice.appendingPathComponent("content")
+        try XCTSkipUnless(FileManager.default.fileExists(atPath: c.appendingPathComponent("percorso.json").path),
+                          "cartella content non trovata")
+        return c
+    }
+
+    private func esempio() -> Workout {
+        Workout(titolo: "Prova", vascaMetri: 25, durataStimataMin: 30, blocchi: [
+            Blocco(tipo: .riscaldamento, serie: [Serie(ripetizioni: 4, distanzaMetri: 50, stile: .libero, intensita: .facile, recuperoSecondi: 15)]),
+            Blocco(tipo: .tecnica, serie: [Serie(ripetizioni: 4, distanzaMetri: 50, stile: .libero, drill: "catch-up", recuperoSecondi: 20)]),
+            Blocco(tipo: .principale, serie: [Serie(ripetizioni: 3, distanzaMetri: 100, stile: .libero, intensita: .media, recuperoSecondi: 30)]),
+            Blocco(tipo: .defaticamento, serie: [Serie(ripetizioni: 1, distanzaMetri: 100, stile: .libero, intensita: .facile)]),
+        ])
+    }
+
+    func testLimitiPerLivello() {
+        XCTAssertEqual(SuMisura.limiti(per: .principiante), 500...2000)
+        XCTAssertEqual(SuMisura.limiti(per: .intermedio), 500...5000)
+    }
+
+    func testAdattaAumentaEDiminuisceCentrandoIMetri() {
+        let w = esempio()
+        XCTAssertEqual(w.metriTotali, 800)
+        for obiettivo in [500, 650, 1000, 1500, 2000] {
+            let a = SuMisura.adatta(w, metriObiettivo: obiettivo, titolo: "Su misura")
+            XCTAssertEqual(a.metriTotali, obiettivo, "obiettivo \(obiettivo)")
+            XCTAssertEqual(a.titolo, "Su misura")
+            // Distanze sempre multiple della vasca e dentro i limiti del formato.
+            for s in a.blocchi.flatMap(\.serie) {
+                XCTAssertEqual(s.distanzaMetri % 25, 0)
+                XCTAssertTrue((1...50).contains(s.ripetizioni))
+            }
+        }
+    }
+
+    func testAdattaNonCambiaEserciziIntensitaERecuperi() {
+        let w = esempio()
+        let a = SuMisura.adatta(w, metriObiettivo: 1800)
+        for (b0, b1) in zip(w.blocchi, a.blocchi) {
+            XCTAssertEqual(b0.tipo, b1.tipo)
+            for (s0, s1) in zip(b0.serie, b1.serie) {
+                XCTAssertEqual(s0.stile, s1.stile)
+                XCTAssertEqual(s0.intensita, s1.intensita)
+                XCTAssertEqual(s0.drill, s1.drill)
+                XCTAssertEqual(s0.recuperoSecondi, s1.recuperoSecondi)
+            }
+        }
+        XCTAssertGreaterThan(a.durataStimataMin, w.durataStimataMin)
+    }
+
+    func testLavoroFortePuoCrescereSoloUnPoco() {
+        // 4 x 100 forte non diventa 20 x 100 forte: si ferma a 6 ripetizioni (x1,5) anche se i metri non bastano.
+        let w = Workout(titolo: "Duro", vascaMetri: 25, durataStimataMin: 30, blocchi: [
+            Blocco(tipo: .principale, serie: [Serie(ripetizioni: 4, distanzaMetri: 100, stile: .libero, intensita: .forte, recuperoSecondi: 60)])
+        ])
+        let a = SuMisura.adatta(w, metriObiettivo: 3000)
+        XCTAssertEqual(a.blocchi[0].serie[0].ripetizioni, 6)
+        XCTAssertEqual(a.metriTotali, 600)
+    }
+
+    func testContenutiRealiPrincipianteEntroIlDieciPerCento() throws {
+        let c = try cartella()
+        let store = ContentStore(includeBozze: false) { try? Data(contentsOf: c.appendingPathComponent($0)) }
+        for livello in [Livello.menoDi25, .menoDi100] {
+            for vasca in [Vasca.metri25, .metri50] {
+                let profilo = Profilo(coach: .uomo, nome: "T", livello: livello, obiettivo: .tecnica, vasca: vasca)
+                let limiti = SuMisura.limiti(per: profilo.categoriaLivello)
+                for metri in stride(from: limiti.lowerBound, through: limiti.upperBound, by: SuMisura.passoMetri) {
+                    for scelta in 0..<3 {
+                        let w = try XCTUnwrap(store.suMisura(profilo: profilo, metri: metri, scelta: scelta,
+                                                             titolo: { "Su misura · \($0) m" }),
+                                              "nessun allenamento per \(metri) m")
+                        XCTAssertLessThanOrEqual(abs(w.metriTotali - metri), max(vasca == .metri50 ? 50 : 25, metri / 10),
+                                                 "\(livello) \(vasca) \(metri) m scelta \(scelta): \(w.metriTotali) m")
+                        XCTAssertTrue(WorkoutValidator.validate(w, allowedDrills: store.drillAmmessi).isEmpty,
+                                      "allenamento non valido a \(metri) m")
+                        XCTAssertEqual(w.titolo, "Su misura · \(w.metriTotali) m")
+                    }
+                }
+            }
+        }
+    }
+
+    func testContenutiRealiIntermedioFondoFinoA4Km() throws {
+        let c = try cartella()
+        let store = ContentStore(includeBozze: false) { try? Data(contentsOf: c.appendingPathComponent($0)) }
+        let profilo = Profilo(coach: .donna, nome: "T", livello: .piuDiCento, obiettivo: .resistenza, vasca: .metri25)
+        for metri in stride(from: 500, through: 4000, by: SuMisura.passoMetri) {
+            let w = try XCTUnwrap(store.suMisura(profilo: profilo, metri: metri, tipologia: .a1, titolo: { "\($0)" }))
+            XCTAssertLessThanOrEqual(abs(w.metriTotali - metri), max(25, metri / 10), "\(metri) m: \(w.metriTotali) m")
+            XCTAssertTrue(WorkoutValidator.validate(w, allowedDrills: store.drillAmmessi).isEmpty)
+        }
+    }
+
+    func testMetriFuoriDaiLimitiSiPortanoDentro() throws {
+        let c = try cartella()
+        let store = ContentStore(includeBozze: false) { try? Data(contentsOf: c.appendingPathComponent($0)) }
+        let principiante = Profilo(coach: .uomo, nome: "T", livello: .menoDi25, obiettivo: .tecnica, vasca: .metri25)
+        let w = try XCTUnwrap(store.suMisura(profilo: principiante, metri: 9000, titolo: { "\($0)" }))
+        XCTAssertLessThanOrEqual(w.metriTotali, 2200, "il principiante non supera i 2 km (con la tolleranza)")
+    }
+}
+
 final class EfficienzaTests: XCTestCase {
     private func nuotata(giorno: Int, bracciate: Int?, vasca: Int? = 25, metri: Int = 500,
                          ambiente: AmbienteNuoto? = .vasca) -> NuotataCompletata {

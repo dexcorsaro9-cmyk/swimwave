@@ -150,10 +150,25 @@ struct PaginaAllenamento: View {
     }
 }
 
-/// Nuotata libera: nessuna scheda. Metri grandi, cronometro sotto, ambiente piccolo in alto.
+/// Nuotata libera: nessuna scheda. Un tocco sullo schermo cambia il dato grande; il cronometro resta sempre sotto.
+/// Viste: metri, ritmo medio ogni 100 m, battito, calorie, vasche (solo in vasca), bracciate.
+/// Un dato che l'orologio non ha ancora misurato si mostra come "--", senza inventare nulla.
+/// Con il Blocco Acqua attivo i tocchi non arrivano: si toglie girando la Digital Crown.
 /// Pausa e termina sono nella pagina dei controlli (la stessa dell'allenamento guidato).
 struct PaginaLibera: View {
     @EnvironmentObject private var manager: WorkoutManager
+    @State private var indiceVista = 0
+
+    private enum Vista { case metri, ritmo, cuore, calorie, vasche, bracciate }
+
+    private var viste: [Vista] {
+        var v: [Vista] = [.metri, .ritmo, .cuore, .calorie]
+        if manager.ambiente == .vasca { v.append(.vasche) }
+        v.append(.bracciate)
+        return v
+    }
+
+    private var vista: Vista { viste[min(indiceVista, viste.count - 1)] }
 
     var body: some View {
         VStack(spacing: 2) {
@@ -172,15 +187,16 @@ struct PaginaLibera: View {
             }
 
             VStack(spacing: 0) {
-                Text(verbatim: "\(Int(manager.metriTotali.rounded()))")
+                Text(verbatim: valore)
                     .font(.system(size: 64, weight: .heavy, design: .rounded))
-                    .foregroundStyle(WatchTema.turchese)
+                    .foregroundStyle(colore)
                     .monospacedDigit()
-                    .minimumScaleFactor(0.5)
+                    .minimumScaleFactor(0.4)
                     .lineLimit(1)
-                Text("watch.metri")
+                Text(LocalizedStringKey(etichetta))
                     .font(.system(.footnote, design: .rounded).weight(.semibold))
                     .foregroundStyle(.secondary)
+                    .lineLimit(1)
             }
             .opacity(manager.inPausa ? 0.35 : 1)
 
@@ -189,8 +205,69 @@ struct PaginaLibera: View {
                 .monospacedDigit()
                 .padding(.top, 4)
                 .opacity(manager.inPausa ? 0.35 : 1)
+
+            // Puntini: quale vista è aperta.
+            HStack(spacing: 4) {
+                ForEach(0..<viste.count, id: \.self) { i in
+                    Circle()
+                        .fill(i == indiceVista ? Color.primary : Color.secondary.opacity(0.4))
+                        .frame(width: 5, height: 5)
+                }
+            }
+            .padding(.top, 2)
+            .accessibilityHidden(true)
         }
         .padding(.horizontal, 4)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            indiceVista = (indiceVista + 1) % viste.count
+            WKInterfaceDevice.current().play(.click)
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(.isButton)
+    }
+
+    private var metri: Int { Int(manager.metriTotali.rounded()) }
+
+    /// Ritmo medio ogni 100 m dall'inizio. Prima di 25 m il dato sarebbe troppo ballerino: "--".
+    private var ritmoPer100: String? {
+        guard manager.metriTotali >= 25, manager.tempoTrascorso > 0 else { return nil }
+        return FormatoRitmo.minutiSecondi(manager.tempoTrascorso / manager.metriTotali * 100)
+    }
+
+    private var valore: String {
+        switch vista {
+        case .metri: return "\(metri)"
+        case .ritmo: return ritmoPer100 ?? "--"
+        case .cuore: return manager.frequenzaCardiaca.map(String.init) ?? "--"
+        case .calorie: return manager.calorieAttive.map(String.init) ?? "--"
+        case .vasche:
+            let vasca = max(1, manager.vascaMetriScelti)
+            return "\(Int(manager.metriTotali) / vasca)"
+        case .bracciate: return manager.bracciateTotali.map(String.init) ?? "--"
+        }
+    }
+
+    private var etichetta: String {
+        switch vista {
+        case .metri: return "watch.metri"
+        case .ritmo: return "watch.libera.ritmo"
+        case .cuore: return "watch.libera.cuore"
+        case .calorie: return "watch.libera.calorie"
+        case .vasche: return "watch.libera.vasche"
+        case .bracciate: return "watch.libera.bracciate"
+        }
+    }
+
+    private var colore: Color {
+        switch vista {
+        case .metri: return WatchTema.turchese
+        case .ritmo: return Color(red: 1.0, green: 0.78, blue: 0.34)
+        case .cuore: return WatchTema.corallo
+        case .calorie: return Color(red: 1.0, green: 0.54, blue: 0.30)
+        case .vasche: return Color(red: 0.36, green: 0.80, blue: 0.61)
+        case .bracciate: return Color(red: 0.61, green: 0.42, blue: 1.0)
+        }
     }
 }
 

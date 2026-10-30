@@ -19,11 +19,11 @@ enum FormatoTempo {
     }
 }
 
-/// Date e numeri nelle schermate, sempre in italiano.
+/// Date e numeri nelle schermate, nella lingua dell.app.
 enum FormatiUI {
     private static func formatoData(_ modello: String) -> DateFormatter {
         let f = DateFormatter()
-        f.locale = Locale(identifier: "it_IT")
+        f.locale = Lingua.locale
         f.setLocalizedDateFormatFromTemplate(modello)
         return f
     }
@@ -33,7 +33,7 @@ enum FormatiUI {
     private static let numeroFormato: NumberFormatter = {
         let f = NumberFormatter()
         f.numberStyle = .decimal
-        f.locale = Locale(identifier: "it_IT")
+        f.locale = Lingua.locale
         return f
     }()
 

@@ -11,6 +11,7 @@ struct AcquaEroe: View {
     var etichetta: String?
     var cambia: () -> Void
 
+    @Environment(StatoApp.self) private var stato
     @Environment(\.accessibilityReduceMotion) private var riduciMovimento
     @Environment(\.scenePhase) private var fase
 
@@ -29,7 +30,7 @@ struct AcquaEroe: View {
                 OndaSuperficie(fase: t * 1.1)
                     .fill(Color.white.opacity(0.2))
                     .frame(height: 14)
-                SqualoEBolle(t: t, ferma: ferma)
+                SqualoEBolle(t: t, ferma: ferma, personaggio: Personaggio.con(id: stato.profilo.personaggio))
                 HStack(alignment: .top) {
                     if let tipologia {
                         EtichettaTipologia(tipologia: tipologia, forma: .pillola)
@@ -67,20 +68,22 @@ struct AcquaEroe: View {
     }
 }
 
-/// Lo squalo (un fotogramma dopo l'altro dal foglio "squalo-nuota-sheet") con l'ombra e le bolle.
+/// Il personaggio scelto (un fotogramma dopo l'altro dal suo foglio di nuoto) con l'ombra e le bolle.
 private struct SqualoEBolle: View {
     let t: Double
     let ferma: Bool
+    let personaggio: Personaggio
 
-    private static let colonne = 9
-    private static let righe = 5
-    private static let totale = 44
-    private static let proporzione: CGFloat = 123.0 / 240.0   // altezza / larghezza di un fotogramma
+    private var foglio: FoglioPersonaggio { personaggio.nuota }
+
+    private static let colonne = FoglioPersonaggio.colonne
 
     var body: some View {
         GeometryReader { geo in
-            let larghezza: CGFloat = min(geo.size.width * 0.58, 200)
-            let altezza: CGFloat = larghezza * Self.proporzione
+            // Larghezza: al massimo 200 pt, e mai così grande da uscire in altezza (il polpo è molto più alto dello squalo).
+            let altezzaMassima: CGFloat = geo.size.height - 20
+            let larghezza: CGFloat = min(geo.size.width * 0.58, 200, altezzaMassima / foglio.proporzione)
+            let altezza: CGFloat = larghezza * foglio.proporzione
             // Deriva lenta, sempre dentro l'acqua: lascia almeno ~16 pt di margine su tutti i lati.
             let margine: CGFloat = max(0, (geo.size.width - larghezza) / 2 - 16)
             let dx: CGFloat = CGFloat(sin(t * 0.55)) * min(12, margine)
@@ -92,14 +95,14 @@ private struct SqualoEBolle: View {
                     .fill(RadialGradient(colors: [Color.black.opacity(0.28), .clear], center: .center, startRadius: 0, endRadius: larghezza * 0.45))
                     .frame(width: larghezza * 0.8, height: 12)
                     .position(x: sinistra + larghezza / 2, y: geo.size.height - 12)
-                BolleDellaBocca(t: t, bocca: CGPoint(x: sinistra + larghezza * 0.9, y: alto + altezza * 0.55), alto: 12)
+                BolleDellaBocca(t: t, bocca: CGPoint(x: sinistra + larghezza * personaggio.bocca.x, y: alto + altezza * personaggio.bocca.y), alto: 12)
                     .allowsHitTesting(false)
                 Canvas { contesto, dimensione in
-                    let immagine = contesto.resolve(Image("squalo-nuota-sheet"))
-                    let i = ferma ? 0 : Int(t * 12) % Self.totale
+                    let immagine = contesto.resolve(Image(foglio.nome))
+                    let i = ferma ? 0 : Int(t * 12) % foglio.totale
                     let col = i % Self.colonne, riga = i / Self.colonne
                     let tutta = CGRect(x: -CGFloat(col) * dimensione.width, y: -CGFloat(riga) * dimensione.height,
-                                       width: dimensione.width * CGFloat(Self.colonne), height: dimensione.height * CGFloat(Self.righe))
+                                       width: dimensione.width * CGFloat(Self.colonne), height: dimensione.height * CGFloat(foglio.righe))
                     contesto.clip(to: Path(CGRect(origin: .zero, size: dimensione)))
                     contesto.draw(immagine, in: tutta)
                 }

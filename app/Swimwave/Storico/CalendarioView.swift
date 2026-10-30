@@ -141,7 +141,7 @@ struct CalendarioView: View {
     private func disco(giorno: Int, livello: Int, oggi: Bool, scelto: Bool) -> some View {
         ZStack {
             if livello > 0 {
-                Circle().fill(Tema.turchese.opacity(opacita(livello)))
+                Circle().fill(SezioneColore.storico.accento.opacity(opacita(livello)))
             }
             if scelto {
                 Circle().strokeBorder(Tema.testo, lineWidth: 2).padding(4)

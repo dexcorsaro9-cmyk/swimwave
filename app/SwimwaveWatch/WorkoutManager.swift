@@ -50,6 +50,10 @@ final class WorkoutManager: NSObject, ObservableObject {
     @Published var ambiente: AmbienteNuoto = .vasca
     /// Metri totali nuotati nella sessione, letti da HealthKit (per la nuotata libera).
     @Published var metriTotali = 0.0
+    /// Dati dal vivo di HealthKit per la nuotata libera. nil finché l'orologio non ha una misura.
+    @Published var frequenzaCardiaca: Int?
+    @Published var calorieAttive: Int?
+    @Published var bracciateTotali: Int?
     /// Tempo obiettivo (secondi) per ogni ripetizione del piano, nello stesso ordine di `piano.passi`; nil = nessun obiettivo.
     /// È solo un riferimento da mostrare: non si confronta col tempo reale e non c'è giudizio.
     @Published var target: [Int?] = []
@@ -252,6 +256,9 @@ final class WorkoutManager: NSObject, ObservableObject {
             inizioAllenamento = inizio
             distanzaTotale = 0
             metriTotali = 0
+            frequenzaCardiaca = nil
+            calorieAttive = nil
+            bracciateTotali = nil
             distanzaInizioRipetizione = 0
             tempoAccumulato = 0
             inizioTratto = nil
@@ -271,7 +278,10 @@ final class WorkoutManager: NSObject, ObservableObject {
                         // Blocco Acqua: l'acqua sullo schermo non registra tocchi fantasma durante la bracciata.
                         // Si toglie girando la Digital Crown (per esempio per usare "Fatto" se l'avanzamento
                         // automatico non scatta). Da provare in piscina.
-                        WKInterfaceDevice.current().enableWaterLock()
+                        // Nella nuotata libera non si attiva: lì il tocco cambia il dato mostrato e con il blocco non arriverebbe.
+                        if self.modo != .libera {
+                            WKInterfaceDevice.current().enableWaterLock()
+                        }
                     } else {
                         // La raccolta non è partita: si chiude la sessione già creata, così non blocca la prossima.
                         self.sessione?.end()
@@ -558,13 +568,31 @@ extension WorkoutManager: HKLiveWorkoutBuilderDelegate {
 
     func workoutBuilder(_ workoutBuilder: HKLiveWorkoutBuilder, didCollectDataOf collectedTypes: Set<HKSampleType>) {
         let tipoDistanza = HKQuantityType(.distanceSwimming)
-        guard collectedTypes.contains(tipoDistanza) else { return }
-        let metri = workoutBuilder.statistics(for: tipoDistanza)?.sumQuantity()?.doubleValue(for: HKUnit.meter()) ?? 0
+        let tipoCuore = HKQuantityType(.heartRate)
+        let tipoCalorie = HKQuantityType(.activeEnergyBurned)
+        let tipoBracciate = HKQuantityType(.swimmingStrokeCount)
+        let battitiAlMinuto = HKUnit.count().unitDivided(by: HKUnit.minute())
+
+        let metri = collectedTypes.contains(tipoDistanza)
+            ? (workoutBuilder.statistics(for: tipoDistanza)?.sumQuantity()?.doubleValue(for: HKUnit.meter()) ?? 0) : nil
+        // Battito: l'ultima misura, non la media.
+        let cuore = collectedTypes.contains(tipoCuore)
+            ? WorkoutManager.interoPositivo(workoutBuilder.statistics(for: tipoCuore)?.mostRecentQuantity()?.doubleValue(for: battitiAlMinuto)) : nil
+        let calorie = collectedTypes.contains(tipoCalorie)
+            ? WorkoutManager.interoPositivo(workoutBuilder.statistics(for: tipoCalorie)?.sumQuantity()?.doubleValue(for: HKUnit.kilocalorie())) : nil
+        let bracciate = collectedTypes.contains(tipoBracciate)
+            ? WorkoutManager.interoPositivo(workoutBuilder.statistics(for: tipoBracciate)?.sumQuantity()?.doubleValue(for: HKUnit.count())) : nil
+
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            self.distanzaTotale = metri
-            self.metriTotali = metri
-            self.controllaAvanzamentoAutomatico()
+            if let metri {
+                self.distanzaTotale = metri
+                self.metriTotali = metri
+                self.controllaAvanzamentoAutomatico()
+            }
+            if let cuore { self.frequenzaCardiaca = cuore }
+            if let calorie { self.calorieAttive = calorie }
+            if let bracciate { self.bracciateTotali = bracciate }
         }
     }
 }

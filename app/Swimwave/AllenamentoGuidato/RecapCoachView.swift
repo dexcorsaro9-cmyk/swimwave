@@ -107,7 +107,7 @@ struct RecapCoachView: View {
                     AvatarCoach(coach: coach, espressione: dura ? .dopoAllenamentoDuro : .traguardo, dimensione: 78)
                 }
                 Spacer(minLength: 8)
-                SqualoRecap(foglio: dura ? .stanco : .festa)
+                SqualoRecap(stanco: dura)
                     .frame(width: 124)
             }
             .padding(.horizontal, 16)
@@ -326,26 +326,17 @@ struct RecapCoachView: View {
     }
 }
 
-// MARK: - Squalo del recap
+// MARK: - Personaggio del recap
 
-/// Un foglio di fotogrammi dello squalo per l'iPhone (stessa tecnica del Watch e della carta eroe).
-struct FoglioSqualo {
-    let nome: String
-    let totale: Int
-    /// Altezza / larghezza di un fotogramma.
-    let proporzione: CGFloat
-    static let colonne = 9
-    static let righe = 5
-
-    /// Lo squalo che festeggia con un balzo (42 fotogrammi, 12 al secondo).
-    static let festa = FoglioSqualo(nome: "squalo-festa-sheet", totale: 42, proporzione: 121.0 / 200.0)
-    /// Lo squalo stanco che sbadiglia e dondola (44 fotogrammi, 12 al secondo).
-    static let stanco = FoglioSqualo(nome: "squalo-stanco-sheet", totale: 44, proporzione: 105.0 / 200.0)
-}
-
-/// Squalo animato che mantiene la proporzione del fotogramma. Si ferma con "Riduci movimento" e quando l'app non è in primo piano.
+/// Personaggio animato (festa o stanco) che mantiene la proporzione del fotogramma. Si ferma con "Riduci movimento" e quando l'app non è in primo piano.
 struct SqualoRecap: View {
-    let foglio: FoglioSqualo
+    @Environment(StatoApp.self) private var stato
+    let stanco: Bool
+
+    private var foglio: FoglioPersonaggio {
+        let p = Personaggio.con(id: stato.profilo.personaggio)
+        return stanco ? p.stanco : p.festa
+    }
 
     @Environment(\.accessibilityReduceMotion) private var riduciMovimento
     @Environment(\.scenePhase) private var fase
@@ -357,11 +348,11 @@ struct SqualoRecap: View {
             Canvas { contesto, dimensione in
                 let immagine = contesto.resolve(Image(foglio.nome))
                 let i = ferma ? 0 : Int(t * 12) % foglio.totale
-                let colonna = i % FoglioSqualo.colonne
-                let riga = i / FoglioSqualo.colonne
+                let colonna = i % FoglioPersonaggio.colonne
+                let riga = i / FoglioPersonaggio.colonne
                 let tutta = CGRect(x: -CGFloat(colonna) * dimensione.width, y: -CGFloat(riga) * dimensione.height,
-                                   width: dimensione.width * CGFloat(FoglioSqualo.colonne),
-                                   height: dimensione.height * CGFloat(FoglioSqualo.righe))
+                                   width: dimensione.width * CGFloat(FoglioPersonaggio.colonne),
+                                   height: dimensione.height * CGFloat(foglio.righe))
                 contesto.clip(to: Path(CGRect(origin: .zero, size: dimensione)))
                 contesto.draw(immagine, in: tutta)
             }

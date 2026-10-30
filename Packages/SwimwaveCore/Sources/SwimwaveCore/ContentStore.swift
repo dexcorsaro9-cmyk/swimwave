@@ -8,18 +8,26 @@ import Foundation
 ///
 public final class ContentStore {
     public let includeBozze: Bool
+    /// Lingua dei testi ("it", "en", "es"). I file in `content/` sono in italiano; le altre lingue sono in
+    /// `content/i18n/<lingua>.json` e, dove manca una voce, resta l'italiano.
+    public let lingua: String
     public private(set) var tappe: [Tappa] = []
     public private(set) var drill: [Drill] = []
     public private(set) var errori: [ErroreComune] = []
     public private(set) var voci: [VoceAllenamento] = []
     public private(set) var zone: [ZonaRitmo] = []
+    /// Istruzioni del test dei 200 m (zone-ritmo.json), nella lingua scelta.
+    public private(set) var istruzioniTest: String?
     /// Errori incontrati leggendo i file (file mancante o JSON non conforme). Utile in debug.
     public private(set) var problemi: [String] = []
 
     private let lettore: (String) -> Data?
 
-    public init(includeBozze: Bool, lettore: @escaping (String) -> Data?) {
+    private var titoli: [String: String] = [:]
+
+    public init(includeBozze: Bool, lingua: String = "it", lettore: @escaping (String) -> Data?) {
         self.includeBozze = includeBozze
+        self.lingua = lingua
         self.lettore = lettore
         ricarica()
     }
@@ -30,7 +38,51 @@ public final class ContentStore {
         drill = carica("drills.json", FileDrill.self)?.drill.visibili(includeBozze: includeBozze) ?? []
         errori = carica("errori-comuni.json", FileErrori.self)?.errori.visibili(includeBozze: includeBozze) ?? []
         voci = carica("allenamenti/indice.json", FileIndice.self)?.allenamenti.visibili(includeBozze: includeBozze) ?? []
-        zone = carica("zone-ritmo.json", FileZoneRitmo.self)?.zone.visibili(includeBozze: includeBozze).sorted { $0.velocitaDaPercentuale < $1.velocitaDaPercentuale } ?? []
+        let fileZone = carica("zone-ritmo.json", FileZoneRitmo.self)
+        zone = fileZone?.zone.visibili(includeBozze: includeBozze).sorted { $0.velocitaDaPercentuale < $1.velocitaDaPercentuale } ?? []
+        istruzioniTest = fileZone?.istruzioniTest
+        titoli = [:]
+        applicaTraduzioni()
+    }
+
+    /// Sostituisce i testi italiani con quelli di `i18n/<lingua>.json`, voce per voce.
+    private func applicaTraduzioni() {
+        guard lingua != "it" else { return }
+        guard let data = lettore("i18n/\(lingua).json") else {
+            problemi.append("i18n/\(lingua).json: file non trovato (testi in italiano)")
+            return
+        }
+        guard let t = try? JSONDecoder().decode(Traduzioni.self, from: data) else {
+            problemi.append("i18n/\(lingua).json: JSON non conforme (testi in italiano)")
+            return
+        }
+        for i in tappe.indices {
+            guard let v = t.tappe?[String(tappe[i].id)] else { continue }
+            tappe[i].nome = v.nome ?? tappe[i].nome
+            tappe[i].obiettivo = v.obiettivo ?? tappe[i].obiettivo
+            tappe[i].test = v.test ?? tappe[i].test
+        }
+        for i in drill.indices {
+            guard let v = t.drill?[drill[i].id] else { continue }
+            drill[i].nome = v.nome ?? drill[i].nome
+            drill[i].scopo = v.scopo ?? drill[i].scopo
+            drill[i].esecuzione = v.esecuzione ?? drill[i].esecuzione
+            drill[i].erroreDaEvitare = v.erroreDaEvitare ?? drill[i].erroreDaEvitare
+        }
+        for i in errori.indices {
+            guard let v = t.errori?[errori[i].id] else { continue }
+            errori[i].nome = v.nome ?? errori[i].nome
+            errori[i].comeSiRiconosce = v.comeSiRiconosce ?? errori[i].comeSiRiconosce
+            errori[i].perche = v.perche ?? errori[i].perche
+            errori[i].correzione = v.correzione ?? errori[i].correzione
+        }
+        for i in zone.indices {
+            guard let v = t.zone?[zone[i].id] else { continue }
+            zone[i].nome = v.nome ?? zone[i].nome
+            zone[i].descrizione = v.descrizione ?? zone[i].descrizione
+        }
+        if let istruzioni = t.istruzioniTest, !istruzioni.isEmpty { istruzioniTest = istruzioni }
+        titoli = t.titoli ?? [:]
     }
 
     private func carica<T: Decodable>(_ percorso: String, _ tipo: T.Type) -> T? {
@@ -74,7 +126,9 @@ public final class ContentStore {
     public func workout(della voce: VoceAllenamento) -> Workout? {
         guard let data = lettore("allenamenti/\(voce.file)") else { return nil }
         switch WorkoutValidator.decodeAndValidate(data, allowedDrills: drillAmmessi) {
-        case .success(let w): return w
+        case .success(var w):
+            if let tradotto = titoli[w.titolo] { w.titolo = tradotto }
+            return w
         case .failure: return nil
         }
     }

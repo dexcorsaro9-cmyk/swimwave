@@ -2,10 +2,10 @@ import SwiftUI
 import SwimwaveCore
 
 // Formati e piccoli componenti condivisi dalle schermate di analisi (Andamento, Riepilogo, Il tuo anno, Record, Traguardi).
-// I testi vengono tutti da Localizable.xcstrings; nomi di mesi e giorni sempre in italiano.
+// I testi vengono tutti da Localizable.xcstrings; nomi di mesi e giorni nella lingua dell.app.
 
 enum AnalisiFormati {
-    static let locale = Locale(identifier: "it_IT")
+    static let locale = Lingua.locale
 
     private static let nomiMesi: [String] = {
         let f = DateFormatter()
@@ -166,7 +166,7 @@ struct SchermataAnalisi<Intestazione: View, Contenuto: View>: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
-                IntestazioneOnda {
+                IntestazioneOnda(colori: SezioneColore.analisi.gradiente) {
                     intestazione
                 }
                 VStack(spacing: 12) {
@@ -197,10 +197,13 @@ struct CartaAnalisi<Contenuto: View>: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             if let titolo {
-                Text(verbatim: titolo)
-                    .font(Tema.sottotitolo)
-                    .foregroundStyle(Tema.testo)
-                    .accessibilityAddTraits(.isHeader)
+                HStack(spacing: 8) {
+                    Capsule().fill(SezioneColore.analisi.accento).frame(width: 5, height: 20).accessibilityHidden(true)
+                    Text(verbatim: titolo)
+                        .font(Tema.sottotitolo)
+                        .foregroundStyle(Tema.testo)
+                        .accessibilityAddTraits(.isHeader)
+                }
             }
             contenuto
         }

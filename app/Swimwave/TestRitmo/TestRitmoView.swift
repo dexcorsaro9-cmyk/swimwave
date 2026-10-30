@@ -40,7 +40,7 @@ struct TestRitmoView: View {
         }
         .onAppear {
             if istruzioni.isEmpty {
-                istruzioni = IstruzioniTest.parti()
+                istruzioni = IstruzioniTest.parti(da: stato.contenuti.istruzioniTest)
             }
         }
     }
@@ -285,30 +285,13 @@ private struct ContornoMenu: ViewModifier {
 
 // MARK: - Istruzioni da content/zone-ritmo.json
 
-/// Legge `istruzioni_test` direttamente dal file nel bundle (cartella `content/`). Se il file manca non succede nulla:
-/// la vista usa un avviso breve.
+/// Le istruzioni vengono da `ContentStore.istruzioniTest` (zone-ritmo.json, tradotto nella lingua dell'app).
+/// Se mancano la vista usa un avviso breve.
 private enum IstruzioniTest {
-    private struct FileIstruzioni: Decodable {
-        let istruzioniTest: String?
-
-        enum CodingKeys: String, CodingKey {
-            case istruzioniTest = "istruzioni_test"
-        }
-    }
-
-    static func testoCompleto() -> String? {
-        let url = Bundle.main.url(forResource: "zone-ritmo", withExtension: "json", subdirectory: "content")
-            ?? Bundle.main.resourceURL?.appendingPathComponent("content/zone-ritmo.json")
-        guard let url,
-              let data = try? Data(contentsOf: url),
-              let file = try? JSONDecoder().decode(FileIstruzioni.self, from: data) else { return nil }
-        return file.istruzioniTest
-    }
-
     /// Divide il testo in parti: l'introduzione e poi un passo per ogni numerazione "1) ... 2) ...".
     /// Se non ci sono numerazioni resta tutto in una parte sola.
-    static func parti() -> [String] {
-        guard let completo = testoCompleto(), !completo.isEmpty else { return [] }
+    static func parti(da completo: String?) -> [String] {
+        guard let completo, !completo.isEmpty else { return [] }
         var parti: [String] = []
         var corrente = ""
         for parola in completo.split(separator: " ", omittingEmptySubsequences: true) {

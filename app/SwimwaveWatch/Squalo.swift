@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// Lo squalo di Swimwave (immagine in Assets.xcassets/squalo-nuota, sorgente in assets/squalo/), che nuota lungo una corsia:
+/// Il personaggio di Swimwave (lo squalo o l'animale scelto; sorgenti in assets/squalo/ e assets/personaggi/), che nuota lungo una corsia:
 /// la posizione è l'avanzamento della ripetizione (0...1).
 /// - `nuota`: ondeggia e si schiaccia a ritmo di bracciata. Nel recupero galleggia piano; in pausa sta fermo e si attenua.
 /// - Con il Watch in risparmio energetico (schermo attenuato) l'animazione si ferma: in acqua conta la batteria.
@@ -131,22 +131,101 @@ struct OndaAcqua: Shape {
 }
 
 /// Una striscia di fotogrammi dentro un'unica immagine (colonne x righe, tutti della stessa misura).
+/// `proporzione` = altezza / larghezza di un fotogramma: il personaggio si disegna sempre senza deformarlo.
 struct FoglioSprite {
     let nome: String
     let colonne: Int
     let righe: Int
     let totale: Int
+    let proporzione: CGFloat
 
-    /// Lo squalo che nuota in loop (4 s a 12 fotogrammi al secondo). Ricavato dal video generato con Flow.
-    static let nuota = FoglioSprite(nome: "squalo-nuota-sheet", colonne: 9, righe: 5, totale: 44)
-    /// Lo squalo che festeggia con un balzo (3,5 s a 12 fotogrammi al secondo).
-    static let festa = FoglioSprite(nome: "squalo-festa-sheet", colonne: 9, righe: 5, totale: 42)
-    /// Lo squalo concentrato, per la serie principale (2,7 s a 12 fotogrammi al secondo).
-    static let concentrato = FoglioSprite(nome: "squalo-concentrato-sheet", colonne: 9, righe: 4, totale: 32)
-    /// Lo squalo stanco che sbadiglia e dondola, per il recupero (3,7 s a 12 fotogrammi al secondo).
-    static let stanco = FoglioSprite(nome: "squalo-stanco-sheet", colonne: 9, righe: 5, totale: 44)
-    /// Lo squalo che aspetta, rilassato e curioso, per la schermata di avvio (8 s a 8 fotogrammi al secondo, andata e ritorno).
-    static let attesa = FoglioSprite(nome: "squalo-attesa-sheet", colonne: 9, righe: 8, totale: 64)
+    // Il personaggio in uso (scelto sull'iPhone). Le viste usano `.nuota`, `.festa`… e ricevono i fogli di quello scelto.
+    /// Il personaggio che nuota in loop (a 12 fotogrammi al secondo). Ricavato dal video generato con Flow.
+    static var nuota: FoglioSprite { PersonaggioWatch.corrente.nuota }
+    /// Il personaggio che festeggia con un balzo (12 fotogrammi al secondo).
+    static var festa: FoglioSprite { PersonaggioWatch.corrente.festa }
+    /// Il personaggio concentrato, per la serie principale.
+    static var concentrato: FoglioSprite { PersonaggioWatch.corrente.concentrato }
+    /// Il personaggio stanco che sbadiglia e dondola, per il recupero.
+    static var stanco: FoglioSprite { PersonaggioWatch.corrente.stanco }
+    /// Il personaggio che aspetta, rilassato e curioso, per la schermata di avvio (8 fotogrammi al secondo, andata e ritorno).
+    static var attesa: FoglioSprite { PersonaggioWatch.corrente.attesa }
+}
+
+/// I personaggi acquatici sul Watch. L'iPhone manda l'id scelto insieme all'allenamento (MessaggiWatch.chiavePersonaggio);
+/// qui si ricorda, così vale anche senza iPhone. Dati di ogni foglio: li stampa tools/crea_fogli_personaggio.py.
+struct PersonaggioWatch {
+    let id: String
+    let nuota: FoglioSprite
+    let festa: FoglioSprite
+    let concentrato: FoglioSprite
+    let stanco: FoglioSprite
+    let attesa: FoglioSprite
+
+    private static func foglio(_ id: String, _ posa: String, righe: Int, totale: Int, _ proporzione: CGFloat) -> FoglioSprite {
+        FoglioSprite(nome: "\(id)-\(posa)-sheet", colonne: 9, righe: righe, totale: totale, proporzione: proporzione)
+    }
+
+    static let squalo = PersonaggioWatch(
+        id: "squalo",
+        nuota: foglio("squalo", "nuota", righe: 5, totale: 44, 65.0 / 128.0),
+        festa: foglio("squalo", "festa", righe: 5, totale: 42, 77.0 / 128.0),
+        concentrato: foglio("squalo", "concentrato", righe: 4, totale: 32, 65.0 / 128.0),
+        stanco: foglio("squalo", "stanco", righe: 5, totale: 44, 67.0 / 128.0),
+        attesa: foglio("squalo", "attesa", righe: 8, totale: 64, 64.0 / 128.0))
+
+    static let delfino = PersonaggioWatch(
+        id: "delfino",
+        nuota: foglio("delfino", "nuota", righe: 3, totale: 20, 58.0 / 128.0),
+        festa: foglio("delfino", "festa", righe: 5, totale: 44, 72.0 / 128.0),
+        concentrato: foglio("delfino", "concentrato", righe: 5, totale: 44, 56.0 / 128.0),
+        stanco: foglio("delfino", "stanco", righe: 5, totale: 44, 58.0 / 128.0),
+        attesa: foglio("delfino", "attesa", righe: 8, totale: 64, 56.0 / 128.0))
+
+    static let tartaruga = PersonaggioWatch(
+        id: "tartaruga",
+        nuota: foglio("tartaruga", "nuota", righe: 5, totale: 37, 66.0 / 128.0),
+        festa: foglio("tartaruga", "festa", righe: 5, totale: 44, 76.0 / 128.0),
+        concentrato: foglio("tartaruga", "concentrato", righe: 3, totale: 27, 67.0 / 128.0),
+        stanco: foglio("tartaruga", "stanco", righe: 5, totale: 44, 64.0 / 128.0),
+        attesa: foglio("tartaruga", "attesa", righe: 8, totale: 64, 67.0 / 128.0))
+
+    static let manta = PersonaggioWatch(
+        id: "manta",
+        nuota: foglio("manta", "nuota", righe: 4, totale: 35, 53.0 / 128.0),
+        festa: foglio("manta", "festa", righe: 5, totale: 44, 78.0 / 128.0),
+        concentrato: foglio("manta", "concentrato", righe: 5, totale: 38, 58.0 / 128.0),
+        stanco: foglio("manta", "stanco", righe: 5, totale: 44, 55.0 / 128.0),
+        attesa: foglio("manta", "attesa", righe: 8, totale: 64, 48.0 / 128.0))
+
+    static let polpo = PersonaggioWatch(
+        id: "polpo",
+        nuota: foglio("polpo", "nuota", righe: 4, totale: 30, 108.0 / 128.0),
+        festa: foglio("polpo", "festa", righe: 5, totale: 44, 108.0 / 128.0),
+        concentrato: foglio("polpo", "concentrato", righe: 4, totale: 31, 104.0 / 128.0),
+        stanco: foglio("polpo", "stanco", righe: 5, totale: 44, 103.0 / 128.0),
+        attesa: foglio("polpo", "attesa", righe: 8, totale: 64, 97.0 / 128.0))
+
+    static let pinguino = PersonaggioWatch(
+        id: "pinguino",
+        nuota: foglio("pinguino", "nuota", righe: 5, totale: 44, 75.0 / 128.0),
+        festa: foglio("pinguino", "festa", righe: 5, totale: 44, 96.0 / 128.0),
+        concentrato: foglio("pinguino", "concentrato", righe: 3, totale: 25, 73.0 / 128.0),
+        stanco: foglio("pinguino", "stanco", righe: 5, totale: 44, 69.0 / 128.0),
+        attesa: foglio("pinguino", "attesa", righe: 8, totale: 64, 81.0 / 128.0))
+
+    static let tutti: [PersonaggioWatch] = [squalo, delfino, tartaruga, manta, polpo, pinguino]
+    private static let chiave = "swimwave.watch.personaggio"
+
+    /// Il personaggio scelto, o lo squalo se manca o non è conosciuto da questa versione dell'app.
+    static var corrente: PersonaggioWatch {
+        let id = UserDefaults.standard.string(forKey: chiave)
+        return tutti.first { $0.id == id } ?? squalo
+    }
+
+    static func imposta(id: String) {
+        UserDefaults.standard.set(id, forKey: chiave)
+    }
 }
 
 /// Un fotogramma di un foglio sprite. Le immagini sono senza sfondo (verde tolto, ciclo rifinito): sorgenti in assets/squalo/.
@@ -160,12 +239,20 @@ struct SqualoSprite: View {
             let indice = ((fotogramma % foglio.totale) + foglio.totale) % foglio.totale
             let colonna = indice % foglio.colonne
             let riga = indice / foglio.colonne
-            let tutta = CGRect(x: -CGFloat(colonna) * dimensione.width, y: -CGFloat(riga) * dimensione.height,
-                               width: dimensione.width * CGFloat(foglio.colonne), height: dimensione.height * CGFloat(foglio.righe))
-            contesto.clip(to: Path(CGRect(origin: .zero, size: dimensione)))
+            // Il fotogramma sta dentro lo spazio dato senza deformarsi, centrato.
+            var w = dimensione.width
+            var h = w * foglio.proporzione
+            if h > dimensione.height {
+                h = dimensione.height
+                w = h / foglio.proporzione
+            }
+            let ox = (dimensione.width - w) / 2
+            let oy = (dimensione.height - h) / 2
+            let tutta = CGRect(x: ox - CGFloat(colonna) * w, y: oy - CGFloat(riga) * h,
+                               width: w * CGFloat(foglio.colonne), height: h * CGFloat(foglio.righe))
+            contesto.clip(to: Path(CGRect(x: ox, y: oy, width: w, height: h)))
             contesto.draw(immagine, in: tutta)
         }
         .accessibilityHidden(true)
     }
 }
-

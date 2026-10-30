@@ -155,7 +155,7 @@ struct AndamentoView: View {
         VStack(spacing: 10) {
             Image(systemName: "chart.bar")
                 .font(.system(size: 34, weight: .bold, design: .rounded))
-                .foregroundStyle(Tema.turchese)
+                .foregroundStyle(SezioneColore.analisi.accento)
                 .accessibilityHidden(true)
             Text(LocalizedStringKey(chiave))
                 .font(Tema.corpo)
@@ -184,7 +184,8 @@ struct AndamentoView: View {
                     x: .value("Periodo", barra.etichetta),
                     y: .value("Metri", barra.metri)
                 )
-                .foregroundStyle(Tema.turchese)
+                .foregroundStyle(LinearGradient(colors: [SezioneColore.analisi.accento, Color(squaloHex: 0x9B6BFF)],
+                                                startPoint: .top, endPoint: .bottom))
             }
             .frame(height: 200)
             .accessibilityLabel(Text(verbatim: testo("andamento.metri.accessibilita",

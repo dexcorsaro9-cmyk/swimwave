@@ -7,7 +7,7 @@ import SwimwaveCore
 struct OnboardingView: View {
     @Environment(StatoApp.self) private var stato
 
-    private enum Fase { case sceltaCoach, lavagnetta, scheda }
+    private enum Fase { case sceltaCoach, sceltaPersonaggio, lavagnetta, scheda }
 
     @State private var fase: Fase = .sceltaCoach
     @State private var profilo = Profilo()
@@ -18,6 +18,11 @@ struct OnboardingView: View {
             switch fase {
             case .sceltaCoach:
                 SceltaCoachView(scelto: $profilo.coach) {
+                    // La scelta del personaggio compare solo quando ce n'è più di uno.
+                    fase = Personaggio.disponibili.count > 1 ? .sceltaPersonaggio : .lavagnetta
+                }
+            case .sceltaPersonaggio:
+                SceltaPersonaggioView(scelto: $profilo.personaggio) {
                     fase = .lavagnetta
                 }
             case .lavagnetta:

@@ -129,3 +129,39 @@ struct FilePercorso: Decodable { let tappe: [Tappa] }
 struct FileDrill: Decodable { let drill: [Drill] }
 struct FileErrori: Decodable { let errori: [ErroreComune] }
 struct FileIndice: Decodable { let allenamenti: [VoceAllenamento] }
+
+/// Testi tradotti di content/i18n/<lingua>.json. Ogni campo è opzionale: dove manca resta l'italiano.
+struct Traduzioni: Decodable {
+    struct Testi: Decodable {
+        var nome: String?
+        var obiettivo: String?
+        var test: String?
+        var scopo: String?
+        var esecuzione: String?
+        var erroreDaEvitare: String?
+        var comeSiRiconosce: String?
+        var perche: String?
+        var correzione: String?
+        var descrizione: String?
+
+        enum CodingKeys: String, CodingKey {
+            case nome, obiettivo, test, scopo, esecuzione, correzione, descrizione
+            case erroreDaEvitare = "errore_da_evitare"
+            case comeSiRiconosce = "come_si_riconosce"
+            case perche = "perche_e_un_problema"
+        }
+    }
+
+    var tappe: [String: Testi]?
+    var drill: [String: Testi]?
+    var errori: [String: Testi]?
+    var zone: [String: Testi]?
+    var istruzioniTest: String?
+    /// Titolo italiano di un allenamento -> titolo tradotto.
+    var titoli: [String: String]?
+
+    enum CodingKeys: String, CodingKey {
+        case tappe, drill, errori, zone, titoli
+        case istruzioniTest = "istruzioni_test"
+    }
+}

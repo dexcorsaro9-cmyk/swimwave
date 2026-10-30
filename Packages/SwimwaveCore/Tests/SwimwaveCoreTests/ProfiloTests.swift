@@ -104,6 +104,31 @@ final class ProfiloTests: XCTestCase {
         XCTAssertEqual(try JSONDecoder().decode(Profilo.self, from: data), p)
     }
 
+    func testPersonaggioSiSalvaEUnProfiloVecchioSiLegge() throws {
+        var p = Profilo(coach: .uomo, nome: "Luca")
+        XCTAssertNil(p.personaggio)
+        p.personaggio = "delfino"
+        let data = try JSONEncoder().encode(p)
+        XCTAssertEqual(try JSONDecoder().decode(Profilo.self, from: data).personaggio, "delfino")
+
+        // Profilo salvato prima della scelta del personaggio: la chiave non c'è.
+        let vecchio = Data(#"{"coach":"uomo","nome":"Luca","vasca":"metri25","ritmo":"libero"}"#.utf8)
+        let letto = try JSONDecoder().decode(Profilo.self, from: vecchio)
+        XCTAssertNil(letto.personaggio)
+        XCTAssertEqual(letto.nome, "Luca")
+    }
+
+    func testPersonaggioNelContestoDelWatch() throws {
+        let w = Workout(titolo: "T", vascaMetri: 25, durataStimataMin: 20, blocchi: [
+            Blocco(tipo: .principale, serie: [Serie(ripetizioni: 1, distanzaMetri: 100, stile: .libero)])
+        ])
+        let con = try MessaggiWatch.contesto(allenamento: w, personaggio: "delfino")
+        XCTAssertEqual(MessaggiWatch.personaggio(da: con), "delfino")
+        XCTAssertEqual(MessaggiWatch.allenamento(da: con)?.titolo, "T")
+        // Senza personaggio la chiave non c'è e il Watch usa il primo (lo squalo).
+        XCTAssertNil(MessaggiWatch.personaggio(da: try MessaggiWatch.contesto(allenamento: w)))
+    }
+
     func testCoachImmagini() {
         XCTAssertEqual(CoachID.uomo.nome, "Antonio")
         XCTAssertEqual(CoachID.donna.prefissoImmagini, "pamela")

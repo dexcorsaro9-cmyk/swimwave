@@ -1,10 +1,10 @@
 import Foundation
 import SwimwaveCore
 
-/// Date e numeri per lo Storico, sempre in italiano (Locale it_IT).
+/// Date e numeri per lo Storico, nella lingua dell.app.
 /// Estende quanto c'è già in AllenamentoGuidato/Formati.swift (FormatoTempo, FormatiUI) senza toccarlo.
 enum FormatiStorico {
-    private static let locale = Locale(identifier: "it_IT")
+    private static let locale = Lingua.locale
 
     private static func formatoData(_ modello: String) -> DateFormatter {
         let f = DateFormatter()

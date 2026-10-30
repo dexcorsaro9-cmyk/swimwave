@@ -7,6 +7,8 @@ struct ProfiloView: View {
     @State private var confermaCancellazione = false
     @State private var mostraPermessoSalute = false
     @State private var mostraPermessoNotifiche = false
+    @State private var linguaScelta: Lingua? = Lingua.scelta
+    @State private var avvisoRiavvio = false
     /// Stessa chiave di RootView: dopo aver spiegato le notifiche qui, il primo avvio non le rispiega.
     @AppStorage("swimwave.permessoNotificheMostrato") private var notificheMostrate = false
 
@@ -15,7 +17,7 @@ struct ProfiloView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 0) {
-                    IntestazioneOnda {
+                    IntestazioneOnda(colori: SezioneColore.profilo.gradiente) {
                         HStack(spacing: 14) {
                             Text("profilo.titolo").font(Tema.titolo2)
                             Spacer(minLength: 0)
@@ -28,6 +30,11 @@ struct ProfiloView: View {
                         riga("profilo.coach") {
                             MenuScelta(titolo: testo("profilo.coach"), opzioni: CoachID.allCases,
                                        etichetta: { $0.nome }, selezione: $stato.profilo.coach)
+                        }
+                        if Personaggio.disponibili.count > 1 {
+                            riga("profilo.personaggio") {
+                                GrigliaPersonaggi(scelto: $stato.profilo.personaggio)
+                            }
                         }
                         riga("profilo.nome") {
                             TextField("lavagnetta.nome.segnaposto", text: $stato.profilo.nome)
@@ -92,6 +99,8 @@ struct ProfiloView: View {
                             }
                         }
 
+                        rigaLingua
+
                         rigaIA
 
                         if !stato.permessoSaluteChiesto {
@@ -112,6 +121,24 @@ struct ProfiloView: View {
                             }
                             .buttonStyle(.plain)
                         }
+
+                        NavigationLink {
+                            BackupView()
+                        } label: {
+                            HStack(spacing: 12) {
+                                Image(systemName: "externaldrive.fill.badge.icloud")
+                                    .foregroundStyle(SezioneColore.profilo.accento)
+                                    .accessibilityHidden(true)
+                                Text("profilo.backup")
+                                    .font(Tema.sottotitolo)
+                                    .foregroundStyle(Tema.testo)
+                                Spacer()
+                                Image(systemName: "chevron.right").foregroundStyle(Tema.testoSecondario)
+                                    .accessibilityHidden(true)
+                            }
+                            .carta()
+                        }
+                        .buttonStyle(.plain)
 
                         NavigationLink {
                             InformazioniView()
@@ -167,6 +194,9 @@ struct ProfiloView: View {
                     Task { await stato.riprogrammaPromemoria() }
                 }
             }
+            .onChange(of: stato.profilo.personaggio) { _, _ in
+                stato.aggiornaPersonaggioSulWatch()
+            }
             .onChange(of: stato.profilo.frequenzaSettimanale) { _, _ in
                 Task { await stato.riprogrammaPromemoria() }
             }
@@ -181,6 +211,53 @@ struct ProfiloView: View {
                 PermessoNotificheView { mostraPermessoNotifiche = false }
             }
         }
+    }
+
+    /// Lingua dell'app: Automatica (quella dell'iPhone) o una a scelta. Si applica alla riapertura dell'app.
+    private var rigaLingua: some View {
+        riga("profilo.lingua") {
+            VStack(alignment: .leading, spacing: 8) {
+                Menu {
+                    Button { cambia(lingua: nil) } label: {
+                        if linguaScelta == nil { Label("profilo.lingua.automatica", systemImage: "checkmark") }
+                        else { Text("profilo.lingua.automatica") }
+                    }
+                    ForEach(Lingua.allCases) { l in
+                        Button { cambia(lingua: l) } label: {
+                            if linguaScelta == l { Label(l.nome, systemImage: "checkmark") }
+                            else { Text(verbatim: l.nome) }
+                        }
+                    }
+                } label: {
+                    HStack {
+                        if let l = linguaScelta { Text(verbatim: l.nome) } else { Text("profilo.lingua.automatica") }
+                        Spacer()
+                        Image(systemName: "chevron.up.chevron.down").foregroundStyle(Tema.testoSecondario)
+                            .accessibilityHidden(true)
+                    }
+                    .font(Tema.corpo)
+                    .foregroundStyle(Tema.testo)
+                    .padding(12)
+                    .background(RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(Tema.turchese, lineWidth: 2))
+                }
+                Text("profilo.lingua.descrizione")
+                    .font(Tema.piccolo)
+                    .foregroundStyle(Tema.testoSecondario)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .alert("profilo.lingua.riavvio.titolo", isPresented: $avvisoRiavvio) {
+            Button("comune.chiudi", role: .cancel) {}
+        } message: {
+            Text("profilo.lingua.riavvio.messaggio")
+        }
+    }
+
+    private func cambia(lingua: Lingua?) {
+        guard lingua != linguaScelta else { return }
+        linguaScelta = lingua
+        Lingua.scelta = lingua
+        avvisoRiavvio = true
     }
 
     /// Interruttore del consenso all'IA: acceso = allenamenti preparati con l'intelligenza artificiale.
@@ -204,12 +281,19 @@ struct ProfiloView: View {
     }
 
     private func riga<Contenuto: View>(_ titolo: String, @ViewBuilder contenuto: () -> Contenuto) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(LocalizedStringKey(titolo))
-                .font(Tema.piccolo.weight(.bold))
-                .foregroundStyle(Tema.testoSecondario)
+        let colore = PalettePagine.colore(per: titolo)
+        return VStack(alignment: .leading, spacing: 8) {
+            HStack(spacing: 6) {
+                Circle().fill(colore).frame(width: 9, height: 9).accessibilityHidden(true)
+                Text(LocalizedStringKey(titolo))
+                    .font(Tema.piccolo.weight(.bold))
+                    .foregroundStyle(Tema.testoSecondario)
+            }
             contenuto()
         }
         .carta()
+        .overlay(alignment: .leading) {
+            Capsule().fill(colore).frame(width: 5).padding(.vertical, 14)
+        }
     }
 }

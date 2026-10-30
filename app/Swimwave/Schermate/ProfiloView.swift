@@ -194,6 +194,9 @@ struct ProfiloView: View {
                     Task { await stato.riprogrammaPromemoria() }
                 }
             }
+            .onChange(of: stato.profilo.personaggio) { _, _ in
+                stato.aggiornaPersonaggioSulWatch()
+            }
             .onChange(of: stato.profilo.frequenzaSettimanale) { _, _ in
                 Task { await stato.riprogrammaPromemoria() }
             }

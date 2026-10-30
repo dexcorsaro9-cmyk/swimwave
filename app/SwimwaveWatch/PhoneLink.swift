@@ -41,6 +41,10 @@ final class PhoneLink: NSObject, WCSessionDelegate {
     }
 
     private func consegna(_ contesto: [String: Any]) {
+        // Il personaggio scelto sull'iPhone si ricorda: vale anche per le nuotate libere e quando l'iPhone non c'è.
+        if let personaggio = MessaggiWatch.personaggio(da: contesto) {
+            PersonaggioWatch.imposta(id: personaggio)
+        }
         guard let workout = MessaggiWatch.allenamento(da: contesto) else { return }
         let passi = PianoAllenamento(workout: workout).passi.count
         let target = MessaggiWatch.target(da: contesto, passi: passi)

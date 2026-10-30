@@ -75,7 +75,6 @@ private struct SqualoEBolle: View {
     let foglio: FoglioPersonaggio
 
     private static let colonne = FoglioPersonaggio.colonne
-    private static let righe = FoglioPersonaggio.righe
 
     var body: some View {
         GeometryReader { geo in
@@ -99,7 +98,7 @@ private struct SqualoEBolle: View {
                     let i = ferma ? 0 : Int(t * 12) % foglio.totale
                     let col = i % Self.colonne, riga = i / Self.colonne
                     let tutta = CGRect(x: -CGFloat(col) * dimensione.width, y: -CGFloat(riga) * dimensione.height,
-                                       width: dimensione.width * CGFloat(Self.colonne), height: dimensione.height * CGFloat(Self.righe))
+                                       width: dimensione.width * CGFloat(Self.colonne), height: dimensione.height * CGFloat(foglio.righe))
                     contesto.clip(to: Path(CGRect(origin: .zero, size: dimensione)))
                     contesto.draw(immagine, in: tutta)
                 }

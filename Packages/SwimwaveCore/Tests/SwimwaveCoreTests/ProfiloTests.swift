@@ -118,6 +118,17 @@ final class ProfiloTests: XCTestCase {
         XCTAssertEqual(letto.nome, "Luca")
     }
 
+    func testPersonaggioNelContestoDelWatch() throws {
+        let w = Workout(titolo: "T", vascaMetri: 25, durataStimataMin: 20, blocchi: [
+            Blocco(tipo: .principale, serie: [Serie(ripetizioni: 1, distanzaMetri: 100, stile: .libero)])
+        ])
+        let con = try MessaggiWatch.contesto(allenamento: w, personaggio: "delfino")
+        XCTAssertEqual(MessaggiWatch.personaggio(da: con), "delfino")
+        XCTAssertEqual(MessaggiWatch.allenamento(da: con)?.titolo, "T")
+        // Senza personaggio la chiave non c'è e il Watch usa il primo (lo squalo).
+        XCTAssertNil(MessaggiWatch.personaggio(da: try MessaggiWatch.contesto(allenamento: w)))
+    }
+
     func testCoachImmagini() {
         XCTAssertEqual(CoachID.uomo.nome, "Antonio")
         XCTAssertEqual(CoachID.donna.prefissoImmagini, "pamela")

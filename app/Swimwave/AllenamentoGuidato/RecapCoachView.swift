@@ -352,7 +352,7 @@ struct SqualoRecap: View {
                 let riga = i / FoglioPersonaggio.colonne
                 let tutta = CGRect(x: -CGFloat(colonna) * dimensione.width, y: -CGFloat(riga) * dimensione.height,
                                    width: dimensione.width * CGFloat(FoglioPersonaggio.colonne),
-                                   height: dimensione.height * CGFloat(FoglioPersonaggio.righe))
+                                   height: dimensione.height * CGFloat(foglio.righe))
                 contesto.clip(to: Path(CGRect(origin: .zero, size: dimensione)))
                 contesto.draw(immagine, in: tutta)
             }

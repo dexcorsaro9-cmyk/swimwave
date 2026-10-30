@@ -599,7 +599,13 @@ final class StatoApp {
         guard let w = allenamentoDiOggi() else { return .errore }
         workoutPerWatch = w
         salva()
-        return watch.invia(allenamento: w, target: targetRitmo(per: w))
+        return watch.invia(allenamento: w, target: targetRitmo(per: w), personaggio: profilo.personaggio)
+    }
+
+    /// Cambiato il personaggio dal Profilo: il Watch lo sa solo insieme a un allenamento, quindi si rimanda l'ultimo mandato.
+    func aggiornaPersonaggioSulWatch() {
+        guard let w = workoutPerWatch else { return }
+        _ = watch.invia(allenamento: w, target: targetRitmo(per: w), personaggio: profilo.personaggio)
     }
 
     /// Una nuotata finita sul Watch arriva sull'iPhone: si registra e, se è nuova e recente, al prossimo sguardo
@@ -642,7 +648,7 @@ final class StatoApp {
         allenamentoScelto = allenamento
         giornoAllenamentoScelto = Calendar.italiano.ordinality(of: .day, in: .year, for: adesso) ?? 0
         workoutPerWatch = allenamento
-        _ = watch.invia(allenamento: allenamento, target: targetRitmo(per: allenamento))
+        _ = watch.invia(allenamento: allenamento, target: targetRitmo(per: allenamento), personaggio: profilo.personaggio)
         salva()
     }
 

@@ -6,13 +6,22 @@ public enum MessaggiWatch {
     public static let chiaveAllenamento = "allenamento"
     public static let chiaveNuotata = "nuotata"
     public static let chiaveTarget = "target"
+    public static let chiavePersonaggio = "personaggio"
 
     /// iPhone -> Watch: l'allenamento di oggi (application context: arriva anche a Watch spento, vale l'ultimo).
     /// `target` = tempo obiettivo in secondi per ogni ripetizione (stesso ordine di `PianoAllenamento.passi`), nil se non c'è.
     /// Si manda come lista di interi con 0 al posto di "nessun obiettivo": WatchConnectivity non ammette valori opzionali.
-    public static func contesto(allenamento: Workout, target: [Int?] = []) throws -> [String: Any] {
-        [chiaveAllenamento: try JSONEncoder().encode(allenamento),
-         chiaveTarget: target.map { $0 ?? 0 }]
+    /// `personaggio` = id del personaggio acquatico scelto (es. "delfino"): il Watch lo disegna al posto dello squalo.
+    public static func contesto(allenamento: Workout, target: [Int?] = [], personaggio: String? = nil) throws -> [String: Any] {
+        var c: [String: Any] = [chiaveAllenamento: try JSONEncoder().encode(allenamento),
+                                chiaveTarget: target.map { $0 ?? 0 }]
+        if let personaggio, !personaggio.isEmpty { c[chiavePersonaggio] = personaggio }
+        return c
+    }
+
+    /// Watch: il personaggio scelto sull'iPhone, se il contesto lo contiene.
+    public static func personaggio(da contesto: [String: Any]) -> String? {
+        (contesto[chiavePersonaggio] as? String).flatMap { $0.isEmpty ? nil : $0 }
     }
 
     /// Watch: i tempi obiettivo per ripetizione, se presenti e della lunghezza giusta.

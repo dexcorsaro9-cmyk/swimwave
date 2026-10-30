@@ -11,7 +11,7 @@ struct AnteprimaPersonaggio: View {
             let immagine = contesto.resolve(Image(foglio.nome))
             let tutta = CGRect(x: 0, y: 0,
                                width: dimensione.width * CGFloat(FoglioPersonaggio.colonne),
-                               height: dimensione.height * CGFloat(FoglioPersonaggio.righe))
+                               height: dimensione.height * CGFloat(foglio.righe))
             contesto.clip(to: Path(CGRect(origin: .zero, size: dimensione)))
             contesto.draw(immagine, in: tutta)
         }

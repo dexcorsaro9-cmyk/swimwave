@@ -18,12 +18,17 @@ Tutti si possono scegliere da chiunque: "per lui" e "per lei" indicano solo il c
 | 4 | Polpo | lei | curioso, ingegnoso, un po' buffo | viola corallo con ventose rosa |
 | 5 | Pinguino | lei | tenace, veloce sott'acqua | nero e bianco, becco e zampe arancio |
 
+## Stato
+
+- **Delfino:** fatto. Fogli in `assets/personaggi/delfino/`, già nell'app (iPhone e Watch).
+- Tartaruga marina, razza manta, polpo, pinguino: in attesa dei video.
+
 ## Come si producono (come per lo squalo)
 
 1. **Immagine base con Gemini**: un prompt per specie, completo.
 2. **Cinque video con Flow** partendo da quell'immagine: un prompt per posa, ciascuno completo (nessuna parte da aggiungere).
-3. Mandarmi i video: li trasformo in fogli di fotogrammi (9 colonne, sfondo trasparente, ciclo chiuso) per iPhone e Watch,
-   li aggiungo al catalogo immagini e il personaggio compare da solo nella scelta.
+3. Mandarmi i video: `tools/crea_fogli_personaggio.py` li trasforma in fogli di fotogrammi (9 colonne, sfondo trasparente, ciclo chiuso)
+   per iPhone e Watch; poi si registra il personaggio in `Personaggio.swift` (iPhone) e `Squalo.swift` (Watch) e compare nella scelta.
 
 Fogli per ogni personaggio: `<id>-nuota-sheet`, `<id>-festa-sheet`, `<id>-stanco-sheet` (iPhone), più
 `<id>-concentrato-sheet` e `<id>-attesa-sheet` (Watch). Per cominciare in piccolo bastano nuota, festa e stanco.

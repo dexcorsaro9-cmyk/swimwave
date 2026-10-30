@@ -9845,6 +9845,29 @@
         }
       }
     },
+    "personaggio.delfino": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delfino"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dolphin"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delfín"
+          }
+        }
+      }
+    },
     "personaggio.scelta.sottotitolo": {
       "extractionState": "manual",
       "localizations": {

@@ -8,17 +8,18 @@ struct FoglioPersonaggio {
     /// Altezza / larghezza di un fotogramma.
     let proporzione: CGFloat
     static let colonne = 9
-    static let righe = 5
 
-    var righeUsate: Int { (totale + Self.colonne - 1) / Self.colonne }
+    /// Righe del foglio: i fotogrammi sono messi in fila, 9 per riga.
+    var righe: Int { (totale + Self.colonne - 1) / Self.colonne }
 }
 
 /// I personaggi acquatici che accompagnano l'utente: nessuno ha un nome, solo la specie.
 /// Si sceglie al primo avvio e si cambia dal Profilo (`Profilo.personaggio`).
 ///
-/// COME SI AGGIUNGE UN PERSONAGGIO: mettere i fogli nel catalogo immagini (`<id>-nuota-sheet`, `<id>-festa-sheet`,
-/// `<id>-stanco-sheet`, vedi assets/personaggi/README.md) e aggiungere una riga a `tutti` con il numero di
-/// fotogrammi e la proporzione. Finché i fogli non ci sono il personaggio non compare nella scelta.
+/// COME SI AGGIUNGE UN PERSONAGGIO: dai video di Flow `tools/crea_fogli_personaggio.py` crea i fogli
+/// (`<id>-nuota-sheet`, `<id>-festa-sheet`, `<id>-stanco-sheet` per l'iPhone, più concentrato e attesa per il Watch) e stampa
+/// numero di fotogrammi e proporzione: vanno riportati qui e in app/SwimwaveWatch/Squalo.swift.
+/// Finché i fogli non ci sono il personaggio non compare nella scelta.
 struct Personaggio: Identifiable, Equatable {
     let id: String
     /// Chiave in Localizable.xcstrings con la specie ("Squalo", "Delfino"…).
@@ -37,8 +38,16 @@ struct Personaggio: Identifiable, Equatable {
         stanco: FoglioPersonaggio(nome: "squalo-stanco-sheet", totale: 44, proporzione: 105.0 / 200.0)
     )
 
+    static let delfino = Personaggio(
+        id: "delfino",
+        chiaveSpecie: "personaggio.delfino",
+        nuota: FoglioPersonaggio(nome: "delfino-nuota-sheet", totale: 19, proporzione: 135.0 / 240.0),
+        festa: FoglioPersonaggio(nome: "delfino-festa-sheet", totale: 44, proporzione: 113.0 / 200.0),
+        stanco: FoglioPersonaggio(nome: "delfino-stanco-sheet", totale: 44, proporzione: 91.0 / 200.0)
+    )
+
     /// Tutti i personaggi previsti, il primo è quello di partenza.
-    static let tutti: [Personaggio] = [squalo]
+    static let tutti: [Personaggio] = [squalo, delfino]
 
     /// Quelli che hanno davvero i fogli nell'app: solo questi si possono scegliere.
     static var disponibili: [Personaggio] {

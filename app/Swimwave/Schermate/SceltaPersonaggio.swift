@@ -1,4 +1,5 @@
 import SwiftUI
+import SwimwaveCore
 
 /// Primo fotogramma del personaggio, fermo: serve per le schede della scelta.
 struct AnteprimaPersonaggio: View {

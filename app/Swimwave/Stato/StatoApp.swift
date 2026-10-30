@@ -96,7 +96,7 @@ final class StatoApp {
         #endif
         // La cartella content/ è inclusa nell'app come "folder reference" (vedi project.yml).
         let base = Bundle.main.resourceURL?.appendingPathComponent("content")
-        return ContentStore(includeBozze: bozze) { percorso in
+        return ContentStore(includeBozze: bozze, lingua: Lingua.corrente.rawValue) { percorso in
             guard let url = base?.appendingPathComponent(percorso) else { return nil }
             return try? Data(contentsOf: url)
         }

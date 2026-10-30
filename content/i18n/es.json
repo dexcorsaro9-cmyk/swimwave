@@ -1,0 +1,559 @@
+{
+  "nota": "Traduzioni dei contenuti tecnici (originali in italiano nei file di content/). Generato da tools/genera_traduzioni.py: non modificare a mano.",
+  "tappe": {
+    "1": {
+      "nome": "Confianza en el agua y flotación",
+      "obiettivo": "Estar en el agua con tranquilidad y sentirse sostenido.",
+      "test": "Flotas boca abajo durante 10 segundos y boca arriba durante 15 segundos, en agua donde hagas pie, y te levantas solo."
+    },
+    "2": {
+      "nome": "Respiración",
+      "obiettivo": "Espirar en el agua e inspirar girando la cabeza.",
+      "test": "Soplas burbujas al menos 3 veces con la nariz y la boca bajo el agua y haces 5 respiraciones rítmicas girando la cabeza, sin tragar agua."
+    },
+    "3": {
+      "nome": "Posición del cuerpo y deslizamiento",
+      "obiettivo": "Tener un cuerpo alargado que se deslice.",
+      "test": "Tras el impulso desde el borde te deslizas boca abajo y boca arriba manteniéndote alineado, con la cabeza entre los brazos."
+    },
+    "4": {
+      "nome": "Patada",
+      "obiettivo": "Una patada continua que parte de la cadera.",
+      "test": "Recorres 10 metros de patada de crol, con o sin tabla."
+    },
+    "5": {
+      "nome": "Brazada de crol",
+      "obiettivo": "Una brazada larga y coordinada.",
+      "test": "Nadas 25 metros de crol sin parar, incluso con una respiración simplificada."
+    },
+    "6": {
+      "nome": "Coordinación y respiración lateral",
+      "obiettivo": "Respirar de lado con ritmo sin perder la posición.",
+      "test": "Nadas 50 metros de crol respirando con ritmo, sin parar."
+    },
+    "7": {
+      "nome": "Nadar con continuidad",
+      "obiettivo": "Construir una resistencia de base con un ritmo fácil.",
+      "test": "Nadas 100 metros de crol sin parar, con un ritmo fácil."
+    },
+    "8": {
+      "nome": "Espalda",
+      "obiettivo": "Nadar espalda con patada y brazada coordinadas.",
+      "test": "Nadas 25 metros de espalda con patada y brazada coordinadas."
+    },
+    "9": {
+      "nome": "Braza",
+      "obiettivo": "Coordinar brazada, patada y deslizamiento.",
+      "test": "Nadas 25 metros de braza con deslizamiento después de cada ciclo."
+    },
+    "10": {
+      "nome": "Mariposa",
+      "obiettivo": "Aprender la ondulación y su coordinación.",
+      "test": "Nadas 25 metros de mariposa con la ondulación guiada por el pecho."
+    }
+  },
+  "drill": {
+    "galleggiamento-a-stella": {
+      "nome": "Flotación en estrella",
+      "scopo": "Sentir que el agua te sostiene y aprender a relajarte.",
+      "esecuzione": "En agua donde hagas pie, llena los pulmones y déjate flotar boca abajo con los brazos y las piernas abiertos en forma de estrella. Después prueba boca arriba. Para ponerte de pie, lleva las rodillas al pecho y apoya los pies. Otras posiciones útiles: la medusa y el ovillo.",
+      "errore_da_evitare": "Ponerse rígido y mantener la cabeza alta: el cuerpo se hunde."
+    },
+    "bolle-in-acqua": {
+      "nome": "Burbujas en el agua",
+      "scopo": "Aprender a soltar el aire en el agua.",
+      "esecuzione": "De pie en agua poco profunda, mete la cara y suelta el aire por la nariz y por la boca de forma continua. Levanta la cara, inspira y repite con un ritmo regular.",
+      "errore_da_evitare": "Aguantar la respiración bajo el agua."
+    },
+    "respirazione-al-bordo": {
+      "nome": "Respiración en el borde",
+      "scopo": "Coordinar la espiración y la inspiración girando la cabeza.",
+      "esecuzione": "Agárrate al borde con las manos. Mete la cara y espira; después gira la cabeza hacia un lado para inspirar con la boca justo fuera del agua y vuelve a meter la cara. Repite con un ritmo regular, hacia los dos lados.",
+      "errore_da_evitare": "Levantar la cabeza hacia delante en lugar de girarla hacia un lado."
+    },
+    "scivolamento-a-freccia": {
+      "nome": "Deslizamiento en flecha",
+      "scopo": "Encontrar una posición alargada que se deslice bien.",
+      "esecuzione": "Impúlsate desde el borde con los pies, con los brazos estirados hacia delante, la cabeza entre los brazos y el cuerpo estirado, boca abajo y después boca arriba. Deslízate hasta perder velocidad y apoya los pies.",
+      "errore_da_evitare": "Perder la alineación: cabeza levantada o piernas que se hunden."
+    },
+    "battuta-con-tavoletta": {
+      "nome": "Patada con tabla",
+      "scopo": "Entrenar la patada de forma sencilla.",
+      "esecuzione": "Sujeta la tabla con los brazos estirados, con el cuerpo en horizontal. Bate las piernas de forma continua desde la cadera, con los pies cerca de la superficie. La tabla es opcional.",
+      "errore_da_evitare": "Pedalear doblando demasiado las rodillas."
+    },
+    "battuta-con-un-braccio-teso": {
+      "nome": "Patada con un brazo estirado",
+      "scopo": "Alargar el cuerpo y preparar la rotación.",
+      "esecuzione": "Un brazo estirado hacia delante y el otro a lo largo del costado. Gira las caderas y los hombros unos 45 grados, manteniendo la cabeza quieta, y bate las piernas de forma continua.",
+      "errore_da_evitare": "Girar demasiado o mover la cabeza."
+    },
+    "catch-up": {
+      "nome": "Catch-up",
+      "scopo": "Alargar la brazada y coordinar los brazos.",
+      "esecuzione": "Nada crol, pero una mano solo sale cuando la otra la ha alcanzado delante. Entra en el agua con los dedos primero y deja que la mano se deslice hacia delante.",
+      "errore_da_evitare": "Apresurar las brazadas como las palas de un molino, con los brazos moviéndose en oposición."
+    },
+    "un-braccio-solo": {
+      "nome": "Un solo brazo",
+      "scopo": "Cuidar la brazada y la rotación del cuerpo, un brazo cada vez.",
+      "esecuzione": "Un brazo se queda a lo largo del costado o estirado hacia delante mientras el otro hace la brazada. Cambia de lado tras unas cuantas brazadas y sigue batiendo las piernas.",
+      "errore_da_evitare": "Parar el cuerpo o perder la posición de la cabeza mientras un brazo trabaja."
+    },
+    "dita-sull-acqua": {
+      "nome": "Dedos sobre el agua",
+      "scopo": "Tener una recuperación relajada con el codo alto.",
+      "esecuzione": "Nada catch-up y, durante la recuperación, arrastra la punta de los dedos por la superficie del agua.",
+      "errore_da_evitare": "El codo bajo y la recuperación rígida."
+    },
+    "respirazione-laterale-con-tavoletta": {
+      "nome": "Respiración lateral con tabla",
+      "scopo": "Aprender a respirar de lado mientras nadas.",
+      "esecuzione": "Sujeta la tabla con un brazo. Con el otro haz la brazada y gira la cabeza junto con el cuerpo para respirar, mientras las piernas baten. Después cambia de brazo.",
+      "errore_da_evitare": "Levantar la cabeza en lugar de girarla con el cuerpo."
+    },
+    "sei-colpi-e-cambio": {
+      "nome": "Seis patadas y cambio",
+      "scopo": "Controlar la rotación y alargar la brazada.",
+      "esecuzione": "Seis patadas sobre un costado, con un brazo estirado hacia delante y el otro a lo largo del cuerpo. Después una brazada con el brazo estirado y el paso al otro costado, y otras seis patadas. Se puede hacer con aletas.",
+      "errore_da_evitare": "Perder la patada durante el cambio de lado."
+    },
+    "nuotata-con-pull-buoy": {
+      "nome": "Nado con pull buoy",
+      "scopo": "Concentrarse en los brazos y en el cuerpo alineado.",
+      "esecuzione": "Sujeta el pull buoy entre los muslos y nada crol usando solo los brazos, a un ritmo fácil.",
+      "errore_da_evitare": "Perder la alineación del cuerpo y de la cabeza."
+    },
+    "battuta-sul-dorso": {
+      "nome": "Patada de espalda",
+      "scopo": "Posición y patada en la espalda.",
+      "esecuzione": "Boca arriba, con los brazos a lo largo de los costados, mira hacia arriba y un poco hacia los pies, con la cabeza alineada y los hombros bajos. Bate las piernas desde la cadera, con poca flexión de las rodillas.",
+      "errore_da_evitare": "Arquear la espalda abriendo las costillas."
+    },
+    "dorso-un-braccio-alla-volta": {
+      "nome": "Espalda a un brazo",
+      "scopo": "Cuidar la brazada y la rotación en la espalda.",
+      "esecuzione": "Boca arriba, un brazo estirado por encima de la cabeza mientras el otro hace la brazada, con la patada continua. Gira las caderas y los hombros unos 45 grados. Cambia de brazo tras unas cuantas brazadas.",
+      "errore_da_evitare": "Subir el hombro hacia la barbilla."
+    },
+    "gambata-di-rana-al-bordo": {
+      "nome": "Patada de braza en el borde",
+      "scopo": "Aprender el movimiento de las piernas en la braza.",
+      "esecuzione": "Agárrate al borde con los brazos doblados y el cuerpo estirado. Lleva los talones hacia los glúteos, con las rodillas un poco más abiertas que las caderas. Gira los pies hacia fuera, flexiónalos y empuja hacia atrás en un movimiento circular, terminando con las piernas estiradas y juntas.",
+      "errore_da_evitare": "No girar los pies hacia fuera: es el error más frecuente."
+    },
+    "rana-con-scivolo": {
+      "nome": "Braza con deslizamiento",
+      "scopo": "Encontrar el ritmo entre brazada, patada y deslizamiento.",
+      "esecuzione": "Nada braza respetando la secuencia: brazada, respiración, patada, deslizamiento con los brazos estirados. Cuenta mentalmente durante el deslizamiento antes del ciclo siguiente.",
+      "errore_da_evitare": "Adelantar la patada o saltarse el deslizamiento."
+    },
+    "onda-del-delfino": {
+      "nome": "Onda del delfín",
+      "scopo": "Aprender el movimiento ondulatorio guiado por el pecho.",
+      "esecuzione": "En el agua, empuja el pecho hacia abajo: las caderas suben. Después baja las caderas y deja que el movimiento llegue hasta los pies. Las aletas y el tubo ayudan a concentrarse en el movimiento del cuerpo.",
+      "errore_da_evitare": "Mover solo las piernas en lugar de hacer que la onda parta del pecho."
+    },
+    "dorso-battuta-con-rotazione": {
+      "nome": "Patada de espalda con rotación",
+      "scopo": "Aprender a girar el cuerpo manteniéndose alineado, con la patada que parte de la cadera.",
+      "esecuzione": "Boca arriba, con los brazos a lo largo de los costados, mira hacia arriba y un poco hacia los pies. Bate las piernas desde la cadera y gira las caderas y el cuerpo de un lado a otro, con los hombros bajos y la cabeza quieta. Al principio puedes sujetar un flotador con las manos a los lados, por encima de las caderas; se pueden usar aletas.",
+      "errore_da_evitare": "Subir los hombros durante la rotación o inclinar la cabeza demasiado hacia atrás, abriendo las costillas."
+    },
+    "gambata-di-rana-sul-dorso": {
+      "nome": "Patada de braza boca arriba",
+      "scopo": "Controlar la recuperación de las piernas y el impulso de la braza en posición alargada.",
+      "esecuzione": "Boca arriba, en posición alargada y plana en la superficie, lleva los pies bajo las rodillas manteniendo las rodillas a la altura del agua. Terminada la recuperación, gira los pies hacia fuera y empuja hacia atrás hasta juntar talones y pies, con las puntas de los pies estiradas hacia atrás. Un pull buoy puede ayudar a mantener las rodillas en posición neutra.",
+      "errore_da_evitare": "Sacar las rodillas del agua o abrir las costillas."
+    },
+    "rana-due-gambate-una-bracciata": {
+      "nome": "Braza: dos patadas, una brazada",
+      "scopo": "Cuidar la posición alargada y la respiración reduciendo el número de brazadas.",
+      "esecuzione": "Nada braza haciendo dos patadas por cada brazada. Tras la respiración, vuelve a poner enseguida la cabeza en línea con el cuerpo. Impúlsate hacia delante justo bajo la superficie, sin bajar a profundidad, y usa la segunda patada para avanzar como una flecha.",
+      "errore_da_evitare": "Mantener la cabeza alta después de respirar o sumergirse demasiado."
+    },
+    "rana-corpo-verso-le-mani": {
+      "nome": "Braza: el cuerpo hacia las manos",
+      "scopo": "Entender que en la brazada de braza es el cuerpo el que avanza hacia las manos.",
+      "esecuzione": "Empieza en posición alargada. En cuanto las manos se abren, sujeta el agua con las palmas, normalmente más allá del ancho de los hombros, y gira las manos hacia atrás. Lleva el cuerpo hacia delante, hacia las manos, y vuelve a la posición alargada tras cada brazada completa. Se puede hacer con un pull buoy.",
+      "errore_da_evitare": "Tirar de las manos hacia el cuerpo en lugar de llevar el cuerpo hacia las manos."
+    },
+    "delfino-un-braccio-alla-volta": {
+      "nome": "Mariposa a un brazo",
+      "scopo": "Cuidar la brazada de mariposa un brazo cada vez, manteniendo la ondulación.",
+      "esecuzione": "Un brazo se queda estirado hacia delante y estabiliza el cuerpo, mientras el otro hace la brazada y la recuperación cerca de la superficie, estirado pero relajado. Respira hacia delante solo en las brazadas completas con los dos brazos. Alterna los lados.",
+      "errore_da_evitare": "Dejar que el cuerpo gire: el brazo de delante sirve para mantenerlo estable."
+    }
+  },
+  "errori": {
+    "testa-alta": {
+      "nome": "Cabeza levantada",
+      "come_si_riconosce": "Se mira hacia delante y las piernas tienden a hundirse.",
+      "perche_e_un_problema": "Las piernas se hunden y aumenta la resistencia.",
+      "correzione": "Mira al fondo con la cabeza en línea con el cuerpo, como si fuera un único lápiz."
+    },
+    "respiro-trattenuto": {
+      "nome": "Respiración contenida",
+      "come_si_riconosce": "Se aguanta el aire bajo el agua y se inspira con ahogo.",
+      "perche_e_un_problema": "La inspiración se vuelve larga y entrecortada.",
+      "correzione": "Espira de forma continua en el agua e inspira en un instante girando la cabeza."
+    },
+    "gambe-che-pedalano": {
+      "nome": "Piernas que pedalean",
+      "come_si_riconosce": "Las rodillas se doblan mucho.",
+      "perche_e_un_problema": "Se gasta energía sin avanzar.",
+      "correzione": "Haz que la patada parta de la cadera, con poca flexión de las rodillas y los pies cerca de la superficie."
+    },
+    "braccia-incrociate": {
+      "nome": "Brazos que se cruzan por delante",
+      "come_si_riconosce": "La mano entra en el agua más allá del centro del cuerpo.",
+      "perche_e_un_problema": "Reduce la eficiencia y puede cansar el hombro.",
+      "correzione": "Haz entrar la mano delante del hombro, sin pasar la línea del cuerpo."
+    },
+    "braccia-a-mulino": {
+      "nome": "Brazos de molino",
+      "come_si_riconosce": "Los brazos se mueven en oposición y la tracción empieza demasiado pronto.",
+      "perche_e_un_problema": "Se rompe el ritmo de la brazada y de la respiración.",
+      "correzione": "Mantén un brazo estirado delante hasta que el otro lo alcance."
+    },
+    "testa-alzata-per-respirare": {
+      "nome": "Cabeza levantada para respirar",
+      "come_si_riconosce": "Para respirar se levanta la cabeza en lugar de girarla.",
+      "perche_e_un_problema": "Las piernas se hunden y aumenta la resistencia.",
+      "correzione": "Gira la cabeza, los hombros y las caderas a la vez, sin exagerar."
+    },
+    "recupero-anticipato": {
+      "nome": "Recuperación demasiado anticipada",
+      "come_si_riconosce": "El brazo sale del agua antes de terminar el empuje.",
+      "perche_e_un_problema": "Se pierde potencia en la parte final de la brazada.",
+      "correzione": "Lleva la mano hasta el muslo y cuenta las brazadas por largo, intentando reducirlas."
+    },
+    "partenza-troppo-forte": {
+      "nome": "Salida demasiado fuerte",
+      "come_si_riconosce": "Los primeros largos son rápidos y después hay que parar.",
+      "perche_e_un_problema": "El entrenamiento se interrumpe.",
+      "correzione": "Empieza despacio, a un ritmo que te permita hablar entre un largo y otro."
+    },
+    "collo-e-spalle-rigidi": {
+      "nome": "Cuello y hombros rígidos",
+      "come_si_riconosce": "Los hombros están altos y el cuello tenso.",
+      "perche_e_un_problema": "La rigidez hace que te hundas y te cansa antes.",
+      "correzione": "Relaja los hombros y deja que el agua te sostenga."
+    },
+    "niente-riscaldamento-e-recupero": {
+      "nome": "Sin calentamiento ni vuelta a la calma",
+      "come_si_riconosce": "Se empieza y se termina de golpe, sin largos fáciles.",
+      "perche_e_un_problema": "Se empieza en frío y se termina sin bajar el ritmo.",
+      "correzione": "Empieza y termina siempre con unos cuantos largos fáciles."
+    },
+    "dorso-testa-troppo-indietro": {
+      "nome": "Cabeza demasiado atrás en la espalda",
+      "come_si_riconosce": "La barbilla apunta hacia arriba y las costillas se abren.",
+      "perche_e_un_problema": "Se pierde la conexión con el centro del cuerpo y la posición se debilita.",
+      "correzione": "Mantén la cabeza en línea con el cuerpo, mira hacia arriba y un poco hacia los pies, y mantén las costillas bajas."
+    },
+    "dorso-spalla-al-mento": {
+      "nome": "Hombro que sube hacia la barbilla en la espalda",
+      "come_si_riconosce": "Durante la rotación un hombro sale del agua y sube hacia la barbilla.",
+      "perche_e_un_problema": "La rotación parte del hombro en lugar de las caderas y se pierde la posición de la cabeza y del cuerpo.",
+      "correzione": "Gira desde las caderas, mantén los hombros bajos y la posición de la cabeza y del cuerpo estable."
+    },
+    "rana-piedi-non-ruotati": {
+      "nome": "Pies sin girar hacia fuera en la braza",
+      "come_si_riconosce": "En la patada los pies se quedan en línea con las piernas, sin girar hacia fuera.",
+      "perche_e_un_problema": "Sin los pies girados y flexionados, el empuje hacia atrás es débil.",
+      "correzione": "Lleva los talones hacia los glúteos, gira los pies hacia fuera y flexiónalos; después empuja hacia atrás en un movimiento circular hasta tener las piernas estiradas y juntas."
+    },
+    "rana-mani-verso-il-corpo": {
+      "nome": "Manos que tiran hacia el cuerpo en la braza",
+      "come_si_riconosce": "En la brazada las manos se llevan hacia el cuerpo y el agarre del agua es escaso.",
+      "perche_e_un_problema": "No se aprovecha el agarre del agua para avanzar.",
+      "correzione": "Tras la apertura, sujeta el agua con las palmas y lleva el cuerpo hacia delante, hacia las manos; después vuelve a la posición alargada."
+    },
+    "rana-senza-scivolo": {
+      "nome": "Braza sin volver a la posición alargada",
+      "come_si_riconosce": "Tras la brazada se vuelve a empezar enseguida, sin llevar el cuerpo a la posición alargada.",
+      "perche_e_un_problema": "Se pierde el avance que dio la patada.",
+      "correzione": "Tras cada brazada completa vuelve a la posición de flecha y quédate alargado mientras te deslizas, contando mentalmente."
+    },
+    "rana-testa-alta-dopo-il-respiro": {
+      "nome": "Cabeza alta tras la respiración en la braza",
+      "come_si_riconosce": "Después de respirar la cabeza se queda fuera y el cuerpo no vuelve a la línea.",
+      "perche_e_un_problema": "El cuerpo no está alargado justo cuando debería deslizarse.",
+      "correzione": "Vuelve a poner la cabeza en línea con el cuerpo lo antes posible y deslízate justo bajo la superficie, sin bajar a profundidad."
+    },
+    "delfino-solo-gambe": {
+      "nome": "Mariposa solo con las piernas",
+      "come_si_riconosce": "Las piernas baten pero la ondulación no parte del pecho.",
+      "perche_e_un_problema": "El movimiento pierde fluidez y el cuerpo no trabaja como una única onda.",
+      "correzione": "Presiona el pecho hacia abajo y deja que el movimiento baje hasta los pies: la patada nace del pecho."
+    },
+    "delfino-piede-fuori-dall-acqua": {
+      "nome": "Pie que sale entero del agua en la mariposa",
+      "come_si_riconosce": "En la patada sale del agua todo el pie.",
+      "perche_e_un_problema": "La patada pierde su forma y su ritmo con los brazos.",
+      "correzione": "Deja que afloren solo los talones y la punta de los pies, y cuida los dos momentos de empuje: salida y entrada de las manos."
+    },
+    "delfino-spalle-alte": {
+      "nome": "Hombros hacia la cabeza en la mariposa",
+      "come_si_riconosce": "Cuando las manos empiezan la tracción, los hombros suben hacia las orejas.",
+      "perche_e_un_problema": "El codo no se mantiene alto y la tracción se debilita.",
+      "correzione": "Mantén los hombros bajos manteniendo los codos altos."
+    }
+  },
+  "zone": {
+    "facile": {
+      "nome": "Fácil",
+      "descrizione": "Un ritmo cómodo, con el que puedes respirar con tranquilidad y pensar en la técnica. Va bien para calentar, para recuperar y para cuando quieres nadar sin esfuerzo."
+    },
+    "regolare": {
+      "nome": "Regular",
+      "descrizione": "Un ritmo constante que notas pero que puedes mantener mucho tiempo. Es la zona para construir resistencia, largo tras largo."
+    },
+    "sostenuto": {
+      "nome": "Sostenido",
+      "descrizione": "Un ritmo exigente pero controlado, justo por debajo de tu ritmo de referencia. Se nota el esfuerzo, pero sabes que puedes llegar al final de la serie."
+    },
+    "ritmo-critico": {
+      "nome": "Exigente",
+      "descrizione": "Un ritmo duro, un poco por debajo del de tus 200 m a tope. Se usa en series cortas con pausas breves, no para nadar mucho rato seguido."
+    },
+    "veloce": {
+      "nome": "Rápido",
+      "descrizione": "El ritmo de tus 200 m a tope o casi. Para tramos cortos, con una pausa de verdad después de cada tramo: solo lo usan los más expertos."
+    }
+  },
+  "istruzioni_test": "La prueba sirve para encontrar tu ritmo de referencia. Antes de la prueba: hazla solo si te encuentras bien y estás acostumbrado a nadar con continuidad (se recomienda a partir del nivel intermedio). Un esfuerzo a tope cansa: en caso de duda, consulta con tu médico. Cómo se hace: 1) Calienta con 200-400 m fáciles, más algunos cambios de ritmo cortos. 2) Nada 200 m de crol a tope, es decir, al ritmo más rápido que puedas mantener hasta el final, saliendo desde el borde (sin salto). Reparte el esfuerzo con inteligencia: no salgas demasiado fuerte. 3) Anota el tiempo e introdúcelo en la app. Si el tiempo te parece demasiado lejano de lo que haces normalmente, repite la prueba otro día. Si te encuentras mal, para y descansa.",
+  "titoli": {
+    "Bracciata lunga": "Brazada larga",
+    "Continuità con il pull buoy": "Continuidad con el pull buoy",
+    "Costanza in vasca": "Constancia en la piscina",
+    "Costruire resistenza": "Construir resistencia",
+    "Delfino: l'onda dal petto": "Mariposa: la onda desde el pecho",
+    "Dorso e rana": "Espalda y braza",
+    "Dorso e stile libero": "Espalda y crol",
+    "Fondo facile": "Fondo suave",
+    "Fondo facile: 10 × 25 m": "Fondo suave: 10 × 25 m",
+    "Fondo facile: 10 × 25 m · 475 m": "Fondo suave: 10 × 25 m · 475 m",
+    "Fondo facile: 10 × 25 m · 500 m": "Fondo suave: 10 × 25 m · 500 m",
+    "Fondo facile: 10 × 25 m · 525 m": "Fondo suave: 10 × 25 m · 525 m",
+    "Fondo facile: 10 × 25 m · 550 m": "Fondo suave: 10 × 25 m · 550 m",
+    "Fondo facile: 10 × 25 m · 550 m · variante 2": "Fondo suave: 10 × 25 m · 550 m · variante 2",
+    "Fondo facile: 10 × 25 m · 575 m": "Fondo suave: 10 × 25 m · 575 m",
+    "Fondo facile: 12 × 25 m": "Fondo suave: 12 × 25 m",
+    "Fondo facile: 12 × 25 m · 550 m": "Fondo suave: 12 × 25 m · 550 m",
+    "Fondo facile: 12 × 25 m · 550 m · variante 2": "Fondo suave: 12 × 25 m · 550 m · variante 2",
+    "Fondo facile: 12 × 25 m · 550 m · variante 3": "Fondo suave: 12 × 25 m · 550 m · variante 3",
+    "Fondo facile: 12 × 25 m · 550 m · variante 4": "Fondo suave: 12 × 25 m · 550 m · variante 4",
+    "Fondo facile: 12 × 25 m · 550 m · variante 5": "Fondo suave: 12 × 25 m · 550 m · variante 5",
+    "Fondo facile: 12 × 25 m · 550 m · variante 6": "Fondo suave: 12 × 25 m · 550 m · variante 6",
+    "Fondo facile: 3 × 50 m + 3 × 50 m": "Fondo suave: 3 × 50 m + 3 × 50 m",
+    "Fondo facile: 3 × 50 m + 3 × 50 m · 575 m": "Fondo suave: 3 × 50 m + 3 × 50 m · 575 m",
+    "Fondo facile: 3 × 50 m + 3 × 50 m · 575 m · variante 2": "Fondo suave: 3 × 50 m + 3 × 50 m · 575 m · variante 2",
+    "Fondo facile: 3 × 50 m + 4 × 50 m": "Fondo suave: 3 × 50 m + 4 × 50 m",
+    "Fondo facile: 4 × 50 m + 4 × 25 m": "Fondo suave: 4 × 50 m + 4 × 25 m",
+    "Fondo facile: 4 × 50 m + 4 × 25 m · 550 m": "Fondo suave: 4 × 50 m + 4 × 25 m · 550 m",
+    "Fondo facile: 4 × 50 m + 4 × 25 m · 550 m · variante 2": "Fondo suave: 4 × 50 m + 4 × 25 m · 550 m · variante 2",
+    "Fondo facile: 4 × 50 m + 4 × 25 m · 550 m · variante 3": "Fondo suave: 4 × 50 m + 4 × 25 m · 550 m · variante 3",
+    "Fondo facile: 4 × 50 m + 4 × 25 m · 575 m": "Fondo suave: 4 × 50 m + 4 × 25 m · 575 m",
+    "Fondo facile: 5 × 50 m": "Fondo suave: 5 × 50 m",
+    "Fondo facile: 5 × 50 m · 550 m": "Fondo suave: 5 × 50 m · 550 m",
+    "Fondo facile: 6 × 50 m": "Fondo suave: 6 × 50 m",
+    "Fondo facile: 6 × 50 m · 550 m": "Fondo suave: 6 × 50 m · 550 m",
+    "Fondo facile: 6 × 50 m · 550 m · variante 2": "Fondo suave: 6 × 50 m · 550 m · variante 2",
+    "Fondo facile: 7 × 50 m": "Fondo suave: 7 × 50 m",
+    "Fondo facile: 7 × 50 m · 575 m": "Fondo suave: 7 × 50 m · 575 m",
+    "Fondo facile: 8 × 25 m": "Fondo suave: 8 × 25 m",
+    "Fondo facile: 8 × 25 m · 425 m": "Fondo suave: 8 × 25 m · 425 m",
+    "Fondo facile: 8 × 25 m · 450 m": "Fondo suave: 8 × 25 m · 450 m",
+    "Fondo facile: 8 × 25 m · 475 m": "Fondo suave: 8 × 25 m · 475 m",
+    "Fondo facile: 8 × 25 m · 500 m": "Fondo suave: 8 × 25 m · 500 m",
+    "Fondo facile: 8 × 25 m · 500 m · variante 2": "Fondo suave: 8 × 25 m · 500 m · variante 2",
+    "Fondo: 1 × 400 m + 2 × 100 m": "Fondo: 1 × 400 m + 2 × 100 m",
+    "Fondo: 1 × 400 m + 2 × 100 m · 1000 m": "Fondo: 1 × 400 m + 2 × 100 m · 1000 m",
+    "Fondo: 1 × 400 m + 2 × 100 m · 1000 m · variante 2": "Fondo: 1 × 400 m + 2 × 100 m · 1000 m · variante 2",
+    "Fondo: 1 × 400 m + 2 × 100 m · 1050 m": "Fondo: 1 × 400 m + 2 × 100 m · 1050 m",
+    "Fondo: 1 × 400 m + 2 × 100 m · 1100 m": "Fondo: 1 × 400 m + 2 × 100 m · 1100 m",
+    "Fondo: 1 × 400 m + 2 × 100 m · 1100 m · variante 2": "Fondo: 1 × 400 m + 2 × 100 m · 1100 m · variante 2",
+    "Fondo: 1 × 400 m + 2 × 100 m · 1150 m": "Fondo: 1 × 400 m + 2 × 100 m · 1150 m",
+    "Fondo: 1 × 400 m + 2 × 100 m · 1150 m · variante 2": "Fondo: 1 × 400 m + 2 × 100 m · 1150 m · variante 2",
+    "Fondo: 1 × 400 m + 2 × 100 m · 1200 m": "Fondo: 1 × 400 m + 2 × 100 m · 1200 m",
+    "Fondo: 2 × 300 m": "Fondo: 2 × 300 m",
+    "Fondo: 2 × 300 m · 1100 m": "Fondo: 2 × 300 m · 1100 m",
+    "Fondo: 2 × 300 m · 1150 m": "Fondo: 2 × 300 m · 1150 m",
+    "Fondo: 3 × 200 m": "Fondo: 3 × 200 m",
+    "Fondo: 3 × 200 m · 1050 m": "Fondo: 3 × 200 m · 1050 m",
+    "Fondo: 3 × 200 m · 1100 m": "Fondo: 3 × 200 m · 1100 m",
+    "Fondo: 3 × 200 m · 1100 m · variante 2": "Fondo: 3 × 200 m · 1100 m · variante 2",
+    "Fondo: 4 × 150 m": "Fondo: 4 × 150 m",
+    "Fondo: 4 × 150 m · 1000 m": "Fondo: 4 × 150 m · 1000 m",
+    "Fondo: 4 × 150 m · 1100 m": "Fondo: 4 × 150 m · 1100 m",
+    "Fondo: 4 × 150 m · 1100 m · variante 2": "Fondo: 4 × 150 m · 1100 m · variante 2",
+    "Fondo: 4 × 150 m · 1150 m": "Fondo: 4 × 150 m · 1150 m",
+    "Fondo: 4 × 150 m · 1150 m · variante 2": "Fondo: 4 × 150 m · 1150 m · variante 2",
+    "Fondo: 4 × 150 m · 1200 m": "Fondo: 4 × 150 m · 1200 m",
+    "Fondo: 6 × 100 m": "Fondo: 6 × 100 m",
+    "Fondo: 6 × 100 m · 1100 m": "Fondo: 6 × 100 m · 1100 m",
+    "Fondo: 6 × 100 m · 1100 m · variante 2": "Fondo: 6 × 100 m · 1100 m · variante 2",
+    "Fondo: 6 × 100 m · 1200 m": "Fondo: 6 × 100 m · 1200 m",
+    "Fondo: 6 × 100 m · 1200 m · variante 2": "Fondo: 6 × 100 m · 1200 m · variante 2",
+    "Prime vasche tranquille": "Primeros largos tranquilos",
+    "Rana con scivolo": "Braza con deslizamiento",
+    "Rana: due gambate, una bracciata": "Braza: dos patadas, una brazada",
+    "Resistenza con pull buoy": "Resistencia con pull buoy",
+    "Resistenza intermedia": "Resistencia intermedia",
+    "Respirare di lato": "Respirar de lado",
+    "Respiro e scivolo": "Respiración y deslizamiento",
+    "Ritmo alto: 10 × 50 m": "Ritmo alto: 10 × 50 m",
+    "Ritmo alto: 10 × 50 m · 1000 m": "Ritmo alto: 10 × 50 m · 1000 m",
+    "Ritmo alto: 10 × 50 m · 1100 m": "Ritmo alto: 10 × 50 m · 1100 m",
+    "Ritmo alto: 10 × 50 m · 1100 m · variante 2": "Ritmo alto: 10 × 50 m · 1100 m · variante 2",
+    "Ritmo alto: 10 × 50 m · 1200 m": "Ritmo alto: 10 × 50 m · 1200 m",
+    "Ritmo alto: 10 × 50 m · 1200 m · variante 2": "Ritmo alto: 10 × 50 m · 1200 m · variante 2",
+    "Ritmo alto: 10 × 50 m · 1200 m · variante 3": "Ritmo alto: 10 × 50 m · 1200 m · variante 3",
+    "Ritmo alto: 12 × 50 m": "Ritmo alto: 12 × 50 m",
+    "Ritmo alto: 12 × 50 m · 1000 m": "Ritmo alto: 12 × 50 m · 1000 m",
+    "Ritmo alto: 4 × 100 m + 6 × 50 m": "Ritmo alto: 4 × 100 m + 6 × 50 m",
+    "Ritmo alto: 4 × 100 m + 6 × 50 m · 1150 m": "Ritmo alto: 4 × 100 m + 6 × 50 m · 1150 m",
+    "Ritmo alto: 5 × 150 m": "Ritmo alto: 5 × 150 m",
+    "Ritmo alto: 6 × 100 m": "Ritmo alto: 6 × 100 m",
+    "Ritmo alto: 6 × 100 m · 1100 m": "Ritmo alto: 6 × 100 m · 1100 m",
+    "Ritmo alto: 6 × 100 m · 1200 m": "Ritmo alto: 6 × 100 m · 1200 m",
+    "Ritmo alto: 6 × 100 m · 1200 m · variante 2": "Ritmo alto: 6 × 100 m · 1200 m · variante 2",
+    "Ritmo alto: 6 × 75 m": "Ritmo alto: 6 × 75 m",
+    "Ritmo alto: 6 × 75 m · 1050 m": "Ritmo alto: 6 × 75 m · 1050 m",
+    "Ritmo alto: 6 × 75 m · 1100 m": "Ritmo alto: 6 × 75 m · 1100 m",
+    "Ritmo alto: 6 × 75 m · 1100 m · variante 2": "Ritmo alto: 6 × 75 m · 1100 m · variante 2",
+    "Ritmo alto: 6 × 75 m · 1100 m · variante 3": "Ritmo alto: 6 × 75 m · 1100 m · variante 3",
+    "Ritmo alto: 6 × 75 m · 1150 m": "Ritmo alto: 6 × 75 m · 1150 m",
+    "Ritmo alto: 6 × 75 m · 1150 m · variante 2": "Ritmo alto: 6 × 75 m · 1150 m · variante 2",
+    "Ritmo alto: 6 × 75 m · 1150 m · variante 3": "Ritmo alto: 6 × 75 m · 1150 m · variante 3",
+    "Ritmo alto: 6 × 75 m · 1200 m": "Ritmo alto: 6 × 75 m · 1200 m",
+    "Ritmo alto: 6 × 75 m · 950 m": "Ritmo alto: 6 × 75 m · 950 m",
+    "Ritmo alto: 8 × 75 m": "Ritmo alto: 8 × 75 m",
+    "Ritmo alto: 8 × 75 m · 1200 m": "Ritmo alto: 8 × 75 m · 1200 m",
+    "Ritmo alto: cento veloci": "Ritmo alto: cienes rápidos",
+    "Ritmo alto: serie da 50": "Ritmo alto: series de 50 m",
+    "Soglia: 10 × 50 m": "Umbral: 10 × 50 m",
+    "Soglia: 10 × 50 m · 1100 m": "Umbral: 10 × 50 m · 1100 m",
+    "Soglia: 10 × 50 m · 1100 m · variante 2": "Umbral: 10 × 50 m · 1100 m · variante 2",
+    "Soglia: 10 × 50 m · 1150 m": "Umbral: 10 × 50 m · 1150 m",
+    "Soglia: 10 × 50 m · 1150 m · variante 2": "Umbral: 10 × 50 m · 1150 m · variante 2",
+    "Soglia: 10 × 50 m · 1200 m": "Umbral: 10 × 50 m · 1200 m",
+    "Soglia: 10 × 50 m · 1200 m · variante 2": "Umbral: 10 × 50 m · 1200 m · variante 2",
+    "Soglia: 10 × 50 m · 950 m": "Umbral: 10 × 50 m · 950 m",
+    "Soglia: 10 × 50 m · 950 m · variante 2": "Umbral: 10 × 50 m · 950 m · variante 2",
+    "Soglia: 2 × 200 m + 4 × 100 m": "Umbral: 2 × 200 m + 4 × 100 m",
+    "Soglia: 3 × 150 m + 3 × 100 m": "Umbral: 3 × 150 m + 3 × 100 m",
+    "Soglia: 4 × 200 m": "Umbral: 4 × 200 m",
+    "Soglia: 5 × 100 m": "Umbral: 5 × 100 m",
+    "Soglia: 5 × 100 m · 1000 m": "Umbral: 5 × 100 m · 1000 m",
+    "Soglia: 6 × 100 m": "Umbral: 6 × 100 m",
+    "Soglia: 6 × 100 m · 1150 m": "Umbral: 6 × 100 m · 1150 m",
+    "Soglia: 8 × 50 m": "Umbral: 8 × 50 m",
+    "Soglia: 8 × 50 m · 1000 m": "Umbral: 8 × 50 m · 1000 m",
+    "Soglia: 8 × 50 m · 1050 m": "Umbral: 8 × 50 m · 1050 m",
+    "Soglia: 8 × 50 m · 1100 m": "Umbral: 8 × 50 m · 1100 m",
+    "Soglia: 8 × 50 m · 1100 m · variante 2": "Umbral: 8 × 50 m · 1100 m · variante 2",
+    "Soglia: 8 × 50 m · 1200 m": "Umbral: 8 × 50 m · 1200 m",
+    "Soglia: 8 × 50 m · 1200 m · variante 2": "Umbral: 8 × 50 m · 1200 m · variante 2",
+    "Soglia: 8 × 50 m · 1200 m · variante 3": "Umbral: 8 × 50 m · 1200 m · variante 3",
+    "Soglia: 8 × 50 m · 850 m": "Umbral: 8 × 50 m · 850 m",
+    "Soglia: 8 × 50 m · 900 m": "Umbral: 8 × 50 m · 900 m",
+    "Soglia: 8 × 50 m · 900 m · variante 2": "Umbral: 8 × 50 m · 900 m · variante 2",
+    "Soglia: 8 × 50 m · 900 m · variante 3": "Umbral: 8 × 50 m · 900 m · variante 3",
+    "Soglia: ripetute da 100": "Umbral: repeticiones de 100 m",
+    "Soglia: serie lunghe": "Umbral: series largas",
+    "Tecnica e ritmo": "Técnica y ritmo",
+    "Tecnica: battuta con tavoletta": "Técnica: patada con tabla",
+    "Tecnica: battuta con tavoletta e battuta con un braccio teso": "Técnica: patada con tabla y patada con un brazo estirado",
+    "Tecnica: battuta con tavoletta e battuta con un braccio teso · 475 m": "Técnica: patada con tabla y patada con un brazo estirado · 475 m",
+    "Tecnica: battuta con tavoletta e battuta con un braccio teso · 550 m": "Técnica: patada con tabla y patada con un brazo estirado · 550 m",
+    "Tecnica: battuta con tavoletta e respirazione laterale con tavoletta": "Técnica: patada con tabla y respiración lateral con tabla",
+    "Tecnica: battuta con tavoletta e scivolamento a freccia": "Técnica: patada con tabla y deslizamiento en flecha",
+    "Tecnica: battuta con tavoletta · 450 m": "Técnica: patada con tabla · 450 m",
+    "Tecnica: battuta con tavoletta · 500 m": "Técnica: patada con tabla · 500 m",
+    "Tecnica: battuta con un braccio teso": "Técnica: patada con un brazo estirado",
+    "Tecnica: battuta con un braccio teso e dita sull'acqua": "Técnica: patada con un brazo estirado y dedos sobre el agua",
+    "Tecnica: battuta con un braccio teso e nuotata con pull buoy": "Técnica: patada con un brazo estirado y nado con pull buoy",
+    "Tecnica: battuta con un braccio teso e un braccio solo": "Técnica: patada con un brazo estirado y un solo brazo",
+    "Tecnica: battuta con un braccio teso · 425 m": "Técnica: patada con un brazo estirado · 425 m",
+    "Tecnica: battuta con un braccio teso · 450 m": "Técnica: patada con un brazo estirado · 450 m",
+    "Tecnica: battuta con un braccio teso · 525 m": "Técnica: patada con un brazo estirado · 525 m",
+    "Tecnica: battuta con un braccio teso · 550 m": "Técnica: patada con un brazo estirado · 550 m",
+    "Tecnica: battuta sul dorso": "Técnica: patada de espalda",
+    "Tecnica: battuta sul dorso con rotazione": "Técnica: patada de espalda con rotación",
+    "Tecnica: battuta sul dorso con rotazione e nuotata con pull buoy": "Técnica: patada de espalda con rotación y nado con pull buoy",
+    "Tecnica: battuta sul dorso e battuta con un braccio teso": "Técnica: patada de espalda y patada con un brazo estirado",
+    "Tecnica: battuta sul dorso e nuotata con pull buoy": "Técnica: patada de espalda y nado con pull buoy",
+    "Tecnica: catch-up": "Técnica: catch-up",
+    "Tecnica: catch-up e dorso un braccio alla volta": "Técnica: catch-up y espalda a un brazo",
+    "Tecnica: catch-up e onda del delfino": "Técnica: catch-up y onda del delfín",
+    "Tecnica: catch-up · 1050 m": "Técnica: catch-up · 1050 m",
+    "Tecnica: catch-up · 1150 m": "Técnica: catch-up · 1150 m",
+    "Tecnica: catch-up · 450 m": "Técnica: catch-up · 450 m",
+    "Tecnica: catch-up · 475 m": "Técnica: catch-up · 475 m",
+    "Tecnica: catch-up · 525 m": "Técnica: catch-up · 525 m",
+    "Tecnica: delfino un braccio alla volta": "Técnica: mariposa a un brazo",
+    "Tecnica: delfino un braccio alla volta e battuta sul dorso con rotazione": "Técnica: mariposa a un brazo y patada de espalda con rotación",
+    "Tecnica: dita sull'acqua": "Técnica: dedos sobre el agua",
+    "Tecnica: dita sull'acqua · 400 m": "Técnica: dedos sobre el agua · 400 m",
+    "Tecnica: dita sull'acqua · 475 m": "Técnica: dedos sobre el agua · 475 m",
+    "Tecnica: dita sull'acqua · 500 m": "Técnica: dedos sobre el agua · 500 m",
+    "Tecnica: dita sull'acqua · 525 m": "Técnica: dedos sobre el agua · 525 m",
+    "Tecnica: dita sull'acqua · 900 m": "Técnica: dedos sobre el agua · 900 m",
+    "Tecnica: dorso un braccio alla volta": "Técnica: espalda a un brazo",
+    "Tecnica: dorso un braccio alla volta e nuotata con pull buoy": "Técnica: espalda a un brazo y nado con pull buoy",
+    "Tecnica: nuotata con pull buoy": "Técnica: nado con pull buoy",
+    "Tecnica: rana con scivolo": "Técnica: braza con deslizamiento",
+    "Tecnica: rana: due gambate, una bracciata": "Técnica: braza: dos patadas, una brazada",
+    "Tecnica: rana: due gambate, una bracciata · 900 m": "Técnica: braza: dos patadas, una brazada · 900 m",
+    "Tecnica: rana: il corpo verso le mani": "Técnica: braza: el cuerpo hacia las manos",
+    "Tecnica: rana: il corpo verso le mani e rana con scivolo": "Técnica: braza: el cuerpo hacia las manos y braza con deslizamiento",
+    "Tecnica: respirazione laterale con tavoletta": "Técnica: respiración lateral con tabla",
+    "Tecnica: respirazione laterale con tavoletta e battuta con un braccio teso": "Técnica: respiración lateral con tabla y patada con un brazo estirado",
+    "Tecnica: respirazione laterale con tavoletta e onda del delfino": "Técnica: respiración lateral con tabla y onda del delfín",
+    "Tecnica: scivolamento a freccia": "Técnica: deslizamiento en flecha",
+    "Tecnica: scivolamento a freccia e battuta con un braccio teso": "Técnica: deslizamiento en flecha y patada con un brazo estirado",
+    "Tecnica: scivolamento a freccia · 450 m": "Técnica: deslizamiento en flecha · 450 m",
+    "Tecnica: scivolamento a freccia · 500 m": "Técnica: deslizamiento en flecha · 500 m",
+    "Tecnica: sei colpi e cambio": "Técnica: seis patadas y cambio",
+    "Tecnica: sei colpi e cambio e dita sull'acqua": "Técnica: seis patadas y cambio y dedos sobre el agua",
+    "Tecnica: un braccio solo": "Técnica: un solo brazo",
+    "Tecnica: un braccio solo e scivolamento a freccia": "Técnica: un solo brazo y deslizamiento en flecha",
+    "Tecnica: un braccio solo · 375 m": "Técnica: un solo brazo · 375 m",
+    "Tecnica: un braccio solo · 525 m": "Técnica: un solo brazo · 525 m",
+    "Tecnica: un braccio solo · 550 m": "Técnica: un solo brazo · 550 m",
+    "Tolleranza: 2 × 100 m + 4 × 50 m": "Tolerancia: 2 × 100 m + 4 × 50 m",
+    "Tolleranza: 2 × 100 m + 4 × 50 m · 1200 m": "Tolerancia: 2 × 100 m + 4 × 50 m · 1200 m",
+    "Tolleranza: 3 × 150 m": "Tolerancia: 3 × 150 m",
+    "Tolleranza: 3 × 150 m · 1150 m": "Tolerancia: 3 × 150 m · 1150 m",
+    "Tolleranza: 3 × 150 m · 1200 m": "Tolerancia: 3 × 150 m · 1200 m",
+    "Tolleranza: 3 × 150 m · 950 m": "Tolerancia: 3 × 150 m · 950 m",
+    "Tolleranza: 4 × 100 m": "Tolerancia: 4 × 100 m",
+    "Tolleranza: 4 × 100 m · 1100 m": "Tolerancia: 4 × 100 m · 1100 m",
+    "Tolleranza: 4 × 100 m · 1200 m": "Tolerancia: 4 × 100 m · 1200 m",
+    "Tolleranza: 4 × 100 m · 1200 m · variante 2": "Tolerancia: 4 × 100 m · 1200 m · variante 2",
+    "Tolleranza: 4 × 100 m · 950 m": "Tolerancia: 4 × 100 m · 950 m",
+    "Tolleranza: 4 × 75 m": "Tolerancia: 4 × 75 m",
+    "Tolleranza: 4 × 75 m · 1000 m": "Tolerancia: 4 × 75 m · 1000 m",
+    "Tolleranza: 4 × 75 m · 1050 m": "Tolerancia: 4 × 75 m · 1050 m",
+    "Tolleranza: 4 × 75 m · 1150 m": "Tolerancia: 4 × 75 m · 1150 m",
+    "Tolleranza: 4 × 75 m · 700 m": "Tolerancia: 4 × 75 m · 700 m",
+    "Tolleranza: 4 × 75 m · 900 m": "Tolerancia: 4 × 75 m · 900 m",
+    "Tolleranza: 6 × 50 m": "Tolerancia: 6 × 50 m",
+    "Tolleranza: 6 × 50 m + 2 × 100 m": "Tolerancia: 6 × 50 m + 2 × 100 m",
+    "Tolleranza: 6 × 50 m + 2 × 100 m · 1000 m": "Tolerancia: 6 × 50 m + 2 × 100 m · 1000 m",
+    "Tolleranza: 6 × 50 m + 2 × 100 m · 1100 m": "Tolerancia: 6 × 50 m + 2 × 100 m · 1100 m",
+    "Tolleranza: 6 × 50 m + 2 × 100 m · 1100 m · variante 2": "Tolerancia: 6 × 50 m + 2 × 100 m · 1100 m · variante 2",
+    "Tolleranza: 6 × 50 m + 2 × 100 m · 1150 m": "Tolerancia: 6 × 50 m + 2 × 100 m · 1150 m",
+    "Tolleranza: 6 × 50 m + 2 × 100 m · 1200 m": "Tolerancia: 6 × 50 m + 2 × 100 m · 1200 m",
+    "Tolleranza: 6 × 50 m · 900 m": "Tolerancia: 6 × 50 m · 900 m",
+    "Tolleranza: 8 × 50 m": "Tolerancia: 8 × 50 m",
+    "Tolleranza: 8 × 50 m · 1000 m": "Tolerancia: 8 × 50 m · 1000 m",
+    "Tolleranza: 8 × 50 m · 1100 m": "Tolerancia: 8 × 50 m · 1100 m",
+    "Tolleranza: cinquanta e cento": "Tolerancia: cincuentas y cienes",
+    "Tolleranza: forte con recupero lungo": "Tolerancia: fuerte con descanso largo"
+  }
+}

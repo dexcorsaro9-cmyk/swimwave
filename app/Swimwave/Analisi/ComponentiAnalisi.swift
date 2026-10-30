@@ -2,10 +2,10 @@ import SwiftUI
 import SwimwaveCore
 
 // Formati e piccoli componenti condivisi dalle schermate di analisi (Andamento, Riepilogo, Il tuo anno, Record, Traguardi).
-// I testi vengono tutti da Localizable.xcstrings; nomi di mesi e giorni sempre in italiano.
+// I testi vengono tutti da Localizable.xcstrings; nomi di mesi e giorni nella lingua dell.app.
 
 enum AnalisiFormati {
-    static let locale = Locale(identifier: "it_IT")
+    static let locale = Lingua.locale
 
     private static let nomiMesi: [String] = {
         let f = DateFormatter()

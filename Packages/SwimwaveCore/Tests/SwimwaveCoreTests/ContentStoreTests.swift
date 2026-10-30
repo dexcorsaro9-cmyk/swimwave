@@ -208,6 +208,90 @@ final class ContentStoreTests: XCTestCase {
     }
 }
 
+final class TraduzioniContenutiTests: XCTestCase {
+    private func cartella() throws -> URL {
+        let radice = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+            .deletingLastPathComponent().deletingLastPathComponent()
+        let c = radice.appendingPathComponent("content")
+        try XCTSkipUnless(FileManager.default.fileExists(atPath: c.appendingPathComponent("percorso.json").path),
+                          "cartella content non trovata")
+        return c
+    }
+
+    func testTraduzioneSostituisceSoloIlTestoEMantieneIlResto() {
+        var file: [String: String] = [
+            "percorso.json": #"{"tappe":[{"id":1,"nome":"Nome IT","obiettivo":"Ob IT","test":"Test IT","drill":["d1"],"errori":[],"fonti":["f"],"stato":"approvato"}]}"#,
+            "drills.json": #"{"drill":[{"id":"d1","nome":"Drill IT","tappa":1,"scopo":"Scopo IT","esecuzione":"Es IT","errore_da_evitare":"Err IT","fonti":[],"stato":"approvato"}]}"#,
+            "errori-comuni.json": #"{"errori":[]}"#,
+            "allenamenti/indice.json": #"{"allenamenti":[]}"#,
+            "zone-ritmo.json": #"{"istruzioni_test":"Istruzioni IT","zone":[]}"#,
+        ]
+        file["i18n/en.json"] = #"{"tappe":{"1":{"nome":"Name EN"}},"drill":{"d1":{"nome":"Drill EN","errore_da_evitare":"Mistake EN"}},"istruzioni_test":"Instructions EN"}"#
+        let lettore: (String) -> Data? = { file[$0].map { Data($0.utf8) } }
+
+        let it = ContentStore(includeBozze: false, lettore: lettore)
+        XCTAssertEqual(it.tappe.first?.nome, "Nome IT")
+        XCTAssertEqual(it.istruzioniTest, "Istruzioni IT")
+
+        let en = ContentStore(includeBozze: false, lingua: "en", lettore: lettore)
+        XCTAssertEqual(en.problemi, [])
+        XCTAssertEqual(en.tappe.first?.nome, "Name EN")
+        XCTAssertEqual(en.tappe.first?.obiettivo, "Ob IT", "dove manca la voce resta l'italiano")
+        XCTAssertEqual(en.tappe.first?.drill, ["d1"])
+        XCTAssertEqual(en.tappe.first?.fonti, ["f"])
+        XCTAssertEqual(en.drill.first?.id, "d1")
+        XCTAssertEqual(en.drill.first?.nome, "Drill EN")
+        XCTAssertEqual(en.drill.first?.scopo, "Scopo IT")
+        XCTAssertEqual(en.drill.first?.erroreDaEvitare, "Mistake EN")
+        XCTAssertEqual(en.istruzioniTest, "Instructions EN")
+    }
+
+    func testFileDiTraduzioneMancanteSegnalaMaNonRompe() {
+        let store = ContentStore(includeBozze: true, lingua: "es", lettore: { _ in nil })
+        XCTAssertTrue(store.problemi.contains { $0.hasPrefix("i18n/es.json") })
+    }
+
+    // Ogni testo tecnico visibile agli utenti deve esistere in inglese e spagnolo, diverso dall'italiano.
+    func testContenutiRealiTradottiInTutteLeLingue() throws {
+        let c = try cartella()
+        let lettore: (String) -> Data? = { try? Data(contentsOf: c.appendingPathComponent($0)) }
+        let it = ContentStore(includeBozze: false, lettore: lettore)
+        for lingua in ["en", "es"] {
+            let t = ContentStore(includeBozze: false, lingua: lingua, lettore: lettore)
+            XCTAssertEqual(t.problemi, [], lingua)
+            XCTAssertEqual(t.tappe.count, it.tappe.count)
+            for (a, b) in zip(it.tappe, t.tappe) {
+                XCTAssertNotEqual(a.nome, b.nome, "tappa \(a.id) \(lingua): nome")
+                XCTAssertNotEqual(a.obiettivo, b.obiettivo, "tappa \(a.id) \(lingua): obiettivo")
+                XCTAssertNotEqual(a.test, b.test, "tappa \(a.id) \(lingua): test")
+            }
+            for (a, b) in zip(it.drill, t.drill) {
+                XCTAssertNotEqual(a.nome, b.nome, "drill \(a.id) \(lingua): nome")
+                XCTAssertNotEqual(a.scopo, b.scopo, "drill \(a.id) \(lingua): scopo")
+                XCTAssertNotEqual(a.esecuzione, b.esecuzione, "drill \(a.id) \(lingua): esecuzione")
+                XCTAssertNotEqual(a.erroreDaEvitare, b.erroreDaEvitare, "drill \(a.id) \(lingua): errore")
+            }
+            for (a, b) in zip(it.errori, t.errori) {
+                XCTAssertNotEqual(a.nome, b.nome, "errore \(a.id) \(lingua): nome")
+                XCTAssertNotEqual(a.comeSiRiconosce, b.comeSiRiconosce, "errore \(a.id) \(lingua): come si riconosce")
+                XCTAssertNotEqual(a.perche, b.perche, "errore \(a.id) \(lingua): perché")
+                XCTAssertNotEqual(a.correzione, b.correzione, "errore \(a.id) \(lingua): correzione")
+            }
+            for (a, b) in zip(it.zone, t.zone) {
+                XCTAssertNotEqual(a.nome, b.nome, "zona \(a.id) \(lingua): nome")
+                XCTAssertNotEqual(a.descrizione, b.descrizione, "zona \(a.id) \(lingua): descrizione")
+            }
+            XCTAssertNotEqual(it.istruzioniTest, t.istruzioniTest, "istruzioni del test \(lingua)")
+            for voce in it.voci {
+                guard let a = it.workout(della: voce), let b = t.workout(della: voce) else { continue }
+                XCTAssertNotEqual(a.titolo, b.titolo, "\(voce.file) \(lingua): titolo")
+                XCTAssertEqual(a.metriTotali, b.metriTotali)
+            }
+        }
+    }
+}
+
 final class EfficienzaTests: XCTestCase {
     private func nuotata(giorno: Int, bracciate: Int?, vasca: Int? = 25, metri: Int = 500,
                          ambiente: AmbienteNuoto? = .vasca) -> NuotataCompletata {

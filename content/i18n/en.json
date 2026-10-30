@@ -1,0 +1,559 @@
+{
+  "nota": "Traduzioni dei contenuti tecnici (originali in italiano nei file di content/). Generato da tools/genera_traduzioni.py: non modificare a mano.",
+  "tappe": {
+    "1": {
+      "nome": "Confidence in the water and floating",
+      "obiettivo": "Be calm in the water and feel supported.",
+      "test": "You float face down for 10 seconds and on your back for 15 seconds, in water where you can touch the bottom, and stand up on your own."
+    },
+    "2": {
+      "nome": "Breathing",
+      "obiettivo": "Breathe out in the water and breathe in by turning your head.",
+      "test": "You blow bubbles at least 3 times with your nose and mouth underwater and take 5 rhythmic breaths turning your head, without swallowing water."
+    },
+    "3": {
+      "nome": "Body position and gliding",
+      "obiettivo": "Have a long body that glides.",
+      "test": "After pushing off the wall you glide face down and on your back staying aligned, with your head between your arms."
+    },
+    "4": {
+      "nome": "Leg kick",
+      "obiettivo": "A continuous kick that starts from the hip.",
+      "test": "You cover 10 metres of freestyle kick, with or without a kickboard."
+    },
+    "5": {
+      "nome": "Freestyle stroke",
+      "obiettivo": "A long, coordinated stroke.",
+      "test": "You swim 25 metres of freestyle without stopping, even with simplified breathing."
+    },
+    "6": {
+      "nome": "Coordination and side breathing",
+      "obiettivo": "Breathe to the side with rhythm without losing your position.",
+      "test": "You swim 50 metres of freestyle breathing with rhythm, without stopping."
+    },
+    "7": {
+      "nome": "Swimming continuously",
+      "obiettivo": "Build a base of endurance at an easy pace.",
+      "test": "You swim 100 metres of freestyle without stopping, at an easy pace."
+    },
+    "8": {
+      "nome": "Backstroke",
+      "obiettivo": "Swim backstroke with a coordinated kick and pull.",
+      "test": "You swim 25 metres of backstroke with a coordinated kick and pull."
+    },
+    "9": {
+      "nome": "Breaststroke",
+      "obiettivo": "Coordinate pull, kick and glide.",
+      "test": "You swim 25 metres of breaststroke with a glide after every cycle."
+    },
+    "10": {
+      "nome": "Butterfly",
+      "obiettivo": "Learn the undulation and its coordination.",
+      "test": "You swim 25 metres of butterfly with the undulation led by the chest."
+    }
+  },
+  "drill": {
+    "galleggiamento-a-stella": {
+      "nome": "Star float",
+      "scopo": "Feel that the water supports you and learn to relax.",
+      "esecuzione": "In water where you can touch the bottom, fill your lungs and let yourself float face down with your arms and legs spread out like a star. Then try on your back. To stand up, bring your knees to your chest and put your feet down. Other useful positions: the jellyfish and the tuck.",
+      "errore_da_evitare": "Stiffening up and keeping your head high: your body sinks."
+    },
+    "bolle-in-acqua": {
+      "nome": "Blowing bubbles",
+      "scopo": "Learn to breathe out in the water.",
+      "esecuzione": "Standing in shallow water, put your face in and blow air out through your nose and mouth in a continuous stream. Lift your face, breathe in and repeat at a steady rhythm.",
+      "errore_da_evitare": "Holding your breath underwater."
+    },
+    "respirazione-al-bordo": {
+      "nome": "Breathing at the wall",
+      "scopo": "Coordinate breathing out and breathing in while turning your head.",
+      "esecuzione": "Hold the wall with your hands. Put your face in and breathe out, then turn your head to the side to breathe in with your mouth just out of the water and put your face back in. Repeat at a steady rhythm, on both sides.",
+      "errore_da_evitare": "Lifting your head forward instead of turning it to the side."
+    },
+    "scivolamento-a-freccia": {
+      "nome": "Streamline glide",
+      "scopo": "Find a long body position that glides well.",
+      "esecuzione": "Push off the wall with your feet, arms stretched out in front, head between your arms and body flat, face down and then on your back. Glide until you lose speed, then put your feet down.",
+      "errore_da_evitare": "Losing alignment: head up or legs sinking."
+    },
+    "battuta-con-tavoletta": {
+      "nome": "Kickboard kick",
+      "scopo": "Train the leg kick in a simple way.",
+      "esecuzione": "Hold the kickboard with your arms straight, with your body horizontal. Kick continuously from the hip, with your feet close to the surface. The kickboard is optional.",
+      "errore_da_evitare": "Pedalling with too much knee bend."
+    },
+    "battuta-con-un-braccio-teso": {
+      "nome": "One-arm-extended kick",
+      "scopo": "Lengthen the body and prepare the body roll.",
+      "esecuzione": "One arm stretched out in front and the other along your side. Roll your hips and shoulders to about 45 degrees, keeping your head still, and kick continuously.",
+      "errore_da_evitare": "Rolling too far or moving your head."
+    },
+    "catch-up": {
+      "nome": "Catch-up",
+      "scopo": "Lengthen the stroke and coordinate the arms.",
+      "esecuzione": "Swim freestyle, but one hand only starts when the other has reached it out in front. Enter the water with your fingertips first and let your hand glide forward.",
+      "errore_da_evitare": "Rushing the strokes like windmill paddles, with the arms moving in opposition."
+    },
+    "un-braccio-solo": {
+      "nome": "Single-arm drill",
+      "scopo": "Work on the stroke and the body roll, one arm at a time.",
+      "esecuzione": "One arm stays along your side or stretched out in front while the other does the stroke. Switch sides after a few strokes and keep kicking.",
+      "errore_da_evitare": "Stopping your body or losing your head position while one arm works."
+    },
+    "dita-sull-acqua": {
+      "nome": "Fingertip drag",
+      "scopo": "Have a relaxed recovery with a high elbow.",
+      "esecuzione": "Swim catch-up and, during the recovery, trail your fingertips along the surface of the water.",
+      "errore_da_evitare": "A low elbow and a stiff recovery."
+    },
+    "respirazione-laterale-con-tavoletta": {
+      "nome": "Side breathing with a kickboard",
+      "scopo": "Learn to breathe to the side while swimming.",
+      "esecuzione": "Hold the kickboard with one arm. With the other arm do the stroke and turn your head together with your body to breathe, while your legs kick. Then switch arms.",
+      "errore_da_evitare": "Lifting your head instead of turning it with your body."
+    },
+    "sei-colpi-e-cambio": {
+      "nome": "Six kicks and switch",
+      "scopo": "Control the body roll and lengthen the stroke.",
+      "esecuzione": "Six kicks on one side, with one arm stretched out in front and the other along your body. Then one stroke with the extended arm and a roll onto the other side, and six more kicks. You can do it with fins.",
+      "errore_da_evitare": "Losing the kick during the switch."
+    },
+    "nuotata-con-pull-buoy": {
+      "nome": "Pull buoy swim",
+      "scopo": "Focus on the arms and an aligned body.",
+      "esecuzione": "Hold the pull buoy between your thighs and swim freestyle using only your arms, at an easy pace.",
+      "errore_da_evitare": "Losing the alignment of your body and head."
+    },
+    "battuta-sul-dorso": {
+      "nome": "Backstroke kick",
+      "scopo": "Position and kick in backstroke.",
+      "esecuzione": "On your back, with your arms along your sides, look up and slightly towards your feet, with your head aligned and your shoulders low. Kick from the hip, with little knee bend.",
+      "errore_da_evitare": "Arching your back and opening your ribs."
+    },
+    "dorso-un-braccio-alla-volta": {
+      "nome": "One-arm backstroke",
+      "scopo": "Work on the stroke and the body roll in backstroke.",
+      "esecuzione": "On your back, one arm stretched out above your head while the other does the stroke, with a continuous kick. Roll your hips and shoulders to about 45 degrees. Switch arms after a few strokes.",
+      "errore_da_evitare": "Lifting the shoulder towards the chin."
+    },
+    "gambata-di-rana-al-bordo": {
+      "nome": "Breaststroke kick at the wall",
+      "scopo": "Learn the leg movement of breaststroke.",
+      "esecuzione": "Hold the wall with your arms bent and your body stretched out. Bring your heels towards your buttocks, with your knees just wider than your hips. Turn your feet outwards, flex them and push back in a circular motion, finishing with your legs straight and together.",
+      "errore_da_evitare": "Feet not turned outwards: it is the most common mistake."
+    },
+    "rana-con-scivolo": {
+      "nome": "Breaststroke with glide",
+      "scopo": "Find the rhythm between pull, kick and glide.",
+      "esecuzione": "Swim breaststroke following the sequence: pull, breath, kick, glide with your arms stretched out. Count in your head during the glide before the next cycle.",
+      "errore_da_evitare": "Starting the kick too early or skipping the glide."
+    },
+    "onda-del-delfino": {
+      "nome": "Dolphin wave",
+      "scopo": "Learn the wave-like movement led by the chest.",
+      "esecuzione": "In the water, press your chest down: your hips rise. Then bring your hips back down and let the movement travel all the way to your feet. Fins and a snorkel help you concentrate on the body movement.",
+      "errore_da_evitare": "Moving only your legs instead of starting the wave from your chest."
+    },
+    "dorso-battuta-con-rotazione": {
+      "nome": "Backstroke kick with rotation",
+      "scopo": "Learn to roll the body while staying aligned, with the kick starting from the hip.",
+      "esecuzione": "On your back, with your arms along your sides, look up and a little towards your feet. Kick from the hip and roll your hips and body from side to side, keeping your shoulders low and your head still. At first you can hold a float with your hands at your sides, above your hips; fins can be used.",
+      "errore_da_evitare": "Lifting your shoulders during the rotation or tilting your head too far back, opening your ribs."
+    },
+    "gambata-di-rana-sul-dorso": {
+      "nome": "Breaststroke kick on the back",
+      "scopo": "Control the leg recovery and the breaststroke push in a stretched-out position.",
+      "esecuzione": "On your back, stretched out and flat at the surface, bring your feet under your knees keeping your knees at water level. When the recovery is done, turn your feet outwards and push back until your heels and feet come together, with your toes pointed backwards. A pull buoy can help keep your knees in a neutral position.",
+      "errore_da_evitare": "Letting your knees come out of the water or opening your ribs."
+    },
+    "rana-due-gambate-una-bracciata": {
+      "nome": "Breaststroke: two kicks, one pull",
+      "scopo": "Work on the stretched-out position and breathing by reducing the number of pulls.",
+      "esecuzione": "Swim breaststroke doing two kicks for every pull. After the breath, bring your head back in line with your body straight away. Push forward staying just below the surface, without going deep, and use the second kick to move ahead like an arrow.",
+      "errore_da_evitare": "Keeping your head up after the breath or diving too deep."
+    },
+    "rana-corpo-verso-le-mani": {
+      "nome": "Breaststroke: body to the hands",
+      "scopo": "Understand that in the breaststroke pull it is the body that moves forward towards the hands.",
+      "esecuzione": "Start in a stretched-out position. As soon as your hands open, hold the water with your palms, usually beyond shoulder width, and turn your hands backwards. Bring your body forward towards your hands and return to the stretched-out position after each complete pull. You can do it with a pull buoy.",
+      "errore_da_evitare": "Pulling your hands towards your body instead of bringing your body towards your hands."
+    },
+    "delfino-un-braccio-alla-volta": {
+      "nome": "One-arm butterfly",
+      "scopo": "Work on the butterfly pull one arm at a time, keeping the undulation.",
+      "esecuzione": "One arm stays stretched out in front and steadies the body, while the other does the pull and the recovery close to the surface, stretched but relaxed. Breathe forward only on the full strokes with both arms. Switch sides.",
+      "errore_da_evitare": "Letting the body roll: the front arm is there to keep it steady."
+    }
+  },
+  "errori": {
+    "testa-alta": {
+      "nome": "Head held high",
+      "come_si_riconosce": "You look ahead and your legs tend to sink.",
+      "perche_e_un_problema": "Your legs sink and drag increases.",
+      "correzione": "Look at the bottom with your head in line with your body, as if it were a single pencil."
+    },
+    "respiro-trattenuto": {
+      "nome": "Held breath",
+      "come_si_riconosce": "You hold air in underwater and then gasp when breathing in.",
+      "perche_e_un_problema": "Breathing in becomes long and laboured.",
+      "correzione": "Breathe out continuously in the water and breathe in quickly by turning your head."
+    },
+    "gambe-che-pedalano": {
+      "nome": "Pedalling legs",
+      "come_si_riconosce": "Your knees bend a lot.",
+      "perche_e_un_problema": "You spend energy without moving forward.",
+      "correzione": "Start the kick from the hip, with little knee bend and your feet close to the surface."
+    },
+    "braccia-incrociate": {
+      "nome": "Arms crossing in front",
+      "come_si_riconosce": "Your hand enters the water beyond the centre line of your body.",
+      "perche_e_un_problema": "It reduces efficiency and can tire the shoulder.",
+      "correzione": "Enter with your hand in front of your shoulder, without going past the line of your body."
+    },
+    "braccia-a-mulino": {
+      "nome": "Windmill arms",
+      "come_si_riconosce": "Your arms move in opposition and the pull starts too early.",
+      "perche_e_un_problema": "The rhythm of the stroke and of breathing breaks down.",
+      "correzione": "Keep one arm stretched out in front until the other one reaches it."
+    },
+    "testa-alzata-per-respirare": {
+      "nome": "Head lifted to breathe",
+      "come_si_riconosce": "To breathe you lift your head instead of turning it.",
+      "perche_e_un_problema": "Your legs sink and drag increases.",
+      "correzione": "Turn your head, shoulders and hips together, without overdoing it."
+    },
+    "recupero-anticipato": {
+      "nome": "Recovery that starts too early",
+      "come_si_riconosce": "The arm leaves the water before finishing the push.",
+      "perche_e_un_problema": "You lose power in the last part of the stroke.",
+      "correzione": "Bring your hand all the way to your thigh and count your strokes per length, trying to reduce them."
+    },
+    "partenza-troppo-forte": {
+      "nome": "Starting too hard",
+      "come_si_riconosce": "The first lengths are fast and then you have to stop.",
+      "perche_e_un_problema": "The workout gets interrupted.",
+      "correzione": "Start slowly, at a pace that lets you talk between lengths."
+    },
+    "collo-e-spalle-rigidi": {
+      "nome": "Stiff neck and shoulders",
+      "come_si_riconosce": "Your shoulders are high and your neck is tense.",
+      "perche_e_un_problema": "Stiffness makes you sink and tires you sooner.",
+      "correzione": "Relax your shoulders and let the water support you."
+    },
+    "niente-riscaldamento-e-recupero": {
+      "nome": "No warm-up and cool-down",
+      "come_si_riconosce": "You start and finish abruptly, without easy lengths.",
+      "perche_e_un_problema": "You start cold and finish without letting your pace come down.",
+      "correzione": "Always start and finish with a few easy lengths."
+    },
+    "dorso-testa-troppo-indietro": {
+      "nome": "Head too far back in backstroke",
+      "come_si_riconosce": "Your chin points up and your ribs open.",
+      "perche_e_un_problema": "You lose the connection with the centre of your body and your position weakens.",
+      "correzione": "Keep your head in line with your body, look up and a little towards your feet, and keep your ribs down."
+    },
+    "dorso-spalla-al-mento": {
+      "nome": "Shoulder rising towards the chin in backstroke",
+      "come_si_riconosce": "During the rotation a shoulder comes out of the water and rises towards your chin.",
+      "perche_e_un_problema": "The rotation starts from the shoulder instead of the hips and you lose your head and body position.",
+      "correzione": "Rotate from the hips, keep your shoulders low and hold your head and body position steady."
+    },
+    "rana-piedi-non-ruotati": {
+      "nome": "Feet not turned out in breaststroke",
+      "come_si_riconosce": "In the kick your feet stay in line with your legs, without turning outwards.",
+      "perche_e_un_problema": "Without turned-out, flexed feet the push backwards is weak.",
+      "correzione": "Bring your heels towards your buttocks, turn your feet out and flex them, then push back in a circular motion until your legs are straight and together."
+    },
+    "rana-mani-verso-il-corpo": {
+      "nome": "Hands pulled towards the body in breaststroke",
+      "come_si_riconosce": "In the pull your hands are brought towards your body and the grip on the water is poor.",
+      "perche_e_un_problema": "You do not use the grip on the water to move forward.",
+      "correzione": "After the sweep out, hold the water with your palms and bring your body forward towards your hands, then return to the stretched-out position."
+    },
+    "rana-senza-scivolo": {
+      "nome": "No return to the stretched-out position in breaststroke",
+      "come_si_riconosce": "After the pull you start again straight away, without bringing your body back to a stretched-out position.",
+      "perche_e_un_problema": "You lose the forward movement the kick gave you.",
+      "correzione": "After each complete pull return to the arrow position and stay stretched out while you glide, counting in your head."
+    },
+    "rana-testa-alta-dopo-il-respiro": {
+      "nome": "Head up after the breath in breaststroke",
+      "come_si_riconosce": "After breathing your head stays out and your body does not return to line.",
+      "perche_e_un_problema": "Your body is not stretched out just when it should be gliding.",
+      "correzione": "Bring your head back in line with your body as soon as possible and glide just below the surface, without going deep."
+    },
+    "delfino-solo-gambe": {
+      "nome": "Butterfly with the legs only",
+      "come_si_riconosce": "Your legs kick but the undulation does not start from the chest.",
+      "perche_e_un_problema": "The movement loses its fluidity and the body does not work as a single wave.",
+      "correzione": "Press your chest down and let the movement travel down to your feet: the kick starts from the chest."
+    },
+    "delfino-piede-fuori-dall-acqua": {
+      "nome": "Whole foot coming out of the water in butterfly",
+      "come_si_riconosce": "In the kick the whole foot comes out of the water.",
+      "perche_e_un_problema": "The kick loses its shape and its timing with the arms.",
+      "correzione": "Let only your heels and the tips of your feet break the surface, and take care over the two moments of push: hands exiting and entering."
+    },
+    "delfino-spalle-alte": {
+      "nome": "Shoulders up towards the head in butterfly",
+      "come_si_riconosce": "When the hands start the pull your shoulders rise towards your ears.",
+      "perche_e_un_problema": "Your elbow does not stay high and the pull gets weaker.",
+      "correzione": "Keep your shoulders low while keeping your elbows high."
+    }
+  },
+  "zone": {
+    "facile": {
+      "nome": "Easy",
+      "descrizione": "A comfortable pace, where you can still breathe calmly and think about your technique. Good for warming up, recovering and whenever you want to swim without effort."
+    },
+    "regolare": {
+      "nome": "Steady",
+      "descrizione": "A constant pace that you feel but can hold for a long time. It is the zone for building endurance, length after length."
+    },
+    "sostenuto": {
+      "nome": "Brisk",
+      "descrizione": "A demanding but controlled pace, just below your reference pace. You feel the effort, but you know you can make it to the end of the set."
+    },
+    "ritmo-critico": {
+      "nome": "Hard",
+      "descrizione": "A tough pace, a little slower than your all-out 200 m. It is used in short sets with short rests, not for swimming a long time in one go."
+    },
+    "veloce": {
+      "nome": "Fast",
+      "descrizione": "The pace of your all-out 200 m, or close to it. For short stretches, with a real rest after each one: only the most experienced use it."
+    }
+  },
+  "istruzioni_test": "The test is used to find your reference pace. Before the test: only do it if you feel well and are used to swimming continuously (it is recommended from the intermediate level up). An all-out effort is tiring: if in doubt, ask your doctor. How to do it: 1) Warm up with 200-400 m easy, plus a few short pick-ups. 2) Swim 200 m of freestyle all-out, that is, at the fastest pace you can hold until the end, starting from the wall (no dive). Spread your effort wisely: do not start too fast. 3) Note your time and enter it in the app. If the time seems too far from what you usually do, repeat the test another day. If you feel unwell, stop and rest.",
+  "titoli": {
+    "Bracciata lunga": "Long stroke",
+    "Continuità con il pull buoy": "Steady swimming with the pull buoy",
+    "Costanza in vasca": "Consistency in the pool",
+    "Costruire resistenza": "Building endurance",
+    "Delfino: l'onda dal petto": "Butterfly: the wave from the chest",
+    "Dorso e rana": "Backstroke and breaststroke",
+    "Dorso e stile libero": "Backstroke and freestyle",
+    "Fondo facile": "Easy endurance",
+    "Fondo facile: 10 × 25 m": "Easy endurance: 10 × 25 m",
+    "Fondo facile: 10 × 25 m · 475 m": "Easy endurance: 10 × 25 m · 475 m",
+    "Fondo facile: 10 × 25 m · 500 m": "Easy endurance: 10 × 25 m · 500 m",
+    "Fondo facile: 10 × 25 m · 525 m": "Easy endurance: 10 × 25 m · 525 m",
+    "Fondo facile: 10 × 25 m · 550 m": "Easy endurance: 10 × 25 m · 550 m",
+    "Fondo facile: 10 × 25 m · 550 m · variante 2": "Easy endurance: 10 × 25 m · 550 m · variant 2",
+    "Fondo facile: 10 × 25 m · 575 m": "Easy endurance: 10 × 25 m · 575 m",
+    "Fondo facile: 12 × 25 m": "Easy endurance: 12 × 25 m",
+    "Fondo facile: 12 × 25 m · 550 m": "Easy endurance: 12 × 25 m · 550 m",
+    "Fondo facile: 12 × 25 m · 550 m · variante 2": "Easy endurance: 12 × 25 m · 550 m · variant 2",
+    "Fondo facile: 12 × 25 m · 550 m · variante 3": "Easy endurance: 12 × 25 m · 550 m · variant 3",
+    "Fondo facile: 12 × 25 m · 550 m · variante 4": "Easy endurance: 12 × 25 m · 550 m · variant 4",
+    "Fondo facile: 12 × 25 m · 550 m · variante 5": "Easy endurance: 12 × 25 m · 550 m · variant 5",
+    "Fondo facile: 12 × 25 m · 550 m · variante 6": "Easy endurance: 12 × 25 m · 550 m · variant 6",
+    "Fondo facile: 3 × 50 m + 3 × 50 m": "Easy endurance: 3 × 50 m + 3 × 50 m",
+    "Fondo facile: 3 × 50 m + 3 × 50 m · 575 m": "Easy endurance: 3 × 50 m + 3 × 50 m · 575 m",
+    "Fondo facile: 3 × 50 m + 3 × 50 m · 575 m · variante 2": "Easy endurance: 3 × 50 m + 3 × 50 m · 575 m · variant 2",
+    "Fondo facile: 3 × 50 m + 4 × 50 m": "Easy endurance: 3 × 50 m + 4 × 50 m",
+    "Fondo facile: 4 × 50 m + 4 × 25 m": "Easy endurance: 4 × 50 m + 4 × 25 m",
+    "Fondo facile: 4 × 50 m + 4 × 25 m · 550 m": "Easy endurance: 4 × 50 m + 4 × 25 m · 550 m",
+    "Fondo facile: 4 × 50 m + 4 × 25 m · 550 m · variante 2": "Easy endurance: 4 × 50 m + 4 × 25 m · 550 m · variant 2",
+    "Fondo facile: 4 × 50 m + 4 × 25 m · 550 m · variante 3": "Easy endurance: 4 × 50 m + 4 × 25 m · 550 m · variant 3",
+    "Fondo facile: 4 × 50 m + 4 × 25 m · 575 m": "Easy endurance: 4 × 50 m + 4 × 25 m · 575 m",
+    "Fondo facile: 5 × 50 m": "Easy endurance: 5 × 50 m",
+    "Fondo facile: 5 × 50 m · 550 m": "Easy endurance: 5 × 50 m · 550 m",
+    "Fondo facile: 6 × 50 m": "Easy endurance: 6 × 50 m",
+    "Fondo facile: 6 × 50 m · 550 m": "Easy endurance: 6 × 50 m · 550 m",
+    "Fondo facile: 6 × 50 m · 550 m · variante 2": "Easy endurance: 6 × 50 m · 550 m · variant 2",
+    "Fondo facile: 7 × 50 m": "Easy endurance: 7 × 50 m",
+    "Fondo facile: 7 × 50 m · 575 m": "Easy endurance: 7 × 50 m · 575 m",
+    "Fondo facile: 8 × 25 m": "Easy endurance: 8 × 25 m",
+    "Fondo facile: 8 × 25 m · 425 m": "Easy endurance: 8 × 25 m · 425 m",
+    "Fondo facile: 8 × 25 m · 450 m": "Easy endurance: 8 × 25 m · 450 m",
+    "Fondo facile: 8 × 25 m · 475 m": "Easy endurance: 8 × 25 m · 475 m",
+    "Fondo facile: 8 × 25 m · 500 m": "Easy endurance: 8 × 25 m · 500 m",
+    "Fondo facile: 8 × 25 m · 500 m · variante 2": "Easy endurance: 8 × 25 m · 500 m · variant 2",
+    "Fondo: 1 × 400 m + 2 × 100 m": "Endurance: 1 × 400 m + 2 × 100 m",
+    "Fondo: 1 × 400 m + 2 × 100 m · 1000 m": "Endurance: 1 × 400 m + 2 × 100 m · 1000 m",
+    "Fondo: 1 × 400 m + 2 × 100 m · 1000 m · variante 2": "Endurance: 1 × 400 m + 2 × 100 m · 1000 m · variant 2",
+    "Fondo: 1 × 400 m + 2 × 100 m · 1050 m": "Endurance: 1 × 400 m + 2 × 100 m · 1050 m",
+    "Fondo: 1 × 400 m + 2 × 100 m · 1100 m": "Endurance: 1 × 400 m + 2 × 100 m · 1100 m",
+    "Fondo: 1 × 400 m + 2 × 100 m · 1100 m · variante 2": "Endurance: 1 × 400 m + 2 × 100 m · 1100 m · variant 2",
+    "Fondo: 1 × 400 m + 2 × 100 m · 1150 m": "Endurance: 1 × 400 m + 2 × 100 m · 1150 m",
+    "Fondo: 1 × 400 m + 2 × 100 m · 1150 m · variante 2": "Endurance: 1 × 400 m + 2 × 100 m · 1150 m · variant 2",
+    "Fondo: 1 × 400 m + 2 × 100 m · 1200 m": "Endurance: 1 × 400 m + 2 × 100 m · 1200 m",
+    "Fondo: 2 × 300 m": "Endurance: 2 × 300 m",
+    "Fondo: 2 × 300 m · 1100 m": "Endurance: 2 × 300 m · 1100 m",
+    "Fondo: 2 × 300 m · 1150 m": "Endurance: 2 × 300 m · 1150 m",
+    "Fondo: 3 × 200 m": "Endurance: 3 × 200 m",
+    "Fondo: 3 × 200 m · 1050 m": "Endurance: 3 × 200 m · 1050 m",
+    "Fondo: 3 × 200 m · 1100 m": "Endurance: 3 × 200 m · 1100 m",
+    "Fondo: 3 × 200 m · 1100 m · variante 2": "Endurance: 3 × 200 m · 1100 m · variant 2",
+    "Fondo: 4 × 150 m": "Endurance: 4 × 150 m",
+    "Fondo: 4 × 150 m · 1000 m": "Endurance: 4 × 150 m · 1000 m",
+    "Fondo: 4 × 150 m · 1100 m": "Endurance: 4 × 150 m · 1100 m",
+    "Fondo: 4 × 150 m · 1100 m · variante 2": "Endurance: 4 × 150 m · 1100 m · variant 2",
+    "Fondo: 4 × 150 m · 1150 m": "Endurance: 4 × 150 m · 1150 m",
+    "Fondo: 4 × 150 m · 1150 m · variante 2": "Endurance: 4 × 150 m · 1150 m · variant 2",
+    "Fondo: 4 × 150 m · 1200 m": "Endurance: 4 × 150 m · 1200 m",
+    "Fondo: 6 × 100 m": "Endurance: 6 × 100 m",
+    "Fondo: 6 × 100 m · 1100 m": "Endurance: 6 × 100 m · 1100 m",
+    "Fondo: 6 × 100 m · 1100 m · variante 2": "Endurance: 6 × 100 m · 1100 m · variant 2",
+    "Fondo: 6 × 100 m · 1200 m": "Endurance: 6 × 100 m · 1200 m",
+    "Fondo: 6 × 100 m · 1200 m · variante 2": "Endurance: 6 × 100 m · 1200 m · variant 2",
+    "Prime vasche tranquille": "Easy first lengths",
+    "Rana con scivolo": "Breaststroke with glide",
+    "Rana: due gambate, una bracciata": "Breaststroke: two kicks, one pull",
+    "Resistenza con pull buoy": "Endurance with the pull buoy",
+    "Resistenza intermedia": "Intermediate endurance",
+    "Respirare di lato": "Breathing to the side",
+    "Respiro e scivolo": "Breath and glide",
+    "Ritmo alto: 10 × 50 m": "Fast pace: 10 × 50 m",
+    "Ritmo alto: 10 × 50 m · 1000 m": "Fast pace: 10 × 50 m · 1000 m",
+    "Ritmo alto: 10 × 50 m · 1100 m": "Fast pace: 10 × 50 m · 1100 m",
+    "Ritmo alto: 10 × 50 m · 1100 m · variante 2": "Fast pace: 10 × 50 m · 1100 m · variant 2",
+    "Ritmo alto: 10 × 50 m · 1200 m": "Fast pace: 10 × 50 m · 1200 m",
+    "Ritmo alto: 10 × 50 m · 1200 m · variante 2": "Fast pace: 10 × 50 m · 1200 m · variant 2",
+    "Ritmo alto: 10 × 50 m · 1200 m · variante 3": "Fast pace: 10 × 50 m · 1200 m · variant 3",
+    "Ritmo alto: 12 × 50 m": "Fast pace: 12 × 50 m",
+    "Ritmo alto: 12 × 50 m · 1000 m": "Fast pace: 12 × 50 m · 1000 m",
+    "Ritmo alto: 4 × 100 m + 6 × 50 m": "Fast pace: 4 × 100 m + 6 × 50 m",
+    "Ritmo alto: 4 × 100 m + 6 × 50 m · 1150 m": "Fast pace: 4 × 100 m + 6 × 50 m · 1150 m",
+    "Ritmo alto: 5 × 150 m": "Fast pace: 5 × 150 m",
+    "Ritmo alto: 6 × 100 m": "Fast pace: 6 × 100 m",
+    "Ritmo alto: 6 × 100 m · 1100 m": "Fast pace: 6 × 100 m · 1100 m",
+    "Ritmo alto: 6 × 100 m · 1200 m": "Fast pace: 6 × 100 m · 1200 m",
+    "Ritmo alto: 6 × 100 m · 1200 m · variante 2": "Fast pace: 6 × 100 m · 1200 m · variant 2",
+    "Ritmo alto: 6 × 75 m": "Fast pace: 6 × 75 m",
+    "Ritmo alto: 6 × 75 m · 1050 m": "Fast pace: 6 × 75 m · 1050 m",
+    "Ritmo alto: 6 × 75 m · 1100 m": "Fast pace: 6 × 75 m · 1100 m",
+    "Ritmo alto: 6 × 75 m · 1100 m · variante 2": "Fast pace: 6 × 75 m · 1100 m · variant 2",
+    "Ritmo alto: 6 × 75 m · 1100 m · variante 3": "Fast pace: 6 × 75 m · 1100 m · variant 3",
+    "Ritmo alto: 6 × 75 m · 1150 m": "Fast pace: 6 × 75 m · 1150 m",
+    "Ritmo alto: 6 × 75 m · 1150 m · variante 2": "Fast pace: 6 × 75 m · 1150 m · variant 2",
+    "Ritmo alto: 6 × 75 m · 1150 m · variante 3": "Fast pace: 6 × 75 m · 1150 m · variant 3",
+    "Ritmo alto: 6 × 75 m · 1200 m": "Fast pace: 6 × 75 m · 1200 m",
+    "Ritmo alto: 6 × 75 m · 950 m": "Fast pace: 6 × 75 m · 950 m",
+    "Ritmo alto: 8 × 75 m": "Fast pace: 8 × 75 m",
+    "Ritmo alto: 8 × 75 m · 1200 m": "Fast pace: 8 × 75 m · 1200 m",
+    "Ritmo alto: cento veloci": "Fast pace: fast hundreds",
+    "Ritmo alto: serie da 50": "Fast pace: 50 m sets",
+    "Soglia: 10 × 50 m": "Threshold: 10 × 50 m",
+    "Soglia: 10 × 50 m · 1100 m": "Threshold: 10 × 50 m · 1100 m",
+    "Soglia: 10 × 50 m · 1100 m · variante 2": "Threshold: 10 × 50 m · 1100 m · variant 2",
+    "Soglia: 10 × 50 m · 1150 m": "Threshold: 10 × 50 m · 1150 m",
+    "Soglia: 10 × 50 m · 1150 m · variante 2": "Threshold: 10 × 50 m · 1150 m · variant 2",
+    "Soglia: 10 × 50 m · 1200 m": "Threshold: 10 × 50 m · 1200 m",
+    "Soglia: 10 × 50 m · 1200 m · variante 2": "Threshold: 10 × 50 m · 1200 m · variant 2",
+    "Soglia: 10 × 50 m · 950 m": "Threshold: 10 × 50 m · 950 m",
+    "Soglia: 10 × 50 m · 950 m · variante 2": "Threshold: 10 × 50 m · 950 m · variant 2",
+    "Soglia: 2 × 200 m + 4 × 100 m": "Threshold: 2 × 200 m + 4 × 100 m",
+    "Soglia: 3 × 150 m + 3 × 100 m": "Threshold: 3 × 150 m + 3 × 100 m",
+    "Soglia: 4 × 200 m": "Threshold: 4 × 200 m",
+    "Soglia: 5 × 100 m": "Threshold: 5 × 100 m",
+    "Soglia: 5 × 100 m · 1000 m": "Threshold: 5 × 100 m · 1000 m",
+    "Soglia: 6 × 100 m": "Threshold: 6 × 100 m",
+    "Soglia: 6 × 100 m · 1150 m": "Threshold: 6 × 100 m · 1150 m",
+    "Soglia: 8 × 50 m": "Threshold: 8 × 50 m",
+    "Soglia: 8 × 50 m · 1000 m": "Threshold: 8 × 50 m · 1000 m",
+    "Soglia: 8 × 50 m · 1050 m": "Threshold: 8 × 50 m · 1050 m",
+    "Soglia: 8 × 50 m · 1100 m": "Threshold: 8 × 50 m · 1100 m",
+    "Soglia: 8 × 50 m · 1100 m · variante 2": "Threshold: 8 × 50 m · 1100 m · variant 2",
+    "Soglia: 8 × 50 m · 1200 m": "Threshold: 8 × 50 m · 1200 m",
+    "Soglia: 8 × 50 m · 1200 m · variante 2": "Threshold: 8 × 50 m · 1200 m · variant 2",
+    "Soglia: 8 × 50 m · 1200 m · variante 3": "Threshold: 8 × 50 m · 1200 m · variant 3",
+    "Soglia: 8 × 50 m · 850 m": "Threshold: 8 × 50 m · 850 m",
+    "Soglia: 8 × 50 m · 900 m": "Threshold: 8 × 50 m · 900 m",
+    "Soglia: 8 × 50 m · 900 m · variante 2": "Threshold: 8 × 50 m · 900 m · variant 2",
+    "Soglia: 8 × 50 m · 900 m · variante 3": "Threshold: 8 × 50 m · 900 m · variant 3",
+    "Soglia: ripetute da 100": "Threshold: 100 m repeats",
+    "Soglia: serie lunghe": "Threshold: long sets",
+    "Tecnica e ritmo": "Technique and pace",
+    "Tecnica: battuta con tavoletta": "Technique: kickboard kick",
+    "Tecnica: battuta con tavoletta e battuta con un braccio teso": "Technique: kickboard kick and one-arm-extended kick",
+    "Tecnica: battuta con tavoletta e battuta con un braccio teso · 475 m": "Technique: kickboard kick and one-arm-extended kick · 475 m",
+    "Tecnica: battuta con tavoletta e battuta con un braccio teso · 550 m": "Technique: kickboard kick and one-arm-extended kick · 550 m",
+    "Tecnica: battuta con tavoletta e respirazione laterale con tavoletta": "Technique: kickboard kick and side breathing with a kickboard",
+    "Tecnica: battuta con tavoletta e scivolamento a freccia": "Technique: kickboard kick and streamline glide",
+    "Tecnica: battuta con tavoletta · 450 m": "Technique: kickboard kick · 450 m",
+    "Tecnica: battuta con tavoletta · 500 m": "Technique: kickboard kick · 500 m",
+    "Tecnica: battuta con un braccio teso": "Technique: one-arm-extended kick",
+    "Tecnica: battuta con un braccio teso e dita sull'acqua": "Technique: one-arm-extended kick and fingertip drag",
+    "Tecnica: battuta con un braccio teso e nuotata con pull buoy": "Technique: one-arm-extended kick and pull buoy swim",
+    "Tecnica: battuta con un braccio teso e un braccio solo": "Technique: one-arm-extended kick and single-arm drill",
+    "Tecnica: battuta con un braccio teso · 425 m": "Technique: one-arm-extended kick · 425 m",
+    "Tecnica: battuta con un braccio teso · 450 m": "Technique: one-arm-extended kick · 450 m",
+    "Tecnica: battuta con un braccio teso · 525 m": "Technique: one-arm-extended kick · 525 m",
+    "Tecnica: battuta con un braccio teso · 550 m": "Technique: one-arm-extended kick · 550 m",
+    "Tecnica: battuta sul dorso": "Technique: backstroke kick",
+    "Tecnica: battuta sul dorso con rotazione": "Technique: backstroke kick with rotation",
+    "Tecnica: battuta sul dorso con rotazione e nuotata con pull buoy": "Technique: backstroke kick with rotation and pull buoy swim",
+    "Tecnica: battuta sul dorso e battuta con un braccio teso": "Technique: backstroke kick and one-arm-extended kick",
+    "Tecnica: battuta sul dorso e nuotata con pull buoy": "Technique: backstroke kick and pull buoy swim",
+    "Tecnica: catch-up": "Technique: catch-up",
+    "Tecnica: catch-up e dorso un braccio alla volta": "Technique: catch-up and one-arm backstroke",
+    "Tecnica: catch-up e onda del delfino": "Technique: catch-up and dolphin wave",
+    "Tecnica: catch-up · 1050 m": "Technique: catch-up · 1050 m",
+    "Tecnica: catch-up · 1150 m": "Technique: catch-up · 1150 m",
+    "Tecnica: catch-up · 450 m": "Technique: catch-up · 450 m",
+    "Tecnica: catch-up · 475 m": "Technique: catch-up · 475 m",
+    "Tecnica: catch-up · 525 m": "Technique: catch-up · 525 m",
+    "Tecnica: delfino un braccio alla volta": "Technique: one-arm butterfly",
+    "Tecnica: delfino un braccio alla volta e battuta sul dorso con rotazione": "Technique: one-arm butterfly and backstroke kick with rotation",
+    "Tecnica: dita sull'acqua": "Technique: fingertip drag",
+    "Tecnica: dita sull'acqua · 400 m": "Technique: fingertip drag · 400 m",
+    "Tecnica: dita sull'acqua · 475 m": "Technique: fingertip drag · 475 m",
+    "Tecnica: dita sull'acqua · 500 m": "Technique: fingertip drag · 500 m",
+    "Tecnica: dita sull'acqua · 525 m": "Technique: fingertip drag · 525 m",
+    "Tecnica: dita sull'acqua · 900 m": "Technique: fingertip drag · 900 m",
+    "Tecnica: dorso un braccio alla volta": "Technique: one-arm backstroke",
+    "Tecnica: dorso un braccio alla volta e nuotata con pull buoy": "Technique: one-arm backstroke and pull buoy swim",
+    "Tecnica: nuotata con pull buoy": "Technique: pull buoy swim",
+    "Tecnica: rana con scivolo": "Technique: breaststroke with glide",
+    "Tecnica: rana: due gambate, una bracciata": "Technique: breaststroke: two kicks, one pull",
+    "Tecnica: rana: due gambate, una bracciata · 900 m": "Technique: breaststroke: two kicks, one pull · 900 m",
+    "Tecnica: rana: il corpo verso le mani": "Technique: breaststroke: body to the hands",
+    "Tecnica: rana: il corpo verso le mani e rana con scivolo": "Technique: breaststroke: body to the hands and breaststroke with glide",
+    "Tecnica: respirazione laterale con tavoletta": "Technique: side breathing with a kickboard",
+    "Tecnica: respirazione laterale con tavoletta e battuta con un braccio teso": "Technique: side breathing with a kickboard and one-arm-extended kick",
+    "Tecnica: respirazione laterale con tavoletta e onda del delfino": "Technique: side breathing with a kickboard and dolphin wave",
+    "Tecnica: scivolamento a freccia": "Technique: streamline glide",
+    "Tecnica: scivolamento a freccia e battuta con un braccio teso": "Technique: streamline glide and one-arm-extended kick",
+    "Tecnica: scivolamento a freccia · 450 m": "Technique: streamline glide · 450 m",
+    "Tecnica: scivolamento a freccia · 500 m": "Technique: streamline glide · 500 m",
+    "Tecnica: sei colpi e cambio": "Technique: six kicks and switch",
+    "Tecnica: sei colpi e cambio e dita sull'acqua": "Technique: six kicks and switch and fingertip drag",
+    "Tecnica: un braccio solo": "Technique: single-arm drill",
+    "Tecnica: un braccio solo e scivolamento a freccia": "Technique: single-arm drill and streamline glide",
+    "Tecnica: un braccio solo · 375 m": "Technique: single-arm drill · 375 m",
+    "Tecnica: un braccio solo · 525 m": "Technique: single-arm drill · 525 m",
+    "Tecnica: un braccio solo · 550 m": "Technique: single-arm drill · 550 m",
+    "Tolleranza: 2 × 100 m + 4 × 50 m": "Tolerance: 2 × 100 m + 4 × 50 m",
+    "Tolleranza: 2 × 100 m + 4 × 50 m · 1200 m": "Tolerance: 2 × 100 m + 4 × 50 m · 1200 m",
+    "Tolleranza: 3 × 150 m": "Tolerance: 3 × 150 m",
+    "Tolleranza: 3 × 150 m · 1150 m": "Tolerance: 3 × 150 m · 1150 m",
+    "Tolleranza: 3 × 150 m · 1200 m": "Tolerance: 3 × 150 m · 1200 m",
+    "Tolleranza: 3 × 150 m · 950 m": "Tolerance: 3 × 150 m · 950 m",
+    "Tolleranza: 4 × 100 m": "Tolerance: 4 × 100 m",
+    "Tolleranza: 4 × 100 m · 1100 m": "Tolerance: 4 × 100 m · 1100 m",
+    "Tolleranza: 4 × 100 m · 1200 m": "Tolerance: 4 × 100 m · 1200 m",
+    "Tolleranza: 4 × 100 m · 1200 m · variante 2": "Tolerance: 4 × 100 m · 1200 m · variant 2",
+    "Tolleranza: 4 × 100 m · 950 m": "Tolerance: 4 × 100 m · 950 m",
+    "Tolleranza: 4 × 75 m": "Tolerance: 4 × 75 m",
+    "Tolleranza: 4 × 75 m · 1000 m": "Tolerance: 4 × 75 m · 1000 m",
+    "Tolleranza: 4 × 75 m · 1050 m": "Tolerance: 4 × 75 m · 1050 m",
+    "Tolleranza: 4 × 75 m · 1150 m": "Tolerance: 4 × 75 m · 1150 m",
+    "Tolleranza: 4 × 75 m · 700 m": "Tolerance: 4 × 75 m · 700 m",
+    "Tolleranza: 4 × 75 m · 900 m": "Tolerance: 4 × 75 m · 900 m",
+    "Tolleranza: 6 × 50 m": "Tolerance: 6 × 50 m",
+    "Tolleranza: 6 × 50 m + 2 × 100 m": "Tolerance: 6 × 50 m + 2 × 100 m",
+    "Tolleranza: 6 × 50 m + 2 × 100 m · 1000 m": "Tolerance: 6 × 50 m + 2 × 100 m · 1000 m",
+    "Tolleranza: 6 × 50 m + 2 × 100 m · 1100 m": "Tolerance: 6 × 50 m + 2 × 100 m · 1100 m",
+    "Tolleranza: 6 × 50 m + 2 × 100 m · 1100 m · variante 2": "Tolerance: 6 × 50 m + 2 × 100 m · 1100 m · variant 2",
+    "Tolleranza: 6 × 50 m + 2 × 100 m · 1150 m": "Tolerance: 6 × 50 m + 2 × 100 m · 1150 m",
+    "Tolleranza: 6 × 50 m + 2 × 100 m · 1200 m": "Tolerance: 6 × 50 m + 2 × 100 m · 1200 m",
+    "Tolleranza: 6 × 50 m · 900 m": "Tolerance: 6 × 50 m · 900 m",
+    "Tolleranza: 8 × 50 m": "Tolerance: 8 × 50 m",
+    "Tolleranza: 8 × 50 m · 1000 m": "Tolerance: 8 × 50 m · 1000 m",
+    "Tolleranza: 8 × 50 m · 1100 m": "Tolerance: 8 × 50 m · 1100 m",
+    "Tolleranza: cinquanta e cento": "Tolerance: fifties and hundreds",
+    "Tolleranza: forte con recupero lungo": "Tolerance: hard with long rest"
+  }
+}

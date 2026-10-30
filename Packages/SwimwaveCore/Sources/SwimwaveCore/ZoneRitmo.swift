@@ -62,7 +62,15 @@ public struct ZonaRitmo: Codable, Equatable, Sendable, Identifiable, ContenutoCo
     }
 }
 
-struct FileZoneRitmo: Decodable { let zone: [ZonaRitmo] }
+struct FileZoneRitmo: Decodable {
+    let zone: [ZonaRitmo]
+    let istruzioniTest: String?
+
+    enum CodingKeys: String, CodingKey {
+        case zone
+        case istruzioniTest = "istruzioni_test"
+    }
+}
 
 public enum FormatoRitmo {
     /// 95 secondi -> "1:35".

@@ -7,6 +7,8 @@ struct ProfiloView: View {
     @State private var confermaCancellazione = false
     @State private var mostraPermessoSalute = false
     @State private var mostraPermessoNotifiche = false
+    @State private var linguaScelta: Lingua? = Lingua.scelta
+    @State private var avvisoRiavvio = false
     /// Stessa chiave di RootView: dopo aver spiegato le notifiche qui, il primo avvio non le rispiega.
     @AppStorage("swimwave.permessoNotificheMostrato") private var notificheMostrate = false
 
@@ -91,6 +93,8 @@ struct ProfiloView: View {
                                 }
                             }
                         }
+
+                        rigaLingua
 
                         rigaIA
 
@@ -199,6 +203,53 @@ struct ProfiloView: View {
                 PermessoNotificheView { mostraPermessoNotifiche = false }
             }
         }
+    }
+
+    /// Lingua dell'app: Automatica (quella dell'iPhone) o una a scelta. Si applica alla riapertura dell'app.
+    private var rigaLingua: some View {
+        riga("profilo.lingua") {
+            VStack(alignment: .leading, spacing: 8) {
+                Menu {
+                    Button { cambia(lingua: nil) } label: {
+                        if linguaScelta == nil { Label("profilo.lingua.automatica", systemImage: "checkmark") }
+                        else { Text("profilo.lingua.automatica") }
+                    }
+                    ForEach(Lingua.allCases) { l in
+                        Button { cambia(lingua: l) } label: {
+                            if linguaScelta == l { Label(l.nome, systemImage: "checkmark") }
+                            else { Text(verbatim: l.nome) }
+                        }
+                    }
+                } label: {
+                    HStack {
+                        if let l = linguaScelta { Text(verbatim: l.nome) } else { Text("profilo.lingua.automatica") }
+                        Spacer()
+                        Image(systemName: "chevron.up.chevron.down").foregroundStyle(Tema.testoSecondario)
+                            .accessibilityHidden(true)
+                    }
+                    .font(Tema.corpo)
+                    .foregroundStyle(Tema.testo)
+                    .padding(12)
+                    .background(RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(Tema.turchese, lineWidth: 2))
+                }
+                Text("profilo.lingua.descrizione")
+                    .font(Tema.piccolo)
+                    .foregroundStyle(Tema.testoSecondario)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .alert("profilo.lingua.riavvio.titolo", isPresented: $avvisoRiavvio) {
+            Button("comune.chiudi", role: .cancel) {}
+        } message: {
+            Text("profilo.lingua.riavvio.messaggio")
+        }
+    }
+
+    private func cambia(lingua: Lingua?) {
+        guard lingua != linguaScelta else { return }
+        linguaScelta = lingua
+        Lingua.scelta = lingua
+        avvisoRiavvio = true
     }
 
     /// Interruttore del consenso all'IA: acceso = allenamenti preparati con l'intelligenza artificiale.

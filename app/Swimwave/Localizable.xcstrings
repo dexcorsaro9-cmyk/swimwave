@@ -10282,6 +10282,121 @@
         }
       }
     },
+    "profilo.lingua": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lingua"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Language"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma"
+          }
+        }
+      }
+    },
+    "profilo.lingua.automatica": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatica (come l'iPhone)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatic (same as iPhone)"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automático (como el iPhone)"
+          }
+        }
+      }
+    },
+    "profilo.lingua.descrizione": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vale solo per Swimwave: testi, date e contenuti tecnici. Cambia dopo aver chiuso e riaperto l'app."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Applies to Swimwave only: texts, dates and technical content. It changes after you close and reopen the app."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo vale para Swimwave: textos, fechas y contenidos técnicos. Cambia al cerrar y volver a abrir la app."
+          }
+        }
+      }
+    },
+    "profilo.lingua.riavvio.messaggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scorri verso l'alto dal selettore delle app e chiudi Swimwave, poi riaprila: la lingua sarà quella scelta."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Swipe up in the app switcher to close Swimwave, then open it again: it will use the language you chose."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desliza hacia arriba en el selector de apps para cerrar Swimwave y vuélvela a abrir: usará el idioma elegido."
+          }
+        }
+      }
+    },
+    "profilo.lingua.riavvio.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chiudi e riapri l'app"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close and reopen the app"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cierra y vuelve a abrir la app"
+          }
+        }
+      }
+    },
     "profilo.livello": {
       "extractionState": "manual",
       "localizations": {

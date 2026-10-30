@@ -152,12 +152,14 @@ struct PaginaAllenamento: View {
 
 /// Nuotata libera: nessuna scheda. Un tocco sullo schermo cambia il dato grande; il cronometro resta sempre sotto.
 /// Viste: metri, ritmo medio ogni 100 m, battito, calorie, vasche (solo in vasca), bracciate.
+/// Anche la Digital Crown cambia vista, e in acqua è il modo più sicuro: le gocce sullo schermo non la muovono.
+/// Per questo nella nuotata libera il Blocco Acqua non si attiva (con il blocco girare la corona sblocca soltanto).
 /// Un dato che l'orologio non ha ancora misurato si mostra come "--", senza inventare nulla.
-/// Con il Blocco Acqua attivo i tocchi non arrivano: si toglie girando la Digital Crown.
 /// Pausa e termina sono nella pagina dei controlli (la stessa dell'allenamento guidato).
 struct PaginaLibera: View {
     @EnvironmentObject private var manager: WorkoutManager
     @State private var indiceVista = 0
+    @State private var corona = 0.0
 
     private enum Vista { case metri, ritmo, cuore, calorie, vasche, bracciate }
 
@@ -220,11 +222,23 @@ struct PaginaLibera: View {
         .padding(.horizontal, 4)
         .contentShape(Rectangle())
         .onTapGesture {
-            indiceVista = (indiceVista + 1) % viste.count
+            vaiAllaVista((indiceVista + 1) % viste.count)
             WKInterfaceDevice.current().play(.click)
+        }
+        // Uno scatto della corona = una vista; oltre l'ultima si riparte dalla prima.
+        .focusable()
+        .digitalCrownRotation($corona, from: 0, through: Double(viste.count - 1), by: 1,
+                              sensitivity: .low, isContinuous: true, isHapticFeedbackEnabled: true)
+        .onChange(of: corona) { _, nuovo in
+            indiceVista = min(viste.count - 1, max(0, Int(nuovo.rounded())))
         }
         .accessibilityElement(children: .combine)
         .accessibilityAddTraits(.isButton)
+    }
+
+    private func vaiAllaVista(_ i: Int) {
+        indiceVista = i
+        corona = Double(i)
     }
 
     private var metri: Int { Int(manager.metriTotali.rounded()) }

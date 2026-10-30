@@ -278,7 +278,11 @@ final class WorkoutManager: NSObject, ObservableObject {
                         // Blocco Acqua: l'acqua sullo schermo non registra tocchi fantasma durante la bracciata.
                         // Si toglie girando la Digital Crown (per esempio per usare "Fatto" se l'avanzamento
                         // automatico non scatta). Da provare in piscina.
-                        WKInterfaceDevice.current().enableWaterLock()
+                        // Nella nuotata libera non si attiva: lì la corona serve a cambiare il dato mostrato
+                        // e con il blocco attivo girarla significherebbe solo sbloccare lo schermo.
+                        if self.modo != .libera {
+                            WKInterfaceDevice.current().enableWaterLock()
+                        }
                     } else {
                         // La raccolta non è partita: si chiude la sessione già creata, così non blocca la prossima.
                         self.sessione?.end()

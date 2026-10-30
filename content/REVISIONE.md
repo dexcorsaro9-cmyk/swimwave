@@ -100,3 +100,11 @@ Decisione dell'istruttore (26 ottobre 2026): gli allenamenti non richiedono più
 - **Chi le fa**: A1 e A2 tutti; B1, B2 e C1 solo dal livello intermedio. Il principiante non ha mai serie "forte".
 - **Fonti**: la classificazione è quella indicata dall'istruttore. Le fonti accademiche e USMS trovate con la ricerca web **non sono state aperte** (sito non raggiungibile): sono registrate con questa nota. Volumi, recuperi e sequenze del consiglio sono nostre proposte prudenti.
 - **Da riguardare con l'esperienza degli utenti**: la sequenza giornaliera (`Tipologia.consigliata`), i recuperi di B2 (30-60 s) e C1, e se B2/C1 vanno nascosti ai livelli bassi.
+
+## 11. Allenamento su misura (metri scelti dall'utente)
+
+L'utente sceglie quanti metri vuole nuotare (da 500 m a 2 km per il principiante, fino a 5 km per l'intermedio, a passi di 250 m) e l'app adatta a quella distanza uno degli allenamenti approvati (`SuMisura` nel pacchetto). Esercizi, stili, intensità e recuperi restano quelli dell'allenamento di partenza: cambiano solo le ripetizioni della serie principale, le ripetizioni della tecnica e le vasche di riscaldamento e defaticamento.
+
+- **Nessuna fonte per i numeri**: i limiti di metri per livello (2 km al principiante, 5 km all'intermedio), il massimo di ripetizioni in più (forte x1,5, media x4, facile x6), il massimo di 600 m per riscaldamento o defaticamento e il massimo di 8 ripetizioni di tecnica sono scelte nostre, prudenti. Da riguardare con l'esperienza degli utenti.
+- **Il lavoro forte cresce poco**: per questo un allenamento di tipo B2 o C1 non arriva ai metri di uno di fondo. L'app lo dice ("questo tipo di allenamento arriva a …") e propone di provare un allenamento di fondo (A).
+- **Il principiante non ha mai serie "forte"**: vale perché si parte sempre da allenamenti del suo livello.

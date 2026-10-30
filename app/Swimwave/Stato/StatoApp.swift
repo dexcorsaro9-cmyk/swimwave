@@ -643,6 +643,13 @@ final class StatoApp {
         }
     }
 
+    /// Un allenamento approvato adattato ai metri scelti dall'utente (vedi SuMisura nel pacchetto). Il titolo dice "Su misura" e i metri.
+    func allenamentoSuMisura(metri: Int, tipologia: Tipologia?, scelta: Int) -> Workout? {
+        contenuti.suMisura(profilo: profilo, metri: metri, tipologia: tipologia, scelta: scelta) {
+            testo("sumisura.workout.titolo", $0)
+        }
+    }
+
     /// L'utente sceglie un allenamento per oggi (dalla libreria o chiesto al coach): sostituisce quello proposto fino a fine giornata.
     func scegli(allenamento: Workout, adesso: Date = Date()) {
         allenamentoScelto = allenamento

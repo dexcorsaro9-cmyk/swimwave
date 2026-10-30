@@ -53,6 +53,7 @@ struct LibreriaView: View {
         ScrollView {
             // Con più di duecento allenamenti i gruppi si creano man mano che si scorre.
             LazyVStack(alignment: .leading, spacing: 16) {
+                cartaSuMisura
                 if caricata && elementi.isEmpty {
                     vuoto
                 } else {
@@ -75,6 +76,38 @@ struct LibreriaView: View {
                 caricata = true
             }
         }
+    }
+
+    // MARK: Su misura
+
+    /// Ingresso all'allenamento su misura: scegli i metri e l'app propone l'allenamento.
+    private var cartaSuMisura: some View {
+        NavigationLink {
+            SuMisuraView(chiudi: chiudi, inizia: inizia)
+        } label: {
+            HStack(spacing: 12) {
+                Image(systemName: "ruler.fill")
+                    .font(.title2)
+                    .foregroundStyle(Tema.turchese)
+                    .frame(width: 40)
+                    .accessibilityHidden(true)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("sumisura.carta.titolo")
+                        .font(Tema.sottotitolo)
+                        .foregroundStyle(Tema.testo)
+                    Text("sumisura.carta.testo")
+                        .font(Tema.piccolo)
+                        .foregroundStyle(Tema.testoSecondario)
+                        .multilineTextAlignment(.leading)
+                }
+                Spacer(minLength: 0)
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(Tema.testoSecondario)
+                    .accessibilityHidden(true)
+            }
+            .carta()
+        }
+        .buttonStyle(.plain)
     }
 
     // MARK: Filtri

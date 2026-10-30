@@ -53,7 +53,8 @@ targets:
         CFBundleLocalizations: [it, en, es]
         ITSAppUsesNonExemptEncryption: false
         LSRequiresIPhoneOS: true
-        UILaunchScreen: {}
+        UILaunchScreen:
+          UIColorName: Navy          # stesso blu della schermata di apertura (SplashView): niente lampo bianco
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         NSHealthShareUsageDescription: "Swimwave legge le tue nuotate da Apple Salute (distanza, durata, calorie, frequenza cardiaca e bracciate) per mostrarti i progressi."
         NSHealthUpdateUsageDescription: "Swimwave salva in Apple Salute gli allenamenti di nuoto che fai con il Watch."

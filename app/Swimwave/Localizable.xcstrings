@@ -9868,6 +9868,29 @@
         }
       }
     },
+    "personaggio.manta": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Razza manta"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manta ray"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manta raya"
+          }
+        }
+      }
+    },
     "personaggio.scelta.sottotitolo": {
       "extractionState": "manual",
       "localizations": {

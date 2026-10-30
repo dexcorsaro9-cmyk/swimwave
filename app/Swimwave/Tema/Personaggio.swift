@@ -54,8 +54,16 @@ struct Personaggio: Identifiable, Equatable {
         stanco: FoglioPersonaggio(nome: "tartaruga-stanco-sheet", totale: 44, proporzione: 99.0 / 200.0)
     )
 
+    static let manta = Personaggio(
+        id: "manta",
+        chiaveSpecie: "personaggio.manta",
+        nuota: FoglioPersonaggio(nome: "manta-nuota-sheet", totale: 35, proporzione: 99.0 / 240.0),
+        festa: FoglioPersonaggio(nome: "manta-festa-sheet", totale: 44, proporzione: 122.0 / 200.0),
+        stanco: FoglioPersonaggio(nome: "manta-stanco-sheet", totale: 44, proporzione: 86.0 / 200.0)
+    )
+
     /// Tutti i personaggi previsti, il primo è quello di partenza.
-    static let tutti: [Personaggio] = [squalo, delfino, tartaruga]
+    static let tutti: [Personaggio] = [squalo, delfino, tartaruga, manta]
 
     /// Quelli che hanno davvero i fogli nell'app: solo questi si possono scegliere.
     static var disponibili: [Personaggio] {

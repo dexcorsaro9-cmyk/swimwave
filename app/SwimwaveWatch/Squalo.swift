@@ -190,7 +190,15 @@ struct PersonaggioWatch {
         stanco: foglio("tartaruga", "stanco", righe: 5, totale: 44, 64.0 / 128.0),
         attesa: foglio("tartaruga", "attesa", righe: 8, totale: 64, 67.0 / 128.0))
 
-    static let tutti: [PersonaggioWatch] = [squalo, delfino, tartaruga]
+    static let manta = PersonaggioWatch(
+        id: "manta",
+        nuota: foglio("manta", "nuota", righe: 4, totale: 35, 53.0 / 128.0),
+        festa: foglio("manta", "festa", righe: 5, totale: 44, 78.0 / 128.0),
+        concentrato: foglio("manta", "concentrato", righe: 5, totale: 38, 58.0 / 128.0),
+        stanco: foglio("manta", "stanco", righe: 5, totale: 44, 55.0 / 128.0),
+        attesa: foglio("manta", "attesa", righe: 8, totale: 64, 48.0 / 128.0))
+
+    static let tutti: [PersonaggioWatch] = [squalo, delfino, tartaruga, manta]
     private static let chiave = "swimwave.watch.personaggio"
 
     /// Il personaggio scelto, o lo squalo se manca o non è conosciuto da questa versione dell'app.

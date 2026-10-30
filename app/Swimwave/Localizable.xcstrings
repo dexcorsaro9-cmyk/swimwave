@@ -9891,6 +9891,29 @@
         }
       }
     },
+    "personaggio.pinguino": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pinguino"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Penguin"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pingüino"
+          }
+        }
+      }
+    },
     "personaggio.polpo": {
       "extractionState": "manual",
       "localizations": {

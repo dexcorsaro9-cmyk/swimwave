@@ -76,8 +76,17 @@ struct Personaggio: Identifiable, Equatable {
         bocca: CGPoint(x: 0.62, y: 0.3)
     )
 
+    static let pinguino = Personaggio(
+        id: "pinguino",
+        chiaveSpecie: "personaggio.pinguino",
+        nuota: FoglioPersonaggio(nome: "pinguino-nuota-sheet", totale: 44, proporzione: 140.0 / 240.0),
+        festa: FoglioPersonaggio(nome: "pinguino-festa-sheet", totale: 44, proporzione: 149.0 / 200.0),
+        stanco: FoglioPersonaggio(nome: "pinguino-stanco-sheet", totale: 44, proporzione: 108.0 / 200.0),
+        bocca: CGPoint(x: 0.96, y: 0.38)
+    )
+
     /// Tutti i personaggi previsti, il primo è quello di partenza.
-    static let tutti: [Personaggio] = [squalo, delfino, tartaruga, manta, polpo]
+    static let tutti: [Personaggio] = [squalo, delfino, tartaruga, manta, polpo, pinguino]
 
     /// Quelli che hanno davvero i fogli nell'app: solo questi si possono scegliere.
     static var disponibili: [Personaggio] {

@@ -116,6 +116,9 @@ public struct Profilo: Codable, Equatable, Sendable {
     public var vascaPersonalizzata: Int?
     public var ritmo: Ritmo?
     public var frequenzaSettimanale: Int?
+    /// Personaggio acquatico che accompagna l'utente (id come in `Personaggio` dell'app). nil = il primo, lo squalo.
+    /// Non è un campo obbligatorio: i profili salvati prima di questa scelta si leggono senza.
+    public var personaggio: String?
 
     /// Profilo vuoto con i valori di partenza di vasca (25 m) e ritmo (Libero) previsti da docs/ONBOARDING.md.
     public init(
@@ -126,7 +129,8 @@ public struct Profilo: Codable, Equatable, Sendable {
         vasca: Vasca? = .metri25,
         vascaPersonalizzata: Int? = nil,
         ritmo: Ritmo? = .libero,
-        frequenzaSettimanale: Int? = nil
+        frequenzaSettimanale: Int? = nil,
+        personaggio: String? = nil
     ) {
         self.coach = coach
         self.nome = nome
@@ -136,6 +140,7 @@ public struct Profilo: Codable, Equatable, Sendable {
         self.vascaPersonalizzata = vascaPersonalizzata
         self.ritmo = ritmo
         self.frequenzaSettimanale = frequenzaSettimanale
+        self.personaggio = personaggio
     }
 
     /// Nome senza spazi iniziali e finali.

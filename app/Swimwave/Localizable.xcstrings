@@ -9845,6 +9845,75 @@
         }
       }
     },
+    "personaggio.scelta.sottotitolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ti accompagnerà negli allenamenti. Lo puoi cambiare quando vuoi dal Profilo."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "It will keep you company in your workouts. You can change it any time from Profile."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Te acompañará en los entrenamientos. Puedes cambiarlo cuando quieras desde Perfil."
+          }
+        }
+      }
+    },
+    "personaggio.scelta.titolo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scegli chi nuota con te"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose who swims with you"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige quién nada contigo"
+          }
+        }
+      }
+    },
+    "personaggio.squalo": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Squalo"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shark"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiburón"
+          }
+        }
+      }
+    },
     "picker.scegli": {
       "extractionState": "manual",
       "localizations": {
@@ -10462,6 +10531,29 @@
           "stringUnit": {
             "state": "translated",
             "value": "Objetivo"
+          }
+        }
+      }
+    },
+    "profilo.personaggio": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personaggio acquatico"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aquatic character"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personaje acuático"
           }
         }
       }

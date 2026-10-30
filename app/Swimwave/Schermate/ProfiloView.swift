@@ -31,6 +31,11 @@ struct ProfiloView: View {
                             MenuScelta(titolo: testo("profilo.coach"), opzioni: CoachID.allCases,
                                        etichetta: { $0.nome }, selezione: $stato.profilo.coach)
                         }
+                        if Personaggio.disponibili.count > 1 {
+                            riga("profilo.personaggio") {
+                                GrigliaPersonaggi(scelto: $stato.profilo.personaggio)
+                            }
+                        }
                         riga("profilo.nome") {
                             TextField("lavagnetta.nome.segnaposto", text: $stato.profilo.nome)
                                 .textContentType(.givenName)

@@ -104,6 +104,20 @@ final class ProfiloTests: XCTestCase {
         XCTAssertEqual(try JSONDecoder().decode(Profilo.self, from: data), p)
     }
 
+    func testPersonaggioSiSalvaEUnProfiloVecchioSiLegge() throws {
+        var p = Profilo(coach: .uomo, nome: "Luca")
+        XCTAssertNil(p.personaggio)
+        p.personaggio = "delfino"
+        let data = try JSONEncoder().encode(p)
+        XCTAssertEqual(try JSONDecoder().decode(Profilo.self, from: data).personaggio, "delfino")
+
+        // Profilo salvato prima della scelta del personaggio: la chiave non c'è.
+        let vecchio = Data(#"{"coach":"uomo","nome":"Luca","vasca":"metri25","ritmo":"libero"}"#.utf8)
+        let letto = try JSONDecoder().decode(Profilo.self, from: vecchio)
+        XCTAssertNil(letto.personaggio)
+        XCTAssertEqual(letto.nome, "Luca")
+    }
+
     func testCoachImmagini() {
         XCTAssertEqual(CoachID.uomo.nome, "Antonio")
         XCTAssertEqual(CoachID.donna.prefissoImmagini, "pamela")

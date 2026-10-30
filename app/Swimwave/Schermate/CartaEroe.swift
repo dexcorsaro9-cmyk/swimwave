@@ -11,6 +11,7 @@ struct AcquaEroe: View {
     var etichetta: String?
     var cambia: () -> Void
 
+    @Environment(StatoApp.self) private var stato
     @Environment(\.accessibilityReduceMotion) private var riduciMovimento
     @Environment(\.scenePhase) private var fase
 
@@ -29,7 +30,7 @@ struct AcquaEroe: View {
                 OndaSuperficie(fase: t * 1.1)
                     .fill(Color.white.opacity(0.2))
                     .frame(height: 14)
-                SqualoEBolle(t: t, ferma: ferma)
+                SqualoEBolle(t: t, ferma: ferma, foglio: Personaggio.con(id: stato.profilo.personaggio).nuota)
                 HStack(alignment: .top) {
                     if let tipologia {
                         EtichettaTipologia(tipologia: tipologia, forma: .pillola)
@@ -67,20 +68,19 @@ struct AcquaEroe: View {
     }
 }
 
-/// Lo squalo (un fotogramma dopo l'altro dal foglio "squalo-nuota-sheet") con l'ombra e le bolle.
+/// Il personaggio scelto (un fotogramma dopo l'altro dal suo foglio di nuoto) con l'ombra e le bolle.
 private struct SqualoEBolle: View {
     let t: Double
     let ferma: Bool
+    let foglio: FoglioPersonaggio
 
-    private static let colonne = 9
-    private static let righe = 5
-    private static let totale = 44
-    private static let proporzione: CGFloat = 123.0 / 240.0   // altezza / larghezza di un fotogramma
+    private static let colonne = FoglioPersonaggio.colonne
+    private static let righe = FoglioPersonaggio.righe
 
     var body: some View {
         GeometryReader { geo in
             let larghezza: CGFloat = min(geo.size.width * 0.58, 200)
-            let altezza: CGFloat = larghezza * Self.proporzione
+            let altezza: CGFloat = larghezza * foglio.proporzione
             // Deriva lenta, sempre dentro l'acqua: lascia almeno ~16 pt di margine su tutti i lati.
             let margine: CGFloat = max(0, (geo.size.width - larghezza) / 2 - 16)
             let dx: CGFloat = CGFloat(sin(t * 0.55)) * min(12, margine)
@@ -95,8 +95,8 @@ private struct SqualoEBolle: View {
                 BolleDellaBocca(t: t, bocca: CGPoint(x: sinistra + larghezza * 0.9, y: alto + altezza * 0.55), alto: 12)
                     .allowsHitTesting(false)
                 Canvas { contesto, dimensione in
-                    let immagine = contesto.resolve(Image("squalo-nuota-sheet"))
-                    let i = ferma ? 0 : Int(t * 12) % Self.totale
+                    let immagine = contesto.resolve(Image(foglio.nome))
+                    let i = ferma ? 0 : Int(t * 12) % foglio.totale
                     let col = i % Self.colonne, riga = i / Self.colonne
                     let tutta = CGRect(x: -CGFloat(col) * dimensione.width, y: -CGFloat(riga) * dimensione.height,
                                        width: dimensione.width * CGFloat(Self.colonne), height: dimensione.height * CGFloat(Self.righe))

@@ -14146,6 +14146,29 @@
         }
       }
     },
+    "sumisura.oggi": {
+      "extractionState": "manual",
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vuoi nuotare una distanza precisa? Scegli i metri"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Want to swim a set distance? Choose the metres"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Quieres nadar una distancia concreta? Elige los metros"
+          }
+        }
+      }
+    },
     "sumisura.piu": {
       "extractionState": "manual",
       "localizations": {

@@ -11,6 +11,7 @@ struct OggiView: View {
     @State private var mostraPermessoSalute = false
     @State private var permessoSaluteProposto = false
     @State private var cambiaAperto = false
+    @State private var suMisuraAperto = false
     @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
@@ -81,6 +82,26 @@ struct OggiView: View {
                     }
                 }
             )
+            .environment(stato)
+        }
+        .sheet(isPresented: $suMisuraAperto) {
+            NavigationStack {
+                SuMisuraView(
+                    chiudi: { suMisuraAperto = false },
+                    inizia: { w in
+                        // Prima si chiude il foglio, poi si apre la schermata guidata (non si presentano insieme).
+                        suMisuraAperto = false
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                            daSeguire = AllenamentoDaSeguire(workout: w)
+                        }
+                    }
+                )
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button("comune.chiudi") { suMisuraAperto = false }
+                    }
+                }
+            }
             .environment(stato)
         }
         .onAppear {
@@ -267,6 +288,7 @@ struct OggiView: View {
         if let w = stato.allenamentoDiOggi() {
             VStack(spacing: 14) {
                 cartaEroe(w)
+                rigaSuMisura
                 dettagli(w)
             }
         } else {
@@ -288,6 +310,32 @@ struct OggiView: View {
             }
             .carta()
         }
+    }
+
+    /// Una riga discreta sotto la carta eroe: per chi vuole nuotare una distanza precisa.
+    private var rigaSuMisura: some View {
+        Button {
+            suMisuraAperto = true
+        } label: {
+            HStack(spacing: 10) {
+                Image(systemName: "ruler.fill")
+                    .foregroundStyle(Tema.turchese)
+                    .accessibilityHidden(true)
+                Text("sumisura.oggi")
+                    .font(Tema.piccolo.weight(.bold))
+                    .foregroundStyle(Tema.testo)
+                    .multilineTextAlignment(.leading)
+                Spacer(minLength: 0)
+                Image(systemName: "chevron.right")
+                    .font(.caption.weight(.bold))
+                    .foregroundStyle(Tema.testoSecondario)
+                    .accessibilityHidden(true)
+            }
+            .padding(.horizontal, 14)
+            .padding(.vertical, 12)
+            .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Tema.turchese.opacity(0.12)))
+        }
+        .buttonStyle(.plain)
     }
 
     /// La carta eroe: in alto l'acqua con lo squalo, sotto titolo, durata e il pulsante per iniziare.

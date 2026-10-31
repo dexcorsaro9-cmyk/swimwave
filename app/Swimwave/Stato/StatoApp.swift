@@ -743,6 +743,7 @@ final class StatoApp {
     /// Il popup da mostrare adesso, se c'è. Regole di docs/POPUP_COACH.md: uno solo al giorno, mai colpevolizzante,
     /// il benvenuto solo con un ritmo che prevede messaggi (Regolare o Spronami).
     func popupDaMostrare(adesso: Date = Date()) -> PopupCoach? {
+        if ModalitaDemo.attiva { return nil }
         guard onboardingCompletato else { return nil }
         let cal = Calendar.italiano
         if let ultimo = giornoUltimoPopup, cal.isDate(ultimo, inSameDayAs: adesso) { return nil }

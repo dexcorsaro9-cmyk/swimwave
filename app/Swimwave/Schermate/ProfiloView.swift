@@ -139,6 +139,7 @@ struct ProfiloView: View {
                             .carta()
                         }
                         .buttonStyle(.plain)
+                        .accessibilityIdentifier("profilo.backup")
 
                         NavigationLink {
                             InformazioniView()
@@ -153,6 +154,7 @@ struct ProfiloView: View {
                             .carta()
                         }
                         .buttonStyle(.plain)
+                        .accessibilityIdentifier("profilo.informazioni")
 
                         Button { confermaCancellazione = true } label: {
                             Text("profilo.cancella")

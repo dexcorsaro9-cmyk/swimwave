@@ -108,6 +108,7 @@ struct LibreriaView: View {
             .carta()
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier("libreria.sumisura")
     }
 
     // MARK: Filtri
@@ -142,6 +143,7 @@ struct LibreriaView: View {
                     .foregroundStyle(Tema.testoSecondario)
             }
             .buttonStyle(.plain)
+            .accessibilityIdentifier("libreria.guida")
             .sheet(isPresented: $guidaTipologie) {
                 SpiegazioneTipologiaView(iniziale: stato.consiglioDiOggi().tipologia)
                     .presentationDetents([.medium, .large])

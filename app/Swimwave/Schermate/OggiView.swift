@@ -375,7 +375,7 @@ struct OggiView: View {
                     .font(Tema.titolo2)
                     .foregroundStyle(.white)
                 if let consiglio {
-                    Text(LocalizedStringKey("consiglio.perche.\(consiglio.motivo.rawValue)"))
+                    Text(verbatim: testo("consiglio.perche.\(consiglio.motivo.rawValue)"))
                         .font(Tema.piccolo)
                         .foregroundStyle(Color.white.opacity(0.8))
                 }

@@ -298,7 +298,7 @@ struct RecapCoachView: View {
             EtichettaTipologia(tipologia: c.tipologia, forma: .pillola)
                 .font(Tema.sottotitolo)
                 .foregroundStyle(Tema.testo)
-            Text(LocalizedStringKey("consiglio.perche.\(c.motivo.rawValue)"))
+            Text(verbatim: testo("consiglio.perche.\(c.motivo.rawValue)"))
                 .font(Tema.corpo)
                 .foregroundStyle(Tema.testoSecondario)
         }

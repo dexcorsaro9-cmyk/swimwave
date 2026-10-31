@@ -57,7 +57,7 @@ struct PillolaTipologia: View {
                 .padding(.vertical, 3)
                 .background(Capsule().fill(tipologia.colore))
             if conNome {
-                Text(LocalizedStringKey("tipologia.\(tipologia.rawValue).nome"))
+                Text(verbatim: testo("tipologia.\(tipologia.rawValue).nome"))
             }
         }
     }
@@ -132,10 +132,10 @@ struct SpiegazioneTipologiaView: View {
                     }
                     .padding(.top, 20)
 
-                    Text(LocalizedStringKey("tipologia.\(tipologia.rawValue).nome"))
+                    Text(verbatim: testo("tipologia.\(tipologia.rawValue).nome"))
                         .font(Tema.titolo2)
                         .foregroundStyle(Tema.testo)
-                    Text(LocalizedStringKey("tipologia.\(tipologia.rawValue).spiega"))
+                    Text(verbatim: testo("tipologia.\(tipologia.rawValue).spiega"))
                         .font(Tema.corpo)
                         .foregroundStyle(Tema.testo)
                         .fixedSize(horizontal: false, vertical: true)
@@ -144,7 +144,7 @@ struct SpiegazioneTipologiaView: View {
                         Text("tipologia.spiega.senti")
                             .font(Tema.piccolo.weight(.heavy))
                             .foregroundStyle(Tema.testoSecondario)
-                        Text(LocalizedStringKey("tipologia.\(tipologia.rawValue).senti"))
+                        Text(verbatim: testo("tipologia.\(tipologia.rawValue).senti"))
                             .font(Tema.corpo)
                             .foregroundStyle(Tema.testo)
                             .fixedSize(horizontal: false, vertical: true)

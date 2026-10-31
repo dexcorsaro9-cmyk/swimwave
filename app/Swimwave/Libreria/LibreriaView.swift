@@ -114,21 +114,17 @@ struct LibreriaView: View {
 
     private var filtri: some View {
         VStack(spacing: 10) {
-            HStack(spacing: 10) {
-            Picker(testo("libreria.filtro.livello"), selection: $livello) {
-                Text("libreria.filtro.tuttiLivelli").tag(Optional<String>.none)
-                ForEach(LibreriaView.livelli, id: \.self) { l in
-                    Text(verbatim: etichettaLivelloAllenamento(l)).tag(Optional(l))
+            // Livello e durata stanno sulla stessa riga solo se ci stanno; con testo grande vanno uno sotto l'altro,
+            // senza sovrapporsi (prima la voce a due righe usciva dal riquadro e copriva il menu sotto).
+            ViewThatFits(in: .horizontal) {
+                HStack(spacing: 10) {
+                    filtroLivello
+                    filtroDurata
                 }
-            }
-            .modifier(ContornoMenuScelta())
-
-            Picker(testo("libreria.filtro.durata"), selection: $durata) {
-                ForEach(FasciaDurata.allCases, id: \.self) { f in
-                    Text(LocalizedStringKey(f.chiave)).tag(f)
+                VStack(spacing: 10) {
+                    filtroLivello
+                    filtroDurata
                 }
-            }
-            .modifier(ContornoMenuScelta())
             }
             Picker(testo("libreria.filtro.tipologia"), selection: $tipologia) {
                 Text("libreria.filtro.tutteTipologie").tag(Optional<Tipologia>.none)
@@ -151,6 +147,27 @@ struct LibreriaView: View {
                     .presentationDetents([.medium, .large])
             }
         }
+    }
+
+    private var filtroLivello: some View {
+        Picker(testo("libreria.filtro.livello"), selection: $livello) {
+            Text("libreria.filtro.tuttiLivelli").tag(Optional<String>.none)
+            ForEach(LibreriaView.livelli, id: \.self) { l in
+                Text(verbatim: etichettaLivelloAllenamento(l)).tag(Optional(l))
+            }
+        }
+        .modifier(ContornoMenuScelta())
+        .fixedSize(horizontal: false, vertical: true)
+    }
+
+    private var filtroDurata: some View {
+        Picker(testo("libreria.filtro.durata"), selection: $durata) {
+            ForEach(FasciaDurata.allCases, id: \.self) { f in
+                Text(LocalizedStringKey(f.chiave)).tag(f)
+            }
+        }
+        .modifier(ContornoMenuScelta())
+        .fixedSize(horizontal: false, vertical: true)
     }
 
     private func passaFiltri(_ e: ElementoLibreria) -> Bool {

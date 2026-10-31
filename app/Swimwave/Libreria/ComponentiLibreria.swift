@@ -143,7 +143,7 @@ struct CartaAnteprimaAllenamento: View {
             Text(verbatim: workout.titolo)
                 .font(Tema.titolo2)
                 .foregroundStyle(Tema.testo)
-            HStack(spacing: 8) {
+            DispostoAFlusso(spaziatura: 8) {
                 Etichetta(contenuto: testo("oggi.minuti", workout.durataStimataMin))
                 Etichetta(contenuto: testo("oggi.metri", workout.metriTotali))
                 Etichetta(contenuto: testo("oggi.vasca", workout.vascaMetri))

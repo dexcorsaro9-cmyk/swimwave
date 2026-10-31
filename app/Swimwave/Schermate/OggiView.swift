@@ -379,7 +379,7 @@ struct OggiView: View {
                         .font(Tema.piccolo)
                         .foregroundStyle(Color.white.opacity(0.8))
                 }
-                HStack(spacing: 8) {
+                DispostoAFlusso(spaziatura: 8) {
                     EtichettaChiara(contenuto: testo("oggi.minuti", w.durataStimataMin))
                     EtichettaChiara(contenuto: testo("oggi.metri", w.metriTotali))
                     EtichettaChiara(contenuto: testo("oggi.vasca", w.vascaMetri))

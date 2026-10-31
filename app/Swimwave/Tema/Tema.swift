@@ -204,6 +204,8 @@ struct MenuScelta<Valore: Hashable>: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 14)
         .padding(.vertical, 8)
+        // L'altezza segue il testo (anche su due righe): il bordo non resta più corto del contenuto.
+        .fixedSize(horizontal: false, vertical: true)
         .background(
             RoundedRectangle(cornerRadius: 14, style: .continuous)
                 .stroke(Tema.turchese, lineWidth: 2)

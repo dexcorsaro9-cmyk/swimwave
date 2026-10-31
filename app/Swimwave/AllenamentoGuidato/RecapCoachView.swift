@@ -91,17 +91,9 @@ struct RecapCoachView: View {
         case .facile: titolo = testo("recap.titolo.facile", profilo.nomePulito)
         default: titolo = testo("recap.titolo.giusta", profilo.nomePulito)
         }
-        return ZStack(alignment: .bottomLeading) {
-            LinearGradient(
-                colors: dura
-                    ? [Color(squaloHex: 0x9AD3DE), Color(squaloHex: 0x5EAEC6), Color(squaloHex: 0x2F7FA8)]
-                    : [Color(squaloHex: 0x46CFE0), Color(squaloHex: 0x1FB5C9), Color(squaloHex: 0x145F94)],
-                startPoint: .top, endPoint: .bottom
-            )
-            OndaSuperficie(fase: 0)
-                .fill(Color.white.opacity(0.2))
-                .frame(height: 14)
-                .frame(maxHeight: .infinity, alignment: .top)
+        // Avatar e personaggio in alto, titolo sotto: la testata cresce se il titolo è lungo o il testo è grande
+        // (prima aveva un'altezza fissa e il titolo poteva salire sopra l'avatar).
+        return VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .top) {
                 if let coach = profilo.coach {
                     AvatarCoach(coach: coach, espressione: dura ? .dopoAllenamentoDuro : .traguardo, dimensione: 78)
@@ -110,16 +102,28 @@ struct RecapCoachView: View {
                 SqualoRecap(stanco: dura)
                     .frame(width: 124)
             }
-            .padding(.horizontal, 16)
-            .padding(.top, 30)
-            .frame(maxHeight: .infinity, alignment: .top)
             Text(verbatim: titolo)
                 .font(Tema.titolo2)
                 .foregroundStyle(.white)
                 .fixedSize(horizontal: false, vertical: true)
-                .padding(16)
         }
-        .frame(height: 188)
+        .padding(.horizontal, 16)
+        .padding(.top, 30)
+        .padding(.bottom, 16)
+        .frame(maxWidth: .infinity, minHeight: 188, alignment: .topLeading)
+        .background {
+            ZStack(alignment: .top) {
+                LinearGradient(
+                    colors: dura
+                        ? [Color(squaloHex: 0x9AD3DE), Color(squaloHex: 0x5EAEC6), Color(squaloHex: 0x2F7FA8)]
+                        : [Color(squaloHex: 0x46CFE0), Color(squaloHex: 0x1FB5C9), Color(squaloHex: 0x145F94)],
+                    startPoint: .top, endPoint: .bottom
+                )
+                OndaSuperficie(fase: 0)
+                    .fill(Color.white.opacity(0.2))
+                    .frame(height: 14)
+            }
+        }
         .clipShape(RoundedRectangle(cornerRadius: 26, style: .continuous))
         .padding(.top, 8)
     }

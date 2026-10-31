@@ -267,12 +267,11 @@ private struct RigaLibreria: View {
                     .font(Tema.sottotitolo)
                     .foregroundStyle(Tema.testo)
                     .multilineTextAlignment(.leading)
-                HStack(spacing: 8) {
+                // Le etichette vanno a capo quando non c'è più spazio (testo grande, lingue più lunghe).
+                DispostoAFlusso(spaziatura: 8) {
                     Etichetta(contenuto: testo("oggi.minuti", w.durataStimataMin))
                     Etichetta(contenuto: testo("oggi.metri", w.metriTotali))
                     Etichetta(contenuto: testo("oggi.vasca", w.vascaMetri))
-                }
-                HStack(spacing: 8) {
                     Etichetta(contenuto: etichettaLivelloAllenamento(elemento.voce.livello))
                     if let t = elemento.voce.tipologiaTipo {
                         PillolaTipologia(tipologia: t)

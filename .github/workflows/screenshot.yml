@@ -6,6 +6,11 @@ name: screenshot
 
 on:
   workflow_dispatch:
+  # Sui rami di lavoro parte quando si cambia il file interruttore (serve finché il flusso non è in main:
+  # GitHub non lascia lanciare a mano un flusso che esiste solo su un ramo).
+  push:
+    branches: ['claude/**']
+    paths: ['.github/screenshot-interruttore.txt']
 
 permissions:
   contents: write

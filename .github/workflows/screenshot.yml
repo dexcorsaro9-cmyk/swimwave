@@ -20,21 +20,41 @@ defaults:
     shell: bash
 
 jobs:
+  scelta:
+    name: Sceglie le combinazioni
+    runs-on: ubuntu-latest
+    outputs:
+      matrice: ${{ steps.m.outputs.matrice }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: m
+        run: |
+          # La seconda riga del file interruttore può elencare i nomi da rifare (es. "it-normale it-scuro"); vuota = tutte.
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os
+          tutte = [
+            {"nome": "it-normale", "lingua": "it", "testo": "UICTContentSizeCategoryL", "aspetto": "light"},
+            {"nome": "it-grande",  "lingua": "it", "testo": "UICTContentSizeCategoryAccessibilityM", "aspetto": "light"},
+            {"nome": "en-normale", "lingua": "en", "testo": "UICTContentSizeCategoryL", "aspetto": "light"},
+            {"nome": "es-normale", "lingua": "es", "testo": "UICTContentSizeCategoryL", "aspetto": "light"},
+            {"nome": "es-grande",  "lingua": "es", "testo": "UICTContentSizeCategoryAccessibilityM", "aspetto": "light"},
+            {"nome": "it-scuro",   "lingua": "it", "testo": "UICTContentSizeCategoryL", "aspetto": "dark"},
+            {"nome": "en-scuro",   "lingua": "en", "testo": "UICTContentSizeCategoryL", "aspetto": "dark"},
+          ]
+          righe = open(".github/screenshot-interruttore.txt").read().splitlines()
+          scelte = righe[1].split() if len(righe) > 1 else []
+          scelta = [c for c in tutte if c["nome"] in scelte] if scelte else tutte
+          print("matrice=" + json.dumps({"include": scelta or tutte}))
+          PY
+
   schermate:
     name: Screenshot ${{ matrix.nome }}
+    needs: scelta
     runs-on: macos-15
     timeout-minutes: 45
     strategy:
       fail-fast: false
-      matrix:
-        include:
-          - { nome: it-normale, lingua: it, testo: UICTContentSizeCategoryL, aspetto: light }
-          - { nome: it-grande,  lingua: it, testo: UICTContentSizeCategoryAccessibilityM, aspetto: light }
-          - { nome: en-normale, lingua: en, testo: UICTContentSizeCategoryL, aspetto: light }
-          - { nome: es-normale, lingua: es, testo: UICTContentSizeCategoryL, aspetto: light }
-          - { nome: es-grande,  lingua: es, testo: UICTContentSizeCategoryAccessibilityM, aspetto: light }
-          - { nome: it-scuro,   lingua: it, testo: UICTContentSizeCategoryL, aspetto: dark }
-          - { nome: en-scuro,   lingua: en, testo: UICTContentSizeCategoryL, aspetto: dark }
+      matrix: ${{ fromJSON(needs.scelta.outputs.matrice) }}
     steps:
       - uses: actions/checkout@v4
 
@@ -95,7 +115,7 @@ jobs:
 
   pubblica:
     name: Riduce e pubblica le immagini
-    needs: schermate
+    needs: [scelta, schermate]
     if: ${{ !cancelled() }}
     runs-on: macos-15
     timeout-minutes: 20

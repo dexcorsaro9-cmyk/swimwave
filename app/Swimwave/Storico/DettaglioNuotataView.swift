@@ -536,18 +536,21 @@ private struct SezioneVasche: View {
     private func grafico(_ punti: [PuntoVasca]) -> some View {
         // Con tante vasche si scrive solo qualche numero sull'asse.
         let passo = max(1, Int((Double(punti.count) / 6.0).rounded(.up)))
-        let etichette = punti.filter { ($0.numero - 1) % passo == 0 }.map { String($0.numero) }
+        let etichette = punti.filter { ($0.numero - 1) % passo == 0 }.map(\.numero)
         return VStack(alignment: .leading, spacing: 6) {
             Text(LocalizedStringKey(tratti ? "dettaglio.tratti.grafico" : "dettaglio.vasche.grafico"))
                 .font(Tema.piccolo)
                 .foregroundStyle(Tema.testoSecondario)
             Chart(punti) { p in
                 BarMark(
-                    x: .value(testo(tratti ? "dettaglio.tratti.asse" : "dettaglio.vasche.asse"), String(p.numero)),
-                    y: .value(testo("dettaglio.vasche.assePassi"), p.secondi)
+                    x: .value(testo(tratti ? "dettaglio.tratti.asse" : "dettaglio.vasche.asse"), p.numero),
+                    y: .value(testo("dettaglio.vasche.assePassi"), p.secondi),
+                    width: .ratio(0.8)
                 )
                 .foregroundStyle(Tema.turchese)
             }
+            // Asse numerico (non a categorie): i numeri hanno tutto lo spazio che serve e non si tagliano.
+            .chartXScale(domain: 0.5...(Double(punti.count) + 0.5))
             .chartXAxis {
                 AxisMarks(values: etichette)
             }

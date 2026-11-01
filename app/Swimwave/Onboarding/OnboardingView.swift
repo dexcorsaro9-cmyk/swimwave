@@ -187,13 +187,24 @@ struct LavagnettaView: View {
                     }
                 }
             }
-            ScrollView {
-                VStack(spacing: 16) {
-                    LavagnettaRiepilogo(profilo: profilo, fino: passo.rawValue)
-                    domandaCard
+            ScrollViewReader { lettore in
+                ScrollView {
+                    VStack(spacing: 16) {
+                        // Con la tastiera aperta resta poco spazio: il riepilogo si nasconde e la domanda sale in vista,
+                        // così il campo del nome non finisce dietro il pulsante "Avanti".
+                        if !nomeInFocus {
+                            LavagnettaRiepilogo(profilo: profilo, fino: passo.rawValue)
+                        }
+                        domandaCard.id("domanda")
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.top, 16)
                 }
-                .padding(.horizontal, 16)
-                .padding(.top, 16)
+                .scrollDismissesKeyboard(.interactively)
+                .animation(.easeInOut(duration: 0.2), value: nomeInFocus)
+                .onChange(of: nomeInFocus) { _, _ in
+                    lettore.scrollTo("domanda", anchor: .top)
+                }
             }
             piede
         }

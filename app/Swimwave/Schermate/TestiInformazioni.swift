@@ -26,7 +26,7 @@ enum TestiInformazioni {
             titolo: "I coach sono personaggi virtuali",
             paragrafi: [
                 "Antonio e Pamela sono personaggi virtuali. Le loro immagini sono state create con un programma di intelligenza artificiale e non ritraggono persone reali. Non sono istruttori in carne e ossa e non ti vedono in acqua.",
-                "Gli allenamenti sono preparati con l'aiuto dell'intelligenza artificiale. Il metodo e i contenuti tecnici si basano su fonti autorevoli, sono riassunti con parole nostre e sono controllati da un istruttore di nuoto.",
+                "Gli allenamenti sono preparati con l'aiuto dell'intelligenza artificiale. Il metodo e i contenuti tecnici si basano su fonti autorevoli, sono riassunti con parole nostre e sono approvati dal fondatore, istruttore di nuoto.",
                 "Puoi cambiare coach quando vuoi dal Profilo, senza perdere lo storico."
             ]
         ),
@@ -37,7 +37,7 @@ enum TestiInformazioni {
                 "Se acconsenti, il nostro servizio usa un sistema di intelligenza artificiale di un fornitore esterno per preparare l'allenamento del giorno.",
                 "Al servizio arrivano solo: il tuo livello, l'obiettivo, la lunghezza della vasca, il ritmo scelto, il coach scelto e come ti è sembrato l'ultimo allenamento (facile, giusto o duro). Se li scegli, anche la durata e l'obiettivo di un allenamento che chiedi al coach. Per il commento sul mese arrivano solo alcuni totali: quante nuotate, quanti metri e minuti, le settimane di fila e quante nuotate ti sono sembrate facili, giuste o dure.",
                 "Non arrivano mai il tuo nome né i dati grezzi di Apple Salute.",
-                "L'intelligenza artificiale non inventa gli esercizi: sceglie da un elenco di esercizi fissi e segue regole scritte da un istruttore di nuoto. L'app controlla ogni allenamento prima di mostrartelo. Se qualcosa non va, o manca la connessione, ricevi un allenamento fisso di riserva.",
+                "L'intelligenza artificiale non inventa gli esercizi: sceglie da un elenco di esercizi fissi e segue regole di sicurezza approvate dal fondatore, istruttore di nuoto. L'app controlla ogni allenamento prima di mostrartelo. Se qualcosa non va, o manca la connessione, ricevi un allenamento fisso di riserva.",
                 "Se preferisci di no, ricevi allenamenti fissi preparati dal nostro team. Puoi cambiare idea quando vuoi, in Profilo."
             ]
         ),

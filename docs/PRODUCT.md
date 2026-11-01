@@ -7,7 +7,7 @@ La migliore app di nuoto: il "Duolingo del nuoto". Dare a chi nuota da solo ciò
 Tre idee guidano ogni scelta:
 1. **Su misura.** L'utente decide la frequenza e il modo in cui vuole essere seguito (ritmo Libero, Regolare o Spronami). L'app non impone allenamenti giornalieri: si adatta ai suoi tempi e propone, e spinge solo se l'utente lo chiede.
 2. **Coccolato e monitorato.** Un coach scelto all'avvio (Antonio o Pamela) lo chiama per nome, commenta ogni allenamento, riparte con lui dopo una pausa e lo ferma se sente dolore.
-3. **Contenuti affidabili.** Ogni esercizio, errore, tappa e allenamento nasce da fonti autorevoli (federazioni, enti, testi accademici), è registrato in `content/fonti.json`, riassunto con parole nostre e controllato da un istruttore prima di arrivare all'utente.
+3. **Contenuti affidabili.** Ogni esercizio, errore, tappa e allenamento nasce da fonti autorevoli (federazioni, enti, testi accademici), è registrato in `content/fonti.json`, riassunto con parole nostre e approvato dal fondatore, istruttore di nuoto, prima di arrivare all'utente (nessuna revisione voce per voce: decisione del 26 ottobre 2026).
 
 Posizionamento: "il tuo istruttore in tasca", in italiano e con un prezzo accessibile. Il fondatore è un istruttore di nuoto: supervisiona i contenuti, che scrive Claude; non li inserisce a mano.
 

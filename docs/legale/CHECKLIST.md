@@ -232,7 +232,7 @@ Fonte: [developer.apple.com/app-store/review/guidelines/](https://developer.appl
 ### F2. Dire la verità su chi scrive i contenuti
 - **Contraddizione trovata nei documenti del progetto:** PRODUCT.md dice "testi scritti dall'istruttore"; CLAUDE.md dice che i contenuti li scrive Claude e l'istruttore li controlla; README.md dice "consigli tecnici scritti da un istruttore vero".
 - **Da decidere:**
-  - [ ] Usare ovunque la formula vera: "preparati con strumenti di IA, basati su fonti autorevoli e controllati da un istruttore di nuoto".
+  - [ ] Usare ovunque la formula vera: "preparati con strumenti di IA, basati su fonti autorevoli e approvati dal fondatore, istruttore di nuoto".
   - [ ] Cambiare README/PRODUCT e la scheda App Store se serve.
 
 ### F3. Videolezioni

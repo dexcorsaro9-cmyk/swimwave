@@ -161,7 +161,7 @@ Se pensi che trattiamo i tuoi dati in modo non corretto, puoi presentare reclamo
 
 ## 10. Decisioni automatizzate
 
-L'allenamento (e il breve commento del coach sul mese) è creato da un sistema di intelligenza artificiale; l'allenamento segue regole scritte da un istruttore e una lista chiusa di esercizi, e il commento si limita ai numeri del mese, senza consigli. Non si tratta di una decisione che produce effetti giuridici o effetti analoghi significativi su di te (art. 22 GDPR). Puoi sempre scegliere un altro allenamento o non seguirlo. Vedi anche la nota sull'IA in Profilo > Informazioni.
+L'allenamento (e il breve commento del coach sul mese) è creato da un sistema di intelligenza artificiale; l'allenamento segue regole di sicurezza approvate dal fondatore, istruttore di nuoto, e una lista chiusa di esercizi, e il commento si limita ai numeri del mese, senza consigli. Non si tratta di una decisione che produce effetti giuridici o effetti analoghi significativi su di te (art. 22 GDPR). Puoi sempre scegliere un altro allenamento o non seguirlo. Vedi anche la nota sull'IA in Profilo > Informazioni.
 
 ## 11. Minori
 

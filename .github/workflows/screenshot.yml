@@ -1,6 +1,6 @@
-# Screenshot di tutte le schermate dell'app nel simulatore, in modalità demo, nelle tre lingue e con il testo grande.
-# Si lancia a mano (Actions > screenshot > Run workflow) sul ramo che si vuole controllare.
-# Le immagini (JPEG ridotti) si salvano come allegato della prova e anche in cartella `screenshot-ci/` sullo stesso ramo,
+# Screenshot di tutte le schermate dell'app nel simulatore, in modalità demo, nelle tre lingue, con il testo grande e nel tema scuro.
+# Ogni combinazione gira su una macchina a parte (in parallelo): in tutto circa un quarto d'ora.
+# Le immagini (JPEG ridotti) vanno come allegato della prova e anche nella cartella `screenshot-ci/` dello stesso ramo,
 # così chi lavora sul codice può guardarle senza scaricare nulla. Quella cartella NON va unita in main: si toglie prima.
 name: screenshot
 
@@ -21,9 +21,20 @@ defaults:
 
 jobs:
   schermate:
-    name: Screenshot delle schermate (simulatore iPhone)
+    name: Screenshot ${{ matrix.nome }}
     runs-on: macos-15
-    timeout-minutes: 120
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { nome: it-normale, lingua: it, testo: UICTContentSizeCategoryL, aspetto: light }
+          - { nome: it-grande,  lingua: it, testo: UICTContentSizeCategoryAccessibilityM, aspetto: light }
+          - { nome: en-normale, lingua: en, testo: UICTContentSizeCategoryL, aspetto: light }
+          - { nome: es-normale, lingua: es, testo: UICTContentSizeCategoryL, aspetto: light }
+          - { nome: es-grande,  lingua: es, testo: UICTContentSizeCategoryAccessibilityM, aspetto: light }
+          - { nome: it-scuro,   lingua: it, testo: UICTContentSizeCategoryL, aspetto: dark }
+          - { nome: en-scuro,   lingua: en, testo: UICTContentSizeCategoryL, aspetto: dark }
     steps:
       - uses: actions/checkout@v4
 
@@ -33,9 +44,8 @@ jobs:
           brew install xcodegen
           xcodegen
 
-      - name: Sceglie il simulatore
+      - name: Sceglie e accende il simulatore
         run: |
-          xcodebuild -version
           UDID=$(xcrun simctl list devices available -j | python3 -c "
           import json,sys
           d=json.load(sys.stdin)['devices']
@@ -44,8 +54,8 @@ jobs:
           print(c[-1][1]['udid'])
           ")
           echo "UDID=$UDID" >> "$GITHUB_ENV"
-          xcrun simctl list devices | grep "$UDID" || true
           xcrun simctl boot "$UDID" || true
+          xcrun simctl ui "$UDID" appearance "${{ matrix.aspetto }}"
 
       - name: Compila l'app e i test dell'interfaccia
         working-directory: app
@@ -62,39 +72,47 @@ jobs:
           fi
           exit $esito
 
-      - name: Scatta gli screenshot (lingue e dimensioni del testo)
+      - name: Scatta gli screenshot
         working-directory: app
         run: |
           set +e
-          mkdir -p /tmp/png
-          # nome | lingua | categoria di dimensione del testo | aspetto (light o dark)
-          while IFS='|' read -r nome lingua testo aspetto; do
-            echo "=== $nome ($lingua, $testo, $aspetto) ==="
-            xcrun simctl ui "$UDID" appearance "$aspetto"
-            TEST_RUNNER_SCREENSHOT_DIR="/tmp/png/$nome" \
-            TEST_RUNNER_SCREENSHOT_LINGUA="$lingua" \
-            TEST_RUNNER_SCREENSHOT_TESTO="$testo" \
-            xcodebuild test-without-building \
-              -project Swimwave.xcodeproj -scheme SwimwaveUITests \
-              -destination "id=$UDID" -derivedDataPath /tmp/dd 2>&1 | tee "/tmp/log-$nome.txt" | grep -E "Test Case|error:|failed|passed" | tail -20
-          done <<'COMBINAZIONI'
-          it-normale|it|UICTContentSizeCategoryL|light
-          it-grande|it|UICTContentSizeCategoryAccessibilityM|light
-          en-normale|en|UICTContentSizeCategoryL|light
-          es-normale|es|UICTContentSizeCategoryL|light
-          es-grande|es|UICTContentSizeCategoryAccessibilityM|light
-          it-scuro|it|UICTContentSizeCategoryL|dark
-          en-scuro|en|UICTContentSizeCategoryL|dark
-          COMBINAZIONI
+          mkdir -p /tmp/png/${{ matrix.nome }}
+          TEST_RUNNER_SCREENSHOT_DIR="/tmp/png/${{ matrix.nome }}" \
+          TEST_RUNNER_SCREENSHOT_LINGUA="${{ matrix.lingua }}" \
+          TEST_RUNNER_SCREENSHOT_TESTO="${{ matrix.testo }}" \
+          xcodebuild test-without-building \
+            -project Swimwave.xcodeproj -scheme SwimwaveUITests \
+            -destination "id=$UDID" -derivedDataPath /tmp/dd 2>&1 | tee /tmp/log-test.txt | grep -E "Test Case|error:|failed" | tail -30
           find /tmp/png -name '*.png' | wc -l
           exit 0
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: png-${{ matrix.nome }}
+          path: /tmp/png/${{ matrix.nome }}
+          retention-days: 1
+          if-no-files-found: warn
+
+  pubblica:
+    name: Riduce e pubblica le immagini
+    needs: schermate
+    if: ${{ !cancelled() }}
+    runs-on: macos-15
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: png-*
+          path: /tmp/png
 
       - name: Riduce le immagini
         run: |
           mkdir -p screenshot-ci
           rm -rf screenshot-ci/*
-          for dir in /tmp/png/*; do
-            nome=$(basename "$dir")
+          for dir in /tmp/png/png-*; do
+            nome=$(basename "$dir"); nome=${nome#png-}
             mkdir -p "screenshot-ci/$nome"
             for f in "$dir"/*.png; do
               [ -f "$f" ] || continue

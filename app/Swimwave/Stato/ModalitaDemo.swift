@@ -3,7 +3,7 @@ import SwimwaveCore
 
 /// Modalità demo: l'app parte con un profilo e uno storico inventati, senza domande iniziali, popup o richieste di permesso.
 /// Serve ai test dell'interfaccia (SwimwaveUITests), che scattano gli screenshot di tutte le schermate nelle tre lingue e con
-/// il testo grande. Si attiva solo con l'argomento di avvio `-SwimwaveDemo`: nell'app che usa l'utente non succede mai.
+/// il testo grande. Si attiva solo con l'argomento di avvio `-SwimwaveDemo` e solo nelle build di sviluppo (DEBUG).
 /// I dati stanno in un archivio a parte che si azzera a ogni avvio, quindi non toccano quelli veri.
 enum ModalitaDemo {
     static let argomento = "-SwimwaveDemo"
@@ -16,8 +16,15 @@ enum ModalitaDemo {
     /// Parte con il recap del coach per l'ultima nuotata (come dopo una nuotata fatta con il Watch).
     static let argomentoRecap = "-SwimwaveRecap"
 
-    static var attiva: Bool { ProcessInfo.processInfo.arguments.contains(argomento) }
-    static var mostraSplash: Bool { ProcessInfo.processInfo.arguments.contains(argomentoSplash) }
+    /// Solo nelle build di sviluppo (quelle dei test): nell'app che arriva agli utenti la modalità demo non esiste.
+    static var attiva: Bool {
+        #if DEBUG
+        return ProcessInfo.processInfo.arguments.contains(argomento)
+        #else
+        return false
+        #endif
+    }
+    static var mostraSplash: Bool { attiva && ProcessInfo.processInfo.arguments.contains(argomentoSplash) }
 
     /// Lo stato dell'app: quello vero, o quello demo.
     static func creaStato() -> StatoApp {

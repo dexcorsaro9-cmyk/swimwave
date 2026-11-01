@@ -18,6 +18,7 @@ struct CambiaAllenamentoView: View {
                                sottotitolo: "libreria.cambia.libreria.sottotitolo")
                     }
                     .buttonStyle(.plain)
+                    .accessibilityIdentifier("cambia.libreria")
 
                     NavigationLink {
                         ChiediAlCoachView(chiudi: chiudi, inizia: inizia)

@@ -121,3 +121,18 @@ targets:
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
+
+  # Test dell'interfaccia: aprono ogni schermata in modalità demo e scattano gli screenshot (.github/workflows/screenshot.yml).
+  SwimwaveUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: SwimwaveUITests
+    dependencies:
+      - target: Swimwave
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.swimwave.app.uitests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_TARGET_NAME: Swimwave

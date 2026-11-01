@@ -77,6 +77,7 @@ struct SceltaPersonaggioView: View {
             }
             Button(action: continua) { Text("comune.continua") }
                 .buttonStyle(.primario)
+                .accessibilityIdentifier("onboarding.continua")
                 .padding(.horizontal, 20)
                 .padding(.vertical, 12)
         }

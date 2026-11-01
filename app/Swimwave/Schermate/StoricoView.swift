@@ -129,18 +129,22 @@ struct StoricoView: View {
                 NavigationLink { RiepilogoView() } label: {
                     SchedaRapida(icona: "chart.bar.fill", titolo: testo("storico.scheda.riepilogo"), dato: datoRiepilogo,
                                  colore: Color(squaloHex: 0x1FB5C9))
+                        .accessibilityIdentifier("storico.riepilogo")
                 }
                 NavigationLink { RecordView() } label: {
                     SchedaRapida(icona: "star.fill", titolo: testo("storico.scheda.record"), dato: datoRecord,
                                  colore: Color(squaloHex: 0xFFC857))
+                        .accessibilityIdentifier("storico.record")
                 }
                 NavigationLink { TraguardiView() } label: {
                     SchedaRapida(icona: "rosette", titolo: testo("storico.scheda.traguardi"), dato: datoTraguardi,
                                  colore: Color(squaloHex: 0xFF8A4C))
+                        .accessibilityIdentifier("storico.traguardi")
                 }
                 NavigationLink { IlTuoAnnoView() } label: {
                     SchedaRapida(icona: "calendar", titolo: testo("storico.scheda.anno"), dato: datoAnno,
                                  colore: Color(squaloHex: 0x9B6BFF), iconaSuColore: .white)
+                        .accessibilityIdentifier("storico.anno")
                 }
             }
             .buttonStyle(.plain)
@@ -215,6 +219,7 @@ struct StoricoView: View {
                 RigaNuotata(nuotata: n)
             }
             .buttonStyle(.plain)
+            .accessibilityIdentifier("storico.riga")
             .contextMenu {
                 // Risposta rapida a "com'è andata?" senza aprire il dettaglio.
                 ForEach(Sensazione.allCases, id: \.self) { s in

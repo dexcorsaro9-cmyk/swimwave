@@ -336,6 +336,7 @@ struct OggiView: View {
             .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Tema.turchese.opacity(0.12)))
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier("oggi.sumisura")
     }
 
     /// La carta eroe: in alto l'acqua con lo squalo, sotto titolo, durata e il pulsante per iniziare.
@@ -390,6 +391,7 @@ struct OggiView: View {
                     Text("oggi.inizia")
                 }
                 .buttonStyle(.primario)
+                .accessibilityIdentifier("oggi.inizia")
                 .padding(.top, 4)
             }
             .padding(16)

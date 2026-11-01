@@ -76,6 +76,7 @@ struct MaggiorenneView: View {
             } else {
                 Button { stato.confermaMaggiorenne() } label: { Text("maggiorenne.si") }
                     .buttonStyle(.primario)
+                    .accessibilityIdentifier("maggiorenne.si")
                 Button { rifiutato = true } label: { Text("maggiorenne.no") }
                     .font(Tema.sottotitolo)
                     .foregroundStyle(Tema.testoSecondario)

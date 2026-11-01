@@ -58,6 +58,7 @@ struct AcquaEroe: View {
                     }
                     .buttonStyle(.plain)
                     .accessibilityLabel(Text("libreria.cambia"))
+                    .accessibilityIdentifier("oggi.cambia")
                 }
                 .padding(.horizontal, 12)
                 .padding(.top, 10)

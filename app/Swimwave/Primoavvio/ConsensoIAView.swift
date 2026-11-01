@@ -45,6 +45,7 @@ struct ConsensoIAView: View {
             VStack(spacing: 10) {
                 Button { stato.imposta(consensoIA: true) } label: { Text("consenso.vaBene") }
                     .buttonStyle(.primario)
+                    .accessibilityIdentifier("consenso.vaBene")
                 Button { stato.imposta(consensoIA: false) } label: { Text("consenso.preferiscoNo") }
                     .buttonStyle(.secondario)
             }

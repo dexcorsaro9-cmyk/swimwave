@@ -18,7 +18,7 @@ final class SchermateTests: XCTestCase {
 
     // MARK: Aiuti
 
-    private func avvia(splash: Bool = false) -> XCUIApplication {
+    private func avvia(splash: Bool = false, extra: [String] = []) -> XCUIApplication {
         let app = XCUIApplication()
         let regione = ["it": "IT", "en": "GB", "es": "ES"][lingua] ?? "IT"
         app.launchArguments = ["-SwimwaveDemo",
@@ -26,6 +26,7 @@ final class SchermateTests: XCTestCase {
                                "-AppleLocale", "\(lingua)_\(regione)",
                                "-UIPreferredContentSizeCategoryName", testo]
         if splash { app.launchArguments.append("-SwimwaveSplash") }
+        app.launchArguments += extra
         app.launch()
         return app
     }
@@ -144,6 +145,11 @@ final class SchermateTests: XCTestCase {
         app.swipeDown(); app.swipeDown(); pausa(0.5)
         for (id, nome) in [("storico.riepilogo", "14-riepilogo"), ("storico.record", "15-record"),
                            ("storico.traguardi", "16-traguardi"), ("storico.anno", "17-anno")] {
+            // La quarta scheda sta fuori dallo schermo: si fa scorrere la riga delle carte.
+            if id == "storico.anno" {
+                elemento(app, "storico.record").swipeLeft()
+                pausa(0.6)
+            }
             if tocca(app, id, attesa: 4) {
                 pausa(1.2)
                 scatta(nome)
@@ -174,6 +180,67 @@ final class SchermateTests: XCTestCase {
         if tocca(app, "profilo.informazioni", attesa: 4) {
             pausa(1.0)
             scatta("24-informazioni")
+        }
+    }
+
+    func testPrimoAvvio() {
+        let app = avvia(extra: ["-SwimwavePrimoAvvio"])
+        pausa(1.5)
+        scatta("30-maggiorenne")
+        guard tocca(app, "maggiorenne.si") else { return }
+        pausa(1.0)
+        scatta("31-scelta-coach")
+        guard tocca(app, "onboarding.coach.donna") else { return }
+        pausa(0.6)
+        scatta("32-coach-scelto")
+        guard tocca(app, "onboarding.continua") else { return }
+        pausa(1.0)
+        scatta("33-scelta-personaggio")
+        guard tocca(app, "onboarding.continua") else { return }
+        pausa(1.2)
+        scatta("34-lavagnetta")
+    }
+
+    func testConsenso() {
+        let app = avvia(extra: ["-SwimwaveConsenso"])
+        pausa(1.5)
+        scatta("35-consenso-ia")
+        app.swipeUp(); pausa(0.6)
+        scatta("36-consenso-ia-sotto")
+    }
+
+    func testRecap() {
+        let app = avvia(extra: ["-SwimwaveRecap"])
+        pausa(2.0)
+        scatta("37-recap")
+        app.swipeUp(); pausa(0.6)
+        scatta("38-recap-sotto")
+    }
+
+    func testAllenamentoGuidato() {
+        let app = avvia()
+        pausa(1.0)
+        if tocca(app, "oggi.inizia") {
+            pausa(2.0)
+            scatta("39-guidato")
+            pausa(2.5)
+            scatta("40-guidato-dopo")
+        }
+    }
+
+    func testStoricoCalendarioEAndamento() {
+        let app = avvia()
+        tab(app, 2)
+        let segmenti = app.segmentedControls.firstMatch
+        if segmenti.waitForExistence(timeout: 5) {
+            segmenti.buttons.element(boundBy: 1).tap()
+            pausa(1.2)
+            scatta("41-calendario")
+            segmenti.buttons.element(boundBy: 2).tap()
+            pausa(1.5)
+            scatta("42-andamento")
+            app.swipeUp(); pausa(0.6)
+            scatta("43-andamento-sotto")
         }
     }
 }

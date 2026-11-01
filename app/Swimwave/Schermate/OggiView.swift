@@ -391,6 +391,7 @@ struct OggiView: View {
                     Text("oggi.inizia")
                 }
                 .buttonStyle(.primario)
+                .accessibilityIdentifier("oggi.inizia")
                 .padding(.top, 4)
             }
             .padding(16)

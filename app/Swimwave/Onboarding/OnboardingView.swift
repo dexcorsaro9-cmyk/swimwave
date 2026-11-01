@@ -76,6 +76,7 @@ struct SceltaCoachView: View {
             }
             Button(action: continua) { Text("comune.continua") }
                 .buttonStyle(.primario)
+                .accessibilityIdentifier("onboarding.continua")
                 .disabled(scelto == nil)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 12)
@@ -124,6 +125,7 @@ private struct SchedaCoach: View {
             )
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier("onboarding.coach.\(coach.rawValue)")
         .accessibilityAddTraits(selezionato ? [.isSelected] : [])
     }
 }

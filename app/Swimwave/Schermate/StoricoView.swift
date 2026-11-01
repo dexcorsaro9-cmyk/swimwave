@@ -217,9 +217,9 @@ struct StoricoView: View {
                 DettaglioNuotataView(nuotata: n)
             } label: {
                 RigaNuotata(nuotata: n)
-                    .accessibilityIdentifier("storico.riga")
             }
             .buttonStyle(.plain)
+            .accessibilityIdentifier("storico.riga")
             .contextMenu {
                 // Risposta rapida a "com'è andata?" senza aprire il dettaglio.
                 ForEach(Sensazione.allCases, id: \.self) { s in

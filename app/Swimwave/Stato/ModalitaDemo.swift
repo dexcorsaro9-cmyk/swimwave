@@ -9,6 +9,12 @@ enum ModalitaDemo {
     static let argomento = "-SwimwaveDemo"
     /// Con questo argomento in più resta la schermata di apertura (per scattarne la foto).
     static let argomentoSplash = "-SwimwaveSplash"
+    /// Parte da zero, come alla prima apertura dell'app (18 anni, coach, domande).
+    static let argomentoPrimoAvvio = "-SwimwavePrimoAvvio"
+    /// Parte con tutto pronto ma senza il consenso all'IA: si vede la schermata del consenso.
+    static let argomentoConsenso = "-SwimwaveConsenso"
+    /// Parte con il recap del coach per l'ultima nuotata (come dopo una nuotata fatta con il Watch).
+    static let argomentoRecap = "-SwimwaveRecap"
 
     static var attiva: Bool { ProcessInfo.processInfo.arguments.contains(argomento) }
     static var mostraSplash: Bool { ProcessInfo.processInfo.arguments.contains(argomentoSplash) }
@@ -20,7 +26,15 @@ enum ModalitaDemo {
         let archivio = UserDefaults(suiteName: nome) ?? .standard
         archivio.removePersistentDomain(forName: nome)
         let stato = StatoApp(defaults: archivio)
-        stato.riempiConDatiDemo()
+        let argomenti = ProcessInfo.processInfo.arguments
+        if !argomenti.contains(argomentoPrimoAvvio) {
+            stato.riempiConDatiDemo()
+            if argomenti.contains(argomentoConsenso) { stato.consensoIA = nil }
+            if argomenti.contains(argomentoRecap), !stato.nuotate.isEmpty {
+                stato.nuotate[0].sensazione = nil          // il recap chiede com'è andata
+                stato.recapInAttesa = stato.nuotate[0].id
+            }
+        }
         return stato
     }
 }

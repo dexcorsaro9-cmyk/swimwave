@@ -542,10 +542,12 @@ private struct SezioneVasche: View {
                 .font(Tema.piccolo)
                 .foregroundStyle(Tema.testoSecondario)
             Chart(punti) { p in
-                BarMark(
-                    x: .value(testo(tratti ? "dettaglio.tratti.asse" : "dettaglio.vasche.asse"), p.numero),
-                    y: .value(testo("dettaglio.vasche.assePassi"), p.secondi),
-                    width: .ratio(0.8)
+                // Rettangoli su un asse numerico: la larghezza della barra è esplicita (0,8 di una vasca) e le barre si vedono sempre.
+                RectangleMark(
+                    xStart: .value(testo(tratti ? "dettaglio.tratti.asse" : "dettaglio.vasche.asse"), Double(p.numero) - 0.4),
+                    xEnd: .value(testo(tratti ? "dettaglio.tratti.asse" : "dettaglio.vasche.asse"), Double(p.numero) + 0.4),
+                    yStart: .value(testo("dettaglio.vasche.assePassi"), 0),
+                    yEnd: .value(testo("dettaglio.vasche.assePassi"), p.secondi)
                 )
                 .foregroundStyle(Tema.turchese)
             }

@@ -8,11 +8,11 @@ Tre testi, uno per ogni punto dell'app dove va mostrata l'informazione. Frasi br
 ## Cosa deve restare vero (da controllare con lo sviluppo e l'istruttore)
 
 - Le immagini di Antonio e Pamela sono generate con l'IA. I due sono personaggi inventati, non persone reali.
-- L'allenamento è generato da un sistema di IA tramite un servizio nostro, entro regole scritte da un istruttore e con una lista chiusa di esercizi. Se qualcosa non va, l'app usa un allenamento fisso di riserva.
+- L'allenamento è generato da un sistema di IA tramite un servizio nostro, entro regole di sicurezza approvate dal fondatore, istruttore di nuoto, e con una lista chiusa di esercizi. Se qualcosa non va, l'app usa un allenamento fisso di riserva.
 - I messaggi e i riepiloghi del coach [sono generati dall'IA / sono testi preparati: DA CONFERMARE]. Se sono generati, il testo del punto 2 resta com'è; se sono testi fissi, correggere la frase.
 - **Novità (da verificare con un avvocato):** il commento di una o due frasi sul mese (nella schermata dei riepiloghi) è generato dall'IA, tramite il nostro servizio, a partire da soli totali del mese, senza nome. Non è un testo scritto dall'istruttore. Se il servizio non risponde o l'utente non ha dato il consenso, l'app mostra una frase fissa. I popup del coach (saluti, traguardi) restano testi preparati, non generati.
 - **Novità (da verificare con un avvocato):** quando l'utente chiede un allenamento di una certa durata o con un obiettivo diverso, la durata e l'obiettivo scelti vanno al servizio, insieme agli altri dati già previsti.
-- Il metodo e i contenuti tecnici si basano su fonti autorevoli e sono controllati da un istruttore di nuoto. **Non scrivere "scritti dall'istruttore"** se i testi sono preparati con strumenti di IA e poi controllati da lui (CLAUDE.md dice questo; PRODUCT.md dice altro: vedi CHECKLIST, punto F2).
+- Il metodo e i contenuti tecnici si basano su fonti autorevoli e sono approvati dal fondatore, istruttore di nuoto. **Non scrivere "scritti dall'istruttore"** se i testi sono preparati con strumenti di IA e poi approvati da lui (CLAUDE.md dice questo; PRODUCT.md dice altro: vedi CHECKLIST, punto F2).
 
 > NOTA PER L'AVVOCATO: la scelta di non ripetere l'etichetta "coach virtuale" in ogni schermata (POPUP_COACH.md) va valutata rispetto all'articolo 50 dell'AI Act e alle regole sulle pratiche commerciali scorrette. Vedi CHECKLIST, punti B1-B3. Una soluzione prudente e leggera, se il parere è negativo, è un'etichetta discreta ("Coach virtuale") sull'avatar nelle sole schermate in cui l'utente "parla" con il coach.
 
@@ -30,7 +30,7 @@ Alternativa più corta:
 
 Collegamento accanto alla riga: **"Come funziona"**, che apre il testo esteso (punto 2).
 
-> NOTA: "istruttore vero" va bene solo se in app si capisce che l'istruttore ha controllato i contenuti e non fa il coach in tempo reale. Preferire "Il metodo è controllato da un istruttore di nuoto".
+> NOTA: "istruttore vero" va bene solo se in app si capisce che l'istruttore ha approvato i contenuti e non fa il coach in tempo reale. Preferire "Il metodo si basa su fonti autorevoli ed è approvato dal fondatore, istruttore di nuoto".
 
 ---
 
@@ -46,10 +46,10 @@ Quando chiedi l'allenamento del giorno, il nostro servizio usa un sistema di int
 Il breve commento che il coach scrive sul tuo mese è preparato dallo stesso tipo di sistema di intelligenza artificiale. Per scriverlo riceve soltanto alcuni totali del mese: quante nuotate hai fatto, i metri e i minuti, i metri del mese prima, da quante settimane di fila raggiungi il tuo obiettivo e quante nuotate ti sono sembrate facili, giuste o dure. Non riceve il tuo nome, né le singole nuotate, né i dati di Apple Salute. Il commento parla solo di quei numeri e non dà consigli. Se non vuoi usare l'IA, o il servizio non risponde, vedi una frase fissa al posto del commento.
 
 **Le regole**
-L'IA non inventa gli esercizi: sceglie da un elenco di esercizi fissi e segue regole scritte da un istruttore di nuoto. Ogni allenamento viene controllato dall'app prima di mostrartelo. Se qualcosa non va, o manca la connessione, ricevi un allenamento di riserva.
+L'IA non inventa gli esercizi: sceglie da un elenco di esercizi fissi e segue regole di sicurezza approvate dal fondatore, istruttore di nuoto. Ogni allenamento viene controllato dall'app prima di mostrartelo. Se qualcosa non va, o manca la connessione, ricevi un allenamento di riserva.
 
 **I contenuti tecnici**
-Consigli, esercizi e tappe del percorso si basano su fonti autorevoli (federazioni sportive, enti, testi accademici), sono riassunti con parole nostre e sono stati controllati da un istruttore di nuoto. [Preparati con l'aiuto di strumenti di IA: CONFERMARE se dichiararlo.]
+Consigli, esercizi e tappe del percorso si basano su fonti autorevoli (federazioni sportive, enti, testi accademici), sono riassunti con parole nostre e sono stati approvati dal fondatore, istruttore di nuoto. [Preparati con l'aiuto di strumenti di IA: CONFERMARE se dichiararlo.]
 
 **I limiti**
 L'IA può sbagliare. Un allenamento può non essere adatto a te, anche se segue le regole. Non è una consulenza medica. Se un esercizio ti sembra troppo, salta; se senti dolore, fermati e senti un medico. Vedi l'Avvertenza sulla salute.
@@ -83,7 +83,7 @@ Le due frasi della schermata di consenso che cambiano (chiavi `consenso.ia`, `co
 
 Da aggiungere alla descrizione, in fondo, in italiano. Se la scheda è tradotta, tradurre.
 
-> **Coach virtuali e intelligenza artificiale.** Swimwave usa l'intelligenza artificiale per creare gli allenamenti e per il breve commento dei coach sul tuo mese. Antonio e Pamela sono personaggi virtuali, con immagini generate dall'IA, non persone reali. L'IA lavora con regole scritte da un istruttore di nuoto e una lista chiusa di esercizi; i contenuti tecnici si basano su fonti autorevoli e sono controllati da un istruttore. Può commettere errori. Swimwave non è un dispositivo medico e non sostituisce il parere del medico. Nuota sempre dove c'è un assistente bagnanti.
+> **Coach virtuali e intelligenza artificiale.** Swimwave usa l'intelligenza artificiale per creare gli allenamenti e per il breve commento dei coach sul tuo mese. Antonio e Pamela sono personaggi virtuali, con immagini generate dall'IA, non persone reali. L'IA lavora con regole di sicurezza approvate dal fondatore, istruttore di nuoto e una lista chiusa di esercizi; i contenuti tecnici si basano su fonti autorevoli e sono approvati dal fondatore, istruttore di nuoto. Può commettere errori. Swimwave non è un dispositivo medico e non sostituisce il parere del medico. Nuota sempre dove c'è un assistente bagnanti.
 
 **Note per la revisione di Apple (campo "Note per la revisione")**, in inglese:
 

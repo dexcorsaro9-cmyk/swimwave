@@ -11,7 +11,7 @@ Questi termini regolano l'uso dell'app Swimwave, offerta da [TITOLARE DEL TRATTA
 
 ## 1. Cos'è Swimwave
 
-Swimwave è un'app di allenamento al nuoto per iPhone e Apple Watch. Propone allenamenti, consigli tecnici e un percorso a tappe. Gli allenamenti sono preparati con l'aiuto di un sistema di intelligenza artificiale, dentro regole scritte da un istruttore di nuoto e con una lista chiusa di esercizi. I due coach, Antonio e Pamela, sono personaggi virtuali: vedi la nota sull'IA in Profilo > Informazioni.
+Swimwave è un'app di allenamento al nuoto per iPhone e Apple Watch. Propone allenamenti, consigli tecnici e un percorso a tappe. Gli allenamenti sono preparati con l'aiuto di un sistema di intelligenza artificiale, dentro regole di sicurezza approvate dal fondatore, istruttore di nuoto, e con una lista chiusa di esercizi. I due coach, Antonio e Pamela, sono personaggi virtuali: vedi la nota sull'IA in Profilo > Informazioni.
 
 ## 2. Chi può usarla
 

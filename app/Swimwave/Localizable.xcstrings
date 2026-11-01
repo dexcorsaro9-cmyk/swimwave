@@ -9368,19 +9368,19 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Gli allenamenti sono in revisione da parte dell'istruttore e compariranno qui appena approvati."
+            "value": "Non riesco a caricare gli allenamenti in questo momento. Chiudi e riapri l'app e riprova."
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The workouts are being reviewed by the instructor and will show up here as soon as they're approved."
+            "value": "I can't load the workouts right now. Close and reopen the app and try again."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Los entrenamientos están en revisión por parte del instructor y aparecerán aquí en cuanto se aprueben."
+            "value": "Ahora mismo no puedo cargar los entrenamientos. Cierra y vuelve a abrir la app e inténtalo de nuevo."
           }
         }
       }
@@ -9575,19 +9575,19 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Le tappe compariranno qui appena l'istruttore le avrà controllate."
+            "value": "Non riesco a caricare le tappe in questo momento. Chiudi e riapri l'app e riprova."
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "The stages will show up here as soon as the instructor has reviewed them."
+            "value": "I can't load the stages right now. Close and reopen the app and try again."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Las etapas aparecerán aquí en cuanto el instructor las haya revisado."
+            "value": "Ahora mismo no puedo cargar las etapas. Cierra y vuelve a abrir la app e inténtalo de nuevo."
           }
         }
       }
@@ -12749,19 +12749,19 @@
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Antonio e Pamela sono coach virtuali creati con l'intelligenza artificiale, non persone reali. Il metodo è controllato da un istruttore di nuoto."
+            "value": "Antonio e Pamela sono coach virtuali creati con l'intelligenza artificiale, non persone reali. Il metodo si basa su fonti autorevoli ed è approvato dal fondatore, istruttore di nuoto."
           }
         },
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Antonio and Pamela are virtual coaches created with artificial intelligence, not real people. The method is reviewed by a swim instructor."
+            "value": "Antonio and Pamela are virtual coaches created with artificial intelligence, not real people. The method is based on authoritative sources and approved by the founder, a swim instructor."
           }
         },
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Antonio y Pamela son coaches virtuales creados con inteligencia artificial, no personas reales. El método está revisado por un instructor de natación."
+            "value": "Antonio y Pamela son coaches virtuales creados con inteligencia artificial, no personas reales. El método se basa en fuentes de referencia y está aprobado por el fundador, instructor de natación."
           }
         }
       }
@@ -12991,7 +12991,7 @@
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Justo"
+            "value": "Bien"
           }
         }
       }
